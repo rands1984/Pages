@@ -1,0 +1,16 @@
+{
+  "name": "transcription-tool-gas",
+  "version": "1.0.0",
+  "description": "GAS backend for transcription tool",
+  "scripts": {
+    "build": "esbuild src/Code.ts --bundle --platform=node --target=es2020 --outfile=dist/Code.gs --format=iife --global-name=global --external:@google-apps-script/* && cp src/appsscript.json dist/",
+    "push": "npm run build && clasp push",
+    "deploy": "npm run push && clasp deploy --versionNumber=$(date +%Y%m%d%H%M%S) --description=\"Deploy $(date '+%Y-%m-%d %H:%M')\""
+  },
+  "devDependencies": {
+    "@types/google-apps-script": "^1.0.90",
+    "esbuild": "^0.23.1",
+    "typescript": "^5.3.3"
+  },
+  "private": true
+}

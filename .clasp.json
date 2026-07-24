@@ -1,0 +1,18 @@
+{
+  "scriptId": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
+  "rootDir": "gas/dist",
+  "scriptExtensions": [
+    ".gs"
+  ],
+  "htmlExtensions": [
+    ".html"
+  ],
+  "jsonExtensions": [
+    ".json"
+  ],
+  "filePushOrder": [
+    "Code.gs",
+    "appsscript.json"
+  ],
+  "skipSubdirectories": true
+}
