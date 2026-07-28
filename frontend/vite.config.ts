@@ -3,9 +3,9 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   root: '.',
   publicDir: 'public',
-  base: '/Pages/',
+  base: '/Pages/transcription/',
   build: {
-    outDir: '../dist',
+    outDir: '../dist/transcription',
     emptyOutDir: true,
     minify: 'esbuild',
     rollupOptions: {
