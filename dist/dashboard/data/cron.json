@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-07-29T16:12:00+09:00",
+  "jobs": [
+    {"id":"d4f564b70d6a","name":"Llm-wiki同期","schedule":"0 22 * * *","state":"active","next_run":"2026-07-29T22:00:00+09:00","deliver":"origin","last_result":"2026-07-28T22:01:28 ok"},
+    {"id":"2a82d226958d","name":"いい部屋ネット新着通知","schedule":"0 11 * * *","state":"active","next_run":"2026-07-30T11:00:00+09:00","deliver":"discord:#通知用","last_result":"2026-07-29T11:05:07 ok"},
+    {"id":"7494ca706121","name":"skill-manual-update","schedule":"0 21 * * 0","state":"active","next_run":"2026-08-02T21:00:00+09:00","deliver":"origin","last_result":"2026-07-26T21:20:07 ok"}
+  ]
+}
