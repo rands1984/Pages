@@ -1,0 +1,717 @@
+[
+  {
+    "name": "dogfood",
+    "desc": "This skill guides you through systematic exploratory QA testing of web applications using the browser toolset. You will navigate the application, interact with elements, capture...",
+    "trigger": ""
+  },
+  {
+    "name": "yuanbao",
+    "desc": "Your text reply IS the message sent to the group/user. The gateway automatically delivers your response text to the chat. You do NOT need any special \"send message\" tool — just ...",
+    "trigger": ""
+  },
+  {
+    "name": "debugging-hermes-tui-commands",
+    "desc": "Hermes slash commands span three layers — Python command registry, tui_gateway JSON-RPC bridge, and the Ink/TypeScript frontend. When a command misbehaves (missing from autocomp...",
+    "trigger": ""
+  },
+  {
+    "name": "debugging",
+    "desc": "Systematic debugging covering root cause investigation, Python debugging (pdb/debugpy), and Node.js debugging (inspect/CDP).",
+    "trigger": ""
+  },
+  {
+    "name": "android-media-playback-history",
+    "desc": "Android で各種メディアアプリ（radiko, Spotify, Google Podcasts, 等）の再生履歴を取得する手法を体系化する。",
+    "trigger": ""
+  },
+  {
+    "name": "plan",
+    "desc": "```",
+    "trigger": ""
+  },
+  {
+    "name": "gas-trigger-inventory",
+    "desc": "Two ways to get GAS trigger info. Pick based on what access you have.",
+    "trigger": ""
+  },
+  {
+    "name": "subagent-driven-development",
+    "desc": "Execute implementation plans by dispatching fresh subagents per task with systematic two-stage review.",
+    "trigger": ""
+  },
+  {
+    "name": "gas-vite-webapp-development",
+    "desc": "Class-level skill for building Google Apps Script Web Apps with Vite-built frontends, deployed via clasp.",
+    "trigger": ""
+  },
+  {
+    "name": "writing-plans",
+    "desc": "```",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-s6-container-supervision",
+    "desc": "Load this skill when you're working on:",
+    "trigger": ""
+  },
+  {
+    "name": "xangi-kaizen",
+    "desc": "AIアシスタント上で起きた事象を「事象整理 → ログ調査 → 真因特定 → 横展開 → 修正・報告」の5フェーズで深掘りし、再発防止までやり切る汎用スキル。",
+    "trigger": ""
+  },
+  {
+    "name": "xangi-onboarding",
+    "desc": "xangi（マルチバックエンドAIアシスタント）の新しいインスタンスを 4 モード から選んで立ち上げる。最初にユーザーに用途を聞いてから、該当モードのフロー（`references/mode-*.md`）に分岐する。",
+    "trigger": ""
+  },
+  {
+    "name": "code-reviewer",
+    "desc": "- GitHub CLI（gh）がインストール・認証済みであることを確認",
+    "trigger": ""
+  },
+  {
+    "name": "multi-agent",
+    "desc": "複数のAIエージェントを使って、より深い分析・多角的な視点を得る。",
+    "trigger": ""
+  },
+  {
+    "name": "skill-creator",
+    "desc": "- `~/.hermes/skills/software-development/skill-creator/references/patterns.md` - スキルの設計パターン集",
+    "trigger": ""
+  },
+  {
+    "name": "xurl",
+    "desc": "- Upstream CLI: https://github.com/xdevplatform/xurl (X developer platform team, Chris Park et al.)",
+    "trigger": ""
+  },
+  {
+    "name": "openhue",
+    "desc": "Control Philips Hue lights and scenes via a Hue Bridge from the terminal.",
+    "trigger": ""
+  },
+  {
+    "name": "blogwatcher",
+    "desc": "Track blog and RSS/Atom feed updates with the `blogwatcher-cli` tool. Supports automatic feed discovery, HTML scraping fallback, OPML import, and read/unread article management.",
+    "trigger": ""
+  },
+  {
+    "name": "polymarket",
+    "desc": "Query prediction market data from Polymarket using their public REST APIs.",
+    "trigger": ""
+  },
+  {
+    "name": "tech-news-curation",
+    "desc": "AI・技術系の最新ニュースをRSSフィードから取得して紹介するスキルです。",
+    "trigger": ""
+  },
+  {
+    "name": "youtube-notes",
+    "desc": "YouTube動画から字幕を取得し、構造化されたノートを作成する。",
+    "trigger": ""
+  },
+  {
+    "name": "godmode",
+    "desc": "Bypass safety filters on API-served LLMs using techniques from [G0DM0D3](https://github.com/elder-plinius/G0DM0D3) and [L1B3RT4S](https://github.com/elder-plinius/L1B3RT4S). Thr...",
+    "trigger": ""
+  },
+  {
+    "name": "airtable",
+    "desc": "Work with Airtable's REST API directly via `curl` using the `terminal` tool. No MCP server, no OAuth flow, no Python SDK — just `curl` and a personal access token.",
+    "trigger": ""
+  },
+  {
+    "name": "google-workspace",
+    "desc": "Gmail, Calendar, Drive, Contacts, Sheets, and Docs — through Hermes-managed OAuth and a thin CLI wrapper. When `gws` is installed, the skill uses it as the execution backend for...",
+    "trigger": ""
+  },
+  {
+    "name": "linear",
+    "desc": "Manage Linear issues, projects, and teams directly via the GraphQL API using `curl`. No MCP server, no OAuth flow, no extra dependencies.",
+    "trigger": ""
+  },
+  {
+    "name": "maps",
+    "desc": "Location intelligence using free, open data sources. 8 commands, 44 POI",
+    "trigger": ""
+  },
+  {
+    "name": "llm-wiki-ingestion",
+    "desc": "Source: {URL or Path}",
+    "trigger": ""
+  },
+  {
+    "name": "ocr-and-documents",
+    "desc": "- `web_extract` is always first choice for URLs",
+    "trigger": ""
+  },
+  {
+    "name": "powerpoint",
+    "desc": "- `pip install \"markitdown[pptx]\"` - text extraction",
+    "trigger": ""
+  },
+  {
+    "name": "teams-meeting-pipeline",
+    "desc": "Use this skill whenever the user asks about Microsoft Teams meeting summaries, transcripts, recordings, action items, Graph subscriptions, or any operational question about the ...",
+    "trigger": ""
+  },
+  {
+    "name": "llm-wiki-management",
+    "desc": "This skill governs the maintenance of a knowledge base based on the LLM Wiki pattern. The goal is to compile knowledge once into a set of interlinked markdown files rather than ...",
+    "trigger": ""
+  },
+  {
+    "name": "automation-pipelines",
+    "desc": "A concrete example: scraping rental properties from iiheya and SUUMO, merging listings, and notifying via Discord + Email with Notion as the dedup source.",
+    "trigger": ""
+  },
+  {
+    "name": "taste-interviewer",
+    "desc": "ユーザーの個人的な好み、書き方、価値観、ユーモア、美的感覚などを深く掘り下げ、AIがユーザーの「声（Voice）」を模倣するための基礎データ（シードファイル）を構築する。",
+    "trigger": ""
+  },
+  {
+    "name": "voice-compiler",
+    "desc": "`taste-interviewer` によって収集された逐語的な回答データを分析し、AIがユーザーのトーン、ユーモア、価値観、思考パターンを正確に模倣するための「スタイルガイド」を構築する。",
+    "trigger": ""
+  },
+  {
+    "name": "secretary",
+    "desc": "秘書チャネルで `@Hermes メモ: 内容` が処理されたとき、上記の自己判断により `tasks` と判定された場合、GAS DoRequestに投げてNotion日次タスクDBを登録する。",
+    "trigger": ""
+  },
+  {
+    "name": "discord-notifier",
+    "desc": "注意: 現在の実装は `Notifier` オブジェクトを直接提供するものではなく、テンプレート定義と `format()` 関数を提供します。実際のプロジェクトでは `discord-notifier.js` をコピーして利用してください。",
+    "trigger": ""
+  },
+  {
+    "name": "notion-manager",
+    "desc": "制限事項・トラブルシューティングは [`README.md`](./README.md) を参照。",
+    "trigger": ""
+  },
+  {
+    "name": "notion-task-manager",
+    "desc": "Notionベースの課題・タスク管理システム。Hermesをコマンドインターフェースとして操作する。",
+    "trigger": ""
+  },
+  {
+    "name": "petdex",
+    "desc": "Browse, install, and select animated \"pet\" mascots from the public",
+    "trigger": ""
+  },
+  {
+    "name": "cooking-clips",
+    "desc": "レシピを複数ソースから取得し、統一スキーマで構造化・保存・検索するパイプライン。",
+    "trigger": ""
+  },
+  {
+    "name": "places",
+    "desc": "Notion に2つのDB（行きたい場所リスト / 訪問履歴）を作り、リレーションで連携。",
+    "trigger": ""
+  },
+  {
+    "name": "dashboard",
+    "desc": "Hermes自身や外部Webツールの状態を一覧する日本語ダッシュボードを、GitHub Pages（静的） + GAS WebApp（JSON API） で実現するクラススキル。",
+    "trigger": ""
+  },
+  {
+    "name": "github-pages",
+    "desc": "```",
+    "trigger": ""
+  },
+  {
+    "name": "note-taking",
+    "desc": "- Obsidian: https://obsidian.md",
+    "trigger": ""
+  },
+  {
+    "name": "diary",
+    "desc": "- HH:MM 出来事",
+    "trigger": ""
+  },
+  {
+    "name": "huggingface-hub",
+    "desc": "*   `--format json`: Produces machine-readable output for automation.",
+    "trigger": ""
+  },
+  {
+    "name": "axolotl",
+    "desc": "Expert guidance for fine-tuning LLMs with Axolotl — YAML configs, 100+ models, LoRA/QLoRA, DPO/KTO/ORPO/GRPO, multimodal support.",
+    "trigger": ""
+  },
+  {
+    "name": "trl-fine-tuning",
+    "desc": "TRL provides post-training methods for aligning language models with human preferences.",
+    "trigger": ""
+  },
+  {
+    "name": "unsloth",
+    "desc": "Comprehensive assistance with unsloth development, generated from official documentation.",
+    "trigger": ""
+  },
+  {
+    "name": "dspy",
+    "desc": "Use DSPy when you need to:",
+    "trigger": ""
+  },
+  {
+    "name": "audiocraft",
+    "desc": "Comprehensive guide to using Meta's AudioCraft for text-to-music and text-to-audio generation with MusicGen, AudioGen, and EnCodec.",
+    "trigger": ""
+  },
+  {
+    "name": "segment-anything",
+    "desc": "Comprehensive guide to using Meta AI's Segment Anything Model for zero-shot image segmentation.",
+    "trigger": ""
+  },
+  {
+    "name": "obliteratus",
+    "desc": "9 CLI methods, 28 analysis modules, 116 model presets across 5 compute tiers, tournament evaluation, and telemetry-driven recommendations.",
+    "trigger": ""
+  },
+  {
+    "name": "outlines",
+    "desc": "Use Outlines when you need to:",
+    "trigger": ""
+  },
+  {
+    "name": "vllm",
+    "desc": "Use when deploying production LLM APIs, optimizing inference latency/throughput, or serving models with limited GPU memory. Supports OpenAI-compatible endpoints, quantization (G...",
+    "trigger": ""
+  },
+  {
+    "name": "lm-evaluation-harness",
+    "desc": "Evaluates LLMs across 60+ academic benchmarks (MMLU, HumanEval, GSM8K, TruthfulQA, HellaSwag). Use when benchmarking model quality, comparing models, reporting academic results,...",
+    "trigger": ""
+  },
+  {
+    "name": "gif-search",
+    "desc": "Search and download GIFs directly via the Tenor API using curl. No extra tools needed.",
+    "trigger": ""
+  },
+  {
+    "name": "heartmula",
+    "desc": "HeartMuLa is a family of open-source music foundation models (Apache-2.0) that generates music conditioned on lyrics and tags, with multilingual support. Generates full songs fr...",
+    "trigger": ""
+  },
+  {
+    "name": "songsee",
+    "desc": "Generate spectrograms and multi-panel audio feature visualizations from audio files.",
+    "trigger": ""
+  },
+  {
+    "name": "spotify",
+    "desc": "Control the user's Spotify account via the Hermes Spotify toolset (7 tools). Setup guide: https://hermes-agent.nousresearch.com/docs/user-guide/features/spotify",
+    "trigger": ""
+  },
+  {
+    "name": "youtube-content",
+    "desc": "Use when the user shares a YouTube URL or video link, asks to summarize a video, requests a transcript, or wants to extract and reformat content from any YouTube video. Transfor...",
+    "trigger": ""
+  },
+  {
+    "name": "native-mcp",
+    "desc": "Hermes Agent has a built-in MCP client that connects to MCP servers at startup, discovers their tools, and makes them available as first-class tools the agent can call directly....",
+    "trigger": ""
+  },
+  {
+    "name": "github-repo-analyzer",
+    "desc": "GitHubリポジトリの内容を詳しく分析し、構造化レポートを生成する。",
+    "trigger": ""
+  },
+  {
+    "name": "github-workflow",
+    "desc": "- `references/github-auth.md` — Authentication setup (HTTPS, SSH, gh CLI)",
+    "trigger": ""
+  },
+  {
+    "name": "minecraft-modpack-server",
+    "desc": "- User wants to set up a modded Minecraft server from a server pack zip",
+    "trigger": ""
+  },
+  {
+    "name": "pokemon-player",
+    "desc": "Play Pokemon games via headless emulation using the `pokemon-agent` package.",
+    "trigger": ""
+  },
+  {
+    "name": "himalaya",
+    "desc": "Himalaya is a CLI email client that lets you manage emails from the terminal using IMAP, SMTP, Notmuch, or Sendmail backends.",
+    "trigger": ""
+  },
+  {
+    "name": "clasp-gas",
+    "desc": "- User wants the list of installed triggers for one or all GAS projects, without opening the web editor.",
+    "trigger": ""
+  },
+  {
+    "name": "google-apps-script",
+    "desc": "GAS(ApiLib) とは別に、Hermes 本体からクラウドを直接操作したい場合の手法。2026-07 実績: Dropbox/Box/GoogleDrive を rclone で接続完了。",
+    "trigger": ""
+  },
+  {
+    "name": "webhook-subscriptions",
+    "desc": "Create dynamic webhook subscriptions so external services (GitHub, GitLab, Stripe, CI/CD, IoT sensors, monitoring tools) can trigger Hermes agent runs by POSTing events to a URL.",
+    "trigger": ""
+  },
+  {
+    "name": "discord-notion-sync",
+    "desc": "Monitors Discord threads for task completion reports and updates Notion task/issue statuses accordingly.",
+    "trigger": ""
+  },
+  {
+    "name": "cloud-storage",
+    "desc": "- \"Dropbox/Box/OneDrive/GoogleDrive を Hermes から操作したい\"",
+    "trigger": ""
+  },
+  {
+    "name": "cloud-storage-rclone",
+    "desc": "Unify multiple cloud storage providers under rclone so Hermes can perform",
+    "trigger": ""
+  },
+  {
+    "name": "notion-api",
+    "desc": "- API Key: `~/.hermes/.env` の `NOTION_API_KEY` から取得（`~/.hermes/scripts/notion_test_v2.py` の `get_env_var` 関数を使用）",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-model-management",
+    "desc": "```bash",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-workspace-install",
+    "desc": "Install the web workspace UI (`~/hermes-workspace`) and get it to actually serve.",
+    "trigger": ""
+  },
+  {
+    "name": "xangi-settings",
+    "desc": "- 設定確認 → Step 2a",
+    "trigger": ""
+  },
+  {
+    "name": "jupyter-live-kernel",
+    "desc": "Gives you a stateful Python REPL via a live Jupyter kernel. Variables persist",
+    "trigger": ""
+  },
+  {
+    "name": "workspace-rag",
+    "desc": "ワークスペース内のドキュメントをベクトル検索＋構造化ファクト管理するスキル。port 7890 で常駐、検索とファクト CRUD が 1 サーバーに集約されている。",
+    "trigger": ""
+  },
+  {
+    "name": "transcriber",
+    "desc": "音声ファイルをテキストに変換する。",
+    "trigger": ""
+  },
+  {
+    "name": "creative-diagrams",
+    "desc": "All reference files, templates, and scripts from the 9 former skills have been consolidated under this skill's directories:",
+    "trigger": ""
+  },
+  {
+    "name": "baoyu-comic",
+    "desc": "Adapted from [baoyu-comic](https://github.com/JimLiu/baoyu-skills) for Hermes Agent's tool ecosystem.",
+    "trigger": ""
+  },
+  {
+    "name": "claude-design",
+    "desc": "Use this skill when the user asks for design work that would normally fit Claude Design, but the agent is running in a CLI/API environment instead of the hosted Claude Design we...",
+    "trigger": ""
+  },
+  {
+    "name": "comfyui",
+    "desc": "```bash",
+    "trigger": ""
+  },
+  {
+    "name": "creative-ideation",
+    "desc": "Use when the user says 'I want to build something', 'give me a project idea', 'I'm bored', 'what should I make', 'inspire me', or any variant of 'I have tools but no direction'....",
+    "trigger": ""
+  },
+  {
+    "name": "design-md",
+    "desc": "Architectural Minimalism meets Journalistic Gravitas...",
+    "trigger": ""
+  },
+  {
+    "name": "humanizer",
+    "desc": "1. Read the input text carefully (use `read_file` if it's a file).",
+    "trigger": ""
+  },
+  {
+    "name": "manim-video",
+    "desc": "If the user asks for creative, experimental, or unconventional explanatory approaches, select a strategy and reason through it BEFORE designing the animation.",
+    "trigger": ""
+  },
+  {
+    "name": "pixel-art",
+    "desc": "Convert any image into retro pixel art, then optionally animate it into a short",
+    "trigger": ""
+  },
+  {
+    "name": "popular-web-designs",
+    "desc": "54 real-world design systems ready for use when generating HTML/CSS. Each template captures a",
+    "trigger": ""
+  },
+  {
+    "name": "songwriting-and-ai-music",
+    "desc": "- Describing the dynamic ARC in the style field matters way more",
+    "trigger": ""
+  },
+  {
+    "name": "touchdesigner-mcp",
+    "desc": "> You're not writing code. You're conducting light.",
+    "trigger": ""
+  },
+  {
+    "name": "baoyu-article-illustrator",
+    "desc": "Adapted from [baoyu-article-illustrator](https://github.com/JimLiu/baoyu-skills) for Hermes Agent's tool ecosystem.",
+    "trigger": ""
+  },
+  {
+    "name": "bridge-ideas",
+    "desc": "ワークスペース内の離れた資産をつなぎ、実装や発信に落とせるアイデアへ変換する。",
+    "trigger": ""
+  },
+  {
+    "name": "cat-diary",
+    "desc": "猫の写真を送ると自動で猫日記に記録。Notionにページ作成＋画像アップロードまでやる。",
+    "trigger": ""
+  },
+  {
+    "name": "diagram-generator",
+    "desc": "- ローカル mermaid-cli (npx): ARM64環境ではPuppeteerが動作しないため非推奨。Docker版を使うこと。",
+    "trigger": ""
+  },
+  {
+    "name": "health-advisor",
+    "desc": "- 記録がない日は責めない（「記録なし」とだけ記載）",
+    "trigger": ""
+  },
+  {
+    "name": "marp-slides",
+    "desc": "- ポイント1",
+    "trigger": ""
+  },
+  {
+    "name": "podcast",
+    "desc": "ポッドキャストの音声取得から文字起こし・まとめまでを一貫して行う。",
+    "trigger": ""
+  },
+  {
+    "name": "spontaneous-talk",
+    "desc": "AIアシスタントがユーザーに自発的に話しかける。",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-agent",
+    "desc": "For occasional contributors and PR authors. Full developer docs: https://hermes-agent.nousresearch.com/docs/developer-guide/",
+    "trigger": ""
+  },
+  {
+    "name": "kanban-codex-lane",
+    "desc": "This skill defines the lightweight Hermes+Codex dual-lane convention for Kanban workers. Hermes is always the task owner: it calls `kanban_show`, decides whether Codex is approp...",
+    "trigger": ""
+  },
+  {
+    "name": "coding-agents",
+    "desc": "Delegate coding tasks to external AI coding agents (Claude Code, Codex, OpenCode) via Hermes terminal/process tools.",
+    "trigger": ""
+  },
+  {
+    "name": "apple-notes",
+    "desc": "Use `memo` to manage Apple Notes directly from the terminal. Notes sync across all Apple devices via iCloud.",
+    "trigger": ""
+  },
+  {
+    "name": "apple-reminders",
+    "desc": "Use `remindctl` to manage Apple Reminders directly from the terminal. Tasks sync across all Apple devices via iCloud.",
+    "trigger": ""
+  },
+  {
+    "name": "findmy",
+    "desc": "Track Apple devices and AirTags via the FindMy.app on macOS. Since Apple doesn't",
+    "trigger": ""
+  },
+  {
+    "name": "imessage",
+    "desc": "Use `imsg` to read and send iMessage/SMS via macOS Messages.app.",
+    "trigger": ""
+  },
+  {
+    "name": "macos-computer-use",
+    "desc": "You have a `computer_use` tool that drives the Mac in the background.",
+    "trigger": ""
+  },
+  {
+    "name": "notification-workflows",
+    "desc": "This skill governs the orchestration of broadcasting data to multiple communication platforms and ensuring that internal state (e.g., processed IDs) is only updated after succes...",
+    "trigger": ""
+  },
+  {
+    "name": "property-automation",
+    "desc": "A specialized automation ecosystem for scraping rental properties (iiheya, SUUMO), merging multi-site listings, and orchestrating notifications (Discord, Email) with Notion as t...",
+    "trigger": ""
+  },
+  {
+    "name": "efficient-obsidian-sync",
+    "desc": "Previous `find_pending_ingest.py` only checked file *existence* in `wiki/`, not whether the content was already ingested under a different name. This caused:",
+    "trigger": ""
+  },
+  {
+    "name": "nano-pdf",
+    "desc": "Edit PDFs using natural-language instructions. Point it at a page and describe what to change.",
+    "trigger": ""
+  },
+  {
+    "name": "termux-python-setup",
+    "desc": "Installing Python packages with C, C++, or Rust extensions (e.g., `numpy`, `pandas`, `pillow`, `scipy`) in Termux often fails via `pip` because it attempts to build from source ...",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-agent-customization",
+    "desc": "This skill governs the process of defining the agent's identity and optimizing its operational environment, particularly for mobile/Termux users.",
+    "trigger": ""
+  },
+  {
+    "name": "hermes-shell-patterns",
+    "desc": "Recurring patterns for running shell commands inside Hermes sessions, with emphasis on credential loading, quoting robustness, and API client quirks.",
+    "trigger": ""
+  },
+  {
+    "name": "gateway-debugging",
+    "desc": "This skill governs the process of diagnosing failures in the messaging gateway, specifically when commands fail, messages are not delivered, or platform-specific errors (like `A...",
+    "trigger": ""
+  },
+  {
+    "name": "local-ai-integration",
+    "desc": "既存のPythonスクリプト・ジョブがGeminiやOpenAI等の外部AI APIに依存している場合、それらをHermes Agent（ローカル実行）に置き換えるための手引き。",
+    "trigger": ""
+  },
+  {
+    "name": "github-auth",
+    "desc": "| Problem | Solution |",
+    "trigger": ""
+  },
+  {
+    "name": "github-code-review",
+    "desc": "*Reviewed by Hermes Agent*",
+    "trigger": ""
+  },
+  {
+    "name": "github-issues",
+    "desc": "With gh:",
+    "trigger": ""
+  },
+  {
+    "name": "github-pr-workflow",
+    "desc": "This part is pure `git` — identical either way:",
+    "trigger": ""
+  },
+  {
+    "name": "github-repo-management",
+    "desc": "Cloning is pure `git` — works identically either way:",
+    "trigger": ""
+  },
+  {
+    "name": "software-development",
+    "desc": "```",
+    "trigger": ""
+  },
+  {
+    "name": "python-debugpy",
+    "desc": "Three tools, picked by situation:",
+    "trigger": ""
+  },
+  {
+    "name": "node-inspect-debugger",
+    "desc": "When `console.log` isn't enough, drive Node's built-in V8 inspector programmatically from the terminal. You get real breakpoints, step in/over/out, call-stack walking, local/clo...",
+    "trigger": ""
+  },
+  {
+    "name": "systematic-debugging",
+    "desc": "If you catch yourself thinking:",
+    "trigger": ""
+  },
+  {
+    "name": "research",
+    "desc": "```",
+    "trigger": ""
+  },
+  {
+    "name": "autonomous-ai-agents",
+    "desc": "You are a senior security engineer. Review code for:",
+    "trigger": ""
+  },
+  {
+    "name": "codex",
+    "desc": "Delegate coding tasks to [Codex](https://github.com/openai/codex) via the Hermes terminal. Codex is OpenAI's autonomous coding agent CLI.",
+    "trigger": ""
+  },
+  {
+    "name": "opencode",
+    "desc": "Use [OpenCode](https://opencode.ai) as an autonomous coding worker orchestrated by Hermes terminal/process tools. OpenCode is a provider-agnostic, open-source AI coding agent wi...",
+    "trigger": ""
+  },
+  {
+    "name": "secretary-email-archive-diagram",
+    "desc": "Use this skill when you need to create or refresh visual diagrams that document the secretary email archiving and processing flow.",
+    "trigger": ""
+  },
+  {
+    "name": "n8n-rest-api",
+    "desc": "Hermes Agent から n8n インスタンスの REST API を操作するためのスキル。",
+    "trigger": ""
+  },
+  {
+    "name": "markitdown-report-converter",
+    "desc": "Discordで受信したExcel (.xlsx) ファイルをmarkitdownでMarkdownに変換し、指定フォルダに保存する。",
+    "trigger": ""
+  },
+  {
+    "name": "llm-inference",
+    "desc": "- llama.cpp: https://github.com/ggml-org/llama.cpp",
+    "trigger": ""
+  },
+  {
+    "name": "mlops-evaluation",
+    "desc": "- lm-evaluation-harness: https://github.com/EleutherAI/lm-evaluation-harness",
+    "trigger": ""
+  },
+  {
+    "name": "code-review",
+    "desc": "- pygount: https://github.com/roypy/pygount",
+    "trigger": ""
+  },
+  {
+    "name": "kanban",
+    "desc": "- Hermes docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban",
+    "trigger": ""
+  },
+  {
+    "name": "academic-research",
+    "desc": "- arXiv API: https://export.arxiv.org/api",
+    "trigger": ""
+  },
+  {
+    "name": "agile-development-practices",
+    "desc": "- TDD: https://en.wikipedia.org/wiki/Test-driven_development",
+    "trigger": ""
+  },
+  {
+    "name": "ascii-media",
+    "desc": "- pyfiglet: https://github.com/pwaller/pyfiglet",
+    "trigger": ""
+  },
+  {
+    "name": "computer-use",
+    "desc": "You have a `computer_use` tool that drives the user's desktop in the",
+    "trigger": ""
+  },
+  {
+    "name": "shopping-memo",
+    "desc": "Discordでユーザーが「買い物メモ …」または「買い物 …」で始まるメッセージを送ったとき、",
+    "trigger": ""
+  }
+]

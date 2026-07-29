@@ -1,8 +1,21 @@
 {
-  "generated_at": "2026-07-29T16:12:00+09:00",
+  "generated_at": "2026-07-29T16:45:00+09:00",
   "jobs": [
     {"id":"d4f564b70d6a","name":"Llm-wiki同期","schedule":"0 22 * * *","state":"active","next_run":"2026-07-29T22:00:00+09:00","deliver":"origin","last_result":"2026-07-28T22:01:28 ok"},
-    {"id":"2a82d226958d","name":"いい部屋ネット新着通知","schedule":"0 11 * * *","state":"active","next_run":"2026-07-30T11:00:00+09:00","deliver":"discord:#通知用","last_result":"2026-07-29T11:05:07 ok"},
-    {"id":"7494ca706121","name":"skill-manual-update","schedule":"0 21 * * 0","state":"active","next_run":"2026-08-02T21:00:00+09:00","deliver":"origin","last_result":"2026-07-26T21:20:07 ok"}
+    {"id":"2a82d226958d","name":"いい部屋ネット新着通知","schedule":"0 11 * * *","state":"active","next_run":"2026-07-30T11:00:00+09:00","deliver":"discord:#通知用","script":"eheya_notifier.py","last_result":"2026-07-29T11:05:07 ok"},
+    {"id":"7494ca706121","name":"skill-manual-update","schedule":"0 21 * * 0","state":"active","next_run":"2026-08-02T21:00:00+09:00","deliver":"origin","last_result":"2026-07-26T21:20:07 ok"},
+    {"id":"f5c461127482","name":"llm-wiki-lint","schedule":"0 21 * * 0","state":"active","next_run":"2026-08-02T21:00:00+09:00","deliver":"origin","last_result":"2026-07-26T21:01:46 ok"},
+    {"id":"8a0f5f3b4ac8","name":"secretary-collector","schedule":"every 180m","state":"paused","next_run":"2026-06-15T07:42:33+09:00","deliver":"discord:1507232999719043082","skills":"secretary, google-workspace","last_result":"2026-06-15T04:42:33 ok"},
+    {"id":"3e52acdf571b","name":"secretary-morning-brief","schedule":"0 8 * * *","state":"active","next_run":"2026-07-30T08:00:00+09:00","deliver":"discord:1507232999719043082","skills":"secretary, google-workspace","last_result":"2026-07-29T08:02:09 ok"},
+    {"id":"68af93ac6505","name":"secretary-weekly-review","schedule":"0 21 * * 0","state":"active","next_run":"2026-08-02T21:00:00+09:00","deliver":"discord:1507232999719043082","skills":"secretary","last_result":"2026-07-26T21:02:59 ok"},
+    {"id":"143ee9454507","name":"secretary-afternoon-brief","schedule":"30 16 * * 1-5","state":"active","next_run":"2026-07-30T16:30:00+09:00","deliver":"discord:1507232999719043082","skills":"secretary, google-workspace","last_result":"2026-07-29T16:32:05 ok"},
+    {"id":"d56ccad8d1d0","name":"secretary-dashboard-update","schedule":"*/30 * * * *","state":"active","next_run":"2026-07-29T17:30:00+09:00","deliver":"local","script":"secretary_dashboard.py","last_result":"2026-07-29T17:02:41 ok"},
+    {"id":"e130dbb6a477","name":"スレッド進捗監視","schedule":"0 */2 * * *","state":"active","next_run":"2026-07-29T18:00:00+09:00","deliver":"discord:1507232999719043082","last_result":"2026-07-29T16:02:05 ok"},
+    {"id":"35b32812721d","name":"朝の思考メモ振り返り","schedule":"30 7 * * *","state":"active","next_run":"2026-07-30T07:30:00+09:00","deliver":"discord:1507232999719043082","last_result":"2026-07-29T07:31:48 ok"},
+    {"id":"484ac65174d7","name":"夜の思考メモ振り返り","schedule":"30 18 * * *","state":"active","next_run":"2026-07-29T18:30:00+09:00","deliver":"discord:1507232999719043082","last_result":"2026-07-28T18:35:26 ok"},
+    {"id":"e10e9615b47d","name":"定例課題作成_月次1on1","schedule":"0 9 1 * *","state":"active","next_run":"2026-08-01T09:00:00+09:00","deliver":"discord:1525041790275686410"},
+    {"id":"f471e125f0a6","name":"定例課題作成_月末業務","schedule":"0 9 25 * *","state":"active","next_run":"2026-08-25T09:00:00+09:00","deliver":"discord:1525041790275686410","last_result":"2026-07-25T09:06:15 ok"},
+    {"id":"55ec6e6351f4","name":"期限アラート通知","schedule":"0 9 * * *","state":"active","next_run":"2026-07-30T09:00:00+09:00","deliver":"discord:1507232999719043082","last_result":"2026-07-29T09:01:08 error: モデル drifts によりskip"},
+    {"id":"04b57d8f2094","name":"cooking-notion-pull-daily","schedule":"0 23 * * *","state":"active","next_run":"2026-07-29T23:00:00+09:00","deliver":"origin","last_result":"2026-07-28T23:00:22 error: モデル drifts によりskip"}
   ]
 }

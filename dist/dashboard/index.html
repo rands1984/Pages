@@ -47,6 +47,7 @@
       <h1>Hermes Dashboard</h1>
       <button class="nav active" data-target="section-cron">Cron一覧</button>
       <button class="nav" data-target="section-spotify">Spotify再生履歴</button>
+      <button class="nav" data-target="section-skills">スキル・ツール一覧</button>
     </aside>
     <main class="main">
       <div class="header">
@@ -83,6 +84,14 @@
             <tbody id="spotify-body"></tbody>
           </table>
           <div id="spotify-error" class="now-loading" style="display:none">読み込み失敗</div>
+        </div>
+      </div>
+      <div class="section" id="section-skills">
+        <div class="card">
+          <h3>スキル・ツール一覧</h3>
+          <div class="now-loading" id="skills-loading">skills.json を読み込み中…</div>
+          <div id="skills-container" style="display:none"></div>
+          <div id="skills-error" class="now-loading" style="display:none">読み込み失敗</div>
         </div>
       </div>
     </main>
@@ -140,12 +149,26 @@
       </tr>`).join('');
     }
 
+    function renderSkills() {
+      fetch('./data/skills.json').then(r => r.ok ? r.json() : Promise.reject(r.status)).then(list => {
+        document.getElementById('skills-loading').style.display='none';
+        document.getElementById('skills-container').style.display='block';
+        const wrap = document.getElementById('skills-container');
+        wrap.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">' +
+          list.map(s => '<div class="card"><div style="font-weight:600;font-size:13px;">' + escapeHtml(s.name) + '</div>' +
+            (s.trigger ? '<div style="color:#2563eb;font-size:11px;margin-top:4px;">トリガー: ' + escapeHtml(s.trigger) + '</div>' : '') +
+            '<div style="color:#6b7280;font-size:12px;margin-top:4px;">' + escapeHtml(s.desc) + '</div></div>').join('') +
+          '</div>';
+      }).catch(() => { document.getElementById('skills-error').style.display='block'; document.getElementById('skills-loading').style.display='none'; });
+    }
+
     async function refresh() {
       document.getElementById('s-status').textContent = '更新中';
       const c = await loadJSON('./data/cron.json', './data/cron.json');
       if (c) { cronData = c; renderCron(); } else { document.getElementById('cron-error').style.display = 'block'; }
       const s = await loadJSON(GAS_URL, './data/spotify.json');
       if (s && typeof s.data !== 'undefined') { spotifyData = s; renderSpotify(); } else { document.getElementById('spotify-error').style.display = 'block'; }
+      renderSkills();
       document.getElementById('s-status').textContent = 'OK';
       document.getElementById('last-updated').textContent = '更新: ' + new Date().toLocaleString('ja-JP', {timeZone:'Asia/Tokyo'});
     }
