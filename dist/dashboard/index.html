@@ -154,11 +154,26 @@
         document.getElementById('skills-loading').style.display='none';
         document.getElementById('skills-container').style.display='block';
         const wrap = document.getElementById('skills-container');
-        wrap.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">' +
-          list.map(s => '<div class="card"><div style="font-weight:600;font-size:13px;">' + escapeHtml(s.name) + '</div>' +
-            (s.trigger ? '<div style="color:#2563eb;font-size:11px;margin-top:4px;">トリガー: ' + escapeHtml(s.trigger) + '</div>' : '') +
-            '<div style="color:#6b7280;font-size:12px;margin-top:4px;">' + escapeHtml(s.desc) + '</div></div>').join('') +
+        wrap.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">' +
+          list.map((s,idx) => `<div class="card skill-card" data-idx="${idx}" style="cursor:pointer;">
+            <div style="font-weight:700;font-size:13px;">${escapeHtml(s.name)}</div>
+            ${s.trigger ? '<div style="color:#2563eb;font-size:11px;margin-top:4px;">呼び出し: ' + escapeHtml(s.trigger) + '</div>' : ''}
+            <div class="skill-desc" style="color:#6b7280;font-size:12px;margin-top:6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${escapeHtml(s.desc)}</div>
+            <div class="skill-full" style="color:#111827;font-size:12px;margin-top:6px;display:none;white-space:pre-wrap;">${escapeHtml(s.desc)}</div>
+            <div class="skill-toggle" style="color:#2563eb;font-size:11px;margin-top:6px;">展開</div>
+          </div>`).join('') +
           '</div>';
+        wrap.querySelectorAll('.skill-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const desc = card.querySelector('.skill-desc');
+            const full = card.querySelector('.skill-full');
+            const toggle = card.querySelector('.skill-toggle');
+            const open = full.style.display === 'none';
+            desc.style.display = open ? 'none' : '';
+            full.style.display = open ? 'block' : 'none';
+            toggle.textContent = open ? '折りたたむ' : '展開';
+          });
+        });
       }).catch(() => { document.getElementById('skills-error').style.display='block'; document.getElementById('skills-loading').style.display='none'; });
     }
 

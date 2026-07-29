@@ -26,7 +26,7 @@
   },
   {
     "name": "plan",
-    "desc": "```",
+    "desc": "Each task follows this format:",
     "trigger": ""
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "name": "writing-plans",
-    "desc": "```",
+    "desc": "Each task follows this format:",
     "trigger": ""
   },
   {
@@ -216,7 +216,7 @@
   },
   {
     "name": "github-pages",
-    "desc": "```",
+    "desc": "dist/dashboard/",
     "trigger": ""
   },
   {
@@ -376,7 +376,7 @@
   },
   {
     "name": "hermes-model-management",
-    "desc": "```bash",
+    "desc": "grep -A 3 '^model:' ~/.hermes/config.yaml",
     "trigger": ""
   },
   {
@@ -421,7 +421,7 @@
   },
   {
     "name": "comfyui",
-    "desc": "```bash",
+    "desc": "comfy model download \\",
     "trigger": ""
   },
   {
@@ -491,7 +491,7 @@
   },
   {
     "name": "marp-slides",
-    "desc": "- ポイント1",
+    "desc": "- `---` でスライドを区切る",
     "trigger": ""
   },
   {
@@ -616,7 +616,7 @@
   },
   {
     "name": "software-development",
-    "desc": "```",
+    "desc": "`version` / `author` / `license` / `metadata` are NOT enforced by the validator, but every peer has them — omit and your skill sticks out.",
     "trigger": ""
   },
   {
@@ -636,7 +636,7 @@
   },
   {
     "name": "research",
-    "desc": "```",
+    "desc": "The `sha256:` lets a future re-ingest of the same URL skip processing when content is unchanged,",
     "trigger": ""
   },
   {
@@ -712,6 +712,6 @@
   {
     "name": "shopping-memo",
     "desc": "Discordでユーザーが「買い物メモ …」または「買い物 …」で始まるメッセージを送ったとき、",
-    "trigger": ""
+    "trigger": "ユーザーメッセージが「買い物メモ」または「買い物」で始まる場合に適用。Discordで買い物リストをAnyListへ自動連携（追加・完了・削除・一覧）する。Hermes + AnyList MCP (bobby060/anylist-mcp) 連携。\""
   }
 ]
