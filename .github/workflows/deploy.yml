@@ -31,8 +31,11 @@ jobs:
       - name: Install dependencies
         run: cd frontend && npm ci
 
-      - name: Build
+      - name: Build transcription
         run: cd frontend && npm run build
+
+      - name: Prepare dashboard static files
+        run: mkdir -p dist/dashboard
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

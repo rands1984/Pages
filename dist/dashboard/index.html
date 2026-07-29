@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermes Dashboard</title>
+  <style>
+    :root { --bg:#f7f8fa; --panel:#ffffff; --border:#e5e7eb; --muted:#6b7280; --text:#111827; --ok:#16a34a; --warn:#ea580c; --danger:#dc2626; --primary:#2563eb; --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.04); }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Noto Sans JP",Inter,system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); }
+    .shell { display:grid; grid-template-columns:240px 1fr; min-height:100vh; }
+    .sidebar { background:#0b1220; color:#dbe7ff; padding:16px 12px; display:flex; flex-direction:column; gap:8px; }
+    .sidebar h1 { font-size:14px; letter-spacing:.08em; margin:0 0 6px; text-transform:uppercase; color:#aecbfa; }
+    .nav { background:transparent; border:1px solid transparent; color:#dbe7ff; padding:10px 12px; border-radius:12px; text-align:left; cursor:pointer; }
+    .nav.active { background:#0b2a6e; border-color:#1f3f8a; color:#fff; }
+    .nav:hover { background:#0f2044; }
+    .main { padding:18px 22px; }
+    .header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+    .header h2 { margin:0; font-size:22px; }
+    .header .actions { display:flex; gap:10px; align-items:center; }
+    button { background:#fff; border:1px solid var(--border); padding:8px 12px; border-radius:10px; cursor:pointer; font-size:13px; }
+    .stats { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:18px; }
+    .stat { background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:var(--shadow); }
+    .stat .label { color:var(--muted); font-size:11px; }
+    .stat .value { font-size:26px; font-weight:800; margin-top:4px; }
+    .stat .sub { font-size:12px; color:var(--muted); margin-top:2px; }
+    .card { background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:14px; box-shadow:var(--shadow); margin-bottom:16px; }
+    .card h3 { margin:0 0 10px; font-size:14px; color:var(--muted); }
+    table { width:100%; border-collapse:collapse; font-size:13px; }
+    th, td { padding:9px 8px; text-align:left; border-bottom:1px solid var(--border); }
+    th { color:var(--muted); font-weight:500; }
+    .badge { display:inline-block; padding:3px 8px; border-radius:999px; font-size:11px; background:#eef2ff; color:#1f3f8a; border:1px solid #dbe4ff; }
+    .badge.ok { background:#e8faf0; color:#126b38; border-color:#b8ecce; }
+    .badge.fail { background:#fff1f2; color:#a61b28; border-color:#ffc6c9; }
+    .mono { font-family:ui-monospace,Menlo,Monaco,Consolas,monospace; }
+    .now-loading { color:var(--muted); }
+    .last-updated { color:var(--muted); font-size:11px; }
+    .section { display:none; }
+    .section.active { display:block; }
+    @media (max-width:1100px) { .shell { grid-template-columns:1fr; } .sidebar { flex-direction:row; align-items:center; overflow-x:auto; padding:10px; } .stats { grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:640px) { .stats { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <h1>Hermes Dashboard</h1>
+      <button class="nav active" data-target="section-cron">Cron一覧</button>
+      <button class="nav" data-target="section-spotify">Spotify再生履歴</button>
+    </aside>
+    <main class="main">
+      <div class="header">
+        <h2>概要</h2>
+        <div class="actions">
+          <span class="last-updated" id="last-updated">未更新</span>
+          <button id="refresh">更新</button>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="label">Cron 登録数</div><div class="value" id="s-total">-</div><div class="sub">全ジョブ</div></div>
+        <div class="stat"><div class="label">Active</div><div class="value" id="s-active">-</div><div class="sub">実行中</div></div>
+        <div class="stat"><div class="label">Paused</div><div class="value" id="s-paused">-</div><div class="sub">停止中</div></div>
+        <div class="stat"><div class="label">Spotify 件数</div><div class="value" id="s-spotify">-</div><div class="sub">直近読み込み</div></div>
+        <div class="stat"><div class="label">更新状態</div><div class="value" id="s-status">-</div><div class="sub">JSON読み込み</div></div>
+      </div>
+      <div class="section active" id="section-cron">
+        <div class="card">
+          <h3>Cron Jobs（最近の実行状態付き）</h3>
+          <div class="now-loading" id="cron-loading">cron.json を読み込み中…</div>
+          <table id="cron-table" style="display:none">
+            <thead><tr><th>名前</th><th>スケジュール</th><th>状態</th><th>次回実行</th><th>配信先</th><th>前回結果</th></tr></thead>
+            <tbody id="cron-body"></tbody>
+          </table>
+          <div id="cron-error" class="now-loading" style="display:none">読み込み失敗</div>
+        </div>
+      </div>
+      <div class="section" id="section-spotify">
+        <div class="card">
+          <h3>再生履歴（直近20件）</h3>
+          <div class="now-loading" id="spotify-loading">データを読み込み中…</div>
+          <table id="spotify-table" style="display:none">
+            <thead><tr><th>タイトル</th><th>アーティスト</th><th>アルバム</th><th>再生日時</th></tr></thead>
+            <tbody id="spotify-body"></tbody>
+          </table>
+          <div id="spotify-error" class="now-loading" style="display:none">読み込み失敗</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script>
+    const GAS_URL = 'REPLACE_WITH_GAS_URL';
+    let cronData = {};
+    let spotifyData = {};
+
+    async function loadJSON(url, fallbackPath) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return await res.json();
+      } catch (e) {
+        try {
+          const r = await fetch(fallbackPath);
+          if (!r.ok) throw e;
+          return await r.json();
+        } catch (e2) { return null; }
+      }
+    }
+
+    function escapeHtml(s) { return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c])); }
+
+    function renderCron() {
+      const items = Array.isArray(cronData.jobs) ? cronData.jobs : [];
+      document.getElementById('s-total').textContent = items.length;
+      document.getElementById('s-active').textContent = items.filter(j => j.state === 'active').length;
+      document.getElementById('s-paused').textContent = items.filter(j => j.state !== 'active').length;
+      const tbody = document.getElementById('cron-body');
+      document.getElementById('cron-table').style.display = 'table';
+      document.getElementById('cron-loading').style.display = 'none';
+      tbody.innerHTML = items.map(j => `<tr>
+        <td class="mono">${escapeHtml(j.name)}</td>
+        <td class="mono">${escapeHtml(j.schedule)}</td>
+        <td><span class="badge ${j.state === 'active' ? 'ok' : 'fail'}">${escapeHtml(j.state)}</span></td>
+        <td class="mono">${escapeHtml(j.next_run || '-')}</td>
+        <td>${escapeHtml(j.deliver || '-')}</td>
+        <td class="mono">${escapeHtml(j.last_result || '-')}</td>
+      </tr>`).join('');
+    }
+
+    function renderSpotify() {
+      const items = Array.isArray(spotifyData.data) ? spotifyData.data : [];
+      document.getElementById('s-spotify').textContent = items.length;
+      const tbody = document.getElementById('spotify-body');
+      document.getElementById('spotify-table').style.display = 'table';
+      document.getElementById('spotify-loading').style.display = 'none';
+      tbody.innerHTML = items.map(r => `<tr>
+        <td>${escapeHtml(r.title || '')}</td>
+        <td>${escapeHtml(r.artist || '')}</td>
+        <td>${escapeHtml(r.album || '')}</td>
+        <td class="mono">${escapeHtml(r.played_at || '')}</td>
+      </tr>`).join('');
+    }
+
+    async function refresh() {
+      document.getElementById('s-status').textContent = '更新中';
+      const c = await loadJSON('./data/cron.json', './data/cron.json');
+      if (c) { cronData = c; renderCron(); } else { document.getElementById('cron-error').style.display = 'block'; }
+      const s = await loadJSON(GAS_URL, './data/spotify.json');
+      if (s && typeof s.data !== 'undefined') { spotifyData = s; renderSpotify(); } else { document.getElementById('spotify-error').style.display = 'block'; }
+      document.getElementById('s-status').textContent = 'OK';
+      document.getElementById('last-updated').textContent = '更新: ' + new Date().toLocaleString('ja-JP', {timeZone:'Asia/Tokyo'});
+    }
+
+    document.getElementById('refresh').addEventListener('click', refresh);
+    document.querySelectorAll('.nav').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.nav').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById(b.dataset.target).classList.add('active');
+    }));
+    refresh();
+  </script>
+</body>
+</html>
