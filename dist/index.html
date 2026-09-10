@@ -2,15 +2,3270 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="gas-api-url" content="">
-  <title>文字起こしツール</title>
-  <script type="module" crossorigin src="/Pages/assets/main.js"></script>
-  <link rel="stylesheet" crossorigin href="/Pages/assets/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>総合ダッシュボード</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --success: #3fb950;
+      --warning: #d29922;
+      --error: #f85149;
+      --purple: #a371f7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .header .meta { color: var(--text-muted); font-size: 0.9rem; }
+    .summary {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+    }
+    .summary-card .count { font-size: 2rem; font-weight: bold; color: var(--accent); }
+    .summary-card .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+    .summary-card.warning .count { color: var(--warning); }
+    .summary-card.error .count { color: var(--error); }
+    .group { margin-bottom: 32px; }
+    .group-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    .group-header .icon { font-size: 1.5rem; }
+    .group-header h2 { font-size: 1.2rem; }
+    .group-header .count {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .group.unregistered .group-header {
+      border-color: var(--warning);
+      background: rgba(210, 153, 34, 0.1);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card.unregistered { border-color: var(--warning); }
+    .card.unregistered:hover { border-color: var(--warning); box-shadow: 0 0 0 1px var(--warning); }
+    .card .name { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .card .detail { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
+    .card .detail strong { color: var(--text); }
+    .card .tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .card .tag {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+    }
+    .card .status {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+    .status.success { background: rgba(63,185,80,0.15); color: var(--success); }
+    .status.failed { background: rgba(248,81,73,0.15); color: var(--error); }
+    .status.pending { background: rgba(210,153,34,0.15); color: var(--warning); }
+    .status.skipped { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+    .status.unknown { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      background: var(--warning);
+      color: var(--bg);
+      font-weight: bold;
+    }
+    .links { margin-top: 8px; }
+    .links a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+    .links a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .summary-card { flex: none; width: 100%; }
+    }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div class="header">
+    <h1>📋 総合ダッシュボード</h1>
+    <div class="meta">最終更新: 2026-09-10 17:16 (JST)</div>
+  </div>
+
+  <div class="summary">
+    <div class="summary-card">
+      <div class="count">90</div>
+      <div class="label">総検出ツール数</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">16</div>
+      <div class="label">Notion登録済み</div>
+    </div>
+    <div class="summary-card warning">
+      <div class="count">74</div>
+      <div class="label">未登録</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">0</div>
+      <div class="label">前回から新規</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">0</div>
+      <div class="label">前回から削除</div>
+    </div>
+    
+  </div>
+
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        ⏰
+        
+      </span>
+      <h2>時間指定実行</h2>
+      <span class="count">11件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: DiscordToNotion(doPost)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank">https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DiscordToNotion
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: DiscordToNotion(doPost)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/GAS
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionRadioNews(createAudioFiles)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionRadioNews
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notion日記作成(createDairyPageToNotion)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notion日記作成
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notion登録(processRSSFeeds2)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec" target="_blank">https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notion登録
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: SNS自動投稿(generatePostContentScheduled)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/SNS自動投稿
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: Llm-wiki同期
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 22 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-09T22:01:30.729788+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: price-watcher
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/price-watcher
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: secretary-afternoon-brief
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          30 16 * * 1-5
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-10T16:32:49.897341+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: secretary-morning-brief
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 8 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-10T08:15:49.167278+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: スレッド進捗監視
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 */2 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-10T16:06:43.441885+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        🔗
+        
+      </span>
+      <h2>手動・Webhook実行</h2>
+      <span class="count">4件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionWebhook(メイン)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec" target="_blank">https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionWebhook
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          skill: n8n-rest-api
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/n8n
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          skill: secretary
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/secretary
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          skill: webhook-subscriptions
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/web
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        💻
+        
+      </span>
+      <h2>常時稼働(サーバー)</h2>
+      <span class="count">1件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GitHub Pages: transcription
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/github
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  
+
+  
+  
+  <div class="group unregistered">
+    <div class="group-header">
+      <span class="icon">⚠️</span>
+      <h2>未登録ツール (Notion「登録サービス一覧」に未登録)</h2>
+      <span class="count">74件</span>
+    </div>
+    
+    
+    
+    <h3 style="margin: 24px 0 12px; color: var(--warning); font-size: 1rem;">GASプロジェクト (23件)</h3>
+    <div class="card-grid">
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          20250515
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250515
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          20250515_API_Library
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250515_API_Library
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          20250915
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250915
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          ApiLib_v8_20250915
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/ApiLib_v8_20250915
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          BisToNotion
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec" target="_blank">https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/BisToNotion
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          ChecklistTool
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/ChecklistTool
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          DailyNewspaper
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec" target="_blank">https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DailyNewspaper
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          DiscordToNotion_backup
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank">https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE_ANONYMOUS
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DiscordToNotion_backup
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          GASPortal
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/GASPortal
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          MoodMeter
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec" target="_blank">https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE_ANONYMOUS
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/MoodMeter
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          NotionPageTitleUpdater
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionPageTitleUpdater
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          NotionRoutineOps
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionRoutineOps
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          Notionタスク登録
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notionタスク登録
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          Notionタスク管理_clasp
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notionタスク管理_clasp
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          Podcast配信
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec" target="_blank">https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE_ANONYMOUS
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Podcast配信
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          SpotifyTools
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/SpotifyTools
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          TagAutoTools
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/TagAutoTools
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          TranscriptionTool
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec" target="_blank">https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> ANYONE_ANONYMOUS
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/TranscriptionTool
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          bookAddToNotion
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> MYSELF
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/bookAddToNotion
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          calenderToLine
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/calenderToLine
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          dashboard-spotify
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/dashboard-spotify
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          podcast配信
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/podcast配信
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          schemas
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>アクセス設定:</strong> 未設定
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/schemas
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>トリガー数:</strong> 0
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    <h3 style="margin: 24px 0 12px; color: var(--warning); font-size: 1rem;">Hermes cronジョブ (17件)</h3>
+    <div class="card-grid">
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          2a82d226958d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> eheya_bridge.py
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          7494ca706121
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          f5c461127482
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          8a0f5f3b4ac8
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          68af93ac6505
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          d56ccad8d1d0
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> secretary_dashboard.py
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          35b32812721d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          484ac65174d7
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          e10e9615b47d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          f471e125f0a6
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          55ec6e6351f4
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          04b57d8f2094
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          3e7bec674a8d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          11796591072b
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> projects/n8n/scripts/drift_watch.py
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          50045682b2ff
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> monitor_oci.py
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          0678d7f6e4d1
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          9feb8425ddc4
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> dashboard/update_and_push.sh
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    
+    <h3 style="margin: 24px 0 12px; color: var(--warning); font-size: 1rem;">Hermesスキル (34件)</h3>
+    <div class="card-grid">
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          academic-research
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/academic-research
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Academic research workflow: paper discovery (arXiv), paper writing (NeurIPS/ICML/ICLR), literature review.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          agile-development-practices
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/agile-development-practices
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Agile development practices: test-driven development (TDD) and spike/prototype experiments.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          apple
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/apple
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          ascii-media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/ascii-media
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> ASCII art and video: text banners, image-to-ASCII, video-to-ASCII conversion, MP4/GIF output.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          automation
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/automation
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          automation-pipelines
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/automation-pipelines
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          code-review
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/code-review
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Code review workflows: pre-commit verification, parallel cleanup, codebase inspection, security scanning.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          communication
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/communication
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          creative
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/creative
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          data-science
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/data-science
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          devops
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/devops
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          diagramming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/diagramming
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          domain
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/domain
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          email
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/email
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          gaming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/gaming
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          gifs
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/gifs
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          inference-sh
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/inference-sh
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          kanban
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/kanban
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Hermes Kanban: multi-agent work queue with orchestrator playbook, worker lifecycle, and pitfalls.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          llm-inference
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/llm-inference
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Run and serve LLMs locally or in production: llama.cpp, vLLM, GGUF quantization, model discovery.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          markitdown-report-converter
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/markitdown-report-converter
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Discord経由で受け取ったExcelファイルをmarkitdownでMarkdownに変換し、整形してrandsObsidianのmarkitdownExportフォルダに保存する。「Excel送って」「業務報告書をmd変換」「報告書ファイルを変換して」で使用。xlsxのみ対応。3フォーマット（月次報告書/業務報告書/状況報告書）自動判別。
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          mcp
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mcp
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/media
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          mlops
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mlops
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          mlops-evaluation
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mlops-evaluation
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Evaluate and track ML models: LLM benchmarks (lm-evaluation-harness), experiment logging (W&B), model comparison.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          note-taking
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/note-taking
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Note-taking workflows across Obsidian vaults and Notion workspaces: read, create, search, edit.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          productivity
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/productivity
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          red-teaming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/red-teaming
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          research
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/research
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          shopping-memo
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/shopping-memo
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> トリガー: ユーザーメッセージが「買い物メモ」または「買い物」で始まる場合に適用。Discordで買い物リストをAnyListへ自動連携（追加・完了・削除・一覧）する。Hermes + AnyList MCP (bobby060/anylist-mcp) 連携。
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          smart-home
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/smart-home
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          social-media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/social-media
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          software-development
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/software-development
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> 説明なし
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          workspace-dispatch
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/workspace-dispatch
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> |
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+      
+      <div class="card unregistered">
+        <div class="name">
+          yuanbao
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/yuanbao
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>説明:</strong> Yuanbao (元宝) groups: @mention users, query info/members.
+        </div>
+        
+        
+        <div class="detail" style="margin-top: 8px; color: var(--warning);">
+          ⚠ このツールはNotion「登録サービス一覧」DBに未登録です。<br>
+          登録するにはNotionでページを作成してください。
+        </div>
+      </div>
+      
+    </div>
+    
+    
+  </div>
+  
+
+  <div class="footer">
+    <p>総合ダッシュボード · Notion「登録サービス一覧」DB + ローカルスキャンから自動生成</p>
+    <p>問題・更新依頼はDevフォーラムへ</p>
+  </div>
 </body>
 </html>
