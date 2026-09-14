@@ -1,0 +1,5557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>総合ダッシュボード</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --card-border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --success: #3fb950;
+      --warning: #d29922;
+      --error: #f85149;
+      --purple: #a371f7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header {
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .header .meta { color: var(--text-muted); font-size: 0.9rem; }
+    .summary {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+    }
+    .summary-card .count { font-size: 2rem; font-weight: bold; color: var(--accent); }
+    .summary-card .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+    .summary-card.warning .count { color: var(--warning); }
+    .summary-card.error .count { color: var(--error); }
+    .group { margin-bottom: 32px; }
+    .group-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+    .group-header .icon { font-size: 1.5rem; }
+    .group-header h2 { font-size: 1.2rem; }
+    .group-header .count {
+      margin-left: auto;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .group.unregistered .group-header {
+      border-color: var(--warning);
+      background: rgba(210, 153, 34, 0.1);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card.unregistered { border-color: var(--warning); }
+    .card.unregistered:hover { border-color: var(--warning); box-shadow: 0 0 0 1px var(--warning); }
+    .card .name { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .card .detail { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
+    .card .detail strong { color: var(--text); }
+    .card .tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .card .tag {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(88, 166, 255, 0.15);
+      color: var(--accent);
+    }
+    .card .status {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+    .status.success { background: rgba(63,185,80,0.15); color: var(--success); }
+    .status.failed { background: rgba(248,81,73,0.15); color: var(--error); }
+    .status.pending { background: rgba(210,153,34,0.15); color: var(--warning); }
+    .status.skipped { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+    .status.unknown { background: rgba(139,148,158,0.15); color: var(--text-muted); }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      background: var(--warning);
+      color: var(--bg);
+      font-weight: bold;
+    }
+    .links { margin-top: 8px; }
+    .links a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+    .links a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+    @media (max-width: 600px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .summary-card { flex: none; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>📋 総合ダッシュボード</h1>
+    <div class="meta">最終更新: 2026-09-15 06:00 (JST)</div>
+  </div>
+
+  <div class="summary">
+    <div class="summary-card">
+      <div class="count">263</div>
+      <div class="label">総検出ツール数</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">230</div>
+      <div class="label">Notion登録済み</div>
+    </div>
+    <div class="summary-card warning">
+      <div class="count">33</div>
+      <div class="label">未登録</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">173</div>
+      <div class="label">前回から新規</div>
+    </div>
+    <div class="summary-card">
+      <div class="count">0</div>
+      <div class="label">前回から削除</div>
+    </div>
+    
+  </div>
+
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        ⏰
+        
+      </span>
+      <h2>時間指定実行</h2>
+      <span class="count">183件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: BisToNotion
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec" target="_blank">https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/BisToNotion
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: ChecklistTool
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/ChecklistTool
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: DailyNewspaper
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec" target="_blank">https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DailyNewspaper
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: DiscordToNotion_backup
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank">https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DiscordToNotion
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: DiscordToNotion_backup
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank">https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/DiscordToNotion_backup
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: GASPortal
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/GASPortal
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: MoodMeter
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec" target="_blank">https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/MoodMeter
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionPageTitleUpdater
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionPageTitleUpdater
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionRadioNews(createAudioFiles)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionRadioNews
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionRoutineOps
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionRoutineOps
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notionタスク登録
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notionタスク登録
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notionタスク管理_clasp
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notionタスク管理_clasp
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notion日記作成(createDairyPageToNotion)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notion日記作成
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: Notion登録(processRSSFeeds2)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec" target="_blank">https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Notion登録
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: SNS自動投稿(generatePostContentScheduled)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/SNS自動投稿
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: SpotifyTools
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/SpotifyTools
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: bookAddToNotion
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/bookAddToNotion
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: calenderToLine
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/calenderToLine
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: podcast配信
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec" target="_blank">https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/Podcast配信
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: podcast配信
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/podcast配信
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: schemas
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/schemas
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 04b57d8f2094
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 23 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T23:04:17.721535+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 0678d7f6e4d1
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 6,9,12,15,18,21 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-02T15:08:10.346322+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 11796591072b
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 9 * * 1
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> projects/n8n/scripts/drift_watch.py
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T09:00:21.648616+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 2a82d226958d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 11 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> eheya_bridge.py
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T11:00:26.869807+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 35b32812721d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          30 7 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T07:30:52.629017+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 3e7bec674a8d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 22 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T22:00:06.555782+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 484ac65174d7
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          30 18 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T18:34:54.788968+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 50045682b2ff
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          */5 * * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> monitor_oci.py
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-09T08:00:01.711579+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 55ec6e6351f4
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 9 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-08-24T09:01:59.763596+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 68af93ac6505
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 21 * * 0
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-13T21:02:10.338885+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 7494ca706121
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 21 * * 0
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-13T21:09:20.012223+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 8a0f5f3b4ac8
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          every 180m
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-06-15T04:42:33.176256+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: 9feb8425ddc4
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 6 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> dashboard/update_and_push.sh
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T06:00:26.217713+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: d56ccad8d1d0
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          */30 * * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>スクリプト:</strong> secretary_dashboard.py
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-08-29T14:00:39.949063+00:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: e10e9615b47d
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 9 1 * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-08-01T09:00:27.819717+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: f471e125f0a6
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 9 25 * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-07-25T09:06:15.695867+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-CRON: f5c461127482
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 21 * * 0
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-13T21:01:14.281996+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _check_options
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_check_options.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _check_props
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_check_props.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _check_raw
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_check_raw.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _check_status
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_check_status.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _cron_cal_all
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_cron_cal_all.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _cron_memo_review
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_cron_memo_review.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _do_complete
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_do_complete.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _inspect_cat
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_inspect_cat.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _inspect_issues
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_inspect_issues.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _inspect_master
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_inspect_master.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _inspect_parent
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_inspect_parent.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _probe_create
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_probe_create.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _probe_token
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_probe_token.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _probe_ver
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_probe_ver.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _send_secretary_msg
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/secretary
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _send_secretary_msg
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_send_secretary_msg.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ab_test
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ab_test.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: add_discord_props
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/add_discord_props.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: add_issue_filter
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/add_issue_filter.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: add_issue_properties
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/add_issue_properties.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: apply_view_all_issues
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/apply_view_all_issues.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: apply_view_to_all
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/apply_view_to_all.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: audit_analyze
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/audit_analyze.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: backfill_issue_daibunrui
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/backfill_issue_daibunrui.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: batch_ingest_daily
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/batch_ingest_daily.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: check_all
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/check_all.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: check_issue_schema
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/check_issue_schema.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: check_revisions
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/check_revisions.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: cleanup_dup_cdbs2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/cleanup_dup_cdbs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: cleanup_dup_cdbs2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/cleanup_dup_cdbs2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: cleanup_old_cdbs
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/cleanup_old_cdbs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: cleanup_test2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/cleanup_test.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: cleanup_test2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/cleanup_test2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_issue_bucho
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_issue_bucho.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_issue_with_discord_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_issue_with_discord.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_issue_with_discord_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_issue_with_discord_v2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_notion_dbs
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_notion_dbs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_packing_dbs
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_packing_dbs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_recurring_from_master
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_recurring_from_master.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_recurring_issues
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_recurring_issues.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_thread_gas_migration
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/GAS
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_threads_for_issues
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_threads_for_issues.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: deadline_notifier
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/deadline_notifier.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_categories
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_categories.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_discord_api
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_discord_api.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_discord_token
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_discord_token.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_discord_ua
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_discord_ua.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_hash
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_hash.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_log
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_log.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_suumo_div
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_suumo_div.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_suumo_full
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_suumo_full.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_suumo_html
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_suumo_html.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_suumo_links
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_suumo_links.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_suumo_v3
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_suumo_v3.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_thread_msgs2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_thread_msgs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: debug_thread_msgs2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/debug_thread_msgs2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: discover_all_views
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/discover_all_views.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: eheya_bridge
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/eheya_bridge.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: eheya_notifier
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/eheya_notifier.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: evening_memo_review_send
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/evening_memo_review_send.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: evening_reflection_to_discord
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/evening_reflection_to_discord.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_issue
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_issue.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_ingest
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_ingest.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_rands_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_rands.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_rands_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_rands_v2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_sync
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_sync.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_wiki_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_wiki.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_pending_wiki_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_pending_wiki_v2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: find_real_pending
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/find_real_pending.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: fix_business_issue
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/fix_business_issue.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: get_thread_messages
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/get_thread_messages.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: get_view_configs
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/get_view_configs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: hermes_health_check
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/hermes_health_check.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: image_gen_openrouter
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/image_gen_openrouter.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: init_issue_status
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/init_issue_status.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: inspect_all_views
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/inspect_all_views.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: inspect_views
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/inspect_views.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: list_categories
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/list_categories.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: memo_to_issue
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/memo_to_issue.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: memos_list
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/memos_list.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: monitor_oci
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/monitor_oci.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: morning_memo_review_send
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/morning_memo_review_send.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: morning_reflection_to_discord
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/morning_reflection_to_discord.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck10
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck10.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck11
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck11.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck12
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck12.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck13
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck13.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck14
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck14.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck15
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck15.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck3
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck3.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck4
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck4.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck5
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck5.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck6
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck6.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck7
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck7.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck8
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck8.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck9
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: ncheck9
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/ncheck9.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notify
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notify.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_batch_create2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_batch_create.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_batch_create2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_batch_create2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_api2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_api.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_api2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_api2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_cat
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_cat.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_dbs
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_dbs.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_schema2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_schema.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_check_schema2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_check_schema2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_create_issue_tasks
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_issue.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_create_issue_tasks
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_create_issue_tasks.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_db_debug
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_db_debug.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_db_setup
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_db_setup.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_dbschema_debug
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_dbschema_debug.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_find_db
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_find_db.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_get_db
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_get_db.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_internal_search_datasources
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_internal_search_datasources.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_list_cat2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_list_cat.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_list_cat2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_list_cat2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_minimal_test
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_minimal_test.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_cat2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_cat.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_cat2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_cat2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_helpers
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_helpers.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_simple2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_simple2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_simple3
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_simple.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_simple3
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_simple3.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_query_today
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_query_today.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_search_test
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_search_test.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_test_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_test.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_test_v2
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_test_v2.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: notion_today_tasks
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/notion_today_tasks.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: obsidian_masker
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/obsidian_masker.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: Llm-wiki同期
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 22 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T22:01:09.381258+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: price-watcher
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/price-watcher
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: secretary-afternoon-brief
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          30 16 * * 1-5
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T16:39:00.793357+09:00 
+          <span class="status error:">
+            error:
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: secretary-morning-brief
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 8 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-14T08:01:16.962675+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          Hermes: スレッド進捗監視
+          <span class="badge">hermes-cron</span>
+        </div>
+        
+        
+        <div class="detail">
+          <strong>スケジュール/トリガー:</strong>
+          0 */2 * * *
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>最終実行:</strong> 2026-09-15T04:01:09.137255+09:00 
+          <span class="status ok">
+            ok
+          </span>
+        </div>
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: #Webクリップ/save-to-notion - スマホ共有
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: #調査依頼/WEB解析 - TagAutoTools連携
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/TagAutoTools
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: #調査依頼/WEB解析 - TagAutoTools連携
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: #調査依頼/WEB解析 - TagAutoTools連携
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/web
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: #調査依頼/Youtube解析 - TagAutoTools連携
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: Podcastフィード取得
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: Podcastフィード取得
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/n8n
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: Youtube解析・まとめ (Final Fix)
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          N8N: 音声ファイル要約→markdown保存
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          n8n: RSS音声ニュース作成
+          <span class="badge">n8n</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        🔗
+        
+      </span>
+      <h2>手動・Webhook実行</h2>
+      <span class="count">36件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: NotionWebhook(メイン)
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec" target="_blank">https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/NotionWebhook
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: academic-research
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/academic-research
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: agile-development-practices
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/agile-development-practices
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: apple
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/apple
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: ascii-media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/ascii-media
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: automation-pipelines
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/automation
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: automation-pipelines
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/automation-pipelines
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: code-review
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/code-review
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: communication
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/communication
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: creative
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/creative
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: data-science
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/data-science
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: devops
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/devops
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: diagramming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/diagramming
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: domain
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/domain
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: email
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/email
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: gaming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/gaming
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: gifs
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/gifs
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: inference-sh
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/inference-sh
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: kanban
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/kanban
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: llm-inference
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/llm-inference
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: markitdown-report-converter
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/markitdown-report-converter
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: mcp
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mcp
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: mlops-evaluation
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mlops
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: mlops-evaluation
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/mlops-evaluation
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: note-taking
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/note-taking
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: productivity
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/productivity
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: red-teaming
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/red-teaming
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: research
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/research
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: shopping-memo
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/shopping-memo
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: smart-home
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/smart-home
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: social-media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/media
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: social-media
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/social-media
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: software-development
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/software-development
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: workspace-dispatch
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/workspace-dispatch
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-SKILL: yuanbao
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/yuanbao
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: get_manual_task_view
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/get_manual_task_view.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        💻
+        
+      </span>
+      <h2>常時稼働(サーバー)</h2>
+      <span class="count">4件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: TranscriptionTool
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        <div class="detail">
+          <strong>WebApp:</strong> 
+          <a href="https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec" target="_blank">https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec</a>
+        </div>
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/TranscriptionTool
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: dashboard-spotify
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/dashboard-spotify
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GitHub Pages: transcription
+          <span class="badge">hermes-skill</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/skills/github
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: hermes_dashboard
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/hermes_dashboard.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  
+  <div class="group">
+    <div class="group-header">
+      <span class="icon">
+        📦
+        
+      </span>
+      <h2>ライブラリ・共通</h2>
+      <span class="count">7件</span>
+    </div>
+    <div class="card-grid">
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: 20250515_API_Library
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250515
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: 20250515_API_Library
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250515_API_Library
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: ApiLib_v8_20250915
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/20250915
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          GAS: ApiLib_v8_20250915
+          <span class="badge">gas</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/projects/GAS/ApiLib_v8_20250915
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: _add_gas_tasks
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/_add_gas_tasks.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_issue_gas_migration
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_issue_gas_migration.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+      
+      <div class="card">
+        <div class="name">
+          HERMES-TOOL: create_thread_gas_migration
+          <span class="badge">hermes-tool</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="detail">
+          <strong>パス:</strong> /home/ubuntu/.hermes/scripts/create_thread_gas_migration.py
+        </div>
+        
+        
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+  
+  
+
+  
+  
+  <div class="group unregistered">
+    <div class="group-header">
+      <span class="icon">⚠️</span>
+      <h2>未登録ツール (Notion「登録サービス一覧」に未登録)</h2>
+      <span class="count">33件</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+
+  <div class="footer">
+    <p>総合ダッシュボード · Notion「登録サービス一覧」DB + ローカルスキャンから自動生成</p>
+    <p>問題・更新依頼はDevフォーラムへ</p>
+  </div>
+</body>
+</html>
