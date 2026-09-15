@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion連携ツール 📦 - 総合ポータルサイト</title>
+  <style>
+    :root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+    .header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .header h1 { font-size: 1.8rem; } .header .meta { color: var(--text-muted); font-size: 0.9rem; }
+    .back-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; } .back-link:hover { text-decoration: underline; }
+    .desc { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+    .card:hover { border-color: var(--accent); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 12px; }
+    .card-header h3 { font-size: 1.1rem; }
+    .btn-link { padding: 6px 12px; background: var(--accent); color: var(--bg); border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+    .btn-link.disabled { background: var(--card-border); color: var(--text-muted); cursor: not-allowed; }
+    .card-body { display: flex; flex-direction: column; gap: 10px; }
+    .detail { font-size: 0.85rem; color: var(--text-muted); } .detail strong { color: var(--text); }
+    .status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    .status.running, .status.active, .status.success { background: rgba(63,185,80,0.2); color: #3fb950; }
+    .status.pending, .status.scheduled { background: rgba(210,153,34,0.2); color: #d29922; }
+    .status.stopped, .status.error, .status.failed { background: rgba(248,81,73,0.2); color: #f85149; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+    .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+    @media (max-width: 600px) { .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Notion連携ツール 📦</h1>
+      <div class="meta">2件 · 更新: 2026-09-15 20:22</div>
+      <a href="../" class="back-link">← ポータルに戻る</a>
+    </div>
+    <div class="desc">Notionへの登録・更新・連携を行うGAS・ツール群</div>
+    <div class="card-grid"><div class="card"><div class="card-header"><h3>Notion登録（GAS WebApp）</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> Notionへ情報を登録するGAS WebApp</div><div class="detail"><strong>使い方:</strong> WebAppを開いて必要な情報を入力して送信する</div> <div class="detail"><strong>呼び出し指示:</strong> Hermesに「Notion登録のWebAppを開いて」と言えば、<br/>GAS WebAppのデプロイ先URLを開ける。</div> <div class="detail"><strong>トリガー:</strong> when: WebApp経由の手動実行 / what: 入力内容をNotionに登録</div>   <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
+<div class="card"><div class="card-header"><h3>NotionWebhook（GAS WebApp）</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> Webhook経由でNotion側と連携するGAS WebApp</div><div class="detail"><strong>使い方:</strong> 外部トリガーからの情報をNotion側に反映する</div> <div class="detail"><strong>呼び出し指示:</strong> 障害復旧や設定変更時に参照する。<br/>普段は直接開くより、連携元の設定状況を思い出すために使う。</div> <div class="detail"><strong>トリガー:</strong> when: Webhook経由の呼び出し / what: 受け取った情報をNotion側に反映</div>   <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div></div>
+    <div class="footer">総合ポータルサイト · 目的別ツールページ</div>
+  </div>
+</body>
+</html>
