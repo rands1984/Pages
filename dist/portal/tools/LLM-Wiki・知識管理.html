@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>音声監視・文字起こしツール 📦 - 総合ポータルサイト</title>
+  <title>LLM Wiki・知識管理 📦 - 総合ポータルサイト</title>
   <style>
     :root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,15 +34,14 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>音声監視・文字起こしツール 📦</h1>
-      <div class="meta">2件 · 更新: 2026-09-15 22:55</div>
+      <h1>LLM Wiki・知識管理 📦</h1>
+      <div class="meta">3件 · 更新: 2026-09-15 22:55</div>
       <a href="../" class="back-link">← ポータルに戻る</a>
     </div>
-    <div class="desc">音声ファイルを監視し、更新があれば文字起こし処理を実行するツール群。
-公開Webアプリと、裏で動くcron処理がセットになっている。
-</div>
-    <div class="card-grid"><div class="card"><div class="card-header"><h3>文字起こし（Transcription）</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> 音声ファイルをWeb上で文字起こしするアプリ（Vite）</div><div class="detail"><strong>使い方:</strong> ブラウザで開いて音声をアップロードし、文字起こし結果を表示する</div> <div class="detail"><strong>呼び出し指示:</strong> Hermesに「文字起こしツールを開いて」と言えば、<br/>https://rands1984.github.io/Pages/transcription/ を開ける。</div>  <div class="detail"><strong>ソース:</strong> <code>github-pages/Pages/dist/transcription/</code></div>  <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Watch Audio 監視＋文字起こし（cron）</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> 音声ファイルを監視し、更新があれば文字起こし処理を実行する</div><div class="detail"><strong>使い方:</strong> 5分間隔で自動実行される</div> <div class="detail"><strong>呼び出し指示:</strong> 手動実行したい場合は ~/.hermes/scripts/process_watch_audio.py を<br/>Hermesに直接実行させる。</div> <div class="detail"><strong>トリガー:</strong> when: 5分毎に音声監視ディレクトリを確認 / what: 新規もしくは更新された音声があれば文字起こし処理を実行</div> <div class="detail"><strong>ソース:</strong> <code>~/.hermes/scripts/process_watch_audio.py</code></div> <div class="detail"><strong>スケジュール:</strong> */5 * * * *</div> <div class="detail"><strong>ステータス:</strong> <span class="status">稼働</span></div></div></div></div>
+    <div class="desc">Karpathy LLM Wikiの同期・lint・スキルマニュアル更新を行うcronと、学術研究・ノート管理skill。</div>
+    <div class="card-grid"><div class="card"><div class="card-header"><h3>Llm-wiki同期</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> </div> <div class="detail"><strong>呼び出し指示:</strong> 【呼び出し】Hermesに該当ツールを指示して起動してください。</div> <div class="detail"><strong>トリガー:</strong> when: 毎日 22:00 / what: LLM Wikiを同期</div>  <div class="detail"><strong>スケジュール:</strong> 0 22 * * *</div> <div class="detail"><strong>ステータス:</strong> <span class="status">active</span></div></div></div>
+<div class="card"><div class="card-header"><h3>skill-manual-update</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> </div> <div class="detail"><strong>呼び出し指示:</strong> 【呼び出し】Hermesに該当ツールを指示して起動してください。</div> <div class="detail"><strong>トリガー:</strong> when: 日曜 21:00 / what: スキルマニュアルを更新</div>  <div class="detail"><strong>スケジュール:</strong> 0 21 * * 0</div> <div class="detail"><strong>ステータス:</strong> <span class="status">active</span></div></div></div>
+<div class="card"><div class="card-header"><h3>llm-wiki-lint</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> </div> <div class="detail"><strong>呼び出し指示:</strong> 【呼び出し】Hermesに該当ツールを指示して起動してください。</div> <div class="detail"><strong>トリガー:</strong> when: 日曜 21:00 / what: LLM Wikiのlintを実行</div>  <div class="detail"><strong>スケジュール:</strong> 0 21 * * 0</div> <div class="detail"><strong>ステータス:</strong> <span class="status">active</span></div></div></div></div>
     <div class="footer">総合ポータルサイト · 目的別ツールページ</div>
   </div>
 </body>
