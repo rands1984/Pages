@@ -3,74 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GASプロジェクト 📦 - 総合ポータルサイト</title>
-  <style>
-    :root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
-    .header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .header h1 { font-size: 1.8rem; } .header .meta { color: var(--text-muted); font-size: 0.9rem; }
-    .back-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; } .back-link:hover { text-decoration: underline; }
-    .desc { color: var(--text-muted); margin-bottom: 24px; font-size: 0.95rem; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
-    .card:hover { border-color: var(--accent); }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 12px; }
-    .card-header h3 { font-size: 1.1rem; }
-    .btn-link { padding: 6px 12px; background: var(--accent); color: var(--bg); border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
-    .btn-link.disabled { background: var(--card-border); color: var(--text-muted); cursor: not-allowed; }
-    .card-body { display: flex; flex-direction: column; gap: 10px; }
-    .detail { font-size: 0.85rem; color: var(--text-muted); } .detail strong { color: var(--text); }
-    .status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
-    .status.running, .status.active, .status.success { background: rgba(63,185,80,0.2); color: #3fb950; }
-    .status.pending, .status.scheduled { background: rgba(210,153,34,0.2); color: #d29922; }
-    .status.stopped, .status.error, .status.failed { background: rgba(248,81,73,0.2); color: #f85149; }
-    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
-    .empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
-    @media (max-width: 600px) { .card-grid { grid-template-columns: 1fr; } }
-  </style>
+  <title>GAS・Apps Script [Package] - 総合ポータルサイト</title>
+  <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
+.header h1 { font-size: 1.8rem; margin-bottom: 8px; }
+.header .meta { color: var(--text-muted); font-size: 0.9rem; }
+.section { margin-bottom: 40px; }
+.section h2 { font-size: 1.3rem; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.section h2::before { content: ""; width: 4px; height: 24px; background: var(--accent); border-radius: 2px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.nav-card { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
+.nav-card:hover { border-color: var(--accent); }
+.badge { background: var(--warning); color: var(--bg); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
+.deploy-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
+.deploy-link:hover { border-color: var(--accent); }
+.footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+.card:hover { border-color: var(--accent); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; gap: 12px; }
+.card-header h3 { font-size: 1.1rem; }
+.btn-link { padding: 6px 12px; background: var(--accent); color: var(--bg); border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+.btn-link.disabled { background: var(--card-border); color: var(--text-muted); cursor: not-allowed; }
+.card-body { display: flex; flex-direction: column; gap: 10px; }
+.detail { font-size: 0.85rem; color: var(--text-muted); } .detail strong { color: var(--text); }
+.status { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.status.running, .status.active, .status.success { background: rgba(63,185,80,0.2); color: #3fb950; }
+.status.pending, .status.scheduled { background: rgba(210,153,34,0.2); color: #d29922; }
+.status.stopped, .status.error, .status.failed { background: rgba(248,81,73,0.2); color: #f85149; }
+.footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+.empty { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.back-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 16px; }
+.back-link:hover { text-decoration: underline; }
+.tag { background: var(--card-border); color: var(--text-muted); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+.secret-ref { background: rgba(210,153,34,0.2); color: #d29922; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+.dep { background: rgba(88,166,255,0.2); color: #58a6ff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+@media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .detail strong { width: auto; display: block; margin-bottom: 4px; } }</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>GASプロジェクト 📦</h1>
-      <div class="meta">31件 · 更新: 2026-09-16 22:29</div>
-      <a href="../" class="back-link">← ポータルに戻る</a>
+      <h1>[Green] GAS・Apps Script</h1>
+      <div class="meta">1件 - 更新: 2026-09-26 23:45</div>
+      <a href="../" class="back-link">[Back] ポータルに戻る</a>
     </div>
     <div class="desc"></div>
-    <div class="card-grid"><div class="card"><div class="card-header"><h3>20250515</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>20250515_API_Library</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>20250915</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>ApiLib_v8_20250915</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>BisToNotion</h3><a href="https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>ChecklistTool</h3><a href="https://script.google.com/macros/s/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>DailyNewspaper</h3><a href="https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>DiscordToNotion</h3><a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>DiscordToNotion_backup</h3><a href="https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>GAS</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>GASPortal</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>MoodMeter</h3><a href="https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>NotionPageTitleUpdater</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>NotionRadioNews</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>NotionRoutineOps</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>NotionWebhook</h3><a href="https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Notionタスク登録</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Notionタスク管理_clasp</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Notion日記作成</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Notion登録</h3><a href="https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>Podcast配信</h3><a href="https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1Ha_Ju_etserEsjBss-HpqixWF3s4SUgXcux-iDZyybhhnUkD0asoPaDW/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>SNS自動投稿</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>SpotifyTools</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>TagAutoTools</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>TranscriptionTool</h3><a href="https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div>
-<div class="card"><div class="card-header"><h3>bookAddToNotion</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>calenderToLine</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>dashboard-spotify</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>podcast配信</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>schemas</h3><span class="btn-link disabled">URL未設定</span></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: ライブラリ/スクリプト</div><div class="detail"><strong>使い方:</strong> GASライブラリ/スクリプト</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">未公開</span></div></div></div>
-<div class="card"><div class="card-header"><h3>packing-list</h3><a href="https://script.google.com/macros/s/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/exec" target="_blank" class="btn-link">開く</a></div><div class="card-body"><div class="detail"><strong>説明:</strong> GAS: https://script.google.com/macros/s/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/exec</div><div class="detail"><strong>使い方:</strong> WebApp公開</div>     <div class="detail"><strong>ステータス:</strong> <span class="status">公開中</span></div></div></div></div>
-    <div class="footer">総合ポータルサイト · 目的別ツールページ</div>
+    <div class="card-grid">
+<div class="card">
+  <div class="card-header">
+    <h3>GASPortal</h3>
+    <a href="https://github.com/rands1984/Pages/tree/main/gas" target="_blank" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Notion連携ポータルAPI・キャッシュ更新・タスク管理</div>
+    <div class="detail"><strong>環境:</strong> Google Apps Script</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">portal</span><span class="badge">notion</span><span class="badge">cache</span></div>
+  </div>
+</div></div>
+    <div class="footer">総合ポータルサイト - GAS・Apps Script 一覧</div>
   </div>
 </body>
 </html>

@@ -1,0 +1,392 @@
+{
+  "generated_at": "2026-09-26T22:22:50.719766",
+  "version": "1.0",
+  "tools": {
+    "gas": [
+      {
+        "id": "gasportal",
+        "name": "GASPortal",
+        "description": "Notion連携ポータルAPI・キャッシュ更新・タスク管理",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "portal",
+          "notion",
+          "cache",
+          "task"
+        ],
+        "repo_url": "https://github.com/rands1984/Pages/tree/main/gas",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "2026-09-08",
+        "updated": "2026-09-26",
+        "secret_refs": [
+          "GEMINI_API_KEY",
+          "NOTION_TOKEN",
+          "DROPBOX_ACCESS_TOKEN"
+        ],
+        "script_id": "1abcDEF...",
+        "script_url": "https://script.google.com/d/1abcDEF.../edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycb...",
+            "url": "https://script.google.com/macros/s/AKfycb.../exec",
+            "version": "42",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-20T10:00:00Z"
+          }
+        ],
+        "triggers": [
+          {
+            "function": "forceRefreshPortalData",
+            "event_type": "time-driven",
+            "schedule": "0 6 * * *"
+          },
+          {
+            "function": "updatePortalCache",
+            "event_type": "http",
+            "schedule": "webhook"
+          }
+        ],
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [
+          "OAuth2",
+          "ApiLib"
+        ]
+      }
+    ],
+    "hermes": {
+      "skills": [
+        {
+          "id": "devops-webhook",
+          "name": "DevOps Webhook Integration",
+          "type": "hermes-skill",
+          "status": "active",
+          "description\"": "Webhook 受信・転送・認証管理を行うスキル",
+          "tags": [
+            "webhook",
+            "devops",
+            "integration"
+          ],
+          "repo_url": "https://github.com/hermes-ai/hermes-skills/tree/main/devops/webhook-integration",
+          "deploy_target": "Hermes (Skill)",
+          "depends_on": [],
+          "created": "2026-09-03",
+          "updated": "2026-09-25",
+          "secret_refs": [],
+          "skill_dir": "devops/webhook-integration",
+          "purpose": "webhook受信・転送",
+          "provides_tools": [
+            "webhook_receive",
+            "webhook_verify",
+            "webhook_forward"
+          ],
+          "dependencies": [],
+          "entry_point": "webhook_integration.py",
+          "portal_info": {
+            "category": "DevOps・インフラ",
+            "description_detail": "外部サービスからの Webhook を受信し、HMAC 検証を行い、適切なハンドラに転送するスキル。動的購読管理機能も提供。",
+            "related_programs": []
+          }
+        }
+      ],
+      "cron": [
+        {
+          "id": "watch-audio-processor",
+          "name": "Watch Audio Processor",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "スマートウォッチ音声を文字起こし・要約し、Wikiに保存・Discord通知",
+          "tags": [
+            "audio",
+            "transcription",
+            "discord",
+            "summary"
+          ],
+          "repo_url": "https://github.com/rands1984/hermes-config",
+          "deploy_target": "OCI (Hermes)",
+          "depends_on": [],
+          "created": "2026-09-08",
+          "updated": "2026-09-25",
+          "secret_refs": [
+            "WATCH_WEBHOOK_SECRET"
+          ],
+          "purpose": "音声文字起こし・要約",
+          "schedule": "every 1m",
+          "script_path": "scripts/process_watch_audio.py",
+          "skills": [],
+          "delivers_to": "Discord (#秘書)",
+          "related_programs": [
+            "watch-audio-main"
+          ]
+        },
+        {
+          "id": "a9b32fc7084f",
+          "name": "watch-audio-processor",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
+          "tags": [
+            "cron",
+            "automation"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron",
+          "depends_on": [],
+          "created": "2026-09-08",
+          "updated": "2026-09-26",
+          "secret_refs": [],
+          "purpose": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
+          "schedule": "every 1m",
+          "script_path": "process_watch_audio.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] スマートウォッチを利用したhermes Agent連携",
+          "related_programs": []
+        }
+      ],
+      "webhooks": [
+        {
+          "id": "watch-audio",
+          "name": "Watch Audio Webhook",
+          "type": "hermes-webhook",
+          "status": "active",
+          "description": "スマートウォッチ音声ファイル受信用 Webhook ルート",
+          "tags": [
+            "audio",
+            "webhook",
+            "watch"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Gateway (port 8644)",
+          "depends_on": [
+            "watch-audio-processor"
+          ],
+          "created": "2026-09-08",
+          "updated": "2026-09-25",
+          "secret_refs": [
+            "WATCH_WEBHOOK_SECRET"
+          ],
+          "purpose": "スマートウォッチ音声受信",
+          "route": "/watch/audio",
+          "secret_env": "WATCH_WEBHOOK_SECRET",
+          "prompt_template": "Watch audio file received: {{file_path}} ({{file_size}} bytes). Transcribe and analyze.",
+          "deliver": "log",
+          "max_body_size": "50MB",
+          "related_programs": [
+            "watch-audio-main"
+          ]
+        }
+      ],
+      "programs": [
+        {
+          "id": "watch-audio-main",
+          "name": "Watch Audio Main Processor",
+          "type": "hermes-program",
+          "status": "active",
+          "description\"": "Watch音声処理のメインプログラム: 音声→文字起こし→要約→保存→通知",
+          "tags": [
+            "audio",
+            "transcription",
+            "whisper",
+            "summary",
+            "discord"
+          ],
+          "repo_url": "https://github.com/rands1984/hermes-config",
+          "deploy_target": "OCI (Hermes Cron)",
+          "depends_on": [
+            "watch-audio-processor",
+            "watch-audio"
+          ],
+          "created": "2026-09-08",
+          "updated": "2026-09-25",
+          "secret_refs": [
+            "WATCH_WEBHOOK_SECRET",
+            "DISCORD_BOT_TOKEN",
+            "OPENAI_API_KEY"
+          ],
+          "purpose": "音声文字起こし・要約",
+          "script_path": "scripts/process_watch_audio.py",
+          "script_type": "python",
+          "entry_point": "main",
+          "sub_programs": [
+            {
+              "role": "main",
+              "path": "scripts/process_watch_audio.py",
+              "description": "メイン処理: ファイル検知→文字起こし→要約→保存→通知"
+            },
+            {
+              "role": "helper",
+              "path": "scripts/notify.py",
+              "description": "Discord通知送信ヘルパー"
+            }
+          ],
+          "schedule": "every 1m (via cron)",
+          "trigger": "cron",
+          "inputs": [
+            "audio_file (m4a/wav)",
+            "webhook_payload"
+          ],
+          "outputs": [
+            "markdown (llm-wiki)",
+            "discord_notification"
+          ],
+          "dependencies": [
+            "watch-audio-processor",
+            "watch-audio"
+          ],
+          "related_skill": "",
+          "related_cron": "watch-audio-processor",
+          "portal_html": ""
+        }
+      ]
+    },
+    "n8n": [
+      {
+        "id": "drift-watch",
+        "name": "n8n Drift Watch",
+        "description": "n8n ワークフローのドリフト(設定変更)を監視し、Discord に通知",
+        "type": "n8n",
+        "status": "active",
+        "tags": [
+          "monitoring",
+          "drift",
+          "discord",
+          "alert"
+        ],
+        "repo_url": "",
+        "deploy_target": "n8n (https://rands1984.ddns.net)",
+        "depends_on": [],
+        "created": "2026-09-08",
+        "updated": "2026-09-26",
+        "secret_refs": [
+          "N8N_API_KEY"
+        ],
+        "workflow_id": "drift-watch-001",
+        "webhook_path": "",
+        "active": true,
+        "credentials_refs": [
+          "N8N_API_KEY"
+        ]
+      }
+    ],
+    "oci": {
+      "compute": [
+        {
+          "id": "instance-vm-standard",
+          "name": "OCI Compute Instance (VM.Standard.A1.Flex)",
+          "type": "oci-compute",
+          "status": "active",
+          "description\"": "Oracle Cloud Always Free ARM インスタンス (4 OCPU, 24GB RAM)",
+          "tags": [
+            "compute",
+            "always-free",
+            "arm",
+            "vm"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2026-08-28",
+          "updated": "2026-09-25",
+          "secret_refs": [],
+          "ocid": "ocid1.instance.oc1.ap-osaka-1.xxxxx",
+          "compartment": "ocid1.compartment.oc1..xxxxx",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "RUNNING",
+          "shape": "VM.Standard.A1.Flex",
+          "subnet": "ocid1.subnet.oc1.ap-osaka-1.xxxxx",
+          "public_ip": "xxx.xxx.xxx.xxx",
+          "private_ip": "10.0.0.x"
+        }
+      ],
+      "network": [],
+      "security": [],
+      "identity": []
+    }
+  },
+  "frequent_sites": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/rands1984",
+      "icon": "github"
+    },
+    {
+      "name": "Notion",
+      "url": "https://notion.so/",
+      "icon": "notion"
+    },
+    {
+      "name": "OCI Console",
+      "url": "https://console.ap-tokyo-1.oraclecloud.com",
+      "icon": "oracle"
+    },
+    {
+      "name": "Cloudflare Dashboard",
+      "url": "https://dash.cloudflare.com",
+      "icon": "cloudflare"
+    },
+    {
+      "name": "n8n",
+      "url": "https://rands1984.ddns.net",
+      "icon": "n8n"
+    },
+    {
+      "name": "Bitwarden",
+      "url": "https://bitwarden.rands1984.dpdns.org",
+      "icon": "bitwarden"
+    }
+  ],
+  "categories": [
+    {
+      "key": "gas",
+      "label": "GAS・Apps Script",
+      "icon": "google"
+    },
+    {
+      "key": "hermes-skill",
+      "label": "Hermes Skills",
+      "icon": "hermes"
+    },
+    {
+      "key": "hermes-cron",
+      "label": "Hermes Cron",
+      "icon": "clock"
+    },
+    {
+      "key": "hermes-webhook",
+      "label": "Hermes Webhooks",
+      "icon": "webhook"
+    },
+    {
+      "key": "hermes-program",
+      "label": "Hermes Programs",
+      "icon": "code"
+    },
+    {
+      "key": "n8n",
+      "label": "n8n Workflows",
+      "icon": "n8n"
+    },
+    {
+      "key": "oci-compute",
+      "label": "OCI Compute",
+      "icon": "server"
+    },
+    {
+      "key": "oci-network",
+      "label": "OCI Network",
+      "icon": "network"
+    },
+    {
+      "key": "oci-security",
+      "label": "OCI Security",
+      "icon": "shield"
+    },
+    {
+      "key": "oci-identity",
+      "label": "OCI Identity",
+      "icon": "user"
+    }
+  ]
+}

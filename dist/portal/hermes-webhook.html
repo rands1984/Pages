@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermes Cron [Package] - 総合ポータルサイト</title>
+  <title>Hermes Webhooks [Package] - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -45,37 +45,25 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP
 <body>
   <div class="container">
     <div class="header">
-      <h1>[Clock] Hermes Cron</h1>
-      <div class="meta">2件 - 更新: 2026-09-26 23:45</div>
+      <h1>[Link] Hermes Webhooks</h1>
+      <div class="meta">1件 - 更新: 2026-09-26 23:45</div>
       <a href="../" class="back-link">[Back] ポータルに戻る</a>
     </div>
     <div class="desc"></div>
     <div class="card-grid">
 <div class="card">
   <div class="card-header">
-    <h3>Watch Audio Processor</h3>
-    <a href="https://github.com/rands1984/hermes-config" target="_blank" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> スマートウォッチ音声を文字起こし・要約し、Wikiに保存・Discord通知</div>
-    <div class="detail"><strong>環境:</strong> OCI (Hermes)</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">discord</span></div>
-  </div>
-</div>
-<div class="card">
-  <div class="card-header">
-    <h3>watch-audio-processor</h3>
+    <h3>Watch Audio Webhook</h3>
     <span class="btn-link disabled">URL未設定</span>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files</div>
-    <div class="detail"><strong>環境:</strong> Hermes Cron</div>
+    <div class="detail"><strong>説明:</strong> スマートウォッチ音声ファイル受信用 Webhook ルート</div>
+    <div class="detail"><strong>環境:</strong> Hermes Gateway (port 8644)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">webhook</span><span class="badge">watch</span></div>
   </div>
 </div></div>
-    <div class="footer">総合ポータルサイト - Hermes Cron 一覧</div>
+    <div class="footer">総合ポータルサイト - Hermes Webhooks 一覧</div>
   </div>
 </body>
 </html>
