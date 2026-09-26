@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T22:22:50.719766",
+  "generated_at": "2026-09-27T06:31:35.635138",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -19,7 +19,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-09-26",
+        "updated": "2026-09-27",
         "secret_refs": [
           "GEMINI_API_KEY",
           "NOTION_TOKEN",
@@ -135,7 +135,7 @@
           "deploy_target": "Hermes Cron",
           "depends_on": [],
           "created": "2026-09-08",
-          "updated": "2026-09-26",
+          "updated": "2026-09-27",
           "secret_refs": [],
           "purpose": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
           "schedule": "every 1m",
@@ -258,7 +258,7 @@
         "deploy_target": "n8n (https://rands1984.ddns.net)",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-09-26",
+        "updated": "2026-09-27",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -272,6 +272,32 @@
     ],
     "oci": {
       "compute": [
+        {
+          "id": "instance-ocid1.in",
+          "name": "n8nインスタンスDocker",
+          "description": "OCI Compute Instance (VM.Standard.E2.1.Micro)",
+          "type": "oci-compute",
+          "status": "active",
+          "tags": [
+            "compute",
+            "oci",
+            "VM.Standard.E2.1.Micro"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2025-09-18",
+          "updated": "2026-09-27",
+          "secret_refs": [],
+          "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "RUNNING",
+          "shape": "VM.Standard.E2.1.Micro",
+          "subnet": "",
+          "public_ip": "",
+          "private_ip": ""
+        },
         {
           "id": "instance-vm-standard",
           "name": "OCI Compute Instance (VM.Standard.A1.Flex)",
@@ -300,9 +326,142 @@
           "private_ip": "10.0.0.x"
         }
       ],
-      "network": [],
-      "security": [],
-      "identity": []
+      "network": [
+        {
+          "id": "vcn-ocid1.vc",
+          "name": "vcn-n8n_instance",
+          "description": "OCI VCN (10.0.0.0/16)",
+          "type": "oci-network",
+          "status": "active",
+          "tags": [
+            "network",
+            "oci",
+            "vcn"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2025-09-16",
+          "updated": "2026-09-27",
+          "secret_refs": [],
+          "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "AVAILABLE",
+          "cidr_block": "10.0.0.0/16",
+          "subnets": [
+            {
+              "subnet_id": "ocid1.subnet.oc1.ap-osaka-1.aaaaaaaapwjm7mubmgokwfmr2cjh2s7m6xif6hucwjos6p7on6wc3x2o3xeq",
+              "cidr": "10.0.0.0/24",
+              "type": "public"
+            }
+          ]
+        }
+      ],
+      "security": [
+        {
+          "id": "security-list-ocid1.se",
+          "name": "Default Security List for vcn-n8n_instance",
+          "description": "OCI Security List (ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq)",
+          "type": "oci-security",
+          "status": "active",
+          "tags": [
+            "security",
+            "oci"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2025-09-16",
+          "updated": "2026-09-27",
+          "secret_refs": [],
+          "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "AVAILABLE",
+          "rules": [
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "22-22"
+            },
+            {
+              "direction": "ingress",
+              "protocol": "1",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": ""
+            },
+            {
+              "direction": "ingress",
+              "protocol": "1",
+              "source": "10.0.0.0/16",
+              "destination": "",
+              "ports": ""
+            },
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "80-80"
+            },
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "443-443"
+            },
+            {
+              "direction": "egress",
+              "protocol": "all",
+              "source": "",
+              "destination": "0.0.0.0/0",
+              "ports": ""
+            }
+          ]
+        }
+      ],
+      "identity": [
+        {
+          "id": "identity-root",
+          "name": "OCI Identity (Root)",
+          "description": "OCI IAM Policies, Groups, Users",
+          "type": "oci-identity",
+          "status": "active",
+          "tags": [
+            "identity",
+            "oci",
+            "iam"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "",
+          "updated": "2026-09-27",
+          "secret_refs": [],
+          "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "ACTIVE",
+          "policies": [
+            {
+              "name": "Tenant Admin Policy",
+              "statement": "ALLOW GROUP Administrators to manage all-resources IN TENANCY"
+            }
+          ],
+          "groups": [
+            "Administrators",
+            "All Domain Users"
+          ],
+          "users": [
+            "rands1984@gmail.com"
+          ]
+        }
+      ]
     }
   },
   "frequent_sites": [
