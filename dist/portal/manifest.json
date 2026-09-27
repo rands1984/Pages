@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T08:26:36.503977",
+  "generated_at": "2026-09-28T08:28:32.468657",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -502,11 +502,15 @@
       {
         "id": "apilib_v8_20250915",
         "name": "ApiLib_v8_20250915",
-        "overview": "GAS Script: ApiLib_v8_20250915",
+        "overview": "共通APIライブラリ v8。認証・リトライ・レート制御・ロギング・エラーハンドリング等の共通機能を提供。全GASプロジェクトで利用",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "library",
+          "api",
+          "common",
+          "utility",
+          "shared"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -614,11 +618,14 @@
       {
         "id": "20250515_api_library",
         "name": "20250515_API_Library",
-        "overview": "GAS Script: 20250515_API_Library",
+        "overview": "旧版共通APIライブラリ（2025/05/15作成）。認証・HTTPリクエスト・レスポンス処理等の基盤機能。順次 ApiLib_v8 へ移行中",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "library",
+          "api",
+          "legacy",
+          "deprecated"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
