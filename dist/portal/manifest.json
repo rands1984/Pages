@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T08:28:32.468657",
+  "generated_at": "2026-09-28T08:30:04.285099",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -1371,7 +1371,6 @@
       {
         "id": "drift-watch",
         "name": "n8n Drift Watch",
-        "description": "n8n ワークフローのドリフト(設定変更)を監視し、Discord に通知",
         "type": "n8n",
         "status": "active",
         "tags": [
@@ -1384,7 +1383,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1393,7 +1392,8 @@
         "active": true,
         "credentials_refs": [
           "N8N_API_KEY"
-        ]
+        ],
+        "overview": "n8n ワークフローのドリフト(設定変更)を監視し、Discord に通知"
       },
       {
         "id": "0rQkSW7gDtoGmoWR",
