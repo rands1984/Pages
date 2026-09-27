@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-27T23:07:45.000407",
+  "generated_at": "2026-09-28T07:21:13.680952",
   "version": "1.0",
   "tools": {
     "gas": [
       {
         "id": "moodmeter",
         "name": "MoodMeter",
-        "description": "GAS Script: MoodMeter",
+        "overview": "GAS Script: MoodMeter",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -16,12 +16,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv",
         "script_url": "https://script.google.com/d/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -29,7 +30,7 @@
       {
         "id": "sns自動投稿",
         "name": "SNS自動投稿",
-        "description": "GAS Script: SNS自動投稿",
+        "overview": "GAS Script: SNS自動投稿",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -39,12 +40,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF",
         "script_url": "https://script.google.com/d/1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -52,7 +54,7 @@
       {
         "id": "notion日記作成",
         "name": "Notion日記作成",
-        "description": "GAS Script: Notion日記作成",
+        "overview": "GAS Script: Notion日記作成",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -62,12 +64,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H",
         "script_url": "https://script.google.com/d/1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -75,7 +78,7 @@
       {
         "id": "calendertoline",
         "name": "calenderToLine",
-        "description": "GAS Script: calenderToLine",
+        "overview": "GAS Script: calenderToLine",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -85,12 +88,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp",
         "script_url": "https://script.google.com/d/1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -98,7 +102,7 @@
       {
         "id": "notionradionews",
         "name": "NotionRadioNews",
-        "description": "GAS Script: NotionRadioNews",
+        "overview": "GAS Script: NotionRadioNews",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -108,12 +112,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U",
         "script_url": "https://script.google.com/d/1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -121,7 +126,7 @@
       {
         "id": "持ち物リスト",
         "name": "持ち物リスト",
-        "description": "GAS Script: 持ち物リスト",
+        "overview": "GAS Script: 持ち物リスト",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -131,12 +136,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2",
         "script_url": "https://script.google.com/d/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -144,7 +150,7 @@
       {
         "id": "tagautotools",
         "name": "TagAutoTools",
-        "description": "GAS Script: TagAutoTools",
+        "overview": "GAS Script: TagAutoTools",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -154,12 +160,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR",
         "script_url": "https://script.google.com/d/1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -167,7 +174,7 @@
       {
         "id": "dashboard-spotify",
         "name": "dashboard-spotify",
-        "description": "GAS Script: dashboard-spotify",
+        "overview": "GAS Script: dashboard-spotify",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -177,12 +184,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3",
         "script_url": "https://script.google.com/d/1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -190,7 +198,7 @@
       {
         "id": "bookaddtonotion",
         "name": "bookAddToNotion",
-        "description": "GAS Script: bookAddToNotion",
+        "overview": "GAS Script: bookAddToNotion",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -200,12 +208,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5",
         "script_url": "https://script.google.com/d/1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -213,7 +222,7 @@
       {
         "id": "notionタスク登録",
         "name": "Notionタスク登録",
-        "description": "GAS Script: Notionタスク登録",
+        "overview": "GAS Script: Notionタスク登録",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -223,12 +232,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq",
         "script_url": "https://script.google.com/d/1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -236,7 +246,7 @@
       {
         "id": "transcriptiontool",
         "name": "TranscriptionTool",
-        "description": "GAS Script: TranscriptionTool",
+        "overview": "GAS Script: TranscriptionTool",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -246,12 +256,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
         "script_url": "https://script.google.com/d/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -259,7 +270,7 @@
       {
         "id": "notionpagetitleupdater",
         "name": "NotionPageTitleUpdater",
-        "description": "GAS Script: NotionPageTitleUpdater",
+        "overview": "GAS Script: NotionPageTitleUpdater",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -269,12 +280,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP",
         "script_url": "https://script.google.com/d/1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -282,7 +294,7 @@
       {
         "id": "notion登録",
         "name": "Notion登録",
-        "description": "GAS Script: Notion登録",
+        "overview": "GAS Script: Notion登録",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -292,12 +304,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP",
         "script_url": "https://script.google.com/d/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -305,7 +318,7 @@
       {
         "id": "discordtonotion",
         "name": "DiscordToNotion",
-        "description": "GAS Script: DiscordToNotion",
+        "overview": "GAS Script: DiscordToNotion",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -315,12 +328,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w",
         "script_url": "https://script.google.com/d/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -328,7 +342,7 @@
       {
         "id": "notionroutineops",
         "name": "NotionRoutineOps",
-        "description": "GAS Script: NotionRoutineOps",
+        "overview": "GAS Script: NotionRoutineOps",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -338,12 +352,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS",
         "script_url": "https://script.google.com/d/1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -351,7 +366,7 @@
       {
         "id": "apilib_v8_20250915",
         "name": "ApiLib_v8_20250915",
-        "description": "GAS Script: ApiLib_v8_20250915",
+        "overview": "GAS Script: ApiLib_v8_20250915",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -361,12 +376,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE",
         "script_url": "https://script.google.com/d/1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -374,7 +390,7 @@
       {
         "id": "spotifytools",
         "name": "SpotifyTools",
-        "description": "GAS Script: SpotifyTools",
+        "overview": "GAS Script: SpotifyTools",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -384,12 +400,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng",
         "script_url": "https://script.google.com/d/1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -397,7 +414,7 @@
       {
         "id": "notionwebhook",
         "name": "NotionWebhook",
-        "description": "GAS Script: NotionWebhook",
+        "overview": "GAS Script: NotionWebhook",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -407,12 +424,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X",
         "script_url": "https://script.google.com/d/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -420,7 +438,7 @@
       {
         "id": "bistonotion",
         "name": "BisTonotion",
-        "description": "GAS Script: BisTonotion",
+        "overview": "GAS Script: BisTonotion",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -430,12 +448,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ",
         "script_url": "https://script.google.com/d/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -443,7 +462,7 @@
       {
         "id": "20250515_api_library",
         "name": "20250515_API_Library",
-        "description": "GAS Script: 20250515_API_Library",
+        "overview": "GAS Script: 20250515_API_Library",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -453,12 +472,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4",
         "script_url": "https://script.google.com/d/15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -466,7 +486,7 @@
       {
         "id": "checklist-tool",
         "name": "Checklist Tool",
-        "description": "GAS Script: Checklist Tool",
+        "overview": "GAS Script: Checklist Tool",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -476,12 +496,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc",
         "script_url": "https://script.google.com/d/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -489,7 +510,7 @@
       {
         "id": "gas",
         "name": "GAS",
-        "description": "GAS Script: GAS",
+        "overview": "GAS Script: GAS",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -499,12 +520,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -512,7 +534,7 @@
       {
         "id": "dailynewspaper",
         "name": "DailyNewspaper",
-        "description": "GAS Script: DailyNewspaper",
+        "overview": "GAS Script: DailyNewspaper",
         "type": "gas",
         "status": "active",
         "tags": [
@@ -522,12 +544,13 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [],
         "script_id": "1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_",
         "script_url": "https://script.google.com/d/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/edit",
         "deployments": [],
         "triggers": [],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
         "libraries": []
@@ -535,50 +558,64 @@
       {
         "id": "gasportal",
         "name": "GASPortal",
-        "description": "Notion連携ポータルAPI・キャッシュ更新・タスク管理",
+        "overview": "Notion連携ポータルAPI・キャッシュ更新・タスク管理・メトリクス表示",
         "type": "gas",
         "status": "active",
         "tags": [
           "portal",
           "notion",
           "cache",
-          "task"
+          "task",
+          "metrics"
         ],
         "repo_url": "https://github.com/rands1984/Pages/tree/main/gas",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "GEMINI_API_KEY",
           "NOTION_TOKEN",
-          "DROPBOX_ACCESS_TOKEN"
+          "DROPBOX_ACCESS_TOKEN",
+          "N8N_API_KEY"
         ],
         "script_id": "1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q",
         "script_url": "https://script.google.com/d/1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q/edit",
         "deployments": [
           {
-            "deployment_id": "AKfycb...",
-            "url": "https://script.google.com/macros/s/AKfycb.../exec",
+            "deployment_id": "AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK",
+            "url": "https://script.google.com/macros/s/AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK/exec",
             "version": "42",
             "entry_point": "doGet",
-            "updated_at": "2026-09-20T10:00:00Z"
+            "updated_at": "2026-09-20T10:00:00Z",
+            "description": "Webアプリ公開版 (最新)"
           }
         ],
         "triggers": [
           {
             "function": "forceRefreshPortalData",
+            "handler": "forceRefreshPortalData",
             "event_type": "time-driven",
-            "schedule": "0 6 * * *"
+            "schedule": "0 6 * * *",
+            "timezone": "Asia/Tokyo"
           },
           {
             "function": "updatePortalCache",
-            "event_type": "http",
-            "schedule": "webhook"
+            "handler": "updatePortalCache",
+            "event_type": "time-driven",
+            "schedule": "0 */2 * * *",
+            "timezone": "Asia/Tokyo"
           }
         ],
+        "script_properties": {
+          "NOTION_N8N_EXECUTIONS_DB_ID": "Notion実行履歴DB ID",
+          "NOTION_TOKEN": "Notion API トークン",
+          "N8N_API_KEY": "n8n API キー",
+          "N8N_BASE_URL": "https://rands1984.ddns.net",
+          "GEMINI_API_KEY": "Gemini API キー"
+        },
         "spreadsheet_id": "",
-        "drive_folder_id": "",
+        "drive_folder_id": "1IMtkIqfDhSsi--MWMCpfgKu_qonreiod",
         "libraries": [
           "OAuth2",
           "ApiLib"
@@ -664,7 +701,7 @@
           "deploy_target": "Hermes Cron",
           "depends_on": [],
           "created": "2026-09-08",
-          "updated": "2026-09-27",
+          "updated": "2026-09-28",
           "secret_refs": [],
           "purpose": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
           "schedule": "every 1m",
@@ -774,15 +811,29 @@
       {
         "id": "GpU1WfKTfV0VNIr4",
         "name": "#調査依頼/Youtube解析 - TagAutoTools連携",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "Discord",
+          "HTTP Request",
+          "LangChain/AI",
+          "Notion",
+          "Set",
+          "Webhook",
+          "respondToWebhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-03-26",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -796,15 +847,28 @@
       {
         "id": "UDPXDclkhKkCe3Gz",
         "name": "Text-to-Speech to Google Drive",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "Set",
+          "convertFile",
+          "executeCommand",
+          "fileSystem",
+          "googleDrive",
+          "manualTrigger"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-29",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -818,15 +882,28 @@
       {
         "id": "r5sId3faDuDGpsBO",
         "name": "Text-to-Speech to Google Drive (v2)",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "Set",
+          "executeCommand",
+          "manualTrigger",
+          "moveBinaryData",
+          "readBinaryFile",
+          "writeBinaryFile"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-29",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -840,15 +917,25 @@
       {
         "id": "TPTt35EuOnZ6Udci",
         "name": "#賃貸/いい部屋ネット新着通知",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "IF",
+          "Webhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-08-24",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -862,15 +949,29 @@
       {
         "id": "gY9V7HWlJQJunmSA",
         "name": "Text-to-Speech to Google Drive",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "Set",
+          "executeCommand",
+          "googleDrive",
+          "manualTrigger",
+          "moveBinaryData",
+          "readBinaryFile",
+          "writeBinaryFile"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-29",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -884,15 +985,30 @@
       {
         "id": "elHq3IMpDwjor90L",
         "name": "音声ファイル要約→markdown保存",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "LangChain/AI",
+          "Notion",
+          "Set",
+          "box",
+          "boxTrigger",
+          "extractFromFile",
+          "manualTrigger"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-23",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -906,15 +1022,27 @@
       {
         "id": "NNJuKrE7GwAxE5Jq",
         "name": "#調査依頼/WEB解析 - TagAutoTools連携",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "LangChain/AI",
+          "Notion",
+          "Set",
+          "Webhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-03-31",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -928,15 +1056,26 @@
       {
         "id": "dqwNT6WB5DFajzsf",
         "name": "#Webクリップ/save-to-notion - スマホ共有",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "IF",
+          "Webhook",
+          "respondToWebhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-08-24",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -950,15 +1089,28 @@
       {
         "id": "mszvztEzWDmRdfGH",
         "name": "Youtube解析・まとめ (Final Fix)",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "LangChain/AI",
+          "Set",
+          "Webhook",
+          "respondToWebhook",
+          "stickyNote"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-03-23",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -972,15 +1124,26 @@
       {
         "id": "2HzZC7qRBUZyPJdn",
         "name": "音声ファイル要約",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "LangChain/AI",
+          "Notion",
+          "box",
+          "boxTrigger",
+          "manualTrigger"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-23",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -994,15 +1157,29 @@
       {
         "id": "drrw59J8NnJPJTMc",
         "name": "#調査依頼/WEB解析 - TagAutoTools連携",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "Discord",
+          "HTTP Request",
+          "LangChain/AI",
+          "Notion",
+          "Set",
+          "Webhook",
+          "respondToWebhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-03-31",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1043,15 +1220,31 @@
       {
         "id": "0rQkSW7gDtoGmoWR",
         "name": "仕事用_業務報告書",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "Merge",
+          "Notion",
+          "Set",
+          "SplitInBatches",
+          "box",
+          "boxTrigger",
+          "manualTrigger",
+          "spreadsheetFile"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-11-03",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1065,15 +1258,29 @@
       {
         "id": "dWEjZYh9qt08PUsK",
         "name": "My workflow 2",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "convertFile",
+          "executeCommand",
+          "googleDrive",
+          "inputUi",
+          "manualTrigger",
+          "readFileSystem",
+          "writeFileSystem"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-25",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1087,15 +1294,23 @@
       {
         "id": "6KuTXYhXiwOuGv2i",
         "name": "Test Workflow",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "itemsLists"
+        ],
+        "trigger_timing": {
+          "type": "unknown",
+          "description": "トリガータイプ不明"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-02",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1109,15 +1324,24 @@
       {
         "id": "SZc2mjM774ibn9U0",
         "name": "My workflow 4",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "readBinaryFile",
+          "start"
+        ],
+        "trigger_timing": {
+          "type": "unknown",
+          "description": "トリガータイプ不明"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-13",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1131,15 +1355,26 @@
       {
         "id": "xl04dJVNj7lK1aEP",
         "name": "My workflow 3",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "Notion",
+          "Webhook",
+          "respondToWebhook",
+          "xml"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook Trigger"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-09",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1153,15 +1388,24 @@
       {
         "id": "dGCP8m3LO9yMhEDU",
         "name": "Notion Page to Text",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Notion",
+          "Set",
+          "Webhook"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-30",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1175,15 +1419,30 @@
       {
         "id": "KbeAkqcFR5eVhhse",
         "name": "RSS音声ニュース作成",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "Notion",
+          "Set",
+          "SplitInBatches",
+          "box",
+          "dropbox",
+          "notionTrigger",
+          "summarize"
+        ],
+        "trigger_timing": {
+          "type": "unknown",
+          "description": "トリガータイプ不明"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-29",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1197,15 +1456,26 @@
       {
         "id": "qrpbEyadbqVBD8zA",
         "name": "Podcastフィード取得",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "active",
+        "services": [
+          "Code",
+          "Notion",
+          "Webhook",
+          "respondToWebhook",
+          "xml"
+        ],
+        "trigger_timing": {
+          "type": "webhook",
+          "description": "Webhook: Webhook Trigger1"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-10",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1219,15 +1489,29 @@
       {
         "id": "ZRizkI2hAmxxpPjh",
         "name": "Youtube動画分析・要約作成(n8n・antigravity)",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "Google Sheets",
+          "HTTP Request",
+          "LangChain/AI",
+          "Notion",
+          "Set",
+          "rssFeedReadTrigger",
+          "stickyNote"
+        ],
+        "trigger_timing": {
+          "type": "unknown",
+          "description": "トリガータイプ不明"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-12-13",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1241,15 +1525,23 @@
       {
         "id": "eunjca9XoTgoDvTi",
         "name": "Generate Speech Workflow",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "HTTP Request",
+          "manualTrigger"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-29",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1263,15 +1555,28 @@
       {
         "id": "F8YecrJ7wwVShTU4",
         "name": "DropBoxCreateLink",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "Notion",
+          "SplitInBatches",
+          "box",
+          "scheduleTrigger"
+        ],
+        "trigger_timing": {
+          "type": "cron",
+          "cron_expression": "",
+          "description": "定期実行: 設定確認要"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-18",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1285,15 +1590,24 @@
       {
         "id": "0zcpnkWa1ZLWlO2U",
         "name": "My workflow",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "executeCommand",
+          "manualTrigger",
+          "readWriteFile"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-22",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1307,15 +1621,25 @@
       {
         "id": "4ZGonybQZvTLBOsP",
         "name": "GoogleDriveWavToBOXMp3",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Set",
+          "box",
+          "executeCommand",
+          "googleDrive"
+        ],
+        "trigger_timing": {
+          "type": "unknown",
+          "description": "トリガータイプ不明"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-09-23",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1329,15 +1653,31 @@
       {
         "id": "AvojAYQUMSaMGCpV",
         "name": "【サンプル】TikTok向け短尺ニュース動画作成",
-        "description": "",
+        "overview": "",
         "type": "n8n",
         "status": "archived",
+        "services": [
+          "Code",
+          "HTTP Request",
+          "IF",
+          "LangChain/AI",
+          "Set",
+          "executeCommand",
+          "manualTrigger",
+          "readWriteFile",
+          "stickyNote",
+          "wait"
+        ],
+        "trigger_timing": {
+          "type": "manual",
+          "description": "手動実行"
+        },
         "tags": [],
         "repo_url": "",
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2025-10-17",
-        "updated": "2026-09-27",
+        "updated": "2026-09-28",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -1366,7 +1706,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-18",
-          "updated": "2026-09-27",
+          "updated": "2026-09-28",
           "secret_refs": [],
           "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -1421,7 +1761,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-09-27",
+          "updated": "2026-09-28",
           "secret_refs": [],
           "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -1452,7 +1792,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-09-27",
+          "updated": "2026-09-28",
           "secret_refs": [],
           "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -1520,7 +1860,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "",
-          "updated": "2026-09-27",
+          "updated": "2026-09-28",
           "secret_refs": [],
           "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
