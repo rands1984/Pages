@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T07:21:13.680952",
+  "generated_at": "2026-09-28T08:22:47.529121",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -811,7 +811,7 @@
       {
         "id": "GpU1WfKTfV0VNIr4",
         "name": "#調査依頼/Youtube解析 - TagAutoTools連携",
-        "overview": "",
+        "overview": "YouTube動画を解析し、要約やタグ生成を行うワークフロー",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -847,7 +847,7 @@
       {
         "id": "UDPXDclkhKkCe3Gz",
         "name": "Text-to-Speech to Google Drive",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -882,7 +882,7 @@
       {
         "id": "r5sId3faDuDGpsBO",
         "name": "Text-to-Speech to Google Drive (v2)",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -917,7 +917,7 @@
       {
         "id": "TPTt35EuOnZ6Udci",
         "name": "#賃貸/いい部屋ネット新着通知",
-        "overview": "",
+        "overview": "賃貸物件の新着情報を監視し、条件合致時に通知",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -949,7 +949,7 @@
       {
         "id": "gY9V7HWlJQJunmSA",
         "name": "Text-to-Speech to Google Drive",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -985,7 +985,7 @@
       {
         "id": "elHq3IMpDwjor90L",
         "name": "音声ファイル要約→markdown保存",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1022,7 +1022,7 @@
       {
         "id": "NNJuKrE7GwAxE5Jq",
         "name": "#調査依頼/WEB解析 - TagAutoTools連携",
-        "overview": "",
+        "overview": "Webページを解析し、情報抽出・要約を行うワークフロー",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1056,7 +1056,7 @@
       {
         "id": "dqwNT6WB5DFajzsf",
         "name": "#Webクリップ/save-to-notion - スマホ共有",
-        "overview": "",
+        "overview": "Webクリップ・共有コンテンツをNotionに保存",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1089,7 +1089,7 @@
       {
         "id": "mszvztEzWDmRdfGH",
         "name": "Youtube解析・まとめ (Final Fix)",
-        "overview": "",
+        "overview": "YouTube動画を解析し、要約やタグ生成を行うワークフロー",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1124,7 +1124,7 @@
       {
         "id": "2HzZC7qRBUZyPJdn",
         "name": "音声ファイル要約",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1157,7 +1157,7 @@
       {
         "id": "drrw59J8NnJPJTMc",
         "name": "#調査依頼/WEB解析 - TagAutoTools連携",
-        "overview": "",
+        "overview": "Webページを解析し、情報抽出・要約を行うワークフロー",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1220,7 +1220,7 @@
       {
         "id": "0rQkSW7gDtoGmoWR",
         "name": "仕事用_業務報告書",
-        "overview": "",
+        "overview": "仕事用_業務報告書 - Code, HTTP Request, Merge を使用、手動実行",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1258,7 +1258,7 @@
       {
         "id": "dWEjZYh9qt08PUsK",
         "name": "My workflow 2",
-        "overview": "",
+        "overview": "My workflow 2 - HTTP Request, convertFile, executeCommand を使用、手動実行",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1294,7 +1294,7 @@
       {
         "id": "6KuTXYhXiwOuGv2i",
         "name": "Test Workflow",
-        "overview": "",
+        "overview": "テスト用ワークフロー",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1324,7 +1324,7 @@
       {
         "id": "SZc2mjM774ibn9U0",
         "name": "My workflow 4",
-        "overview": "",
+        "overview": "My workflow 4 - HTTP Request, readBinaryFile, start を使用",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1355,7 +1355,7 @@
       {
         "id": "xl04dJVNj7lK1aEP",
         "name": "My workflow 3",
-        "overview": "",
+        "overview": "My workflow 3 - Code, Notion, Webhook を使用、Webhook受信で実行",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1388,7 +1388,7 @@
       {
         "id": "dGCP8m3LO9yMhEDU",
         "name": "Notion Page to Text",
-        "overview": "",
+        "overview": "Notion Page to Text - Notion, Set, Webhook を使用、Webhook受信で実行",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1419,7 +1419,7 @@
       {
         "id": "KbeAkqcFR5eVhhse",
         "name": "RSS音声ニュース作成",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1456,7 +1456,7 @@
       {
         "id": "qrpbEyadbqVBD8zA",
         "name": "Podcastフィード取得",
-        "overview": "",
+        "overview": "Podcastフィードを取得し、新着エピソードをNotion等に記録",
         "type": "n8n",
         "status": "active",
         "services": [
@@ -1489,7 +1489,7 @@
       {
         "id": "ZRizkI2hAmxxpPjh",
         "name": "Youtube動画分析・要約作成(n8n・antigravity)",
-        "overview": "",
+        "overview": "YouTube動画を解析し、要約やタグ生成を行うワークフロー",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1525,7 +1525,7 @@
       {
         "id": "eunjca9XoTgoDvTi",
         "name": "Generate Speech Workflow",
-        "overview": "",
+        "overview": "音声ファイルを文字起こし・要約し、Markdown保存またはDiscord通知",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1555,7 +1555,7 @@
       {
         "id": "F8YecrJ7wwVShTU4",
         "name": "DropBoxCreateLink",
-        "overview": "",
+        "overview": "Dropbox ファイル操作・リンク作成・同期を行うワークフロー",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1590,7 +1590,7 @@
       {
         "id": "0zcpnkWa1ZLWlO2U",
         "name": "My workflow",
-        "overview": "",
+        "overview": "My workflow - executeCommand, manualTrigger, readWriteFile を使用、手動実行",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1621,7 +1621,7 @@
       {
         "id": "4ZGonybQZvTLBOsP",
         "name": "GoogleDriveWavToBOXMp3",
-        "overview": "",
+        "overview": "Google Drive のファイルを処理・変換し、別ストレージに保存",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1653,7 +1653,7 @@
       {
         "id": "AvojAYQUMSaMGCpV",
         "name": "【サンプル】TikTok向け短尺ニュース動画作成",
-        "overview": "",
+        "overview": "RSSフィードを取得し、音声ニュースや要約を作成",
         "type": "n8n",
         "status": "archived",
         "services": [
@@ -1913,16 +1913,6 @@
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
       "icon": "bitwarden"
-    },
-    {
-      "name": "Hermes Dashboard",
-      "url": "https://dashboard.rands1984.dpdns.org/sessions",
-      "icon": "hermes"
-    },
-    {
-      "name": "Monitoring Dashboard",
-      "url": "https://monitor.rands1984.dpdns.org/",
-      "icon": "monitor"
     }
   ],
   "categories": [
