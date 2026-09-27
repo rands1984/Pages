@@ -1,16 +1,19 @@
 {
-  "generated_at": "2026-09-28T08:24:29.469711",
+  "generated_at": "2026-09-28T08:26:36.503977",
   "version": "1.0",
   "tools": {
     "gas": [
       {
         "id": "moodmeter",
         "name": "MoodMeter",
-        "overview": "GAS Script: MoodMeter",
+        "overview": "気分記録・可視化ツール。日次気分スコアをスプレッドシートに記録、チャート生成、傾向分析",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "mood",
+          "tracking",
+          "spreadsheet",
+          "chart"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -1602,8 +1605,8 @@
           "summarize"
         ],
         "trigger_timing": {
-          "type": "unknown",
-          "description": "トリガータイプ不明"
+          "type": "notion-trigger",
+          "description": "Notionデータベース変更時"
         },
         "tags": [],
         "repo_url": "",
@@ -1671,8 +1674,8 @@
           "stickyNote"
         ],
         "trigger_timing": {
-          "type": "unknown",
-          "description": "トリガータイプ不明"
+          "type": "rss",
+          "description": "RSSフィード更新時"
         },
         "tags": [],
         "repo_url": "",
