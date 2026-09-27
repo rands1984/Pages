@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T06:31:35.635138",
+  "generated_at": "2026-09-27T22:07:45.663346",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -494,16 +494,6 @@
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
       "icon": "bitwarden"
-    },
-    {
-      "name": "Hermes Dashboard",
-      "url": "https://dashboard.rands1984.dpdns.org/sessions",
-      "icon": "hermes"
-    },
-    {
-      "name": "Monitoring Dashboard",
-      "url": "https://monitor.rands1984.dpdns.org/",
-      "icon": "monitor"
     }
   ],
   "categories": [
