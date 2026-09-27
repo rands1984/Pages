@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T08:22:47.529121",
+  "generated_at": "2026-09-28T08:24:29.469711",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -30,22 +30,38 @@
       {
         "id": "sns自動投稿",
         "name": "SNS自動投稿",
-        "overview": "GAS Script: SNS自動投稿",
+        "overview": "Notionデータベースの投稿候補から、Twitter/X・Discord・Slack等へ自動投稿。スケジュール実行対応",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "sns",
+          "auto-post",
+          "notion",
+          "twitter",
+          "discord"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "TWITTER_API_KEY",
+          "TWITTER_API_SECRET",
+          "DISCORD_WEBHOOK_URL"
+        ],
         "script_id": "1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF",
         "script_url": "https://script.google.com/d/1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "postScheduled",
+            "handler": "postScheduled",
+            "event_type": "time-driven",
+            "schedule": "0 9 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -54,22 +70,35 @@
       {
         "id": "notion日記作成",
         "name": "Notion日記作成",
-        "overview": "GAS Script: Notion日記作成",
+        "overview": "テンプレートから日次・週次・月次日記ページをNotionに自動作成。プロパティ自動設定",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "notion",
+          "diary",
+          "daily",
+          "template"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H",
         "script_url": "https://script.google.com/d/1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "createDailyDiary",
+            "handler": "createDailyDiary",
+            "event_type": "time-driven",
+            "schedule": "0 0 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -78,22 +107,35 @@
       {
         "id": "calendertoline",
         "name": "calenderToLine",
-        "overview": "GAS Script: calenderToLine",
+        "overview": "Googleカレンダーの予定を取得し、LINE Notify でリマインド通知送信",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "calendar",
+          "line",
+          "remind",
+          "notify"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "LINE_NOTIFY_TOKEN"
+        ],
         "script_id": "1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp",
         "script_url": "https://script.google.com/d/1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "sendReminders",
+            "handler": "sendReminders",
+            "event_type": "time-driven",
+            "schedule": "0 7 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -102,22 +144,37 @@
       {
         "id": "notionradionews",
         "name": "NotionRadioNews",
-        "overview": "GAS Script: NotionRadioNews",
+        "overview": "RSSフィードからニュース取得、音声合成(Google TTS/AWS Polly)でラジオ風ニュース作成、Notion保存",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "rss",
+          "news",
+          "tts",
+          "audio",
+          "notion"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN",
+          "GOOGLE_TTS_KEY"
+        ],
         "script_id": "1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U",
         "script_url": "https://script.google.com/d/1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "generateNews",
+            "handler": "generateNews",
+            "event_type": "time-driven",
+            "schedule": "0 6 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -126,11 +183,13 @@
       {
         "id": "持ち物リスト",
         "name": "持ち物リスト",
-        "overview": "GAS Script: 持ち物リスト",
+        "overview": "旅行・出張用の持ち物チェックリストをスプレッドシート管理。カテゴリ別集計・不足検知",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "checklist",
+          "travel",
+          "spreadsheet"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -140,7 +199,15 @@
         "secret_refs": [],
         "script_id": "1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2",
         "script_url": "https://script.google.com/d/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "webapp",
+            "url": "https://script.google.com/macros/s/.../exec",
+            "version": "1",
+            "entry_point": "doGet",
+            "description": "Webアプリ版"
+          }
+        ],
         "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
@@ -150,18 +217,24 @@
       {
         "id": "tagautotools",
         "name": "TagAutoTools",
-        "overview": "GAS Script: TagAutoTools",
+        "overview": "Notion/データベースのタグ自動付与・正規化・階層化。キーワードマッチ・AI分類対応",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "tag",
+          "auto-tag",
+          "notion",
+          "classification"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN",
+          "OPENAI_API_KEY"
+        ],
         "script_id": "1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR",
         "script_url": "https://script.google.com/d/1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR/edit",
         "deployments": [],
@@ -174,18 +247,25 @@
       {
         "id": "dashboard-spotify",
         "name": "dashboard-spotify",
-        "overview": "GAS Script: dashboard-spotify",
+        "overview": "Spotify API で再生履歴・お気に入り取得、ダッシュボード用データ生成・Notion同期",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "spotify",
+          "dashboard",
+          "music",
+          "notion"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "SPOTIFY_CLIENT_ID",
+          "SPOTIFY_CLIENT_SECRET",
+          "NOTION_TOKEN"
+        ],
         "script_id": "1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3",
         "script_url": "https://script.google.com/d/1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3/edit",
         "deployments": [],
@@ -198,18 +278,24 @@
       {
         "id": "bookaddtonotion",
         "name": "bookAddToNotion",
-        "overview": "GAS Script: bookAddToNotion",
+        "overview": "ISBN/書籍情報から書誌データ取得(Google Books API/楽天API)、Notion読書管理DBに登録",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "book",
+          "isbn",
+          "notion",
+          "reading"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN",
+          "GOOGLE_BOOKS_API_KEY"
+        ],
         "script_id": "1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5",
         "script_url": "https://script.google.com/d/1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5/edit",
         "deployments": [],
@@ -222,22 +308,34 @@
       {
         "id": "notionタスク登録",
         "name": "Notionタスク登録",
-        "overview": "GAS Script: Notionタスク登録",
+        "overview": "Webhook/LINE/メールからタスク受信、NotionタスクDBに自動登録。優先度・期日・タグ自動設定",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "task",
+          "notion",
+          "webhook",
+          "automation"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq",
         "script_url": "https://script.google.com/d/1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "onWebhook",
+            "handler": "onWebhook",
+            "event_type": "webhook",
+            "schedule": ""
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -246,18 +344,24 @@
       {
         "id": "transcriptiontool",
         "name": "TranscriptionTool",
-        "overview": "GAS Script: TranscriptionTool",
+        "overview": "音声ファイル(Google Drive/ローカル)をWhisper/Geminiで文字起こし、話者分離・要約付きでMarkdown出力",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "transcription",
+          "whisper",
+          "gemini",
+          "audio"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "OPENAI_API_KEY",
+          "GEMINI_API_KEY"
+        ],
         "script_id": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
         "script_url": "https://script.google.com/d/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/edit",
         "deployments": [],
@@ -270,18 +374,23 @@
       {
         "id": "notionpagetitleupdater",
         "name": "NotionPageTitleUpdater",
-        "overview": "GAS Script: NotionPageTitleUpdater",
+        "overview": "Notionデータベースのページタイトルを、プロパティ値(日付・ステータス等)に基づき自動更新",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "notion",
+          "title",
+          "auto-update",
+          "database"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP",
         "script_url": "https://script.google.com/d/1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP/edit",
         "deployments": [],
@@ -294,18 +403,23 @@
       {
         "id": "notion登録",
         "name": "Notion登録",
-        "overview": "GAS Script: Notion登録",
+        "overview": "各種フォーム・WebhookからのデータをNotion各種DBに登録。リレーション・セレクト自動マッピング",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "notion",
+          "webhook",
+          "form",
+          "database"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP",
         "script_url": "https://script.google.com/d/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/edit",
         "deployments": [],
@@ -318,18 +432,24 @@
       {
         "id": "discordtonotion",
         "name": "DiscordToNotion",
-        "overview": "GAS Script: DiscordToNotion",
+        "overview": "Discordメッセージ(特定チャンネル/リアクション)をトリガーに、Notionページ/DB項目作成",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "discord",
+          "notion",
+          "bot",
+          "webhook"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "DISCORD_BOT_TOKEN",
+          "NOTION_TOKEN"
+        ],
         "script_id": "1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w",
         "script_url": "https://script.google.com/d/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/edit",
         "deployments": [],
@@ -342,22 +462,35 @@
       {
         "id": "notionroutineops",
         "name": "NotionRoutineOps",
-        "overview": "GAS Script: NotionRoutineOps",
+        "overview": "NotionルーチンDBの繰り返しタスク自動展開・期日設定・完了時の次回自動作成",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "notion",
+          "routine",
+          "recurring",
+          "task"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS",
         "script_url": "https://script.google.com/d/1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "expandRoutines",
+            "handler": "expandRoutines",
+            "event_type": "time-driven",
+            "schedule": "0 0 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
@@ -390,18 +523,24 @@
       {
         "id": "spotifytools",
         "name": "SpotifyTools",
-        "overview": "GAS Script: SpotifyTools",
+        "overview": "Spotify API 操作ユーティリティ。プレイリスト操作・楽曲検索・音声特徴取得等",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "spotify",
+          "library",
+          "api",
+          "music"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "SPOTIFY_CLIENT_ID",
+          "SPOTIFY_CLIENT_SECRET"
+        ],
         "script_id": "1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng",
         "script_url": "https://script.google.com/d/1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng/edit",
         "deployments": [],
@@ -414,18 +553,23 @@
       {
         "id": "notionwebhook",
         "name": "NotionWebhook",
-        "overview": "GAS Script: NotionWebhook",
+        "overview": "Notionデータベース変更を検知し、Webhookで外部システム(n8n等)へ通知",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "notion",
+          "webhook",
+          "sync",
+          "trigger"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X",
         "script_url": "https://script.google.com/d/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/edit",
         "deployments": [],
@@ -438,18 +582,23 @@
       {
         "id": "bistonotion",
         "name": "BisTonotion",
-        "overview": "GAS Script: BisTonotion",
+        "overview": "Bis(ビジネス情報)スクレイピング結果をNotionDBに構造化保存",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "scraping",
+          "notion",
+          "business",
+          "data"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
         "script_id": "1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ",
         "script_url": "https://script.google.com/d/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/edit",
         "deployments": [],
@@ -486,18 +635,23 @@
       {
         "id": "checklist-tool",
         "name": "Checklist Tool",
-        "overview": "GAS Script: Checklist Tool",
+        "overview": "汎用チェックリスト管理。テンプレートからインスタンス生成、進捗追跡、Slack通知",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "checklist",
+          "template",
+          "progress",
+          "slack"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "SLACK_WEBHOOK_URL"
+        ],
         "script_id": "1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc",
         "script_url": "https://script.google.com/d/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/edit",
         "deployments": [],
@@ -510,11 +664,12 @@
       {
         "id": "gas",
         "name": "GAS",
-        "overview": "GAS Script: GAS",
+        "overview": "汎用GASスクリプトテンプレート・実験用",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "template",
+          "test"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -534,22 +689,35 @@
       {
         "id": "dailynewspaper",
         "name": "DailyNewspaper",
-        "overview": "GAS Script: DailyNewspaper",
+        "overview": "複数ニュースソース(RSS/NewsAPI)から記事収集、重要度スコアリング、日次サマリー生成・配信",
         "type": "gas",
         "status": "active",
         "tags": [
-          "gas"
+          "news",
+          "rss",
+          "summary",
+          "daily"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-09-28",
-        "secret_refs": [],
+        "secret_refs": [
+          "NEWS_API_KEY"
+        ],
         "script_id": "1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_",
         "script_url": "https://script.google.com/d/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/edit",
         "deployments": [],
-        "triggers": [],
+        "triggers": [
+          {
+            "function": "generateDailyPaper",
+            "handler": "generateDailyPaper",
+            "event_type": "time-driven",
+            "schedule": "0 5 * * *",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
