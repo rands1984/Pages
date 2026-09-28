@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T12:35:13.177515",
+  "generated_at": "2026-09-28T12:40:25.382426",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -4886,6 +4886,36 @@
           "type": "hermes-program"
         },
         {
+          "id": "hermes-dashboard",
+          "name": "Hermes Dashboard",
+          "purpose": "Hermes ダッシュボード",
+          "script_type": "python",
+          "script_path": ".hermes/scripts/hermes_dashboard.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "secretary-dashboard",
+          "name": "Secretary Dashboard",
+          "purpose": "秘書ダッシュボード更新（30分毎）",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "*/30 * * * *",
+          "related_cron": "d56ccad8d1d0",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_dashboard.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "evening-reflection-to-discord",
+          "name": "Evening Reflection To Discord",
+          "purpose": "夜の思考メモをDiscord送信",
+          "script_type": "python",
+          "script_path": ".hermes/scripts/evening_reflection_to_discord.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "repair-manifest",
           "name": "Repair Manifest",
           "purpose": "マニフェスト修復・検証",
@@ -4904,12 +4934,87 @@
           "type": "hermes-program"
         },
         {
+          "id": "monitor-oci",
+          "name": "OCI Monitor",
+          "purpose": "OCIサーバー監視（5分毎）",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "*/5 * * * *",
+          "related_cron": "50045682b2ff",
+          "script_path": ".hermes.backup.20260903_154956/scripts/monitor_oci.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "wiki-repair-links",
+          "name": "Wiki Repair Links",
+          "purpose": "LLM Wiki リンク修復",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_repair_links.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "eheya-bridge",
+          "name": "Eheya Bridge",
+          "purpose": "いい部屋ネット新着通知",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 11 * * *",
+          "related_cron": "2a82d226958d",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_bridge.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "notify-helper",
           "name": "Notify Helper",
           "purpose": "通知ヘルパー",
           "script_path": ".hermes/scripts/notify.py",
           "script_type": "python",
           "role": "helper",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "wiki-lint",
+          "name": "Wiki Lint",
+          "purpose": "LLM Wiki リント（週1）",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 21 * * 0",
+          "related_cron": "f5c461127482",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_lint.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "evening-memo-review-send",
+          "name": "Evening Memo Review Send",
+          "purpose": "夕方メモレビュー送信",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/evening_memo_review_send.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "recipe-crawl",
+          "name": "Recipe Crawl",
+          "purpose": "レシピクロール日次",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 22 * * *",
+          "related_cron": "3e7bec674a8d",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/cooking/recipe_crawl.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "secretary-calendar-all",
+          "name": "Secretary Calendar All",
+          "purpose": "秘書カレンダー全取得",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_calendar_all.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -4923,11 +5028,50 @@
           "type": "hermes-program"
         },
         {
+          "id": "unified-monitor",
+          "name": "Unified Monitor",
+          "purpose": "統合監視",
+          "script_type": "python",
+          "script_path": ".hermes/scripts/unified_monitor.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "fix-manifest",
           "name": "Fix Manifest",
           "purpose": "マニフェスト修正",
           "script_type": "python",
           "script_path": "fix_manifest.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "eheya-notifier",
+          "name": "Eheya Notifier",
+          "purpose": "いい部屋ネット通知本体",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_notifier.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "thread-monitor",
+          "name": "Thread Monitor",
+          "purpose": "スレッド進捗監視（2時間毎）",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 */2 * * *",
+          "related_cron": "e130dbb6a477",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/thread_monitor.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "morning-memo-review-send",
+          "name": "Morning Memo Review Send",
+          "purpose": "朝メモレビュー送信",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_memo_review_send.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -4941,11 +5085,41 @@
           "type": "hermes-program"
         },
         {
+          "id": "morning-reflection-to-discord",
+          "name": "Morning Reflection To Discord",
+          "purpose": "朝の思考メモをDiscord送信",
+          "script_type": "python",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_reflection_to_discord.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "build-manifest",
           "name": "Build Manifest",
           "purpose": "マニフェスト生成",
           "script_path": "build_manifest.py",
           "script_type": "python",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "hermes-health-check",
+          "name": "Hermes Health Check",
+          "purpose": "Hermes ヘルスチェック",
+          "script_type": "python",
+          "script_path": ".hermes/scripts/hermes_health_check.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "deadline-notifier",
+          "name": "Deadline Notifier",
+          "purpose": "期限アラート通知",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 9 * * *",
+          "related_cron": "55ec6e6351f4",
+          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/deadline_notifier.py",
           "portal_html": "",
           "type": "hermes-program"
         }
