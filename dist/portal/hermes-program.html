@@ -46,7 +46,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Computer] Hermes Programs</h1>
-      <div class="meta">25件 - 更新: 2026-09-28 18:23</div>
+      <div class="meta">25件 - 更新: 2026-09-28 18:58</div>
       <a href="../" class="back-link">[Back] ポータルに戻る</a>
     </div>
     <div class="desc">Hermes Agent のプログラム。複数スキル・Cron・Webhookを組み合わせたエンドツーエンドの処理フロー。</div>
@@ -56,10 +56,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/watch-audio-main.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -67,10 +67,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/hermes-dashboard.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Hermes自身のダッシュボード（セッション・スキル・Cron・Webhook状態）を生成・更新。Hermes TUI/Webダッシュボード用データ提供。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">hermes</span><span class="badge">dashboard</span><span class="badge">monitoring</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -78,10 +78,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/secretary-dashboard.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 秘書機能のダッシュボードデータを更新。カレンダー・タスク・メモ等を集約し、Discord用の表示データを生成。30分毎のcronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">secretary</span><span class="badge">dashboard</span><span class="badge">google-workspace</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -89,10 +89,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/evening-reflection-to-discord.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 夜の思考メモ（振り返り・感謝・改善点）を整形し、Discordチャンネルに投稿。1日の締めくくり習慣支援。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">reflection</span><span class="badge">journaling</span><span class="badge">discord</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -100,10 +100,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/repair-manifest.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> manifest.jsonの破損・不整合を検出・修復。バックアップからの復旧・スキーマ準拠強制等を実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">repair</span><span class="badge">recovery</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -111,10 +111,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/fix-manifest2.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> manifest.json修正 v2。より高度な整合性チェック・自動修正・差分レポート出力に対応。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">v2</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -122,10 +122,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/monitor-oci.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> OCIインスタンス・ネットワーク・セキュリティ設定を定期監視し、異常検知時はDiscord通知。5分毎のcronで実行。oci-cliを使用。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">oci</span><span class="badge">monitoring</span><span class="badge">infrastructure</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -133,10 +133,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/wiki-repair-links.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> LLM Wikiの壊れたwikilinkを自動修復。リネーム・移動されたページへの参照を追跡し、正しいリンクに書き換え。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">wiki</span><span class="badge">repair</span><span class="badge">wikilink</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -144,10 +144,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/eheya-bridge.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> いい部屋ネットの新着物件をスクレイピングし、既存データと差分比較して新着のみDiscord通知。日次cronで実行。no-agentモードでスクリプトstdoutを直接配信。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">scraping</span><span class="badge">real-estate</span><span class="badge">discord</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -155,10 +155,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/notify-helper.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Discord通知の共通ヘルパー関数。Webhook送信・埋め込み生成・レート制限対応等を提供。各プログラムからimport利用。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">notification</span><span class="badge">helper</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -166,10 +166,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/wiki-lint.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> LLM Wikiの整合性チェック：孤立ページ・壊れたリンク・フロントマター不備・タグ未登録等を検出しレポート。週次日曜cronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">wiki</span><span class="badge">lint</span><span class="badge">markdown</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -177,10 +177,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/evening-memo-review-send.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 夕方のメモ・思考ログをレビューし、1日の振り返り・翌日の準備項目を抽出してDiscord送信。日次cronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">evening</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -188,10 +188,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/recipe-crawl.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 料理レシピサイトをクロールし、構造化データとしてNotion/Wikiに保存。日次cronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">crawling</span><span class="badge">recipe</span><span class="badge">notion</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -199,10 +199,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/secretary-calendar-all.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Google Calendar全カレンダーの予定を取得・統合し、秘書機能用の統一スケジュールデータを生成。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">secretary</span><span class="badge">calendar</span><span class="badge">google-workspace</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -210,10 +210,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/create-notion-page.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Notion API経由でページを作成・更新。テンプレート適用・プロパティ自動設定・親ページ指定等を支援。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">api</span><span class="badge">page-create</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -221,10 +221,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/unified-monitor.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 複数監視対象（サーバー・サービス・API・データベース）を統合監視し、ダッシュボード・アラートを一元管理。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">monitoring</span><span class="badge">unified</span><span class="badge">dashboard</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -232,10 +232,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/fix-manifest.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> manifest.jsonの不整合を修正。重複ID・欠損フィールド・スキーマ違反等を自動検出・修正。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">validation</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -243,10 +243,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/eheya-notifier.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> いい部屋ネット通知の本体処理。物件詳細取得・画像収集・フォーマット整形・Discord埋め込み生成を担当。eheya-bridgeから呼び出し。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">real-estate</span><span class="badge">notification</span><span class="badge">discord</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -254,10 +254,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/thread-monitor.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Discordスレッドの進捗を監視し、未完了・期限切れ等を検知して通知。2時間毎のcronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">monitoring</span><span class="badge">thread</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -265,10 +265,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/morning-memo-review-send.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 朝のメモ・思考ログをレビューし、重要項目を抽出してDiscord送信。日次cronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">morning</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -276,10 +276,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/reparse-manifest.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> manifest.jsonを再解析・正規化。フィールド順序統一・型変換・デフォルト値補完等を実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">reparse</span><span class="badge">normalize</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -287,10 +287,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/morning-reflection-to-discord.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 朝の思考メモ（journaling）を整形し、Discordチャンネルに投稿。習慣化支援・振り返り促進。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">reflection</span><span class="badge">journaling</span><span class="badge">discord</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -298,10 +298,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/build-manifest.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> ツールレジストリのmanifest.jsonを生成。全mdファイルをスキャンし、ポータル用統合インデックスを作成。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">build</span><span class="badge">portal</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -309,10 +309,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/hermes-health-check.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> Hermesエージェントのヘルスチェック：プロセス生存・API応答・ディスク容量・メモリ使用量等を監視。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">hermes</span><span class="badge">health-check</span><span class="badge">monitoring</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -320,10 +320,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/deadline-notifier.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>説明:</strong> 各種期限（タスク・課題・支払い等）を監視し、期限接近・超過時にDiscord通知。日次cronで実行。</div>
     
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-    <div class="detail"><strong>タグ:</strong> </div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">deadline</span><span class="badge">notification</span><span class="badge">discord</span></div>
   </div>
 </div></div>
     <div class="footer">総合ポータルサイト - Hermes Programs 一覧</div>

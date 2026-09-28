@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T12:40:25.382426",
+  "generated_at": "2026-09-28T18:58:10.843812",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -857,6 +857,32 @@
           "purpose": "Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).",
           "skill_dir": "creative/excalidraw",
           "id": "excalidraw",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "hermes-program-collection",
+          "description": "Collect Hermes programs from known_programs registry only.",
+          "version": "1.0.0",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "hermes",
+                "program",
+                "collection",
+                "automation"
+              ],
+              "related_skills": [
+                "tools-registry-sync",
+                "hermes-profile-cron-collection"
+              ]
+            }
+          },
+          "purpose": "Collect Hermes Programs using explicit known_programs registry to avoid noise from auto-detection",
+          "skill_dir": "devops/hermes-program-collection",
+          "id": "hermes-program-collection",
           "type": "hermes-skill"
         },
         {
@@ -4883,7 +4909,18 @@
           ],
           "related_cron": "watch-audio-processor",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。",
+          "status": "active",
+          "tags": [
+            "audio",
+            "transcription",
+            "whisper",
+            "discord",
+            "wiki",
+            "cron"
+          ],
+          "environment": "Hermes (dev profile)"
         },
         {
           "id": "hermes-dashboard",
@@ -4892,7 +4929,17 @@
           "script_type": "python",
           "script_path": ".hermes/scripts/hermes_dashboard.py",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "Hermes自身のダッシュボード（セッション・スキル・Cron・Webhook状態）を生成・更新。Hermes TUI/Webダッシュボード用データ提供。",
+          "status": "active",
+          "tags": [
+            "hermes",
+            "dashboard",
+            "monitoring",
+            "tui",
+            "web"
+          ],
+          "environment": "Hermes (default profile)"
         },
         {
           "id": "secretary-dashboard",
@@ -4902,6 +4949,16 @@
           "trigger": "cron",
           "schedule": "*/30 * * * *",
           "related_cron": "d56ccad8d1d0",
+          "description": "秘書機能のダッシュボードデータを更新。カレンダー・タスク・メモ等を集約し、Discord用の表示データを生成。30分毎のcronで実行。",
+          "status": "active",
+          "tags": [
+            "secretary",
+            "dashboard",
+            "google-workspace",
+            "cron",
+            "discord"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_dashboard.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4913,13 +4970,33 @@
           "script_type": "python",
           "script_path": ".hermes/scripts/evening_reflection_to_discord.py",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "夜の思考メモ（振り返り・感謝・改善点）を整形し、Discordチャンネルに投稿。1日の締めくくり習慣支援。",
+          "status": "active",
+          "tags": [
+            "reflection",
+            "journaling",
+            "discord",
+            "evening",
+            "habit"
+          ],
+          "environment": "Hermes (default profile)"
         },
         {
           "id": "repair-manifest",
           "name": "Repair Manifest",
           "purpose": "マニフェスト修復・検証",
           "script_type": "python",
+          "description": "manifest.jsonの破損・不整合を検出・修復。バックアップからの復旧・スキーマ準拠強制等を実行。",
+          "status": "active",
+          "tags": [
+            "manifest",
+            "repair",
+            "recovery",
+            "registry",
+            "maintenance"
+          ],
+          "environment": "Hermes (dev profile)",
           "script_path": "repair_manifest.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4929,6 +5006,16 @@
           "name": "Fix Manifest v2",
           "purpose": "マニフェスト修正 v2",
           "script_type": "python",
+          "description": "manifest.json修正 v2。より高度な整合性チェック・自動修正・差分レポート出力に対応。",
+          "status": "active",
+          "tags": [
+            "manifest",
+            "fix",
+            "v2",
+            "validation",
+            "registry"
+          ],
+          "environment": "Hermes (dev profile)",
           "script_path": "fix_manifest2.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4941,6 +5028,16 @@
           "trigger": "cron",
           "schedule": "*/5 * * * *",
           "related_cron": "50045682b2ff",
+          "description": "OCIインスタンス・ネットワーク・セキュリティ設定を定期監視し、異常検知時はDiscord通知。5分毎のcronで実行。oci-cliを使用。",
+          "status": "active",
+          "tags": [
+            "oci",
+            "monitoring",
+            "infrastructure",
+            "cron",
+            "discord"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/scripts/monitor_oci.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4950,6 +5047,16 @@
           "name": "Wiki Repair Links",
           "purpose": "LLM Wiki リンク修復",
           "script_type": "python",
+          "description": "LLM Wikiの壊れたwikilinkを自動修復。リネーム・移動されたページへの参照を追跡し、正しいリンクに書き換え。",
+          "status": "active",
+          "tags": [
+            "wiki",
+            "repair",
+            "wikilink",
+            "maintenance",
+            "markdown"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_repair_links.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4962,6 +5069,16 @@
           "trigger": "cron",
           "schedule": "0 11 * * *",
           "related_cron": "2a82d226958d",
+          "description": "いい部屋ネットの新着物件をスクレイピングし、既存データと差分比較して新着のみDiscord通知。日次cronで実行。no-agentモードでスクリプトstdoutを直接配信。",
+          "status": "active",
+          "tags": [
+            "scraping",
+            "real-estate",
+            "discord",
+            "cron",
+            "bridge"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_bridge.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4974,7 +5091,17 @@
           "script_type": "python",
           "role": "helper",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "Discord通知の共通ヘルパー関数。Webhook送信・埋め込み生成・レート制限対応等を提供。各プログラムからimport利用。",
+          "status": "active",
+          "tags": [
+            "discord",
+            "notification",
+            "helper",
+            "library",
+            "webhook"
+          ],
+          "environment": "Hermes (dev/default profiles)"
         },
         {
           "id": "wiki-lint",
@@ -4984,6 +5111,16 @@
           "trigger": "cron",
           "schedule": "0 21 * * 0",
           "related_cron": "f5c461127482",
+          "description": "LLM Wikiの整合性チェック：孤立ページ・壊れたリンク・フロントマター不備・タグ未登録等を検出しレポート。週次日曜cronで実行。",
+          "status": "active",
+          "tags": [
+            "wiki",
+            "lint",
+            "markdown",
+            "cron",
+            "quality"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_lint.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -4993,6 +5130,17 @@
           "name": "Evening Memo Review Send",
           "purpose": "夕方メモレビュー送信",
           "script_type": "python",
+          "description": "夕方のメモ・思考ログをレビューし、1日の振り返り・翌日の準備項目を抽出してDiscord送信。日次cronで実行。",
+          "status": "active",
+          "tags": [
+            "memo",
+            "review",
+            "evening",
+            "discord",
+            "cron",
+            "reflection"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/evening_memo_review_send.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5005,6 +5153,16 @@
           "trigger": "cron",
           "schedule": "0 22 * * *",
           "related_cron": "3e7bec674a8d",
+          "description": "料理レシピサイトをクロールし、構造化データとしてNotion/Wikiに保存。日次cronで実行。",
+          "status": "active",
+          "tags": [
+            "crawling",
+            "recipe",
+            "notion",
+            "cron",
+            "food"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/cooking/recipe_crawl.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5014,6 +5172,16 @@
           "name": "Secretary Calendar All",
           "purpose": "秘書カレンダー全取得",
           "script_type": "python",
+          "description": "Google Calendar全カレンダーの予定を取得・統合し、秘書機能用の統一スケジュールデータを生成。",
+          "status": "active",
+          "tags": [
+            "secretary",
+            "calendar",
+            "google-workspace",
+            "schedule",
+            "integration"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_calendar_all.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5023,6 +5191,16 @@
           "name": "Create Notion Page",
           "purpose": "Notion ページ作成",
           "script_type": "python",
+          "description": "Notion API経由でページを作成・更新。テンプレート適用・プロパティ自動設定・親ページ指定等を支援。",
+          "status": "active",
+          "tags": [
+            "notion",
+            "api",
+            "page-create",
+            "automation",
+            "template"
+          ],
+          "environment": "Hermes (dev profile)",
           "script_path": "create_notion_page.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5034,13 +5212,33 @@
           "script_type": "python",
           "script_path": ".hermes/scripts/unified_monitor.py",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "複数監視対象（サーバー・サービス・API・データベース）を統合監視し、ダッシュボード・アラートを一元管理。",
+          "status": "active",
+          "tags": [
+            "monitoring",
+            "unified",
+            "dashboard",
+            "alert",
+            "ops"
+          ],
+          "environment": "Hermes (default profile)"
         },
         {
           "id": "fix-manifest",
           "name": "Fix Manifest",
           "purpose": "マニフェスト修正",
           "script_type": "python",
+          "description": "manifest.jsonの不整合を修正。重複ID・欠損フィールド・スキーマ違反等を自動検出・修正。",
+          "status": "active",
+          "tags": [
+            "manifest",
+            "fix",
+            "validation",
+            "registry",
+            "maintenance"
+          ],
+          "environment": "Hermes (dev profile)",
           "script_path": "fix_manifest.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5050,6 +5248,16 @@
           "name": "Eheya Notifier",
           "purpose": "いい部屋ネット通知本体",
           "script_type": "python",
+          "description": "いい部屋ネット通知の本体処理。物件詳細取得・画像収集・フォーマット整形・Discord埋め込み生成を担当。eheya-bridgeから呼び出し。",
+          "status": "active",
+          "tags": [
+            "real-estate",
+            "notification",
+            "discord",
+            "scraping",
+            "formatter"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_notifier.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5062,6 +5270,16 @@
           "trigger": "cron",
           "schedule": "0 */2 * * *",
           "related_cron": "e130dbb6a477",
+          "description": "Discordスレッドの進捗を監視し、未完了・期限切れ等を検知して通知。2時間毎のcronで実行。",
+          "status": "active",
+          "tags": [
+            "discord",
+            "monitoring",
+            "thread",
+            "cron",
+            "notification"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/thread_monitor.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5071,6 +5289,17 @@
           "name": "Morning Memo Review Send",
           "purpose": "朝メモレビュー送信",
           "script_type": "python",
+          "description": "朝のメモ・思考ログをレビューし、重要項目を抽出してDiscord送信。日次cronで実行。",
+          "status": "active",
+          "tags": [
+            "memo",
+            "review",
+            "morning",
+            "discord",
+            "cron",
+            "reflection"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_memo_review_send.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5080,6 +5309,16 @@
           "name": "Reparse Manifest",
           "purpose": "マニフェスト再解析・正規化",
           "script_type": "python",
+          "description": "manifest.jsonを再解析・正規化。フィールド順序統一・型変換・デフォルト値補完等を実行。",
+          "status": "active",
+          "tags": [
+            "manifest",
+            "reparse",
+            "normalize",
+            "registry",
+            "maintenance"
+          ],
+          "environment": "Hermes (dev profile)",
           "script_path": "reparse_manifest.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5089,6 +5328,16 @@
           "name": "Morning Reflection To Discord",
           "purpose": "朝の思考メモをDiscord送信",
           "script_type": "python",
+          "description": "朝の思考メモ（journaling）を整形し、Discordチャンネルに投稿。習慣化支援・振り返り促進。",
+          "status": "active",
+          "tags": [
+            "reflection",
+            "journaling",
+            "discord",
+            "morning",
+            "habit"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_reflection_to_discord.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -5099,6 +5348,16 @@
           "purpose": "マニフェスト生成",
           "script_path": "build_manifest.py",
           "script_type": "python",
+          "description": "ツールレジストリのmanifest.jsonを生成。全mdファイルをスキャンし、ポータル用統合インデックスを作成。",
+          "status": "active",
+          "tags": [
+            "manifest",
+            "build",
+            "portal",
+            "json",
+            "registry"
+          ],
+          "environment": "Hermes (dev profile)",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5109,7 +5368,17 @@
           "script_type": "python",
           "script_path": ".hermes/scripts/hermes_health_check.py",
           "portal_html": "",
-          "type": "hermes-program"
+          "type": "hermes-program",
+          "description": "Hermesエージェントのヘルスチェック：プロセス生存・API応答・ディスク容量・メモリ使用量等を監視。",
+          "status": "active",
+          "tags": [
+            "hermes",
+            "health-check",
+            "monitoring",
+            "ops",
+            "reliability"
+          ],
+          "environment": "Hermes (default profile)"
         },
         {
           "id": "deadline-notifier",
@@ -5119,6 +5388,16 @@
           "trigger": "cron",
           "schedule": "0 9 * * *",
           "related_cron": "55ec6e6351f4",
+          "description": "各種期限（タスク・課題・支払い等）を監視し、期限接近・超過時にDiscord通知。日次cronで実行。",
+          "status": "active",
+          "tags": [
+            "deadline",
+            "notification",
+            "discord",
+            "cron",
+            "task-management"
+          ],
+          "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/deadline_notifier.py",
           "portal_html": "",
           "type": "hermes-program"
@@ -6335,16 +6614,6 @@
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
       "icon": "bitwarden"
-    },
-    {
-      "name": "Hermes Dashboard",
-      "url": "https://dashboard.rands1984.dpdns.org/sessions",
-      "icon": "hermes"
-    },
-    {
-      "name": "Monitoring Dashboard",
-      "url": "https://monitor.rands1984.dpdns.org/",
-      "icon": "monitor"
     }
   ],
   "categories": [
