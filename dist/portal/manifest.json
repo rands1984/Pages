@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T09:46:45.386070",
+  "generated_at": "2026-09-28T09:50:49.986005",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -5197,6 +5197,36 @@
       ],
       "network": [
         {
+          "id": "vcn-amaaaaaa",
+          "name": "vcn-n8n_instance",
+          "description": "OCI VCN (10.0.0.0/16)",
+          "type": "oci-network",
+          "status": "active",
+          "tags": [
+            "network",
+            "oci",
+            "vcn"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2025-09-16",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "AVAILABLE",
+          "cidr_block": "10.0.0.0/16",
+          "subnets": [
+            {
+              "subnet_id": "ocid1.subnet.oc1.ap-osaka-1.aaaaaaaapwjm7mubmgokwfmr2cjh2s7m6xif6hucwjos6p7on6wc3x2o3xeq",
+              "cidr": "10.0.0.0/24",
+              "type": "public"
+            }
+          ]
+        },
+        {
           "id": "vcn-ocid1.vc",
           "name": "vcn-n8n_instance",
           "description": "OCI VCN (10.0.0.0/16)",
@@ -5228,6 +5258,71 @@
         }
       ],
       "security": [
+        {
+          "id": "security-list-aaaaaaaa",
+          "name": "Default Security List for vcn-n8n_instance",
+          "description": "OCI Security List (ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq)",
+          "type": "oci-security",
+          "status": "active",
+          "tags": [
+            "security",
+            "oci"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
+          "depends_on": [],
+          "created": "2025-09-16",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
+          "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
+          "region": "ap-osaka-1",
+          "lifecycle_state": "AVAILABLE",
+          "rules": [
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "22-22"
+            },
+            {
+              "direction": "ingress",
+              "protocol": "1",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": ""
+            },
+            {
+              "direction": "ingress",
+              "protocol": "1",
+              "source": "10.0.0.0/16",
+              "destination": "",
+              "ports": ""
+            },
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "80-80"
+            },
+            {
+              "direction": "ingress",
+              "protocol": "6",
+              "source": "0.0.0.0/0",
+              "destination": "",
+              "ports": "443-443"
+            },
+            {
+              "direction": "egress",
+              "protocol": "all",
+              "source": "",
+              "destination": "0.0.0.0/0",
+              "ports": ""
+            }
+          ]
+        },
         {
           "id": "security-list-ocid1.se",
           "name": "Default Security List for vcn-n8n_instance",
