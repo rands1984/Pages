@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T10:30:35.273316",
+  "generated_at": "2026-09-28T12:35:13.177515",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -2681,6 +2681,33 @@
           "type": "hermes-skill"
         },
         {
+          "name": "hermes-profile-cron-collection",
+          "description": "Collect Hermes cron from all profiles incl. global default",
+          "version": "1.0.0",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "hermes",
+                "cron",
+                "profile",
+                "collection",
+                "automation"
+              ],
+              "related_skills": [
+                "hermes-webhook-integration",
+                "tools-registry-sync"
+              ]
+            }
+          },
+          "purpose": "Collect Hermes cron jobs from all profiles (dev/home/work/biz + default global) for tools-registry sync",
+          "skill_dir": "devops/hermes-profile-cron-collection",
+          "id": "hermes-profile-cron-collection",
+          "type": "hermes-skill"
+        },
+        {
           "name": "grounded-citations",
           "description": "Ground answers and documents in cited, verifiable sources.",
           "version": "1.2.0",
@@ -4207,6 +4234,56 @@
       ],
       "cron": [
         {
+          "id": "35b32812721d",
+          "name": "朝の思考メモ振り返り",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# 朝の思考メモ振り返り | 7:30実行\n\n## タスク\n前日（昨日）の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。\n\n## 手順\n\n### 1. 前日のメモ取得\n```bash\npython3 ~/.hermes/scripts/memos_list.py --date $(date -d 'yesterday' '+%Y-%m-%d')\n```\n前日の日付フィ",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-06-22",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# 朝の思考メモ振り返り | 7:30実行\n\n## タスク\n前日（昨日）の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。\n\n## 手順\n\n### 1. 前日のメモ取得\n`",
+          "schedule": "30 7 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 自分が考えてること・思考のメモ・思いつきなど雑多なメモを残して、目視で振り返る／hermesに後から聞ける・思い出せるなどができるようにしたいです。 現在...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "d56ccad8d1d0",
+          "name": "secretary-dashboard-update",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "Run the dashboard update script: `python3 ~/.hermes/scripts/secretary_dashboard.py`. This updates the Obsidian dashboard file with the latest pending tasks and recent memos.",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-05-25",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run the dashboard update script: `python3 ~/.hermes/scripts/secretary_dashboard.py`. This updates th",
+          "schedule": "*/30 * * * *",
+          "script_path": "secretary_dashboard.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
           "id": "a9b32fc7084f",
           "name": "Watch Audio Processor",
           "type": "hermes-cron",
@@ -4234,6 +4311,507 @@
           "related_programs": [
             "watch-audio-main"
           ]
+        },
+        {
+          "id": "50045682b2ff",
+          "name": "OCIサーバー監視",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-08-29",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "OCIサーバー監視",
+          "schedule": "*/5 * * * *",
+          "script_path": "monitor_oci.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #課題 / Ubuntuサーバー移行に伴うHermesAgent運用の見直し",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "e10e9615b47d",
+          "name": "定例課題作成_月次1on1",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue monthly_1on1\n\nThis creates the monthly 1on1/leader meeting recurring issue with its 4 tasks, posting to Discord Forum based",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-07-06",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue monthly_1on1\n\nThis crea",
+          "schedule": "0 9 1 * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #秘書 / 下記、「定例課題」の検討に、今実施している定例課題と紐づくタスクを上げます。 現在の運用と含め、どういう手段で実現させるか検討してください。 １．課題：月...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "8a0f5f3b4ac8",
+          "name": "secretary-collector",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bash\nGAPI=\"python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "secretary",
+            "google-workspace"
+          ],
+          "created": "2026-05-22",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bas",
+          "schedule": "every 180m",
+          "script_path": null,
+          "skills": [
+            "secretary",
+            "google-workspace"
+          ],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "484ac65174d7",
+          "name": "夜の思考メモ振り返り",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# 夜の思考メモ振り返り | 18:30実行\n\n## タスク\n今日の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。\n\n## 手順\n\n### 1. 今日のメモ取得\n```bash\npython3 ~/.hermes/scripts/memos_list.py --date $(date '+%Y-%m-%d')\n```\n今日の日付フィルタで思考メモ一覧を取得。メモがない",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-06-22",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# 夜の思考メモ振り返り | 18:30実行\n\n## タスク\n今日の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。\n\n## 手順\n\n### 1. 今日のメモ取得\n```b",
+          "schedule": "30 18 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 自分が考えてること・思考のメモ・思いつきなど雑多なメモを残して、目視で振り返る／hermesに後から聞ける・思い出せるなどができるようにしたいです。 現在...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "3e7bec674a8d",
+          "name": "cooking-recipe-crawl-daily",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --max 10\n3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む\n4) 結果を Discord に通知する。以下のフォーマットで日本語出",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-08-23",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --m",
+          "schedule": "0 22 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #課題 / [課題] 料理クリップを活用したメニュー考案（Hermesを利用）",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "2a82d226958d",
+          "name": "いい部屋ネット新着通知(bridge)",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py.\n\n- If the output is 'NO_NEW_PROPERTIES', finish silently.\n- Otherwise, deliver the output as a notification.",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-05-15",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py.\n\n- If the output is 'NO_NEW_P",
+          "schedule": "0 11 * * *",
+          "script_path": "eheya_bridge.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 下記やりたいことメモです。後からわかるように残しておいてください。 ・外付けキーボード１つでandoroidのdiscordへ投稿しやすい形にしたい。 課...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "f471e125f0a6",
+          "name": "定例課題作成_月末業務",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue month_end_ops\n\nThis creates the month-end operations recurring issue with its 5 tasks, posting to Discord Forum based on ca",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-07-06",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue month_end_ops\n\nThis cre",
+          "schedule": "0 9 25 * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #秘書 / 下記、「定例課題」の検討に、今実施している定例課題と紐づくタスクを上げます。 現在の運用と含め、どういう手段で実現させるか検討してください。 １．課題：月...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "11796591072b",
+          "name": "n8n-drift-watch",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "Run the n8n workflow drift watchdog. Execute exactly: python3 ~/projects/n8n/scripts/drift_watch.py — then finish immediately with no additional commentary of your own (empty output = silent success; ",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-08-24",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run the n8n workflow drift watchdog. Execute exactly: python3 ~/projects/n8n/scripts/drift_watch.py ",
+          "schedule": "0 9 * * 1",
+          "script_path": "projects/n8n/scripts/drift_watch.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #課題 / [課題] n8nソース解析・新規作成準備",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "0678d7f6e4d1",
+          "name": "PriceWatcher 定期価格調査",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得\nNotionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。\n状態が「追跡中」のものだけ対象。\n\n各",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "price-watcher"
+          ],
+          "created": "2026-09-02",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得",
+          "schedule": "0 6,9,12,15,18,21 * * *",
+          "script_path": null,
+          "skills": [
+            "price-watcher"
+          ],
+          "delivers_to": "rands1984のサーバー / #課題 / [課題] 欲しい物の価格調査と新着通知機能の作成",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "f5c461127482",
+          "name": "llm-wiki-lint",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# LLM Wiki 監査（lint）| 毎週日曜21時実行\n\nLLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/llm-wiki/wiki`\n\n## 手順\n1. 専用スクリプトを実行: `python3 ~/.hermes/scripts/wiki_lint.py`\n   - これは決定的な監査を行い、 `wiki/audit_report_",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-05-17",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# LLM Wiki 監査（lint）| 毎週日曜21時実行\n\nLLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/llm-wiki/wiki`\n\n",
+          "schedule": "0 21 * * 0",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 下記やりたいことメモです。後からわかるように残しておいてください。 ・外付けキーボード１つでandoroidのdiscordへ投稿しやすい形にしたい。 課...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "143ee9454507",
+          "name": "secretary-afternoon-brief",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# Secretary Afternoon Briefing (Enhanced)\n\nあなたはHermes秘書システムのブリーフィング担当です。平日16:30に本日の状況をまとめてDiscordに配信します。全カレンダー（12個）の予定を `secretary_calendar_all.py` スクリプトで一括取得してください。\n\n## Flow\n1. `inbox.yaml` を読み取り、`pe",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "secretary",
+            "google-workspace"
+          ],
+          "created": "2026-05-25",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# Secretary Afternoon Briefing (Enhanced)\n\nあなたはHermes秘書システムのブリーフィング担当です。平日16:30に本日の状況をまとめてDiscordに配信",
+          "schedule": "30 16 * * 1-5",
+          "script_path": null,
+          "skills": [
+            "secretary",
+            "google-workspace"
+          ],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "7494ca706121",
+          "name": "skill-manual-update",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# 定期タスク: Hermes Skill マニュアルの更新\n\n毎週日曜21時に実行。全Skillのマニュアルファイルを最新状態に保つ。\n\n## ターゲットディレクトリ\n`/home/ubuntu/Documents/randsObsidian/hermes/skillマニュアル/`\n\n## 使用データソース\n- `skills_list()` で全アクティブスキルを取得\n- さらに `~/.he",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-05-15",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# 定期タスク: Hermes Skill マニュアルの更新\n\n毎週日曜21時に実行。全Skillのマニュアルファイルを最新状態に保つ。\n\n## ターゲットディレクトリ\n`/home/ubuntu/D",
+          "schedule": "0 21 * * 0",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / llm-wikiに下記やりたいことメモを残しておいてください。 ・hermes内で作られてるskill・自分が導入したskillの内容を読み取り、利用方法...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "3e52acdf571b",
+          "name": "secretary-morning-brief",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# Secretary Morning Briefing (Enhanced)\n\nあなたはHermes秘書システムのブリーフィング担当です。毎朝8:00に本日の情報をまとめてDiscordに配信します。\n\n## 収集データ\n1. **カレンダー**: `secretary_calendar_all.py` を使用して全12カレンダーから今日の予定を取得。\n2. **確認待ち (`inbox.yam",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "secretary",
+            "google-workspace"
+          ],
+          "created": "2026-05-22",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# Secretary Morning Briefing (Enhanced)\n\nあなたはHermes秘書システムのブリーフィング担当です。毎朝8:00に本日の情報をまとめてDiscordに配信します",
+          "schedule": "0 8 * * *",
+          "script_path": null,
+          "skills": [
+            "secretary",
+            "google-workspace"
+          ],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "04b57d8f2094",
+          "name": "cooking-notion-pull-daily",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-07-13",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造",
+          "schedule": "0 23 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #課題 / [課題] 料理クリップを活用したメニュー考案（Hermesを利用）",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "55ec6e6351f4",
+          "name": "期限アラート通知",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "Notionの期限アラート通知を実行し、Discord Forum (dev/work/home) へ投稿してください。\n\n手順:\n1. `python3 ~/.hermes/scripts/deadline_notifier.py` を実行する。\n2. このスクリプトは期限が過ぎた、または残り1日以内の課題・タスクを抽出し、カテゴリの「大分類」に基づいて適切なDiscord Forum (dev",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-07-10",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Notionの期限アラート通知を実行し、Discord Forum (dev/work/home) へ投稿してください。\n\n手順:\n1. `python3 ~/.hermes/scripts/dead",
+          "schedule": "0 9 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #秘書 / [課題] 個人タスク管理ツール開発",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "e130dbb6a477",
+          "name": "スレッド進捗監視",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "Discordスレッドの進捗を監視し、Notion課題DBを更新してください。\n\n## 手順\n\n1. スクリプトで新着メッセージを取得:\n   ```\n   python3 ~/.hermes/scripts/thread_monitor.py --json\n   ```\n\n2. 出力されたJSONを解析。各課題について:\n   - `new_messages` が空ならスキップ\n   - メッセ",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-06-19",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Discordスレッドの進捗を監視し、Notion課題DBを更新してください。\n\n## 手順\n\n1. スクリプトで新着メッセージを取得:\n   ```\n   python3 ~/.hermes/scr",
+          "schedule": "0 */2 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 自分の作業の進め方について相談・ツールの開発を行いたいです。 まずはやりたいことを下記にまとめるので、仕様の検討を手伝ってください。 要件が細かく決まって...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "68af93ac6505",
+          "name": "secretary-weekly-review",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "# Secretary Weekly Review\n\nあなたはHermes秘書システムのレビュー担当です。毎週日曜日の夜に、その週に蓄積されたメモやタスクを振り返るレポートを生成し、Discordに配信します。\n\n## 収集データ\n1. **今週のメモ**: \n   - `/home/ubuntu/Documents/llm-wiki/wiki/log.md` を読み取り、直近7日間に「取り込み ",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "secretary"
+          ],
+          "created": "2026-05-24",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "# Secretary Weekly Review\n\nあなたはHermes秘書システムのレビュー担当です。毎週日曜日の夜に、その週に蓄積されたメモやタスクを振り返るレポートを生成し、Discordに配",
+          "schedule": "0 21 * * 0",
+          "script_path": null,
+          "skills": [
+            "secretary"
+          ],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "d4f564b70d6a",
+          "name": "Llm-wiki同期",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "Run `python3 /home/ubuntu/.hermes/scripts/find_pending_wiki_v2.py`. If there are pending files, process them into the wiki following the rules in /home/ubuntu/Documents/llm-wiki/CLAUDE.md. Only proces",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-05-15",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "Run `python3 /home/ubuntu/.hermes/scripts/find_pending_wiki_v2.py`. If there are pending files, proc",
+          "schedule": "0 22 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / #hermes-agent / 下記やりたいことメモです。後からわかるように残しておいてください。 ・外付けキーボード１つでandoroidのdiscordへ投稿しやすい形にしたい。 課...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "9feb8425ddc4",
+          "name": "dashboard-daily-update",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-09-10",
+          "updated": "2026-09-28",
+          "secret_refs": [],
+          "purpose": "dashboard-daily-update",
+          "schedule": "0 6 * * *",
+          "script_path": "dashboard/update_and_push.sh",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] 総合ダッシュボードの作成",
+          "related_programs": [],
+          "profile": "default"
         }
       ],
       "webhooks": [

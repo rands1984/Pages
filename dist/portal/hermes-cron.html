@@ -46,11 +46,44 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Clock] Hermes Cron</h1>
-      <div class="meta">1件 - 更新: 2026-09-28 10:30</div>
+      <div class="meta">22件 - 更新: 2026-09-28 12:35</div>
       <a href="../" class="back-link">[Back] ポータルに戻る</a>
     </div>
     <div class="desc">Hermes Agent の定期実行ジョブ。音声文字起こし、データ同期、監視等の自動化タスク。</div>
     <div class="card-grid"><div class="card">
+  <div class="card-header">
+    <h3>朝の思考メモ振り返り</h3>
+    <a href="tools/35b32812721d.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # 朝の思考メモ振り返り | 7:30実行
+
+## タスク
+前日（昨日）の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。
+
+## 手順
+
+### 1. 前日のメモ取得
+```bash
+python3 ~/.hermes/scripts/memos_list.py --date $(date -d 'yesterday' '+%Y-%m-%d')
+```
+前日の日付フィ</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>secretary-dashboard-update</h3>
+    <a href="tools/d56ccad8d1d0.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run the dashboard update script: `python3 ~/.hermes/scripts/secretary_dashboard.py`. This updates the Obsidian dashboard file with the latest pending tasks and recent memos.</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
   <div class="card-header">
     <h3>Watch Audio Processor</h3>
     <a href="tools/a9b32fc7084f.html" class="btn-link">詳細</a>
@@ -60,6 +93,301 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <div class="detail"><strong>環境:</strong> OCI (Hermes)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">discord</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>OCIサーバー監視</h3>
+    <a href="tools/50045682b2ff.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>定例課題作成_月次1on1</h3>
+    <a href="tools/e10e9615b47d.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue monthly_1on1
+
+This creates the monthly 1on1/leader meeting recurring issue with its 4 tasks, posting to Discord Forum based</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>secretary-collector</h3>
+    <a href="tools/8a0f5f3b4ac8.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # Secretary Gmail Collector
+
+あなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。
+
+## Setup
+
+```bash
+GAPI="""python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>夜の思考メモ振り返り</h3>
+    <a href="tools/484ac65174d7.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # 夜の思考メモ振り返り | 18:30実行
+
+## タスク
+今日の思考メモを振り返り、サマリーをDiscord #秘書 チャンネルに送信する。
+
+## 手順
+
+### 1. 今日のメモ取得
+```bash
+python3 ~/.hermes/scripts/memos_list.py --date $(date '+%Y-%m-%d')
+```
+今日の日付フィルタで思考メモ一覧を取得。メモがない</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>cooking-recipe-crawl-daily</h3>
+    <a href="tools/3e7bec674a8d.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。
+1) cd ~/.hermes/scripts/cooking
+2) python3 recipe_crawl.py --max 10
+3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む
+4) 結果を Discord に通知する。以下のフォーマットで日本語出</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>いい部屋ネット新着通知(bridge)</h3>
+    <a href="tools/2a82d226958d.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py.
+
+- If the output is 'NO_NEW_PROPERTIES', finish silently.
+- Otherwise, deliver the output as a notification.</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>定例課題作成_月末業務</h3>
+    <a href="tools/f471e125f0a6.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue month_end_ops
+
+This creates the month-end operations recurring issue with its 5 tasks, posting to Discord Forum based on ca</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>n8n-drift-watch</h3>
+    <a href="tools/11796591072b.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run the n8n workflow drift watchdog. Execute exactly: python3 ~/projects/n8n/scripts/drift_watch.py — then finish immediately with no additional commentary of your own (empty output = silent success; </div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>PriceWatcher 定期価格調査</h3>
+    <a href="tools/0678d7f6e4d1.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # PriceWatcher 定期調査
+
+Notion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。
+
+## 実行手順
+
+### 1. 商品取得
+Notionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。
+状態が「追跡中」のものだけ対象。
+
+各</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>llm-wiki-lint</h3>
+    <a href="tools/f5c461127482.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # LLM Wiki 監査（lint）| 毎週日曜21時実行
+
+LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/llm-wiki/wiki`
+
+## 手順
+1. 専用スクリプトを実行: `python3 ~/.hermes/scripts/wiki_lint.py`
+   - これは決定的な監査を行い、 `wiki/audit_report_</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>secretary-afternoon-brief</h3>
+    <a href="tools/143ee9454507.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # Secretary Afternoon Briefing (Enhanced)
+
+あなたはHermes秘書システムのブリーフィング担当です。平日16:30に本日の状況をまとめてDiscordに配信します。全カレンダー（12個）の予定を `secretary_calendar_all.py` スクリプトで一括取得してください。
+
+## Flow
+1. `inbox.yaml` を読み取り、`pe</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>skill-manual-update</h3>
+    <a href="tools/7494ca706121.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # 定期タスク: Hermes Skill マニュアルの更新
+
+毎週日曜21時に実行。全Skillのマニュアルファイルを最新状態に保つ。
+
+## ターゲットディレクトリ
+`/home/ubuntu/Documents/randsObsidian/hermes/skillマニュアル/`
+
+## 使用データソース
+- `skills_list()` で全アクティブスキルを取得
+- さらに `~/.he</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>secretary-morning-brief</h3>
+    <a href="tools/3e52acdf571b.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # Secretary Morning Briefing (Enhanced)
+
+あなたはHermes秘書システムのブリーフィング担当です。毎朝8:00に本日の情報をまとめてDiscordに配信します。
+
+## 収集データ
+1. **カレンダー**: `secretary_calendar_all.py` を使用して全12カレンダーから今日の予定を取得。
+2. **確認待ち (`inbox.yam</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>cooking-notion-pull-daily</h3>
+    <a href="tools/04b57d8f2094.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> ~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>期限アラート通知</h3>
+    <a href="tools/55ec6e6351f4.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Notionの期限アラート通知を実行し、Discord Forum (dev/work/home) へ投稿してください。
+
+手順:
+1. `python3 ~/.hermes/scripts/deadline_notifier.py` を実行する。
+2. このスクリプトは期限が過ぎた、または残り1日以内の課題・タスクを抽出し、カテゴリの「大分類」に基づいて適切なDiscord Forum (dev</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>スレッド進捗監視</h3>
+    <a href="tools/e130dbb6a477.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Discordスレッドの進捗を監視し、Notion課題DBを更新してください。
+
+## 手順
+
+1. スクリプトで新着メッセージを取得:
+   ```
+   python3 ~/.hermes/scripts/thread_monitor.py --json
+   ```
+
+2. 出力されたJSONを解析。各課題について:
+   - `new_messages` が空ならスキップ
+   - メッセ</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>secretary-weekly-review</h3>
+    <a href="tools/68af93ac6505.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # Secretary Weekly Review
+
+あなたはHermes秘書システムのレビュー担当です。毎週日曜日の夜に、その週に蓄積されたメモやタスクを振り返るレポートを生成し、Discordに配信します。
+
+## 収集データ
+1. **今週のメモ**: 
+   - `/home/ubuntu/Documents/llm-wiki/wiki/log.md` を読み取り、直近7日間に「取り込み </div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Llm-wiki同期</h3>
+    <a href="tools/d4f564b70d6a.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Run `python3 /home/ubuntu/.hermes/scripts/find_pending_wiki_v2.py`. If there are pending files, process them into the wiki following the rules in /home/ubuntu/Documents/llm-wiki/CLAUDE.md. Only proces</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>dashboard-daily-update</h3>
+    <a href="tools/9feb8425ddc4.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> </div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
   </div>
 </div></div>
     <div class="footer">総合ポータルサイト - Hermes Cron 一覧</div>
