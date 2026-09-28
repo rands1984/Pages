@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T09:50:49.986005",
+  "generated_at": "2026-09-28T10:30:35.273316",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -824,6 +824,7 @@
               "related_skills": []
             }
           },
+          "purpose": "ASCII video: convert video/audio to colored ASCII MP4/GIF.",
           "skill_dir": "creative/ascii-video",
           "id": "ascii-video",
           "type": "hermes-skill"
@@ -853,6 +854,7 @@
               "related_skills": []
             }
           },
+          "purpose": "Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).",
           "skill_dir": "creative/excalidraw",
           "id": "excalidraw",
           "type": "hermes-skill"
@@ -892,6 +894,7 @@
               ]
             }
           },
+          "purpose": "Gmail, Calendar, Drive, Docs, Sheets via gws CLI or Python.",
           "skill_dir": "productivity/google-workspace",
           "id": "google-workspace",
           "type": "hermes-skill"
@@ -927,6 +930,7 @@
               ]
             }
           },
+          "purpose": "GitHub via gh CLI: PRs, issues, reviews, repos, auth.",
           "skill_dir": "software-development/github",
           "id": "github",
           "type": "hermes-skill"
@@ -956,6 +960,7 @@
               ]
             }
           },
+          "purpose": "Neutral third-party resolution of agent merge conflicts.",
           "skill_dir": "autonomous-ai-agents/merge-reconciler",
           "id": "merge-reconciler",
           "type": "hermes-skill"
@@ -989,6 +994,7 @@
               ]
             }
           },
+          "purpose": "Create, read, edit .pptx decks with python-pptx.",
           "skill_dir": "productivity/powerpoint",
           "id": "powerpoint",
           "type": "hermes-skill"
@@ -1037,6 +1043,7 @@
               "category": "creative"
             }
           },
+          "purpose": "Generate images, video, and audio via diffusion workflows.",
           "skill_dir": "creative/comfyui",
           "id": "comfyui",
           "type": "hermes-skill"
@@ -1066,6 +1073,7 @@
               ]
             }
           },
+          "purpose": "tools-registry への自動収集・同期を行うスキル",
           "skill_dir": "devops/tools-registry-sync",
           "id": "tools-registry-sync",
           "type": "hermes-skill"
@@ -1096,6 +1104,7 @@
               ]
             }
           },
+          "purpose": "Bootstrap Hermes infra with GitHub, vaultwarden, Cloudflare.",
           "skill_dir": "devops/hermes-infrastructure-bootstrap",
           "id": "hermes-infrastructure-bootstrap",
           "type": "hermes-skill"
@@ -1128,6 +1137,7 @@
               "himalaya"
             ]
           },
+          "purpose": "Himalaya CLI: IMAP/SMTP email from terminal.",
           "skill_dir": "email/himalaya",
           "id": "himalaya",
           "type": "hermes-skill"
@@ -1158,6 +1168,7 @@
               ]
             }
           },
+          "purpose": "Create, triage, label, assign GitHub issues via gh or REST.",
           "skill_dir": "github/github-issues",
           "id": "github-issues",
           "type": "hermes-skill"
@@ -1186,6 +1197,7 @@
               "related_skills": []
             }
           },
+          "purpose": "Drive the desktop background-first; escalate on signal.",
           "skill_dir": "autonomous-ai-agents/computer-use",
           "id": "computer-use",
           "type": "hermes-skill"
@@ -1217,6 +1229,7 @@
               "blogwatcher-cli"
             ]
           },
+          "purpose": "Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.",
           "skill_dir": "research/blogwatcher",
           "id": "blogwatcher",
           "type": "hermes-skill"
@@ -1242,6 +1255,7 @@
               ]
             }
           },
+          "purpose": "Webhook subscriptions: event-driven agent runs.",
           "skill_dir": "devops/webhook-subscriptions",
           "id": "webhook-subscriptions",
           "type": "hermes-skill"
@@ -1306,6 +1320,7 @@
               "openhue"
             ]
           },
+          "purpose": "Control Philips Hue lights, scenes, rooms via OpenHue CLI.",
           "skill_dir": "smart-home/openhue",
           "id": "openhue",
           "type": "hermes-skill"
@@ -1344,6 +1359,7 @@
               "homepage": "https://developer.box.com/"
             }
           },
+          "purpose": "Box manages cloud files, sharing, search, and metadata.",
           "skill_dir": "productivity/box",
           "id": "box",
           "type": "hermes-skill"
@@ -1375,6 +1391,7 @@
               ]
             }
           },
+          "purpose": "GitHub PR lifecycle: branch, commit, open, CI, merge.",
           "skill_dir": "github/github-pr-workflow",
           "id": "github-pr-workflow",
           "type": "hermes-skill"
@@ -1401,6 +1418,7 @@
               "homepage": "https://github.com/JimLiu/baoyu-skills#baoyu-comic"
             }
           },
+          "purpose": "Knowledge comics (知识漫画): educational, biography, tutorial.",
           "skill_dir": "creative/baoyu-comic",
           "id": "baoyu-comic",
           "type": "hermes-skill"
@@ -1434,6 +1452,7 @@
               ]
             }
           },
+          "purpose": "Jailbreak LLMs: Parseltongue, GODMODE, ULTRAPLINIAN.",
           "skill_dir": "red-teaming/godmode",
           "id": "godmode",
           "type": "hermes-skill"
@@ -1454,6 +1473,7 @@
               ]
             }
           },
+          "purpose": "Orchestrating multi-channel notifications (Email, Discord, etc.) and subsequent state updates.",
           "skill_dir": ".archive/notification-workflows",
           "id": "notification-workflows",
           "type": "hermes-skill"
@@ -1468,6 +1488,7 @@
             "wiki",
             "llm-wiki"
           ],
+          "purpose": "Maintain a structured, autonomously updated knowledge base (LLM Wiki) using the three-layer architecture (Raw, Wiki, Schema).",
           "skill_dir": ".archive/llm-wiki-management",
           "id": "llm-wiki-management",
           "type": "hermes-skill"
@@ -1499,6 +1520,7 @@
               ]
             }
           },
+          "purpose": "Delegate coding to OpenCode CLI (features, PR review).",
           "skill_dir": "autonomous-ai-agents/opencode",
           "id": "opencode",
           "type": "hermes-skill"
@@ -1529,6 +1551,7 @@
               ]
             }
           },
+          "purpose": "Turn meeting notes into cited decisions, owners, tickets.",
           "skill_dir": "productivity/meeting-action-items",
           "id": "meeting-action-items",
           "type": "hermes-skill"
@@ -1559,6 +1582,7 @@
               ]
             }
           },
+          "purpose": "4-phase root cause debugging: understand bugs before fixing.",
           "skill_dir": "software-development/systematic-debugging",
           "id": "systematic-debugging",
           "type": "hermes-skill"
@@ -1594,6 +1618,7 @@
               ]
             }
           },
+          "purpose": "Throwaway experiments to validate an idea before build.",
           "skill_dir": "software-development/spike",
           "id": "spike",
           "type": "hermes-skill"
@@ -1639,6 +1664,7 @@
               ]
             }
           },
+          "purpose": "Teams meeting summaries, job replay, Graph subscriptions.",
           "skill_dir": "productivity/teams-meeting-pipeline",
           "id": "teams-meeting-pipeline",
           "type": "hermes-skill"
@@ -1669,6 +1695,7 @@
               ]
             }
           },
+          "purpose": "Search arXiv papers by keyword, author, category, or ID.",
           "skill_dir": "research/arxiv",
           "id": "arxiv",
           "type": "hermes-skill"
@@ -1676,6 +1703,7 @@
         {
           "name": "automation-pipelines",
           "description": "Use this skill when designing or maintaining automated workflows that involve web scraping, data processing, and multi-channel notifications (Discord, Email, etc.) via cronjobs.",
+          "purpose": "Use this skill when designing or maintaining automated workflows that involve web scraping, data processing, and multi-channel notifications (Discord, Email, etc.) via cronjobs.",
           "skill_dir": ".archive/automation-pipelines",
           "id": "automation-pipelines",
           "type": "hermes-skill"
@@ -1707,6 +1735,7 @@
               ]
             }
           },
+          "purpose": "Debug Python: pdb REPL + debugpy remote (DAP).",
           "skill_dir": "software-development/python-debugpy",
           "id": "python-debugpy",
           "type": "hermes-skill"
@@ -1733,6 +1762,7 @@
               ]
             }
           },
+          "purpose": "Decomposition playbook + specialist-roster conventions + anti-temptation rules for an orchestrator profile routing work through Kanban. The \"don't do the work yourself\" rule and the basic lifecycle are auto-injected into every kanban worker's system prompt; this skill is the deeper playbook when you're specifically playing the orchestrator role.",
           "skill_dir": "devops/kanban-orchestrator",
           "id": "kanban-orchestrator",
           "type": "hermes-skill"
@@ -1763,6 +1793,7 @@
               ]
             }
           },
+          "purpose": "Use when a fetch fails: 403/429, paywall, WAF, bot wall.",
           "skill_dir": "web/blocked-page-recovery",
           "id": "blocked-page-recovery",
           "type": "hermes-skill"
@@ -1794,6 +1825,7 @@
               ]
             }
           },
+          "purpose": "Write implementation plans: bite-sized tasks, paths, code.",
           "skill_dir": "software-development/writing-plans",
           "id": "writing-plans",
           "type": "hermes-skill"
@@ -1829,6 +1861,7 @@
               ]
             }
           },
+          "purpose": "Linear: manage issues, projects, teams via GraphQL + curl.",
           "skill_dir": "productivity/linear",
           "id": "linear",
           "type": "hermes-skill"
@@ -1855,6 +1888,7 @@
               "related_skills": []
             }
           },
+          "purpose": "YouTube transcripts to summaries, threads, blogs.",
           "skill_dir": "media/youtube-content",
           "id": "youtube-content",
           "type": "hermes-skill"
@@ -1882,6 +1916,7 @@
               ]
             }
           },
+          "purpose": "MCP client: connect servers, register tools (stdio/HTTP).",
           "skill_dir": "mcp/native-mcp",
           "id": "native-mcp",
           "type": "hermes-skill"
@@ -1916,6 +1951,7 @@
               "homepage": "https://airtable.com/developers/web/api/introduction"
             }
           },
+          "purpose": "Airtable REST API via curl. Records CRUD, filters, upserts.",
           "skill_dir": "productivity/airtable",
           "id": "airtable",
           "type": "hermes-skill"
@@ -1971,6 +2007,7 @@
               ]
             }
           },
+          "purpose": "Write ML papers for NeurIPS/ICML/ICLR: design→submit.",
           "skill_dir": "research/research-paper-writing",
           "id": "research-paper-writing",
           "type": "hermes-skill"
@@ -2005,6 +2042,7 @@
               ]
             }
           },
+          "purpose": "Create, read, edit, template, and review Word .docx files.",
           "skill_dir": "productivity/docx",
           "id": "docx",
           "type": "hermes-skill"
@@ -2040,6 +2078,7 @@
               ]
             }
           },
+          "purpose": "p5.js sketches: gen art, shaders, interactive, 3D.",
           "skill_dir": "creative/p5js",
           "id": "p5js",
           "type": "hermes-skill"
@@ -2073,6 +2112,7 @@
               ]
             }
           },
+          "purpose": "Delegate coding to Claude Code CLI (features, PRs).",
           "skill_dir": "autonomous-ai-agents/claude-code",
           "id": "claude-code",
           "type": "hermes-skill"
@@ -2106,6 +2146,7 @@
               ]
             }
           },
+          "purpose": "Dark-themed SVG architecture/cloud/infra diagrams as HTML.",
           "skill_dir": "creative/architecture-diagram",
           "id": "architecture-diagram",
           "type": "hermes-skill"
@@ -2136,6 +2177,7 @@
               ]
             }
           },
+          "purpose": "TDD: enforce RED-GREEN-REFACTOR, tests before code.",
           "skill_dir": "software-development/test-driven-development",
           "id": "test-driven-development",
           "type": "hermes-skill"
@@ -2162,6 +2204,7 @@
               ]
             }
           },
+          "purpose": "Drive the macOS desktop in the background — screenshots, mouse, keyboard,\nscroll, drag — without stealing the user's cursor, keyboard focus, or\nSpace. Works with any tool-capable model. Load this skill whenever the\n`computer_use` tool is available.\n",
           "skill_dir": "apple/macos-computer-use",
           "id": "macos-computer-use",
           "type": "hermes-skill"
@@ -2195,6 +2238,7 @@
               ]
             }
           },
+          "purpose": "Humanize text: strip AI-isms and add real voice.",
           "skill_dir": "creative/humanizer",
           "id": "humanizer",
           "type": "hermes-skill"
@@ -2230,6 +2274,7 @@
             "dashboard design",
             "website styled like"
           ],
+          "purpose": "54 real design systems (Stripe, Linear, Vercel) as HTML/CSS.",
           "skill_dir": "creative/popular-web-designs",
           "id": "popular-web-designs",
           "type": "hermes-skill"
@@ -2259,6 +2304,7 @@
               "requires_toolsets": []
             }
           },
+          "purpose": "Generate project ideas via creative constraints.",
           "skill_dir": "creative/creative-ideation",
           "id": "creative-ideation",
           "type": "hermes-skill"
@@ -2288,6 +2334,7 @@
               ]
             }
           },
+          "purpose": "Use when integrating external webhooks with Hermes.",
           "skill_dir": "devops/hermes-webhook-integration",
           "id": "hermes-webhook-integration",
           "type": "hermes-skill"
@@ -2308,6 +2355,7 @@
             "macos",
             "windows"
           ],
+          "purpose": "Query Polymarket: markets, prices, orderbooks, history.",
           "skill_dir": "research/polymarket",
           "id": "polymarket",
           "type": "hermes-skill"
@@ -2334,6 +2382,7 @@
               "related_skills": []
             }
           },
+          "purpose": "Manim CE animations: 3Blue1Brown math/algo videos.",
           "skill_dir": "creative/manim-video",
           "id": "manim-video",
           "type": "hermes-skill"
@@ -2363,6 +2412,7 @@
               "remindctl"
             ]
           },
+          "purpose": "Apple Reminders via remindctl: add, list, complete.",
           "skill_dir": "apple/apple-reminders",
           "id": "apple-reminders",
           "type": "hermes-skill"
@@ -2389,6 +2439,7 @@
               "homepage": "https://github.com/JimLiu/baoyu-skills#baoyu-infographic"
             }
           },
+          "purpose": "Infographics: 21 layouts x 21 styles (信息图, 可视化).",
           "skill_dir": "creative/baoyu-infographic",
           "id": "baoyu-infographic",
           "type": "hermes-skill"
@@ -2425,6 +2476,7 @@
               ]
             }
           },
+          "purpose": "Author/validate/export Google's DESIGN.md token spec files.",
           "skill_dir": "creative/design-md",
           "id": "design-md",
           "type": "hermes-skill"
@@ -2456,6 +2508,7 @@
               ]
             }
           },
+          "purpose": "Debug Node.js via --inspect + Chrome DevTools Protocol CLI.",
           "skill_dir": "software-development/node-inspect-debugger",
           "id": "node-inspect-debugger",
           "type": "hermes-skill"
@@ -2488,6 +2541,7 @@
               ]
             }
           },
+          "purpose": "Parallel 4-agent cleanup of recent code changes.",
           "skill_dir": "software-development/simplify-code",
           "id": "simplify-code",
           "type": "hermes-skill"
@@ -2520,6 +2574,7 @@
               ]
             }
           },
+          "purpose": "Debug Hermes TUI slash commands: Python, gateway, Ink UI.",
           "skill_dir": "software-development/debugging-hermes-tui-commands",
           "id": "debugging-hermes-tui-commands",
           "type": "hermes-skill"
@@ -2554,6 +2609,7 @@
               ]
             }
           },
+          "purpose": "Pixel art w/ era palettes (NES, Game Boy, PICO-8).",
           "skill_dir": "creative/pixel-art",
           "id": "pixel-art",
           "type": "hermes-skill"
@@ -2586,6 +2642,7 @@
               "upstream_skill": "https://github.com/openclaw/openclaw/blob/main/skills/xurl/SKILL.md"
             }
           },
+          "purpose": "X/Twitter via xurl CLI: raw post search, posting, DM, media.",
           "skill_dir": "social-media/xurl",
           "id": "xurl",
           "type": "hermes-skill"
@@ -2618,6 +2675,7 @@
               ]
             }
           },
+          "purpose": "Karpathy's LLM Wiki: build/query interlinked markdown KB.",
           "skill_dir": "research/llm-wiki",
           "id": "llm-wiki",
           "type": "hermes-skill"
@@ -2653,6 +2711,7 @@
               ]
             }
           },
+          "purpose": "Ground answers and documents in cited, verifiable sources.",
           "skill_dir": "research/grounded-citations",
           "id": "grounded-citations",
           "type": "hermes-skill"
@@ -2685,6 +2744,7 @@
               "songsee"
             ]
           },
+          "purpose": "Audio spectrograms/features (mel, chroma, MFCC) via CLI.",
           "skill_dir": "media/songsee",
           "id": "songsee",
           "type": "hermes-skill"
@@ -2717,6 +2777,7 @@
               ]
             }
           },
+          "purpose": "Extract text from PDFs/scans (pymupdf, marker-pdf).",
           "skill_dir": "productivity/ocr-and-documents",
           "id": "ocr-and-documents",
           "type": "hermes-skill"
@@ -2750,6 +2811,7 @@
               ]
             }
           },
+          "purpose": "GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login.",
           "skill_dir": "github/github-auth",
           "id": "github-auth",
           "type": "hermes-skill"
@@ -2769,6 +2831,7 @@
             "linux",
             "macos"
           ],
+          "purpose": "Host modded Minecraft servers (CurseForge, Modrinth).",
           "skill_dir": "gaming/minecraft-modpack-server",
           "id": "minecraft-modpack-server",
           "type": "hermes-skill"
@@ -2804,6 +2867,7 @@
               ]
             }
           },
+          "purpose": "Control TouchDesigner via twozero MCP.",
           "skill_dir": "creative/touchdesigner-mcp",
           "id": "touchdesigner-mcp",
           "type": "hermes-skill"
@@ -2834,6 +2898,7 @@
               ]
             }
           },
+          "purpose": "Delegate coding to OpenAI Codex CLI (features, PRs).",
           "skill_dir": "autonomous-ai-agents/codex",
           "id": "codex",
           "type": "hermes-skill"
@@ -2869,6 +2934,7 @@
               ]
             }
           },
+          "purpose": "Search/download GIFs from Tenor via curl + jq.",
           "skill_dir": "media/gif-search",
           "id": "gif-search",
           "type": "hermes-skill"
@@ -2901,6 +2967,7 @@
               ]
             }
           },
+          "purpose": "Write a markdown plan to .hermes/plans/; no execution.",
           "skill_dir": "software-development/plan",
           "id": "plan",
           "type": "hermes-skill"
@@ -2924,6 +2991,7 @@
             "macos",
             "windows"
           ],
+          "purpose": "HuggingFace hf CLI: search/download/upload models, datasets.",
           "skill_dir": "mlops/huggingface-hub",
           "id": "huggingface-hub",
           "type": "hermes-skill"
@@ -2956,6 +3024,7 @@
           "environments": [
             "kanban"
           ],
+          "purpose": "Review Kanban handoffs and route verified outcomes.",
           "skill_dir": "devops/sdlc-review",
           "id": "sdlc-review",
           "type": "hermes-skill"
@@ -2991,6 +3060,7 @@
               "pygount"
             ]
           },
+          "purpose": "Inspect codebases w/ pygount: LOC, languages, ratios.",
           "skill_dir": "software-development/codebase-inspection",
           "id": "codebase-inspection",
           "type": "hermes-skill"
@@ -3028,6 +3098,7 @@
               ]
             }
           },
+          "purpose": "Throwaway HTML mockups: 2-3 design variants to compare.",
           "skill_dir": "creative/sketch",
           "id": "sketch",
           "type": "hermes-skill"
@@ -3065,6 +3136,7 @@
               ]
             }
           },
+          "purpose": "PDF files: create, read, merge, fill, OCR, edit text.",
           "skill_dir": "productivity/pdf",
           "id": "pdf",
           "type": "hermes-skill"
@@ -3096,6 +3168,7 @@
               ]
             }
           },
+          "purpose": "Execute plans via delegate_task subagents (2-stage review).",
           "skill_dir": "software-development/subagent-driven-development",
           "id": "subagent-driven-development",
           "type": "hermes-skill"
@@ -3128,6 +3201,7 @@
               ]
             }
           },
+          "purpose": "Read the live Hermes desktop DOM/CSS over CDP.",
           "skill_dir": "software-development/inspecting-hermes-desktop-dom",
           "id": "inspecting-hermes-desktop-dom",
           "type": "hermes-skill"
@@ -3136,6 +3210,7 @@
           "name": "termux-python-setup",
           "description": "Guide for installing Python libraries with native extensions in Termux environment.",
           "disabled": true,
+          "purpose": "Guide for installing Python libraries with native extensions in Termux environment.",
           "skill_dir": ".archive/termux-python-setup",
           "id": "termux-python-setup",
           "type": "hermes-skill"
@@ -3176,6 +3251,7 @@
               ]
             }
           },
+          "purpose": "Geocode, POIs, routes, timezones via OpenStreetMap/OSRM.",
           "skill_dir": "productivity/maps",
           "id": "maps",
           "type": "hermes-skill"
@@ -3183,6 +3259,7 @@
         {
           "name": "property-automation",
           "description": "Scraping rental properties (iiheya, SUUMO), merging listings, and orchestrating notifications (Discord, Email) with Notion as the source of truth.",
+          "purpose": "Scraping rental properties (iiheya, SUUMO), merging listings, and orchestrating notifications (Discord, Email) with Notion as the source of truth.",
           "skill_dir": ".archive/property-automation",
           "id": "property-automation",
           "type": "hermes-skill"
@@ -3203,6 +3280,7 @@
             "macos",
             "windows"
           ],
+          "purpose": "Play Pokemon via headless emulator + RAM reads.",
           "skill_dir": "gaming/pokemon-player",
           "id": "pokemon-player",
           "type": "hermes-skill"
@@ -3238,6 +3316,7 @@
               ]
             }
           },
+          "purpose": "ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.",
           "skill_dir": "creative/ascii-art",
           "id": "ascii-art",
           "type": "hermes-skill"
@@ -3271,6 +3350,7 @@
               ]
             }
           },
+          "purpose": "Weekly reset: commitments, stalled work, next-week plan.",
           "skill_dir": "productivity/weekly-review-planning",
           "id": "weekly-review-planning",
           "type": "hermes-skill"
@@ -3301,6 +3381,7 @@
               ]
             }
           },
+          "purpose": "Review PRs: diffs, inline comments via gh or REST.",
           "skill_dir": "github/github-code-review",
           "id": "github-code-review",
           "type": "hermes-skill"
@@ -3332,6 +3413,7 @@
               ]
             }
           },
+          "purpose": "Edit text in existing PDFs via natural-language prompts.",
           "skill_dir": "productivity/nano-pdf",
           "id": "nano-pdf",
           "type": "hermes-skill"
@@ -3359,6 +3441,7 @@
               "related_skills": []
             }
           },
+          "purpose": "Exploratory QA of web apps: find bugs, evidence, reports.",
           "skill_dir": "software-development/dogfood",
           "id": "dogfood",
           "type": "hermes-skill"
@@ -3391,6 +3474,7 @@
             "adapting a song",
             "AI music generation"
           ],
+          "purpose": "Songwriting craft and Suno AI music prompts.",
           "skill_dir": "creative/songwriting-and-ai-music",
           "id": "songwriting-and-ai-music",
           "type": "hermes-skill"
@@ -3428,6 +3512,7 @@
               ]
             }
           },
+          "purpose": "Design one-off HTML artifacts (landing, deck, prototype).",
           "skill_dir": "creative/claude-design",
           "id": "claude-design",
           "type": "hermes-skill"
@@ -3461,6 +3546,7 @@
               ]
             }
           },
+          "purpose": "Create, read, edit Excel .xlsx workbooks and CSVs.",
           "skill_dir": "productivity/xlsx",
           "id": "xlsx",
           "type": "hermes-skill"
@@ -3493,6 +3579,7 @@
               ]
             }
           },
+          "purpose": "Pre-commit review: security scan, quality gates, auto-fix.",
           "skill_dir": "software-development/requesting-code-review",
           "id": "requesting-code-review",
           "type": "hermes-skill"
@@ -3518,6 +3605,7 @@
               ]
             }
           },
+          "purpose": "Track Apple devices/AirTags via FindMy.app on macOS.",
           "skill_dir": "apple/findmy",
           "id": "findmy",
           "type": "hermes-skill"
@@ -3548,6 +3636,7 @@
               ]
             }
           },
+          "purpose": "Organize sessions by prompt: find, rename, archive, prune.",
           "skill_dir": "productivity/session-librarian",
           "id": "session-librarian",
           "type": "hermes-skill"
@@ -3578,6 +3667,7 @@
               ]
             }
           },
+          "purpose": "Triage an inbox: prioritize threads, draft replies safely.",
           "skill_dir": "email/email-inbox-triage",
           "id": "email-inbox-triage",
           "type": "hermes-skill"
@@ -3605,6 +3695,7 @@
               ]
             }
           },
+          "purpose": "Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios.",
           "skill_dir": "devops/kanban-worker",
           "id": "kanban-worker",
           "type": "hermes-skill"
@@ -3634,6 +3725,7 @@
               ]
             }
           },
+          "purpose": "Author in-repo SKILL.md files: frontmatter and structure.",
           "skill_dir": "software-development/hermes-agent-skill-authoring",
           "id": "hermes-agent-skill-authoring",
           "type": "hermes-skill"
@@ -3668,6 +3760,7 @@
               "homepage": "https://developers.notion.com"
             }
           },
+          "purpose": "Notion API + ntn CLI: pages, databases, markdown, Workers.",
           "skill_dir": "productivity/notion",
           "id": "notion",
           "type": "hermes-skill"
@@ -3696,6 +3789,7 @@
               "category": "data-science"
             }
           },
+          "purpose": "Iterative Python via live Jupyter kernel (hamelnb).",
           "skill_dir": "data-science/jupyter-live-kernel",
           "id": "jupyter-live-kernel",
           "type": "hermes-skill"
@@ -3728,6 +3822,7 @@
               ]
             }
           },
+          "purpose": "Clone/create/fork repos; manage remotes, releases.",
           "skill_dir": "github/github-repo-management",
           "id": "github-repo-management",
           "type": "hermes-skill"
@@ -3763,6 +3858,7 @@
               ]
             }
           },
+          "purpose": "Build creative browser demos with DOM-free text layout.",
           "skill_dir": "creative/pretext",
           "id": "pretext",
           "type": "hermes-skill"
@@ -3789,6 +3885,7 @@
               "related_skills": []
             }
           },
+          "purpose": "Read, search, create, and edit notes in the Obsidian vault.",
           "skill_dir": "note-taking/obsidian",
           "id": "obsidian",
           "type": "hermes-skill"
@@ -3829,6 +3926,7 @@
               ]
             }
           },
+          "purpose": "Spotify: play, search, queue, manage playlists and devices.",
           "skill_dir": "media/spotify",
           "id": "spotify",
           "type": "hermes-skill"
@@ -3837,6 +3935,7 @@
           "name": "cloudflare-tunnel-docker-deployment",
           "category": "devops",
           "description": "Deploy Cloudflare Tunnels for Docker via credentials-file.",
+          "purpose": "Deploy Cloudflare Tunnels for Docker via credentials-file.",
           "skill_dir": "devops/cloudflare-tunnel-docker-deployment",
           "id": "cloudflare-tunnel-docker-deployment",
           "type": "hermes-skill"
@@ -3867,6 +3966,7 @@
               ]
             }
           },
+          "purpose": "Watch named companies for material news; cited digests.",
           "skill_dir": "research/competitor-news-monitor",
           "id": "competitor-news-monitor",
           "type": "hermes-skill"
@@ -3896,6 +3996,7 @@
               "imsg"
             ]
           },
+          "purpose": "Send and receive iMessages/SMS via the imsg CLI on macOS.",
           "skill_dir": "apple/imessage",
           "id": "imessage",
           "type": "hermes-skill"
@@ -3928,6 +4029,7 @@
               ]
             }
           },
+          "purpose": "Extract cited obligations, deadlines, tasks from documents.",
           "skill_dir": "productivity/document-to-action-items",
           "id": "document-to-action-items",
           "type": "hermes-skill"
@@ -3959,6 +4061,7 @@
               "memo"
             ]
           },
+          "purpose": "Manage Apple Notes via memo CLI: create, search, edit.",
           "skill_dir": "apple/apple-notes",
           "id": "apple-notes",
           "type": "hermes-skill"
@@ -4002,6 +4105,7 @@
               ]
             }
           },
+          "purpose": "Use, configure, theme, extend, and orchestrate Hermes Agent.",
           "skill_dir": "autonomous-ai-agents/hermes-agent",
           "id": "hermes-agent",
           "type": "hermes-skill"
@@ -4032,6 +4136,7 @@
               ]
             }
           },
+          "purpose": "HeartMuLa: Suno-like song generation from lyrics + tags.",
           "skill_dir": "media/heartmula",
           "id": "heartmula",
           "type": "hermes-skill"
@@ -4065,6 +4170,7 @@
               ]
             }
           },
+          "purpose": "Carry a GitHub issue to a verified PR with honest CI state.",
           "skill_dir": "github/github-issue-to-pr",
           "id": "github-issue-to-pr",
           "type": "hermes-skill"
@@ -4093,6 +4199,7 @@
               ]
             }
           },
+          "purpose": "Maintain portal site: add/remove tools, update badges.",
           "skill_dir": "devops/portal-maintenance",
           "id": "portal-maintenance",
           "type": "hermes-skill"
@@ -4100,7 +4207,7 @@
       ],
       "cron": [
         {
-          "id": "watch-audio-processor",
+          "id": "a9b32fc7084f",
           "name": "Watch Audio Processor",
           "type": "hermes-cron",
           "status": "active",
@@ -4127,29 +4234,6 @@
           "related_programs": [
             "watch-audio-main"
           ]
-        },
-        {
-          "id": "a9b32fc7084f",
-          "name": "watch-audio-processor",
-          "type": "hermes-cron",
-          "status": "active",
-          "description": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
-          "tags": [
-            "cron",
-            "automation"
-          ],
-          "repo_url": "",
-          "deploy_target": "Hermes Cron",
-          "depends_on": [],
-          "created": "2026-09-08",
-          "updated": "2026-09-28",
-          "secret_refs": [],
-          "purpose": "Run ~/.hermes/profiles/dev/scripts/process_watch_audio.py to process new watch audio files",
-          "schedule": "every 1m",
-          "script_path": "process_watch_audio.py",
-          "skills": [],
-          "delivers_to": "rands1984のサーバー / dev / [課題] スマートウォッチを利用したhermes Agent連携",
-          "related_programs": []
         }
       ],
       "webhooks": [
@@ -4189,62 +4273,103 @@
         {
           "id": "watch-audio-main",
           "name": "Watch Audio Main Processor",
-          "type": "hermes-program",
-          "status": "active",
-          "description\"": "Watch音声処理のメインプログラム: 音声→文字起こし→要約→保存→通知",
-          "tags": [
-            "audio",
-            "transcription",
-            "whisper",
-            "summary",
-            "discord"
-          ],
-          "repo_url": "https://github.com/rands1984/hermes-config",
-          "deploy_target": "OCI (Hermes Cron)",
-          "depends_on": [
-            "watch-audio-processor",
-            "watch-audio"
-          ],
-          "created": "2026-09-08",
-          "updated": "2026-09-25",
-          "secret_refs": [
-            "WATCH_WEBHOOK_SECRET",
-            "DISCORD_BOT_TOKEN",
-            "OPENAI_API_KEY"
-          ],
           "purpose": "音声文字起こし・要約",
-          "script_path": "scripts/process_watch_audio.py",
+          "script_path": ".hermes/profiles/dev/home/.hermes/profiles/dev/scripts/process_watch_audio.py",
           "script_type": "python",
           "entry_point": "main",
           "sub_programs": [
             {
               "role": "main",
               "path": "scripts/process_watch_audio.py",
-              "description": "メイン処理: ファイル検知→文字起こし→要約→保存→通知"
+              "description": "メイン処理"
             },
             {
               "role": "helper",
               "path": "scripts/notify.py",
-              "description": "Discord通知送信ヘルパー"
+              "description": "Discord通知ヘルパー"
             }
           ],
           "schedule": "every 1m (via cron)",
           "trigger": "cron",
           "inputs": [
-            "audio_file (m4a/wav)",
+            "audio_file",
             "webhook_payload"
           ],
           "outputs": [
-            "markdown (llm-wiki)",
+            "markdown",
             "discord_notification"
           ],
           "dependencies": [
             "watch-audio-processor",
             "watch-audio"
           ],
-          "related_skill": "",
           "related_cron": "watch-audio-processor",
-          "portal_html": ""
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "repair-manifest",
+          "name": "Repair Manifest",
+          "purpose": "マニフェスト修復・検証",
+          "script_type": "python",
+          "script_path": "repair_manifest.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "fix-manifest2",
+          "name": "Fix Manifest v2",
+          "purpose": "マニフェスト修正 v2",
+          "script_type": "python",
+          "script_path": "fix_manifest2.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "notify-helper",
+          "name": "Notify Helper",
+          "purpose": "通知ヘルパー",
+          "script_path": ".hermes/scripts/notify.py",
+          "script_type": "python",
+          "role": "helper",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "create-notion-page",
+          "name": "Create Notion Page",
+          "purpose": "Notion ページ作成",
+          "script_type": "python",
+          "script_path": "create_notion_page.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "fix-manifest",
+          "name": "Fix Manifest",
+          "purpose": "マニフェスト修正",
+          "script_type": "python",
+          "script_path": "fix_manifest.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "reparse-manifest",
+          "name": "Reparse Manifest",
+          "purpose": "マニフェスト再解析・正規化",
+          "script_type": "python",
+          "script_path": "reparse_manifest.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "build-manifest",
+          "name": "Build Manifest",
+          "purpose": "マニフェスト生成",
+          "script_path": "build_manifest.py",
+          "script_type": "python",
+          "portal_html": "",
+          "type": "hermes-program"
         }
       ]
     },
@@ -5458,16 +5583,6 @@
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
       "icon": "bitwarden"
-    },
-    {
-      "name": "Hermes Dashboard",
-      "url": "https://dashboard.rands1984.dpdns.org/sessions",
-      "icon": "hermes"
-    },
-    {
-      "name": "Monitoring Dashboard",
-      "url": "https://monitor.rands1984.dpdns.org/",
-      "icon": "monitor"
     }
   ],
   "categories": [
