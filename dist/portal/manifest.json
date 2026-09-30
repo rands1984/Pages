@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T18:58:10.843812",
+  "generated_at": "2026-09-30T12:06:08.645624",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -142,6 +142,59 @@
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
+        "libraries": []
+      },
+      {
+        "id": "業務報告書フォーム-v2",
+        "name": "業務報告書フォーム v2",
+        "overview": "月次業務報告書をブラウザから入力してNotionに蓄積するGAS Webフォーム。氏名＋認証コードでログインし、上司が事前設定した期待・行動指針・研修名をロック表示。前月レコードを全項目プリフィルして差分だけ修正（約30分）。提出でNotionへ1レコード作成（スナップショット込み）＋MarkdownをGoogle Driveへ出力＋Discord通知。同一メンバー×同月は上書き更新。",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "monthly-report",
+          "form",
+          "webapp",
+          "1on1",
+          "drive",
+          "discord"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-09-30",
+        "secret_refs": [
+          "NOTION_TOKEN",
+          "DISCORD_WEBHOOK_URL"
+        ],
+        "script_id": "1VvkBhkef3dWBVawT5yPpXx636zXgC3HcqZSH-5Q-fIjmeOg3dVg-_L8E",
+        "script_url": "https://script.google.com/d/1VvkBhkef3dWBVawT5yPpXx636zXgC3HcqZSH-5Q-fIjmeOg3dVg-_L8E/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ",
+            "url": "https://script.google.com/macros/s/AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ/exec",
+            "version": "3",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-30T11:52:00+09:00",
+            "description": "Webアプリ公開版（実行者=自分 / アクセス=全員（匿名））"
+          }
+        ],
+        "triggers": [],
+        "script_properties": {
+          "NOTION_TOKEN": "Notion Integration トークン（ntn_…）",
+          "NOTION_PARENT_PAGE_ID": "親ページ「業務報告書(管理)」のページID",
+          "MEMBER_DB_ID": "メンバーDB",
+          "MEMBER_DATA_SOURCE_ID": "メンバーDBのデータソースID",
+          "EXPECT_DB_ID": "期待マスタDB（個人別）",
+          "EXPECT_DATA_SOURCE_ID": "期待マスタDBのデータソースID",
+          "REPORT_DB_ID": "月次報告書DB",
+          "REPORT_DATA_SOURCE_ID": "月次報告書DBのデータソースID",
+          "MD_FOLDER_ID": "Markdown出力先のGoogle Driveフォルダ",
+          "DISCORD_WEBHOOK_URL": "#通知用 Webhook URL"
+        },
+        "spreadsheet_id": "",
+        "drive_folder_id": "1K5oXmt6hMqbuMPg9y9EcqPJnP4fLziSW",
         "libraries": []
       },
       {
@@ -4445,6 +4498,31 @@
           "profile": "default"
         },
         {
+          "id": "d40a77092f90",
+          "name": "業務報告書フォーム月初リマインド",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "今日は月初です。AIT第1グループの月次業務報告書フォーム（GAS Webアプリ）の運用に関する短い日本語リマインドを1通だけ作ってください。\n\n背景: 月次業務報告書は「月初1〜3営業日」に前月分を報告する運用です。メンバーは GAS Webフォームに氏名＋認証コードでログインし、前月の内容がプリフィルされた状態から差分だけ修正して提出します。提出すると Notion の月次報告書DBに1レコー",
+          "tags": [
+            "cron",
+            "automation",
+            "work"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (work)",
+          "depends_on": [],
+          "created": "2026-09-30",
+          "updated": "2026-09-30",
+          "secret_refs": [],
+          "purpose": "今日は月初です。AIT第1グループの月次業務報告書フォーム（GAS Webアプリ）の運用に関する短い日本語リマインドを1通だけ作ってください。\n\n背景: 月次業務報告書は「月初1〜3営業日」に前月分を",
+          "schedule": "0 9 1 * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / work / [課題] 業務報告書のフォーマット見直し",
+          "related_programs": [],
+          "profile": "work"
+        },
+        {
           "id": "3e7bec674a8d",
           "name": "cooking-recipe-crawl-daily",
           "type": "hermes-cron",
@@ -5123,6 +5201,45 @@
           "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_lint.py",
           "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "monthly-report-form",
+          "name": "月次業務報告書フォーム運用",
+          "purpose": "月次業務報告書の収集・蓄積・1on1",
+          "script_type": "other",
+          "trigger": "cron",
+          "schedule": "0 9 1 * *",
+          "related_cron": "d40a77092f90",
+          "description": "メンバーがブラウザから月次業務報告書を入力（GAS Webフォーム）→ Notionへ1レコード蓄積＋MarkdownをDrive出力＋Discord通知。月初はHermes cronが前月分の報告リマインドを配信し、主任はNotionで評価・1on1を記録する一連の運用フロー。",
+          "status": "active",
+          "tags": [
+            "notion",
+            "monthly-report",
+            "gas",
+            "cron",
+            "1on1",
+            "discord"
+          ],
+          "environment": "GAS (Webアプリ) + Hermes Cron (work profile)",
+          "script_path": "",
+          "entry_point": "doGet",
+          "inputs": [
+            "GAS Webフォーム（氏名＋認証コード）",
+            "Notion メンバーDB / 期待マスタDB（上司設定）"
+          ],
+          "outputs": [
+            "Notion 月次報告書DB（1レコード/メンバー/月・スナップショット込み）",
+            "Google Drive（業務報告書_氏名_YYYYMM.md）",
+            "Discord"
+          ],
+          "dependencies": [
+            "d40a77092f90",
+            "業務報告書フォーム-v2"
+          ],
+          "related_programs": [],
+          "portal_html": "",
+          "updated": "2026-09-30",
           "type": "hermes-program"
         },
         {
@@ -6614,6 +6731,16 @@
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
       "icon": "bitwarden"
+    },
+    {
+      "name": "Hermes Dashboard",
+      "url": "https://dashboard.rands1984.dpdns.org/sessions",
+      "icon": "hermes"
+    },
+    {
+      "name": "Monitoring Dashboard",
+      "url": "https://monitor.rands1984.dpdns.org/",
+      "icon": "monitor"
     }
   ],
   "categories": [
