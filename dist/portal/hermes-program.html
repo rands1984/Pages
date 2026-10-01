@@ -46,7 +46,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Computer] Hermes Programs</h1>
-      <div class="meta">26件 - 更新: 2026-09-30 12:06</div>
+      <div class="meta">28件 - 更新: 2026-10-01 17:09</div>
       <a href="../" class="back-link">[Back] ポータルに戻る</a>
     </div>
     <div class="desc">Hermes Agent のプログラム。複数スキル・Cron・Webhookを組み合わせたエンドツーエンドの処理フロー。</div>
@@ -173,6 +173,17 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>Meeting Live Bridge</h3>
+    <a href="tools/meeting-live-bridge.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> gemini-3.5-transcribe-live にWebSocketで接続し、ブラウザから届く16kHz PCMを中継するブリッジ。interimはスライディングウィンドウで返るため、直前の確定テキストとの空白無視の末尾一致で差分のみを確定テキストに再構成する。切断時は自動再接続。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">gemini-live</span><span class="badge">websocket</span><span class="badge">streaming-asr</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>月次業務報告書フォーム運用</h3>
     <a href="tools/monthly-report-form.html" class="btn-link">詳細</a>
   </div>
@@ -203,6 +214,17 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">crawling</span><span class="badge">recipe</span><span class="badge">notion</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Meeting Recorder Relay</h3>
+    <a href="tools/meeting-relay.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 打ち合わせの録音・文字起こし・ファシリテーター・議事録とりまとめを一括支援する中継サーバ。録音PWA(GitHub Pages)からCloudflare Tunnel経由で音声を受け、Gemini Live APIで秒単位のライブ字幕、自前faster-whisperで社外秘向けオフライン文字起こし、LLMで要約・決定事項・未決・TODOを生成しDiscordスレッドとMarkdownに出力する。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">meeting</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">

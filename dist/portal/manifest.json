@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T12:06:08.645624",
+  "generated_at": "2026-10-01T17:09:01.461552",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -1125,6 +1125,13 @@
           "purpose": "Generate images, video, and audio via diffusion workflows.",
           "skill_dir": "creative/comfyui",
           "id": "comfyui",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "speech-to-text-pipelines",
+          "description": "Use when building or debugging audio→text pipelines.",
+          "skill_dir": "media/speech-to-text-pipelines",
+          "id": "speech-to-text-pipelines",
           "type": "hermes-skill"
         },
         {
@@ -3313,6 +3320,13 @@
           "type": "hermes-skill"
         },
         {
+          "name": "meeting-recorder-relay",
+          "description": "Use when recording/transcribing meetings via the OCI relay.",
+          "skill_dir": "devops/meeting-recorder-relay",
+          "id": "meeting-recorder-relay",
+          "type": "hermes-skill"
+        },
+        {
           "name": "termux-python-setup",
           "description": "Guide for installing Python libraries with native extensions in Termux environment.",
           "disabled": true,
@@ -5204,6 +5218,26 @@
           "type": "hermes-program"
         },
         {
+          "id": "meeting-live-bridge",
+          "name": "Meeting Live Bridge",
+          "purpose": "Gemini Live API ブリッジ（秒単位字幕）",
+          "script_type": "python",
+          "role": "helper",
+          "description": "gemini-3.5-transcribe-live にWebSocketで接続し、ブラウザから届く16kHz PCMを中継するブリッジ。interimはスライディングウィンドウで返るため、直前の確定テキストとの空白無視の末尾一致で差分のみを確定テキストに再構成する。切断時は自動再接続。",
+          "status": "active",
+          "tags": [
+            "gemini-live",
+            "websocket",
+            "streaming-asr",
+            "helper",
+            "transcription"
+          ],
+          "environment": "OCI A1 (Docker: meeting-relay 内)",
+          "script_path": "meeting-tool/live_bridge.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "monthly-report-form",
           "name": "月次業務報告書フォーム運用",
           "purpose": "月次業務報告書の収集・蓄積・1on1",
@@ -5281,6 +5315,59 @@
           ],
           "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/cooking/recipe_crawl.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "meeting-relay",
+          "name": "Meeting Recorder Relay",
+          "purpose": "会議録音の中継・文字起こし・ファシリテーター・議事録生成",
+          "script_type": "python",
+          "entry_point": "main",
+          "sub_programs": [
+            {
+              "role": "main",
+              "path": "meeting-tool/relay.py",
+              "description": "HTTP中継・whisper逐語・LLM要約・Discordスレッド・Markdown出力"
+            },
+            {
+              "role": "helper",
+              "path": "meeting-tool/live_bridge.py",
+              "description": "Gemini Live APIブリッジ（秒単位ライブ字幕）"
+            },
+            {
+              "role": "startup",
+              "path": "meeting-tool/run.sh",
+              "description": "Docker起動スクリプト"
+            }
+          ],
+          "schedule": "常時稼働 (Docker --restart unless-stopped)",
+          "trigger": "http (録音PWA / スマートウォッチ音声に次ぐ第2の音声経路)",
+          "inputs": [
+            "audio_chunk (webm/opus 60秒)",
+            "audio_pcm (16kHz mono PCM16)"
+          ],
+          "outputs": [
+            "逐語テキスト",
+            "議事録Markdown (randsObsidian + llm-wiki)",
+            "Discordスレッド投稿"
+          ],
+          "dependencies": [],
+          "description": "打ち合わせの録音・文字起こし・ファシリテーター・議事録とりまとめを一括支援する中継サーバ。録音PWA(GitHub Pages)からCloudflare Tunnel経由で音声を受け、Gemini Live APIで秒単位のライブ字幕、自前faster-whisperで社外秘向けオフライン文字起こし、LLMで要約・決定事項・未決・TODOを生成しDiscordスレッドとMarkdownに出力する。APIキーはOCI側のみで保持。",
+          "status": "active",
+          "tags": [
+            "meeting",
+            "transcription",
+            "whisper",
+            "gemini-live",
+            "discord",
+            "docker",
+            "cloudflare-tunnel",
+            "pwa",
+            "facilitator"
+          ],
+          "environment": "OCI A1 (ARM64, Docker: meeting-relay, 127.0.0.1:8801)",
+          "script_path": "meeting-tool/relay.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -6702,6 +6789,11 @@
     }
   },
   "frequent_sites": [
+    {
+      "name": "会議録音PWA",
+      "url": "https://rands1984.github.io/Pages/meeting/",
+      "icon": "mic"
+    },
     {
       "name": "GitHub",
       "url": "https://github.com/rands1984",
