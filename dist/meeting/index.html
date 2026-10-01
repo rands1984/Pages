@@ -73,6 +73,11 @@
       <div class="meter" id="otherMeter"><i></i></div>
       <div class="hint">VB-CABLE の <b>CABLE Output</b> を選択。無音のままなら会議音がCABLEへ流れていません。</div>
     </div>
+    <label style="display:flex;align-items:center;gap:8px;color:var(--fg);font-size:13px;margin-top:12px">
+      <input type="checkbox" id="liveMode" checked style="width:auto">
+      ライブ字幕（秒単位・Gemini）を使う
+    </label>
+    <div class="hint" id="liveHint">OFFにするとチャンク方式（自前whisper・遅延約100秒）になります。</div>
     <div class="row"><button class="sec" id="refreshBtn">デバイス再取得</button>
       <button class="sec" id="testBtn">レベル確認</button></div>
 
@@ -107,6 +112,8 @@ const store = {
   const el=$(k); if(!el) return; const v=store.get(k); if(v) el.value=v;
   el.addEventListener('change', ()=>store.set(k, el.value));
 });
+$('liveMode').checked = store.get('liveMode') !== '0';
+$('liveMode').addEventListener('change', ()=>store.set('liveMode', $('liveMode').checked?'1':'0'));
 let state = { sid:null, thread:null, recs:{}, streams:{}, seq:{me:0,other:0}, polling:null, muted:{} };
 
 async function listDevices(){
@@ -201,25 +208,100 @@ async function startChannel(ch, deviceId, meters){
   return stream;
 }
 
+// ---- ライブ字幕（Gemini Live / 16kHz PCM16を250msごとに送信）----
+function makeDownsampler(rate){
+  const ratio = rate/16000; let acc=0,n=0; const out=[];
+  return {
+    push(f32){ for(let i=0;i<f32.length;i++){ acc+=f32[i]; n++; if(n>=ratio){ out.push(acc/n); acc=0; n=0; } } },
+    drain(){ const a=new Int16Array(out.length);
+      for(let i=0;i<out.length;i++){ const v=Math.max(-1,Math.min(1,out[i])); a[i]=v*32767|0; }
+      out.length=0; return a; }
+  };
+}
+
+async function startLiveChannel(ch, deviceId, meters){
+  if(ch==='other' && $('mode').value==='inperson') return;
+  const stream = await navigator.mediaDevices.getUserMedia({audio: deviceId ?
+      {deviceId:{exact:deviceId}, echoCancellation:false, noiseSuppression:false, autoGainControl:false} :
+      {echoCancellation:false, noiseSuppression:false, autoGainControl:false}});
+  state.streams[ch]=stream;
+  const ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const src = ctx.createMediaStreamSource(stream);
+  const ds = makeDownsampler(ctx.sampleRate);
+  const proc = ctx.createScriptProcessor(4096, 1, 1);
+  const an = ctx.createAnalyser(); an.fftSize=1024; src.connect(an);
+  const lbuf = new Float32Array(an.fftSize);
+  proc.onaudioprocess = e => ds.push(e.inputBuffer.getChannelData(0));
+  const mute = ctx.createGain(); mute.gain.value = 0;   // ハウリング防止
+  src.connect(proc); proc.connect(mute); mute.connect(ctx.destination);
+  state.timers = state.timers||{};
+  state.timers[ch] = { ctx, proc, timer: setInterval(()=>{
+      an.getFloatTimeDomainData(lbuf); let s=0;
+      for(let i=0;i<lbuf.length;i++) s+=lbuf[i]*lbuf[i];
+      meters.update(Math.sqrt(s/lbuf.length)); }, 150) };
+
+  state.liveInflight = state.liveInflight||{};
+  state.timers['live_'+ch] = setInterval(async ()=>{
+    if(!state.running) return;
+    // 往復レイテンシで遅れないよう、応答を待たずに送る（同時2本まで／チャンネル別）
+    if((state.liveInflight[ch]||0) >= 2) return;
+    const pcm = ds.drain();
+    if(pcm.length < 800) return;
+    state.liveInflight[ch] = (state.liveInflight[ch]||0) + 1;
+    api('POST', `/session/${state.sid}/live?ch=${ch}`, pcm.buffer, 'application/octet-stream')
+      .then(r => {
+        state.liveText = state.liveText||{me:'',other:''};
+        if(r.text) state.liveText[ch] = r.text;
+        state.liveInterim = state.liveInterim||{me:'',other:''};
+        state.liveInterim[ch] = r.interim||'';
+        renderLive();
+      })
+      .catch(e => console.warn('live post failed', e))
+      .finally(() => { state.liveInflight[ch] = Math.max(0, (state.liveInflight[ch]||1) - 1); });
+  }, 500);
+}
+
+function renderLive(){
+  const log=$('log'); const t=state.liveText||{}, i=state.liveInterim||{};
+  const parts=[];
+  const push=(ch)=>{ const nm = ch==='me'?'自分':'相手';
+    const body = (t[ch]||'') + (i[ch]? ' '+i[ch] : '');
+    if(body.trim()) parts.push(`<div class="${ch}">${nm}: ${escapeHtml(body)}</div>`); };
+  push('me'); if($('mode').value!=='inperson') push('other');
+  log.innerHTML = parts.join('') || '<div style="color:var(--dim)">（音声を待っています）</div>';
+  log.scrollTop = log.scrollHeight;
+}
+function escapeHtml(s){ return s.replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
 async function start(){
   $('startBtn').disabled=true;
   try{
     setStatus('接続確認中…');
     const h = await api('GET','/health');
     setStatus('接続OK ('+h.model+')','ok');
+    const useLive = $('liveMode').checked;
     const s = await api('POST','/session', JSON.stringify({
       title: $('title').value || null, mode: $('mode').value,
-      vocab: $('vocab').value, no_summary:false }));
+      vocab: $('vocab').value, no_summary:false, live: useLive }));
     state.sid = s.session_id; state.thread = s.thread_id;
-    state.seq={me:0,other:0}; state.running=false; state.recs={}; state.muted={};
+    state.seq={me:0,other:0}; state.recs={}; state.muted={};
+    state.liveText={me:'',other:''}; state.liveInterim={me:'',other:''};
     const meters = { me: makeMeter('meMeter','me'), other: makeMeter('otherMeter','other') };
     state.meters = meters;
-    await startChannel('me', $('meDev').value, meters);
-    if($('mode').value!=='inperson') await startChannel('other', $('otherDev').value, meters);
+    state.live = !!(useLive && s.live);
+    state.running = true;
+    if(state.live){
+      await startLiveChannel('me', $('meDev').value, meters);
+      if($('mode').value!=='inperson') await startLiveChannel('other', $('otherDev').value, meters);
+      setHint('ライブ字幕モード（秒単位）。相手chが無音表示ならVB-CABLEを見直してください。','ok');
+    }else{
+      await startChannel('me', $('meDev').value, meters);
+      if($('mode').value!=='inperson') await startChannel('other', $('otherDev').value, meters);
+      setHint('チャンクモード（遅延 約100秒）。相手chが無音表示ならVB-CABLEを見直してください。','ok');
+    }
     state.checkTimer = setInterval(()=>{ meters.me.check();
       if($('mode').value!=='inperson') meters.other.check(); }, 1000);
-    state.polling = setInterval(poll, 5000);
-    poll();
+    if(!state.live) state.polling = setInterval(poll, 5000);
     $('stopBtn').disabled=false;
     setHint('録音中。相手chが無音表示ならVB-CABLEの設定を見直してください。','ok');
     if(!state.thread) setHint('録音中（Discordスレッド未作成）。','ok');
@@ -235,12 +317,15 @@ async function stop(){
   state.running=false;
   for(const ch of ['me','other']){
     clearTimeout(state.timers?.['stop_'+ch]);
+    clearInterval(state.timers?.['live_'+ch]);
     try{ state.recs[ch]?.stop(); }catch(e){}
+    try{ state.timers?.[ch]?.proc?.disconnect(); }catch(e){}
+    try{ state.timers?.[ch]?.ctx?.close(); }catch(e){}
     state.streams[ch]?.getTracks().forEach(t=>t.stop());
     clearInterval(state.timers?.[ch]?.timer);
   }
   try{
-    await new Promise(r=>setTimeout(r,1500));
+    await new Promise(r=>setTimeout(r,1200));
     const res = await api('POST', `/session/${state.sid}/stop`, '{}');
     const f = res.session.final || {};
     $('summary').textContent = (f.summary||'') + '\n\n【決定事項】\n' + (f.decisions||[]).join('\n') +
