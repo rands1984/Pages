@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会議支援ツール（録音・文字起こし・ファシリテーター）</title>
+<style>
+  :root { --bg:#0f1115; --panel:#171a21; --line:#272b34; --fg:#e6e8ee; --dim:#9aa3b2;
+          --acc:#4c8dff; --ok:#35c77b; --warn:#ffb020; --err:#ff5c5c; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font-family:system-ui,-apple-system,"Segoe UI",Meiryo,sans-serif; font-size:15px; }
+  header { padding:12px 16px; border-bottom:1px solid var(--line); display:flex; gap:12px; align-items:center; }
+  header h1 { font-size:16px; margin:0; flex:1; }
+  main { display:grid; grid-template-columns:340px 1fr; gap:16px; padding:16px; }
+  @media (max-width:820px){ main{ grid-template-columns:1fr; } }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+  label { display:block; font-size:12px; color:var(--dim); margin:10px 0 4px; }
+  input,select,textarea { width:100%; background:#0d0f13; color:var(--fg);
+        border:1px solid var(--line); border-radius:7px; padding:9px; font-size:14px; }
+  button { background:var(--acc); color:#fff; border:0; border-radius:8px; padding:11px 16px;
+        font-size:15px; font-weight:600; cursor:pointer; }
+  button.sec { background:#2a2f3a; }
+  button.danger { background:#c0392b; }
+  button:disabled { opacity:.45; cursor:default; }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .meter { height:12px; background:#0d0f13; border-radius:6px; overflow:hidden; border:1px solid var(--line); }
+  .meter > i { display:block; height:100%; width:0; background:var(--ok); transition:width .1s; }
+  .meter.mute > i { background:var(--err); }
+  .ch { margin:12px 0; }
+  .ch .top { display:flex; justify-content:space-between; font-size:13px; margin-bottom:5px; }
+  .badge { font-size:11px; padding:2px 7px; border-radius:99px; background:#2a2f3a; color:var(--dim); }
+  .badge.ok { background:#123a27; color:var(--ok); } .badge.rec { background:#3a1212; color:var(--err); }
+  #log { max-height:46vh; overflow:auto; font-size:13px; line-height:1.5; }
+  #log div { padding:5px 0; border-bottom:1px solid #1e222a; }
+  #log .me { color:#9fd0ff; } #log .other { color:#ffd39f; }
+  #summary { white-space:pre-wrap; font-size:13.5px; line-height:1.6; }
+  .hint { font-size:12px; color:var(--dim); margin-top:6px; line-height:1.5; }
+  .status { font-size:12px; padding:6px 10px; border-radius:7px; background:#0d0f13; border:1px solid var(--line); }
+  details summary { cursor:pointer; color:var(--dim); font-size:13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎙 会議支援ツール</h1>
+  <span class="status" id="relayStatus">未接続</span>
+</header>
+
+<main>
+  <div class="panel">
+    <div class="row">
+      <button id="startBtn">● 録音開始</button>
+      <button id="stopBtn" class="danger" disabled>■ 停止</button>
+    </div>
+    <div class="hint" id="stateHint">設定を確認して「録音開始」を押してください。</div>
+
+    <label>会議タイトル</label>
+    <input id="title" placeholder="例：定例ミーティング">
+    <label>形態</label>
+    <select id="mode"><option value="web">Web会議（Surface / 2ch）</option>
+      <option value="inperson">対面（Android / 1マイク）</option></select>
+    <label>用語辞書（精度向上・任意）</label>
+    <input id="vocab" placeholder="人名/製品名/専門用語をスペース区切り">
+
+    <div class="ch">
+      <div class="top"><span>「自分」入力（マイク）</span><span class="badge" id="meBadge">待機</span></div>
+      <select id="meDev"></select>
+      <div class="meter" id="meMeter"><i></i></div>
+    </div>
+    <div class="ch" id="otherCh">
+      <div class="top"><span>「相手」入力（CABLE Output）</span><span class="badge" id="otherBadge">待機</span></div>
+      <select id="otherDev"></select>
+      <div class="meter" id="otherMeter"><i></i></div>
+      <div class="hint">VB-CABLE の <b>CABLE Output</b> を選択。無音のままなら会議音がCABLEへ流れていません。</div>
+    </div>
+    <div class="row"><button class="sec" id="refreshBtn">デバイス再取得</button>
+      <button class="sec" id="testBtn">レベル確認</button></div>
+
+    <details>
+      <summary>接続設定</summary>
+      <label>リレー URL</label><input id="relayUrl" value="https://meeting.rands1984.dpdns.org">
+      <label>アクセストークン</label><input id="token" type="password" placeholder="X-Meeting-Token">
+      <label>1チャンクの長さ（秒）</label><input id="chunkSec" type="number" value="60" min="15" max="300">
+      <div class="hint">トークンは端末内(localStorage)にのみ保存されます。</div>
+    </details>
+  </div>
+
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <b>ファシリテーター（テキスト）</b>
+      <span class="badge" id="summaryBadge">-</span>
+    </div>
+    <div id="summary" style="margin-top:8px">（会議が始まると、要約・決定事項・未決事項・TODO がここに更新されます）</div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:14px 0">
+    <b>文字起こし</b>
+    <div id="log"></div>
+  </div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const store = {
+  get: k => localStorage.getItem('meeting.'+k) || '',
+  set: (k,v) => localStorage.setItem('meeting.'+k, v),
+};
+['relayUrl','token','chunkSec','title','vocab','mode','meDev','otherDev'].forEach(k=>{
+  const el=$(k); if(!el) return; const v=store.get(k); if(v) el.value=v;
+  el.addEventListener('change', ()=>store.set(k, el.value));
+});
+let state = { sid:null, thread:null, recs:{}, streams:{}, seq:{me:0,other:0}, polling:null, muted:{} };
+
+async function listDevices(){
+  try{
+    const tmp = await navigator.mediaDevices.getUserMedia({audio:true});
+    tmp.getTracks().forEach(t=>t.stop());
+  }catch(e){ setHint('マイク権限が必要です: '+e.message, 'err'); }
+  const devs = (await navigator.mediaDevices.enumerateDevices()).filter(d=>d.kind==='audioinput');
+  for(const sel of [$('meDev'), $('otherDev')]){
+    const cur = sel.value; sel.innerHTML='';
+    devs.forEach((d,i)=>{
+      const o=document.createElement('option'); o.value=d.deviceId;
+      o.textContent = d.label || ('入力デバイス '+(i+1));
+      sel.appendChild(o);
+    });
+    if([...sel.options].some(o=>o.value===cur)) sel.value=cur;
+  }
+  $('otherCh').style.display = $('mode').value==='inperson' ? 'none' : 'block';
+}
+
+function setHint(msg, kind){
+  const el=$('stateHint'); el.textContent=msg;
+  el.style.color = kind==='err' ? 'var(--err)' : kind==='ok' ? 'var(--ok)' : 'var(--dim)';
+}
+function setStatus(msg, kind){
+  $('relayStatus').textContent=msg;
+  $('relayStatus').style.color = kind==='ok'?'var(--ok)':kind==='err'?'var(--err)':'var(--dim)';
+}
+async function api(method, path, body, ctype){
+  const base=$('relayUrl').value.replace(/\/$/,'');
+  const r = await fetch(base+path, {method,
+    headers:{'X-Meeting-Token':$('token').value, 'Content-Type': ctype||'application/json'},
+    body});
+  if(!r.ok) throw new Error(method+' '+path+' -> '+r.status+' '+(await r.text()).slice(0,200));
+  return r.json();
+}
+
+function makeMeter(elId, ch){
+  const meter=$(elId); const bar=meter.querySelector('i');
+  let peak=0, lastLoud=Date.now();
+  return {
+    update(v){ bar.style.width=Math.min(100, v*160)+'%';
+      if(v>0.01){ lastLoud=Date.now(); } },
+    check(){ const silent = Date.now()-lastLoud > 5000;
+      meter.classList.toggle('mute', silent); state.muted[ch]=silent;
+      const b = ch==='me'?$('meBadge'):$('otherBadge');
+      if(state.recs[ch]){ b.textContent = silent? '無音!' : '録音中'; b.className='badge '+(silent?'':''); b.className='badge '+(silent?'':'ok'); }
+    }
+  };
+}
+
+async function startChannel(ch, deviceId, meters){
+  if(ch==='other' && $('mode').value==='inperson') return null;
+  const constraints = { audio: deviceId ? {deviceId:{exact:deviceId}, echoCancellation:false, noiseSuppression:false, autoGainControl:false}
+                                       : {echoCancellation:false, noiseSuppression:false, autoGainControl:false} };
+  const stream = await navigator.mediaDevices.getUserMedia(constraints);
+  state.streams[ch]=stream;
+  const ctx = new (window.AudioContext||window.webkitAudioContext)();
+  const src = ctx.createMediaStreamSource(stream);
+  const an = ctx.createAnalyser(); an.fftSize=1024; src.connect(an);
+  const buf = new Float32Array(an.fftSize);
+  const timer = setInterval(()=>{ an.getFloatTimeDomainData(buf);
+    let s=0; for(let i=0;i<buf.length;i++) s+=buf[i]*buf[i];
+    meters.update(Math.sqrt(s/buf.length)); }, 150);
+  state.timers = state.timers||{}; state.timers[ch]={timer, ctx};
+
+  const mime = MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus' : '';
+  const chunkMs = Math.max(15, Math.min(300, parseInt($('chunkSec').value||'60',10))) * 1000;
+
+  const cycle = () => {
+    if(!state.recs[ch]) return;
+    const parts=[];
+    const rec = new MediaRecorder(stream, mime?{mimeType:mime}:undefined);
+    state.recs[ch] = rec;
+    rec.ondataavailable = e => { if(e.data && e.data.size) parts.push(e.data); };
+    rec.onstop = async () => {
+      if(parts.length){
+        const blob = new Blob(parts, {type: mime||'audio/webm'});
+        const seq = state.seq[ch]++;
+        try{ await api('POST', `/session/${state.sid}/chunk?seq=${seq}&ch=${ch}`, blob, 'application/octet-stream'); }
+        catch(e){ console.warn('chunk upload failed', e); }
+      }
+      if(state.running && state.recs[ch] && state.recs[ch].state==='recording') cycle();
+      else setTimeout(()=>{ if(state.running) cycle(); }, 50);
+    };
+    rec.start();
+    state.timers['stop_'+ch] = setTimeout(()=>{ try{ rec.stop(); }catch(e){} }, chunkMs);
+    return rec;
+  };
+  state.running = true;
+  cycle();
+  return stream;
+}
+
+async function start(){
+  $('startBtn').disabled=true;
+  try{
+    setStatus('接続確認中…');
+    const h = await api('GET','/health');
+    setStatus('接続OK ('+h.model+')','ok');
+    const s = await api('POST','/session', JSON.stringify({
+      title: $('title').value || null, mode: $('mode').value,
+      vocab: $('vocab').value, no_summary:false }));
+    state.sid = s.session_id; state.thread = s.thread_id;
+    state.seq={me:0,other:0}; state.running=false; state.recs={}; state.muted={};
+    const meters = { me: makeMeter('meMeter','me'), other: makeMeter('otherMeter','other') };
+    state.meters = meters;
+    await startChannel('me', $('meDev').value, meters);
+    if($('mode').value!=='inperson') await startChannel('other', $('otherDev').value, meters);
+    state.checkTimer = setInterval(()=>{ meters.me.check();
+      if($('mode').value!=='inperson') meters.other.check(); }, 1000);
+    state.polling = setInterval(poll, 5000);
+    poll();
+    $('stopBtn').disabled=false;
+    setHint('録音中。相手chが無音表示ならVB-CABLEの設定を見直してください。','ok');
+    if(!state.thread) setHint('録音中（Discordスレッド未作成）。','ok');
+  }catch(e){
+    console.error(e); setStatus('エラー','err'); setHint(String(e.message||e),'err');
+    $('startBtn').disabled=false;
+  }
+}
+
+async function stop(){
+  $('stopBtn').disabled=true; setStatus('確定中…');
+  clearInterval(state.polling); clearInterval(state.checkTimer);
+  state.running=false;
+  for(const ch of ['me','other']){
+    clearTimeout(state.timers?.['stop_'+ch]);
+    try{ state.recs[ch]?.stop(); }catch(e){}
+    state.streams[ch]?.getTracks().forEach(t=>t.stop());
+    clearInterval(state.timers?.[ch]?.timer);
+  }
+  try{
+    await new Promise(r=>setTimeout(r,1500));
+    const res = await api('POST', `/session/${state.sid}/stop`, '{}');
+    const f = res.session.final || {};
+    $('summary').textContent = (f.summary||'') + '\n\n【決定事項】\n' + (f.decisions||[]).join('\n') +
+      '\n【TODO】\n' + (f.todos||[]).map(t=>`・${t.task}（${t.owner||'未定'} / ${t.due||'未定'}）`).join('\n');
+    const files = res.session.output_files || [];
+    setHint('完了。' + (files.length? '保存: '+files.join(', ') : ''),'ok');
+    setStatus('終了','ok');
+  }catch(e){ setHint('確定に失敗: '+e.message,'err'); }
+  $('startBtn').disabled=false;
+}
+
+async function poll(){
+  if(!state.sid) return;
+  try{
+    const st = await api('GET', `/session/${state.sid}`);
+    const log=$('log'); log.innerHTML='';
+    st.transcript.forEach(e=>{
+      const d=document.createElement('div');
+      d.className = e.ch==='me'?'me':'other';
+      d.textContent = `[${e.t}] ${e.ch==='me'?'自分':'相手'}: ${e.text}`;
+      log.appendChild(d);
+    });
+    log.scrollTop = log.scrollHeight;
+    const s = st.session.summary;
+    if(s){ $('summary').textContent = (s.summary||'') +
+        (s.decisions?.length? '\n\n【決定事項】\n'+s.decisions.join('\n') : '') +
+        (s.open_items?.length? '\n\n【未決事項】\n'+s.open_items.join('\n') : '') +
+        (s.todos?.length? '\n\n【TODO】\n'+s.todos.map(t=>`・${t.task}（${t.owner||'未定'} / ${t.due||'未定'}）`).join('\n') : '') +
+        (s.next_focus? '\n\n【次の確認事項】'+s.next_focus : '');
+      $('summaryBadge').textContent = '更新 ' + new Date().toLocaleTimeString();
+    }
+  }catch(e){ console.warn(e); }
+}
+
+$('startBtn').onclick = start;
+$('stopBtn').onclick = stop;
+$('refreshBtn').onclick = listDevices;
+$('mode').onchange = e => { store.set('mode', e.target.value);
+  $('otherCh').style.display = e.target.value==='inperson'?'none':'block'; };
+$('testBtn').onclick = async ()=>{
+  try{ const s = await navigator.mediaDevices.getUserMedia({audio:true});
+    const ctx=new AudioContext(); const an=ctx.createAnalyser(); ctx.createMediaStreamSource(s).connect(an);
+    const b=new Float32Array(an.fftSize); let n=0;
+    setHint('3秒間レベルを表示します…');
+    const t=setInterval(()=>{ an.getFloatTimeDomainData(b); let x=0;
+      for(let i=0;i<b.length;i++) x+=b[i]*b[i];
+      const v=Math.sqrt(x/b.length); $('meMeter').querySelector('i').style.width=Math.min(100,v*160)+'%'; },100);
+    setTimeout(()=>{ clearInterval(t); s.getTracks().forEach(k=>k.stop()); ctx.close();
+      setHint('レベル確認終了。','ok'); },3000);
+  }catch(e){ setHint(e.message,'err'); }
+};
+listDevices();
+</script>
+</body>
+</html>
