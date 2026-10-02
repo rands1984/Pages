@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T17:09:01.461552",
+  "generated_at": "2026-10-03T00:14:22.101621",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -6526,6 +6526,34 @@
           "subnet": "",
           "public_ip": "",
           "private_ip": ""
+        },
+        {
+          "id": "mailhub-webmail",
+          "name": "メール退避・Webmail基盤 (MailHub)",
+          "type": "oci-compute",
+          "status": "active",
+          "description": "会社POP3のメールをOCIで受信し、添付をOneDriveへ退避するWebmail基盤",
+          "tags": [
+            "mail",
+            "webmail",
+            "dovecot",
+            "snappymail",
+            "onedrive",
+            "automation"
+          ],
+          "repo_url": "",
+          "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1) / OCI ARM64",
+          "depends_on": [
+            "instance-vm-standard"
+          ],
+          "created": "2026-10-02",
+          "updated": "2026-10-03",
+          "secret_refs": [
+            "mailhub-fetchmailrc",
+            "mailhub-dovecot-passwd",
+            "mailhub-rclone-onedrive",
+            "mailhub-snappymail-admin"
+          ]
         },
         {
           "id": "instance-vm-standard",
