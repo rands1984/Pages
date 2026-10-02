@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermes Skills [Package] - 総合ポータルサイト</title>
+  <title>Hermes Skills - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -40,15 +40,25 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .tag { background: var(--card-border); color: var(--text-muted); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .secret-ref { background: rgba(210,153,34,0.2); color: #d29922; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .dep { background: rgba(88,166,255,0.2); color: #58a6ff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+.deploy-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.nav-group { border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; background: var(--card-bg); display: flex; flex-direction: column; gap: 8px; }
+.nav-group-title { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 2px; }
+.nav-group .nav-card { display: flex; justify-content: space-between; align-items: center; }
+.desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; padding: 12px 16px; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 6px; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.cat-nav a { padding: 6px 12px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; }
+.cat-nav a:hover, .cat-nav a.active { border-color: var(--accent); color: var(--accent); }
+.unavailable { color: var(--warning); font-size: 0.75rem; margin-left: 6px; }
 @media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .detail strong { width: auto; display: block; margin-bottom: 4px; } }</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1>[Wrench] Hermes Skills</h1>
-      <div class="meta">112件 - 更新: 2026-10-03 05:41</div>
-      <a href="../" class="back-link">[Back] ポータルに戻る</a>
+      <div class="meta">112件 - 更新: 2026-10-03 06:11</div>
+      <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html" class="active">Hermes Skills (112)</a><a href="hermes-cron.html">Hermes Cron (23)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent のスキル機能。Webhook受信、API連携、データ処理等の再利用可能なコンポーネント。</div>
     <div class="card-grid"><div class="card">
   <div class="card-header">
@@ -408,7 +418,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/kanban-orchestrator.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Decomposition playbook + specialist-roster conventions + anti-temptation rules for an orchestrator profile routing work through Kanban. The """don't do the work yourself""" rule and the basic lifecycle ar</div>
+    <div class="detail"><strong>説明:</strong> Decomposition playbook + specialist-roster conventions + anti-temptation rules for an orchestrator profile routing work through Kanban. The &quot;don&#x27;t do the work yourself&quot; rule and the basic lifecycle ar</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
     <div class="detail"><strong>タグ:</strong> </div>
@@ -552,7 +562,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Drive the macOS desktop in the background — screenshots, mouse, keyboard,
-scroll, drag — without stealing the user's cursor, keyboard focus, or
+scroll, drag — without stealing the user&#x27;s cursor, keyboard focus, or
 Space. Works with any tool-capable model. Load this skil</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
@@ -652,7 +662,7 @@ Space. Works with any tool-capable model. Load this skil</div>
     <a href="tools/design-md.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Author/validate/export Google's DESIGN.md token spec files.</div>
+    <div class="detail"><strong>説明:</strong> Author/validate/export Google&#x27;s DESIGN.md token spec files.</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
     <div class="detail"><strong>タグ:</strong> </div>
@@ -718,7 +728,7 @@ Space. Works with any tool-capable model. Load this skil</div>
     <a href="tools/llm-wiki.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Karpathy's LLM Wiki: build/query interlinked markdown KB.</div>
+    <div class="detail"><strong>説明:</strong> Karpathy&#x27;s LLM Wiki: build/query interlinked markdown KB.</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
     <div class="detail"><strong>タグ:</strong> </div>
@@ -1103,7 +1113,7 @@ Space. Works with any tool-capable model. Load this skil</div>
     <a href="tools/kanban-worker.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is w</div>
+    <div class="detail"><strong>説明:</strong> Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker&#x27;s system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is w</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
     <div class="detail"><strong>タグ:</strong> </div>

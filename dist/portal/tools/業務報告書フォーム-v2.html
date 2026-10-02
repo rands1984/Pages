@@ -40,6 +40,15 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .tag { background: var(--card-border); color: var(--text-muted); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .secret-ref { background: rgba(210,153,34,0.2); color: #d29922; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .dep { background: rgba(88,166,255,0.2); color: #58a6ff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+.deploy-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.nav-group { border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; background: var(--card-bg); display: flex; flex-direction: column; gap: 8px; }
+.nav-group-title { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 2px; }
+.nav-group .nav-card { display: flex; justify-content: space-between; align-items: center; }
+.desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; padding: 12px 16px; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 6px; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.cat-nav a { padding: 6px 12px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; }
+.cat-nav a:hover, .cat-nav a.active { border-color: var(--accent); color: var(--accent); }
+.unavailable { color: var(--warning); font-size: 0.75rem; margin-left: 6px; }
 @media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .detail strong { width: auto; display: block; margin-bottom: 4px; } }
     .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
     .header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--card-border); }
@@ -59,7 +68,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 </head>
 <body>
   <div class="container">
-    <a href="../" class="back-link">[Back] ポータルに戻る</a>
+    <a href="../../" class="back-link">[Back] トップページに戻る</a>
+    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../gas.html" class="active">gas</a></div>
     <div class="header">
       <h1>業務報告書フォーム v2 <span class="badge">gas</span></h1>
       <div class="meta">更新: 2026-09-30 | 作成: </div>
@@ -69,7 +79,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">notion</span><span class="tag">monthly-report</span><span class="tag">form</span><span class="tag">webapp</span><span class="tag">1on1</span><span class="tag">drive</span><span class="tag">discord</span></div>
-      <div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ/exec" target="_blank">v3 (doGet)</a> Webアプリ公開版（実行者=自分 / アクセス=全員（匿名））</div><div class="detail"><strong>プロパティ NOTION_TOKEN:</strong> Notion Integration トークン（ntn_…）</div><div class="detail"><strong>プロパティ NOTION_PARENT_PAGE_ID:</strong> 親ページ「業務報告書(管理)」のページID</div><div class="detail"><strong>プロパティ MEMBER_DB_ID:</strong> メンバーDB</div><div class="detail"><strong>プロパティ MEMBER_DATA_SOURCE_ID:</strong> メンバーDBのデータソースID</div><div class="detail"><strong>プロパティ EXPECT_DB_ID:</strong> 期待マスタDB（個人別）</div><div class="detail"><strong>プロパティ EXPECT_DATA_SOURCE_ID:</strong> 期待マスタDBのデータソースID</div><div class="detail"><strong>プロパティ REPORT_DB_ID:</strong> 月次報告書DB</div><div class="detail"><strong>プロパティ REPORT_DATA_SOURCE_ID:</strong> 月次報告書DBのデータソースID</div><div class="detail"><strong>プロパティ MD_FOLDER_ID:</strong> Markdown出力先のGoogle Driveフォルダ</div><div class="detail"><strong>プロパティ DISCORD_WEBHOOK_URL:</strong> #通知用 Webhook URL</div>
+      <div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ/exec" target="_blank" rel="noopener">v3 (doGet)</a> Webアプリ公開版（実行者=自分 / アクセス=全員（匿名））</div><div class="detail"><strong>プロパティ NOTION_TOKEN:</strong> Notion Integration トークン（ntn_…）</div><div class="detail"><strong>プロパティ NOTION_PARENT_PAGE_ID:</strong> 親ページ「業務報告書(管理)」のページID</div><div class="detail"><strong>プロパティ MEMBER_DB_ID:</strong> メンバーDB</div><div class="detail"><strong>プロパティ MEMBER_DATA_SOURCE_ID:</strong> メンバーDBのデータソースID</div><div class="detail"><strong>プロパティ EXPECT_DB_ID:</strong> 期待マスタDB（個人別）</div><div class="detail"><strong>プロパティ EXPECT_DATA_SOURCE_ID:</strong> 期待マスタDBのデータソースID</div><div class="detail"><strong>プロパティ REPORT_DB_ID:</strong> 月次報告書DB</div><div class="detail"><strong>プロパティ REPORT_DATA_SOURCE_ID:</strong> 月次報告書DBのデータソースID</div><div class="detail"><strong>プロパティ MD_FOLDER_ID:</strong> Markdown出力先のGoogle Driveフォルダ</div><div class="detail"><strong>プロパティ DISCORD_WEBHOOK_URL:</strong> #通知用 Webhook URL</div>
       <div class="detail"><strong>依存:</strong> なし</div>
       <div class="detail"><strong>秘密情報参照:</strong> <span class="secret-ref">[Lock] NOTION_TOKEN</span><span class="secret-ref">[Lock] DISCORD_WEBHOOK_URL</span></div>
       

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAS・Apps Script [Package] - 総合ポータルサイト</title>
+  <title>GAS・Apps Script - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -40,15 +40,25 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .tag { background: var(--card-border); color: var(--text-muted); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .secret-ref { background: rgba(210,153,34,0.2); color: #d29922; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
 .dep { background: rgba(88,166,255,0.2); color: #58a6ff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-right: 6px; }
+.deploy-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.nav-group { border: 1px solid var(--card-border); border-radius: 10px; padding: 12px; background: var(--card-bg); display: flex; flex-direction: column; gap: 8px; }
+.nav-group-title { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 2px; }
+.nav-group .nav-card { display: flex; justify-content: space-between; align-items: center; }
+.desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; padding: 12px 16px; background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 6px; }
+.cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.cat-nav a { padding: 6px 12px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-muted); text-decoration: none; font-size: 0.8rem; }
+.cat-nav a:hover, .cat-nav a.active { border-color: var(--accent); color: var(--accent); }
+.unavailable { color: var(--warning); font-size: 0.75rem; margin-left: 6px; }
 @media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .detail strong { width: auto; display: block; margin-bottom: 4px; } }</style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1>[Green] GAS・Apps Script</h1>
-      <div class="meta">25件 - 更新: 2026-10-03 05:41</div>
-      <a href="../" class="back-link">[Back] ポータルに戻る</a>
+      <div class="meta">25件 - 更新: 2026-10-03 06:11</div>
+      <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html" class="active">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (112)</a><a href="hermes-cron.html">Hermes Cron (23)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Google Apps Script で作成されたツール・自動化スクリプト。スプレッドシート連携、Webアプリ公開、定期実行トリガー等を活用。</div>
     <div class="card-grid"><div class="card">
   <div class="card-header">
