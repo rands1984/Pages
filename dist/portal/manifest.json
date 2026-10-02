@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T00:14:22.101621",
+  "generated_at": "2026-10-03T05:41:22.581984",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -6846,6 +6846,11 @@
       "name": "n8n",
       "url": "https://rands1984.ddns.net",
       "icon": "n8n"
+    },
+    {
+      "name": "メール Webmail",
+      "url": "http://100.88.28.54:8080",
+      "icon": "mail"
     },
     {
       "name": "Bitwarden",
