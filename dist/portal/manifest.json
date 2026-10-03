@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T06:19:35.452972",
+  "generated_at": "2026-10-03T20:39:37.180566",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -2170,6 +2170,33 @@
           "type": "hermes-skill"
         },
         {
+          "name": "tool-health-review",
+          "description": "Audit a running tool before redesigning it.",
+          "version": "1.0.0",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "audit",
+                "cron",
+                "observability",
+                "review",
+                "legacy"
+              ],
+              "related_skills": [
+                "hermes-profile-cron-collection",
+                "portal-maintenance"
+              ]
+            }
+          },
+          "purpose": "Produce an evidence-based health review of an existing tool before redesign, instead of guessing at its state.",
+          "skill_dir": "devops/tool-health-review",
+          "id": "tool-health-review",
+          "type": "hermes-skill"
+        },
+        {
           "name": "claude-code",
           "description": "Delegate coding to Claude Code CLI (features, PRs).",
           "version": "2.2.1",
@@ -3086,6 +3113,13 @@
           "type": "hermes-skill"
         },
         {
+          "name": "cooking-clips",
+          "description": "Use to save, search, or crawl cooking recipes.",
+          "skill_dir": "productivity/cooking-clips",
+          "id": "cooking-clips",
+          "type": "hermes-skill"
+        },
+        {
           "name": "huggingface-hub",
           "description": "HuggingFace hf CLI: search/download/upload models, datasets.",
           "version": "1.0.1",
@@ -3317,6 +3351,13 @@
           "purpose": "Read the live Hermes desktop DOM/CSS over CDP.",
           "skill_dir": "software-development/inspecting-hermes-desktop-dom",
           "id": "inspecting-hermes-desktop-dom",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "selfhosted-mail-stack",
+          "description": "Deploy/debug fetchmail+Dovecot+SnappyMail mail hub.",
+          "skill_dir": "devops/selfhosted-mail-stack",
+          "id": "selfhosted-mail-stack",
           "type": "hermes-skill"
         },
         {
@@ -4377,6 +4418,38 @@
           "profile": "default"
         },
         {
+          "id": "d5fbc8ec9711",
+          "name": "cooking-clips-crawl-daily",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "cooking-clips v2 の日次巡回。~/projects/cooking-clips で `python -m cooking_clips crawl --max 10` を実行し、巡回4サイト（sirogohan/kyounoryouri/daigo/orangepage）の新着レシピを Notion（唯一の正）へ保存し、SQLite FTS5 インデックスを更新する。no_agent（command型）のため LLM 不要。stdout をそのまま配信、新着ゼロなら1行のみ。",
+          "tags": [
+            "cron",
+            "automation",
+            "dev",
+            "cooking-clips"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-03",
+          "updated": "2026-10-03",
+          "secret_refs": [
+            "NOTION_API_KEY（~/.hermes/.env）",
+            "OPENROUTER_API_KEY（~/.hermes/.env）"
+          ],
+          "purpose": "巡回4サイトの新着レシピをNotionへ保存し、インデックスを更新する日次バッチ",
+          "schedule": "0 22 * * *",
+          "script_path": "~/.hermes/profiles/dev/scripts/cooking_clips_crawl.sh",
+          "script_crawl_max": 10,
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] cookingclipsツールの見直し",
+          "related_programs": [
+            "04b57d8f2094"
+          ],
+          "profile": "dev"
+        },
+        {
           "id": "a9b32fc7084f",
           "name": "Watch Audio Processor",
           "type": "hermes-cron",
@@ -4540,25 +4613,31 @@
           "id": "3e7bec674a8d",
           "name": "cooking-recipe-crawl-daily",
           "type": "hermes-cron",
-          "status": "active",
-          "description": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --max 10\n3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む\n4) 結果を Discord に通知する。以下のフォーマットで日本語出",
+          "status": "retired",
+          "description": "（2026-10-03 廃止）v1 の巡回 cron（agent型・失敗率58%）。v2 の cooking-clips-crawl-daily（d5fbc8ec9711, command型/no_agent）へ移行。",
           "tags": [
             "cron",
             "automation",
-            "default"
+            "default",
+            "retired"
           ],
           "repo_url": "",
-          "deploy_target": "Hermes Cron (default)",
+          "deploy_target": "retired",
           "depends_on": [],
           "created": "2026-08-23",
-          "updated": "2026-09-28",
+          "updated": "2026-10-03",
+          "retired_at": "2026-10-03",
+          "retired_reason": "失敗率58%（直近26回中15回失敗）。agent型cronのdrift_skipと無料LLMの不安定が主因。v2 で command型 + 3モデルフォールバック + queue に移行。",
+          "replaced_by": "d5fbc8ec9711",
           "secret_refs": [],
-          "purpose": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --m",
+          "purpose": "（廃止済み）巡回4サイトの新着レシピを md + Notion へ保存",
           "schedule": "0 22 * * *",
           "script_path": null,
           "skills": [],
-          "delivers_to": "rands1984のサーバー / #課題 / [課題] 料理クリップを活用したメニュー考案（Hermesを利用）",
-          "related_programs": [],
+          "delivers_to": "",
+          "related_programs": [
+            "d5fbc8ec9711"
+          ],
           "profile": "default"
         },
         {
@@ -4781,25 +4860,31 @@
           "id": "04b57d8f2094",
           "name": "cooking-notion-pull-daily",
           "type": "hermes-cron",
-          "status": "active",
-          "description": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST",
+          "status": "retired",
+          "description": "（2026-10-03 廃止）Notion→md pull 経路。v2 設計 D2 決定で片方向化（crawl/web/image → Notion）するため retired。",
           "tags": [
             "cron",
             "automation",
-            "default"
+            "default",
+            "retired"
           ],
           "repo_url": "",
-          "deploy_target": "Hermes Cron (default)",
+          "deploy_target": "retired",
           "depends_on": [],
           "created": "2026-07-13",
-          "updated": "2026-09-28",
+          "updated": "2026-10-03",
+          "retired_at": "2026-10-03",
+          "retired_reason": "v2 設計 D2（Notion を唯一の正・md 廃止）により Notion→md pull を廃止。default プロファイルの cron も enabled:false 化済み。",
+          "replaced_by": "d5fbc8ec9711",
           "secret_refs": [],
-          "purpose": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造",
+          "purpose": "（廃止済み）Notion CookingClips DB の未構造化 web クリップ行を md へ pull していた",
           "schedule": "0 23 * * *",
           "script_path": null,
           "skills": [],
-          "delivers_to": "rands1984のサーバー / #課題 / [課題] 料理クリップを活用したメニュー考案（Hermesを利用）",
-          "related_programs": [],
+          "delivers_to": "",
+          "related_programs": [
+            "d5fbc8ec9711"
+          ],
           "profile": "default"
         },
         {
@@ -6016,7 +6101,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-09-28",
+        "updated": "2026-10-03",
         "secret_refs": [
           "N8N_API_KEY"
         ],

@@ -20,6 +20,9 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .badge { background: var(--warning); color: var(--bg); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
 .deploy-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
 .deploy-link:hover { border-color: var(--accent); }
+.site-link { flex-direction: column; align-items: flex-start; gap: 4px; line-height: 1.3; }
+.site-url { color: var(--text-muted); font-size: 0.72rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+.site-link:hover .site-url { color: var(--accent); }
 .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
 .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
@@ -55,10 +58,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Wrench] Hermes Skills</h1>
-      <div class="meta">112件 - 更新: 2026-10-03 06:19</div>
+      <div class="meta">115件 - 更新: 2026-10-03 20:47</div>
       <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html" class="active">Hermes Skills (112)</a><a href="hermes-cron.html">Hermes Cron (23)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html" class="active">Hermes Skills (115)</a><a href="hermes-cron.html">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent のスキル機能。Webhook受信、API連携、データ処理等の再利用可能なコンポーネント。</div>
     <div class="card-grid"><div class="card">
   <div class="card-header">
@@ -524,6 +527,17 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>tool-health-review</h3>
+    <a href="tools/tool-health-review.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Audit a running tool before redesigning it.</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
+    <div class="detail"><strong>タグ:</strong> </div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>claude-code</h3>
     <a href="tools/claude-code.html" class="btn-link">詳細</a>
   </div>
@@ -845,6 +859,17 @@ Space. Works with any tool-capable model. Load this skil</div>
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>cooking-clips</h3>
+    <a href="tools/cooking-clips.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Use to save, search, or crawl cooking recipes.</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
+    <div class="detail"><strong>タグ:</strong> </div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>huggingface-hub</h3>
     <a href="tools/huggingface-hub.html" class="btn-link">詳細</a>
   </div>
@@ -916,6 +941,17 @@ Space. Works with any tool-capable model. Load this skil</div>
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Read the live Hermes desktop DOM/CSS over CDP.</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
+    <div class="detail"><strong>タグ:</strong> </div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>selfhosted-mail-stack</h3>
+    <a href="tools/selfhosted-mail-stack.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Deploy/debug fetchmail+Dovecot+SnappyMail mail hub.</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
     <div class="detail"><strong>タグ:</strong> </div>

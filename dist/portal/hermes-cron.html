@@ -20,6 +20,9 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .badge { background: var(--warning); color: var(--bg); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
 .deploy-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
 .deploy-link:hover { border-color: var(--accent); }
+.site-link { flex-direction: column; align-items: flex-start; gap: 4px; line-height: 1.3; }
+.site-url { color: var(--text-muted); font-size: 0.72rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+.site-link:hover .site-url { color: var(--accent); }
 .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
 .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
@@ -55,10 +58,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Clock] Hermes Cron</h1>
-      <div class="meta">23件 - 更新: 2026-10-03 06:19</div>
+      <div class="meta">24件 - 更新: 2026-10-03 20:47</div>
       <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (112)</a><a href="hermes-cron.html" class="active">Hermes Cron (23)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (115)</a><a href="hermes-cron.html" class="active">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (28)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent の定期実行ジョブ。音声文字起こし、データ同期、監視等の自動化タスク。</div>
     <div class="card-grid"><div class="card">
   <div class="card-header">
@@ -92,6 +95,17 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>cooking-clips-crawl-daily</h3>
+    <a href="tools/d5fbc8ec9711.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> cooking-clips v2 の日次巡回。~/projects/cooking-clips で `python -m cooking_clips crawl --max 10` を実行し、巡回4サイト（sirogohan/kyounoryouri/daigo/orangepage）の新着レシピを Notion（唯一の正）へ保存し、SQLite FTS5 インデックスを更新する。no_agent</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -187,13 +201,9 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
     <a href="tools/3e7bec674a8d.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。
-1) cd ~/.hermes/scripts/cooking
-2) python3 recipe_crawl.py --max 10
-3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む
-4) 結果を Discord に通知する。以下のフォーマットで日本語出</div>
-    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>説明:</strong> （2026-10-03 廃止）v1 の巡回 cron（agent型・失敗率58%）。v2 の cooking-clips-crawl-daily（d5fbc8ec9711, command型/no_agent）へ移行。</div>
+    <div class="detail"><strong>環境:</strong> retired</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status pending">retired</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
   </div>
 </div><div class="card">
@@ -331,9 +341,9 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
     <a href="tools/04b57d8f2094.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> ~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST</div>
-    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>説明:</strong> （2026-10-03 廃止）Notion→md pull 経路。v2 設計 D2 決定で片方向化（crawl/web/image → Notion）するため retired。</div>
+    <div class="detail"><strong>環境:</strong> retired</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status pending">retired</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
   </div>
 </div><div class="card">

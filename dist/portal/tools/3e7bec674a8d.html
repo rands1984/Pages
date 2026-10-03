@@ -20,6 +20,9 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .badge { background: var(--warning); color: var(--bg); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
 .deploy-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
 .deploy-link:hover { border-color: var(--accent); }
+.site-link { flex-direction: column; align-items: flex-start; gap: 4px; line-height: 1.3; }
+.site-url { color: var(--text-muted); font-size: 0.72rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+.site-link:hover .site-url { color: var(--accent); }
 .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
 .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
@@ -72,20 +75,14 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-cron.html" class="active">hermes-cron</a></div>
     <div class="header">
       <h1>cooking-recipe-crawl-daily <span class="badge">hermes-cron</span></h1>
-      <div class="meta">更新: 2026-09-28 | 作成: 2026-08-23</div>
+      <div class="meta">更新: 2026-10-03 | 作成: 2026-08-23</div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> 毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。
-1) cd ~/.hermes/scripts/cooking
-2) python3 recipe_crawl.py --max 10
-3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む
-4) 結果を Discord に通知する。以下のフォーマットで日本語出</div>
-      <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
-      <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">default</span></div>
-      <div class="detail"><strong>目的:</strong> 毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。
-1) cd ~/.hermes/scripts/cooking
-2) python3 recipe_crawl.py --m</div><div class="detail"><strong>スケジュール:</strong> 0 22 * * *</div>
+      <div class="detail"><strong>説明:</strong> （2026-10-03 廃止）v1 の巡回 cron（agent型・失敗率58%）。v2 の cooking-clips-crawl-daily（d5fbc8ec9711, command型/no_agent）へ移行。</div>
+      <div class="detail"><strong>環境:</strong> retired</div>
+      <div class="detail"><strong>ステータス:</strong> <span class="status pending">retired</span></div>
+      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">default</span><span class="tag">retired</span></div>
+      <div class="detail"><strong>目的:</strong> （廃止済み）巡回4サイトの新着レシピを md + Notion へ保存</div><div class="detail"><strong>スケジュール:</strong> 0 22 * * *</div>
       <div class="detail"><strong>依存:</strong> なし</div>
       <div class="detail"><strong>秘密情報参照:</strong> なし</div>
       

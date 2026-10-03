@@ -20,6 +20,9 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 .badge { background: var(--warning); color: var(--bg); font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; }
 .deploy-link { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: var(--text); text-decoration: none; transition: border-color 0.2s; font-size: 0.9rem; }
 .deploy-link:hover { border-color: var(--accent); }
+.site-link { flex-direction: column; align-items: flex-start; gap: 4px; line-height: 1.3; }
+.site-url { color: var(--text-muted); font-size: 0.72rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+.site-link:hover .site-url { color: var(--accent); }
 .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
 .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
 .card:hover { border-color: var(--accent); }
@@ -55,15 +58,15 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Portal] 総合ポータルサイト</h1>
-      <div class="meta">最終更新: 2026-10-03 06:19 (JST) | 総ツール数: 223件</div>
+      <div class="meta">最終更新: 2026-10-03 20:47 (JST) | 総ツール数: 227件</div>
     </div>
     <div class="section">
       <h2>[Folder] カテゴリ別一覧</h2>
-      <div class="card-grid"><a href="portal/gas.html" class="nav-card">GAS・Apps Script <span class="badge">25</span></a><a href="portal/hermes-skill.html" class="nav-card">Hermes Skills <span class="badge">112</span></a><a href="portal/hermes-cron.html" class="nav-card">Hermes Cron <span class="badge">23</span></a><a href="portal/hermes-webhook.html" class="nav-card">Hermes Webhooks <span class="badge">1</span></a><a href="portal/hermes-program.html" class="nav-card">Hermes Programs <span class="badge">28</span></a><a href="portal/n8n.html" class="nav-card">n8n Workflows <span class="badge">26</span></a><a href="portal/oci-compute.html" class="nav-card">OCI Compute <span class="badge">3</span></a><a href="portal/oci-network.html" class="nav-card">OCI Network <span class="badge">2</span></a><a href="portal/oci-security.html" class="nav-card">OCI Security <span class="badge">2</span></a><a href="portal/oci-identity.html" class="nav-card">OCI Identity <span class="badge">1</span></a></div>
+      <div class="card-grid"><a href="portal/gas.html" class="nav-card">GAS・Apps Script <span class="badge">25</span></a><a href="portal/hermes-skill.html" class="nav-card">Hermes Skills <span class="badge">115</span></a><a href="portal/hermes-cron.html" class="nav-card">Hermes Cron <span class="badge">24</span></a><a href="portal/hermes-webhook.html" class="nav-card">Hermes Webhooks <span class="badge">1</span></a><a href="portal/hermes-program.html" class="nav-card">Hermes Programs <span class="badge">28</span></a><a href="portal/n8n.html" class="nav-card">n8n Workflows <span class="badge">26</span></a><a href="portal/oci-compute.html" class="nav-card">OCI Compute <span class="badge">3</span></a><a href="portal/oci-network.html" class="nav-card">OCI Network <span class="badge">2</span></a><a href="portal/oci-security.html" class="nav-card">OCI Security <span class="badge">2</span></a><a href="portal/oci-identity.html" class="nav-card">OCI Identity <span class="badge">1</span></a></div>
     </div>
     <div class="section">
       <h2>[Star] よく利用するサイト</h2>
-      <div class="card-grid"><a href="https://rands1984.github.io/Pages/meeting/" target="_blank" rel="noopener" class="deploy-link">会議録音PWA</a> <a href="https://github.com/rands1984" target="_blank" rel="noopener" class="deploy-link">GitHub</a> <a href="https://notion.so/" target="_blank" rel="noopener" class="deploy-link">Notion</a> <a href="https://console.ap-tokyo-1.oraclecloud.com" target="_blank" rel="noopener" class="deploy-link">OCI Console</a> <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="deploy-link">Cloudflare Dashboard</a> <a href="https://rands1984.ddns.net" target="_blank" rel="noopener" class="deploy-link">n8n</a> <span class="deploy-link unavailable">メール Webmail (URL未設定)</span> <a href="https://bitwarden.rands1984.dpdns.org" target="_blank" rel="noopener" class="deploy-link">Bitwarden</a> <a href="https://dashboard.rands1984.dpdns.org/sessions" target="_blank" rel="noopener" class="deploy-link">Hermes Dashboard</a> <a href="https://monitor.rands1984.dpdns.org/" target="_blank" rel="noopener" class="deploy-link">Monitoring Dashboard</a> </div>
+      <div class="card-grid"><a href="https://rands1984.github.io/Pages/meeting/" target="_blank" rel="noopener" class="deploy-link site-link">会議録音PWA<br><span class="site-url">https://rands1984.github.io/Pages/meeting/</span></a> <a href="https://github.com/rands1984" target="_blank" rel="noopener" class="deploy-link site-link">GitHub<br><span class="site-url">https://github.com/rands1984</span></a> <a href="https://notion.so/" target="_blank" rel="noopener" class="deploy-link site-link">Notion<br><span class="site-url">https://notion.so/</span></a> <a href="https://console.ap-tokyo-1.oraclecloud.com" target="_blank" rel="noopener" class="deploy-link site-link">OCI Console<br><span class="site-url">https://console.ap-tokyo-1.oraclecloud.com</span></a> <a href="https://dash.cloudflare.com" target="_blank" rel="noopener" class="deploy-link site-link">Cloudflare Dashboard<br><span class="site-url">https://dash.cloudflare.com</span></a> <a href="https://rands1984.ddns.net" target="_blank" rel="noopener" class="deploy-link site-link">n8n<br><span class="site-url">https://rands1984.ddns.net</span></a> <a href="http://100.88.28.54:8080" target="_blank" rel="noopener" class="deploy-link site-link">メール Webmail<br><span class="site-url">http://100.88.28.54:8080</span></a> <a href="https://bitwarden.rands1984.dpdns.org" target="_blank" rel="noopener" class="deploy-link site-link">Bitwarden<br><span class="site-url">https://bitwarden.rands1984.dpdns.org</span></a> <a href="https://dashboard.rands1984.dpdns.org/sessions" target="_blank" rel="noopener" class="deploy-link site-link">Hermes Dashboard<br><span class="site-url">https://dashboard.rands1984.dpdns.org/sessions</span></a> <a href="https://monitor.rands1984.dpdns.org/" target="_blank" rel="noopener" class="deploy-link site-link">Monitoring Dashboard<br><span class="site-url">https://monitor.rands1984.dpdns.org/</span></a> </div>
     </div>
     <div class="section">
       <h2>[Package] 目的別ツール一覧 (Hermes Programs)</h2>
@@ -80,7 +83,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     </div>
     <div class="footer">
       <p>総合ポータルサイト - ツールレジストリ連携版</p>
-      <p>manifest.json から自動生成 - 2026-10-03 06:19 更新</p>
+      <p>manifest.json から自動生成 - 2026-10-03 20:47 更新</p>
     </div>
   </div>
 </body>

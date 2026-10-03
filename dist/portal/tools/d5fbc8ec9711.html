@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>speech-to-text-pipelines - 総合ポータルサイト</title>
+  <title>cooking-clips-crawl-daily - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -72,19 +72,19 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 <body>
   <div class="container">
     <a href="../../" class="back-link">[Back] トップページに戻る</a>
-    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-skill.html" class="active">hermes-skill</a></div>
+    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-cron.html" class="active">hermes-cron</a></div>
     <div class="header">
-      <h1>speech-to-text-pipelines <span class="badge">hermes-skill</span></h1>
-      <div class="meta">更新:  | 作成: </div>
+      <h1>cooking-clips-crawl-daily <span class="badge">hermes-cron</span></h1>
+      <div class="meta">更新: 2026-10-03 | 作成: 2026-10-03</div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Use when building or debugging audio→text pipelines.</div>
-      <div class="detail"><strong>環境:</strong> </div>
-      <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
-      <div class="detail"><strong>タグ:</strong> </div>
-      <div class="detail"><strong>目的:</strong> </div>
+      <div class="detail"><strong>説明:</strong> cooking-clips v2 の日次巡回。~/projects/cooking-clips で `python -m cooking_clips crawl --max 10` を実行し、巡回4サイト（sirogohan/kyounoryouri/daigo/orangepage）の新着レシピを Notion（唯一の正）へ保存し、SQLite FTS5 インデックスを更新する。no_agent（command型）のため LLM 不要。stdout をそのまま配信、新着ゼロなら1行のみ。</div>
+      <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
+      <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">dev</span><span class="tag">cooking-clips</span></div>
+      <div class="detail"><strong>目的:</strong> 巡回4サイトの新着レシピをNotionへ保存し、インデックスを更新する日次バッチ</div><div class="detail"><strong>スケジュール:</strong> 0 22 * * *</div><div class="detail"><strong>スクリプト:</strong> ~/.hermes/profiles/dev/scripts/cooking_clips_crawl.sh</div>
       <div class="detail"><strong>依存:</strong> なし</div>
-      <div class="detail"><strong>秘密情報参照:</strong> なし</div>
+      <div class="detail"><strong>秘密情報参照:</strong> <span class="secret-ref">[Lock] NOTION_API_KEY（~/.hermes/.env）</span><span class="secret-ref">[Lock] OPENROUTER_API_KEY（~/.hermes/.env）</span></div>
       
     </div>
     <div class="footer">総合ポータルサイト - ツール詳細</div>
