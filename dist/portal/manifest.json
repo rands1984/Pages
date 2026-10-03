@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T20:39:37.180566",
+  "generated_at": "2026-10-03T20:49:15.968633",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -5052,10 +5052,53 @@
       ],
       "programs": [
         {
+          "id": "cooking-clips-v2",
+          "name": "Cooking Clips v2",
+          "purpose": "レシピ取得・検索・メニュー提案",
+          "script_type": "python",
+          "entry_point": "main",
+          "schedule": "every day 22:00 JST (via cron)",
+          "trigger": "cron",
+          "inputs": [
+            "recipe_url",
+            "image_file",
+            "ingredients",
+            "flavor_preference"
+          ],
+          "outputs": [
+            "notion_page",
+            "sqlite_fts_index",
+            "menu_proposal"
+          ],
+          "dependencies": [
+            "d5fbc8ec9711",
+            "cooking-clips"
+          ],
+          "related_cron": "d5fbc8ec9711",
+          "description": "レシピをWeb巡回/Web手動/画像OCRの3経路で取得し、LLMで構造化してNotion（唯一の正）へ保存。SQLite FTS5インデックスで材料・味付け・季節・気温から検索・メニュー提案する。OCI ARM64ネイティブ・無料完結・ローカル容量依存ゼロ（md/画像は生成しない）。",
+          "status": "active",
+          "tags": [
+            "recipe",
+            "cooking",
+            "notion",
+            "sqlite",
+            "fts5",
+            "crawl",
+            "ocr",
+            "proposal",
+            "oci",
+            "cron"
+          ],
+          "environment": "OCI ARM64 Ubuntu (~/.local venv, ~/projects/cooking-clips)",
+          "script_path": "cooking_clips.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
           "id": "watch-audio-main",
           "name": "Watch Audio Main Processor",
           "purpose": "音声文字起こし・要約",
-          "script_path": ".hermes/profiles/dev/home/.hermes/profiles/dev/scripts/process_watch_audio.py",
+          "script_path": "process_watch_audio.py",
           "script_type": "python",
           "entry_point": "main",
           "sub_programs": [
@@ -5085,8 +5128,6 @@
             "watch-audio"
           ],
           "related_cron": "watch-audio-processor",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。",
           "status": "active",
           "tags": [
@@ -5097,16 +5138,15 @@
             "wiki",
             "cron"
           ],
-          "environment": "Hermes (dev profile)"
+          "environment": "Hermes (dev profile)",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "hermes-dashboard",
           "name": "Hermes Dashboard",
-          "purpose": "Hermes ダッシュボード",
+          "purpose": "Hermes ダッシュボード生成",
           "script_type": "python",
-          "script_path": ".hermes/scripts/hermes_dashboard.py",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "Hermes自身のダッシュボード（セッション・スキル・Cron・Webhook状態）を生成・更新。Hermes TUI/Webダッシュボード用データ提供。",
           "status": "active",
           "tags": [
@@ -5116,7 +5156,10 @@
             "tui",
             "web"
           ],
-          "environment": "Hermes (default profile)"
+          "environment": "Hermes (default profile)",
+          "script_path": ".hermes/scripts/hermes_dashboard.py",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "secretary-dashboard",
@@ -5136,7 +5179,7 @@
             "discord"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_dashboard.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts.bak.20260710/secretary_dashboard.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5145,9 +5188,6 @@
           "name": "Evening Reflection To Discord",
           "purpose": "夜の思考メモをDiscord送信",
           "script_type": "python",
-          "script_path": ".hermes/scripts/evening_reflection_to_discord.py",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "夜の思考メモ（振り返り・感謝・改善点）を整形し、Discordチャンネルに投稿。1日の締めくくり習慣支援。",
           "status": "active",
           "tags": [
@@ -5157,7 +5197,10 @@
             "evening",
             "habit"
           ],
-          "environment": "Hermes (default profile)"
+          "environment": "Hermes (default profile)",
+          "script_path": ".hermes/scripts/evening_reflection_to_discord.py",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "repair-manifest",
@@ -5234,7 +5277,7 @@
             "markdown"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_repair_links.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/wiki_repair_links.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5256,7 +5299,7 @@
             "bridge"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_bridge.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/eheya_bridge.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5267,8 +5310,6 @@
           "script_path": ".hermes/scripts/notify.py",
           "script_type": "python",
           "role": "helper",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "Discord通知の共通ヘルパー関数。Webhook送信・埋め込み生成・レート制限対応等を提供。各プログラムからimport利用。",
           "status": "active",
           "tags": [
@@ -5278,7 +5319,9 @@
             "library",
             "webhook"
           ],
-          "environment": "Hermes (dev/default profiles)"
+          "environment": "Hermes (dev/default profiles)",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "wiki-lint",
@@ -5298,7 +5341,7 @@
             "quality"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/wiki_lint.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/wiki_lint.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5377,7 +5420,7 @@
             "reflection"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/evening_memo_review_send.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/evening_memo_review_send.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5399,7 +5442,7 @@
             "food"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/cooking/recipe_crawl.py",
+          "script_path": "archive/cooking-clips-v1-20261003/scripts/recipe_crawl.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5471,7 +5514,7 @@
             "integration"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/secretary_calendar_all.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts.bak.20260710/secretary_calendar_all.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5499,9 +5542,6 @@
           "name": "Unified Monitor",
           "purpose": "統合監視",
           "script_type": "python",
-          "script_path": ".hermes/scripts/unified_monitor.py",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "複数監視対象（サーバー・サービス・API・データベース）を統合監視し、ダッシュボード・アラートを一元管理。",
           "status": "active",
           "tags": [
@@ -5511,7 +5551,10 @@
             "alert",
             "ops"
           ],
-          "environment": "Hermes (default profile)"
+          "environment": "Hermes (default profile)",
+          "script_path": ".hermes/scripts/unified_monitor.py",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "fix-manifest",
@@ -5547,7 +5590,7 @@
             "formatter"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/eheya_notifier.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts.bak.20260710/eheya_notifier.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5569,7 +5612,7 @@
             "notification"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/thread_monitor.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts.bak.20260710/thread_monitor.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5589,7 +5632,7 @@
             "reflection"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_memo_review_send.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts.bak.20260710/morning_memo_review_send.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5627,7 +5670,7 @@
             "habit"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/morning_reflection_to_discord.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/morning_reflection_to_discord.py",
           "portal_html": "",
           "type": "hermes-program"
         },
@@ -5655,9 +5698,6 @@
           "name": "Hermes Health Check",
           "purpose": "Hermes ヘルスチェック",
           "script_type": "python",
-          "script_path": ".hermes/scripts/hermes_health_check.py",
-          "portal_html": "",
-          "type": "hermes-program",
           "description": "Hermesエージェントのヘルスチェック：プロセス生存・API応答・ディスク容量・メモリ使用量等を監視。",
           "status": "active",
           "tags": [
@@ -5667,7 +5707,10 @@
             "ops",
             "reliability"
           ],
-          "environment": "Hermes (default profile)"
+          "environment": "Hermes (default profile)",
+          "script_path": ".hermes/scripts/hermes_health_check.py",
+          "portal_html": "",
+          "type": "hermes-program"
         },
         {
           "id": "deadline-notifier",
@@ -5687,7 +5730,7 @@
             "task-management"
           ],
           "environment": "Hermes (default profile)",
-          "script_path": ".hermes.backup.20260903_154956/migration_pathfix_20260829_071526/scripts/deadline_notifier.py",
+          "script_path": ".hermes.backup.20260903_154956/scripts/deadline_notifier.py",
           "portal_html": "",
           "type": "hermes-program"
         }

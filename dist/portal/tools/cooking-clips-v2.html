@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch Audio Main Processor - 総合ポータルサイト</title>
+  <title>Cooking Clips v2 - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -74,15 +74,15 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="../../" class="back-link">[Back] トップページに戻る</a>
     <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-program.html" class="active">hermes-program</a></div>
     <div class="header">
-      <h1>Watch Audio Main Processor <span class="badge">hermes-program</span></h1>
+      <h1>Cooking Clips v2 <span class="badge">hermes-program</span></h1>
       <div class="meta">更新:  | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。</div>
-      <div class="detail"><strong>環境:</strong> Hermes (dev profile)</div>
+      <div class="detail"><strong>説明:</strong> レシピをWeb巡回/Web手動/画像OCRの3経路で取得し、LLMで構造化してNotion（唯一の正）へ保存。SQLite FTS5インデックスで材料・味付け・季節・気温から検索・メニュー提案する。OCI ARM64ネイティブ・無料完結・ローカル容量依存ゼロ（md/画像は生成しない）。</div>
+      <div class="detail"><strong>環境:</strong> OCI ARM64 Ubuntu (~/.local venv, ~/projects/cooking-clips)</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-      <div class="detail"><strong>タグ:</strong> <span class="tag">audio</span><span class="tag">transcription</span><span class="tag">whisper</span><span class="tag">discord</span><span class="tag">wiki</span><span class="tag">cron</span></div>
-      <div class="detail"><strong>目的:</strong> 音声文字起こし・要約</div><div class="detail"><strong>スケジュール:</strong> every 1m (via cron)</div><div class="detail"><strong>スクリプト:</strong> process_watch_audio.py</div>
+      <div class="detail"><strong>タグ:</strong> <span class="tag">recipe</span><span class="tag">cooking</span><span class="tag">notion</span><span class="tag">sqlite</span><span class="tag">fts5</span><span class="tag">crawl</span><span class="tag">ocr</span><span class="tag">proposal</span><span class="tag">oci</span><span class="tag">cron</span></div>
+      <div class="detail"><strong>目的:</strong> レシピ取得・検索・メニュー提案</div><div class="detail"><strong>スケジュール:</strong> every day 22:00 JST (via cron)</div><div class="detail"><strong>スクリプト:</strong> cooking_clips.py</div>
       <div class="detail"><strong>依存:</strong> なし</div>
       <div class="detail"><strong>秘密情報参照:</strong> なし</div>
       
