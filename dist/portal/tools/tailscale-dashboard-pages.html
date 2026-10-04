@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpotifyTools - 総合ポータルサイト</title>
+  <title>tailscale-dashboard-pages - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -76,19 +76,19 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 <body>
   <div class="container">
     <a href="../../" class="back-link">[Back] トップページに戻る</a>
-    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../gas.html" class="active">gas</a></div>
+    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-skill.html" class="active">hermes-skill</a></div>
     <div class="header">
-      <h1>SpotifyTools <span class="badge">gas</span></h1>
-      <div class="meta">更新: 2026-10-05 | 作成: </div>
+      <h1>tailscale-dashboard-pages <span class="badge">hermes-skill</span></h1>
+      <div class="meta">更新:  | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-      <div class="detail"><strong>環境:</strong> Google Apps Script</div>
-      <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-      <div class="detail"><strong>タグ:</strong> <span class="tag">drive</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">spotify</span><span class="tag">gas</span></div>
-      <div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbwhCIGKXi8db0mqVhmr7sADbUQhlBBL4U-ilniF9vU/exec" target="_blank" rel="noopener">v (doGet)</a> </div><div class="detail"><strong>トリガー:</strong> refreshAccessTokenToSpotify (time-driven: （API取得不可・要手動確認）) Asia/Tokyo</div><div class="detail"><strong>トリガー:</strong> updateAlbumImagesFromAlbumDB (time-driven: （API取得不可・要手動確認）) Asia/Tokyo</div><div class="detail"><strong>トリガー:</strong> updatePlaybackHistoryInNotion (time-driven: （API取得不可・要手動確認）) Asia/Tokyo</div><div class="detail"><strong>API取得:</strong> <span class="badge ok">ソース:取得</span> <span class="badge ok">デプロイ:取得</span> <span class="badge muted">プロパティ:不可</span> <span class="badge ok">トリガー:取得</span></div><div class="detail"><strong>規模:</strong> 10 ファイル / 2909 行 (ランタイム —)</div><div class="detail"><strong>検出サービス:</strong> <span class="tag">notion</span> <span class="tag">gemini</span> <span class="tag">spotify</span> <span class="tag">drive</span></div>
+      <div class="detail"><strong>説明:</strong> Use when building a Tailscale-only dashboard page.</div>
+      <div class="detail"><strong>環境:</strong> </div>
+      <div class="detail"><strong>ステータス:</strong> <span class="status pending"></span></div>
+      <div class="detail"><strong>タグ:</strong> </div>
+      <div class="detail"><strong>目的:</strong> 既存の構造化データ源（Discord/Google/Notion/監視JSON/メール台帳）を集計して、個人用の1画面ダッシュボードを Tailscale 内だけで配信する。</div>
       <div class="detail"><strong>依存:</strong> なし</div>
-      <div class="detail"><strong>秘密情報参照:</strong> <span class="secret-ref">[Lock] GEMINI_API_KEY</span><span class="secret-ref">[Lock] GOOGLE_DRIVE_KEY</span><span class="secret-ref">[Lock] NOTION_TOKEN</span><span class="secret-ref">[Lock] SPOTIFY_CLIENT_ID</span></div>
+      <div class="detail"><strong>秘密情報参照:</strong> なし</div>
       
     </div>
     <div class="footer">総合ポータルサイト - ツール詳細</div>

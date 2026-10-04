@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>いい部屋ネット新着通知(bridge) - 総合ポータルサイト</title>
+  <title>いい部屋ネット新着通知 - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -78,22 +78,18 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="../../" class="back-link">[Back] トップページに戻る</a>
     <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-cron.html" class="active">hermes-cron</a></div>
     <div class="header">
-      <h1>いい部屋ネット新着通知(bridge) <span class="badge">hermes-cron</span></h1>
-      <div class="meta">更新: 2026-09-28 | 作成: 2026-05-15</div>
+      <h1>いい部屋ネット新着通知 <span class="badge">hermes-cron</span></h1>
+      <div class="meta">更新: 2026-10-04 | 作成: 2026-05-15</div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py.
-
-- If the output is &#x27;NO_NEW_PROPERTIES&#x27;, finish silently.
-- Otherwise, deliver the output as a notification.</div>
+      <div class="detail"><strong>説明:</strong> Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py
+- If the output is &#x27;NO_NEW_PROPERTIES&#x27;, finish silently. - If the output contains &#x27;[WARN]&#x27;, deliver it as an alert (収集失敗). - Otherwise, deliver the output as a notification.</div>
       <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">default</span></div>
-      <div class="detail"><strong>目的:</strong> Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py.
-
-- If the output is &#x27;NO_NEW_P</div><div class="detail"><strong>スケジュール:</strong> 0 11 * * *</div><div class="detail"><strong>スクリプト:</strong> eheya_bridge.py</div>
+      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">default</span><span class="tag">real-estate</span></div>
+      <div class="detail"><strong>目的:</strong> いい部屋ネット + SUUMO の新着賃貸を毎朝11:00に収集し、Notion 差分を見て Discord</div><div class="detail"><strong>スケジュール:</strong> 0 11 * * *</div><div class="detail"><strong>スクリプト:</strong> eheya_notifier.py</div>
       <div class="detail"><strong>依存:</strong> なし</div>
-      <div class="detail"><strong>秘密情報参照:</strong> なし</div>
+      <div class="detail"><strong>秘密情報参照:</strong> <span class="secret-ref">[Lock] NOTION_API_KEY</span></div>
       
     </div>
     <div class="footer">総合ポータルサイト - ツール詳細</div>

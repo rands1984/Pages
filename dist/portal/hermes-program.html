@@ -60,24 +60,13 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Computer] Hermes Programs</h1>
-      <div class="meta">28件 - 更新: 2026-10-04 20:05</div>
+      <div class="meta">30件 - 更新: 2026-10-05 03:03</div>
       <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="hermes-skill.html">hermes-skill (121)</a><a href="hermes-program.html" class="active">hermes-program (28)</a></div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (124)</a><a href="hermes-cron.html">Hermes Cron (22)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html" class="active">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent のプログラム。複数スキル・Cron・Webhookを組み合わせたエンドツーエンドの処理フロー。</div>
     
     <div class="card-grid"><div class="card">
-  <div class="card-header">
-    <h3>Watch Audio Main Processor</h3>
-    <a href="tools/watch-audio-main.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
-  </div>
-</div><div class="card">
   <div class="card-header">
     <h3>Cooking Clips v2</h3>
     <a href="tools/cooking-clips-v2.html" class="btn-link">詳細</a>
@@ -90,168 +79,14 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
 </div><div class="card">
   <div class="card-header">
-    <h3>Repair Manifest</h3>
-    <a href="tools/repair-manifest.html" class="btn-link">詳細</a>
+    <h3>Watch Audio Main Processor</h3>
+    <a href="tools/watch-audio-main.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> manifest.jsonの破損・不整合を検出・修復。バックアップからの復旧・スキーマ準拠強制等を実行。</div>
+    <div class="detail"><strong>説明:</strong> スマートウォッチ音声を受信し、faster-whisperで文字起こし、LLMで要約・タスク抽出を行い、LLM Wikiに保存してDiscord通知するメイン処理プログラム。cron経由で毎分実行。</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">repair</span><span class="badge">recovery</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Reparse Manifest</h3>
-    <a href="tools/reparse-manifest.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> manifest.jsonを再解析・正規化。フィールド順序統一・型変換・デフォルト値補完等を実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">reparse</span><span class="badge">normalize</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Create Notion Page</h3>
-    <a href="tools/create-notion-page.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notion API経由でページを作成・更新。テンプレート適用・プロパティ自動設定・親ページ指定等を支援。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">api</span><span class="badge">page-create</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Build Manifest</h3>
-    <a href="tools/build-manifest.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> ツールレジストリのmanifest.jsonを生成。全mdファイルをスキャンし、ポータル用統合インデックスを作成。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">build</span><span class="badge">portal</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Fix Manifest v2</h3>
-    <a href="tools/fix-manifest2.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> manifest.json修正 v2。より高度な整合性チェック・自動修正・差分レポート出力に対応。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">v2</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Fix Manifest</h3>
-    <a href="tools/fix-manifest.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> manifest.jsonの不整合を修正。重複ID・欠損フィールド・スキーマ違反等を自動検出・修正。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">validation</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Recipe Crawl</h3>
-    <a href="tools/recipe-crawl.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 料理レシピサイトをクロールし、構造化データとしてNotion/Wikiに保存。日次cronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">crawling</span><span class="badge">recipe</span><span class="badge">notion</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Meeting Live Bridge</h3>
-    <a href="tools/meeting-live-bridge.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> gemini-3.5-transcribe-live にWebSocketで接続し、ブラウザから届く16kHz PCMを中継するブリッジ。interimはスライディングウィンドウで返るため、直前の確定テキストとの空白無視の末尾一致で差分のみを確定テキストに再構成する。切断時は自動再接続。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">gemini-live</span><span class="badge">websocket</span><span class="badge">streaming-asr</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Meeting Recorder Relay</h3>
-    <a href="tools/meeting-relay.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 打ち合わせの録音・文字起こし・ファシリテーター・議事録とりまとめを一括支援する中継サーバ。録音PWA(GitHub Pages)からCloudflare Tunnel経由で音声を受け、Gemini Live APIで秒単位のライブ字幕、自前faster-whisperで社外秘向けオフライン文字起こし、LLMで要約・決定事項・未決・TODOを生成しDiscordスレッドとMarkdownに出力する。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">meeting</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Hermes Health Check</h3>
-    <a href="tools/hermes-health-check.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Hermesエージェントのヘルスチェック：プロセス生存・API応答・ディスク容量・メモリ使用量等を監視。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">hermes</span><span class="badge">health-check</span><span class="badge">monitoring</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Notify Helper</h3>
-    <a href="tools/notify-helper.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Discord通知の共通ヘルパー関数。Webhook送信・埋め込み生成・レート制限対応等を提供。各プログラムからimport利用。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">notification</span><span class="badge">helper</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Evening Memo Review Send</h3>
-    <a href="tools/evening-memo-review-send.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 夕方のメモ・思考ログをレビューし、1日の振り返り・翌日の準備項目を抽出してDiscord送信。日次cronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">evening</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Thread Monitor</h3>
-    <a href="tools/thread-monitor.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Discordスレッドの進捗を監視し、未完了・期限切れ等を検知して通知。2時間毎のcronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">monitoring</span><span class="badge">thread</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Morning Reflection To Discord</h3>
-    <a href="tools/morning-reflection-to-discord.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 朝の思考メモ（journaling）を整形し、Discordチャンネルに投稿。習慣化支援・振り返り促進。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">reflection</span><span class="badge">journaling</span><span class="badge">discord</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Unified Monitor</h3>
-    <a href="tools/unified-monitor.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 複数監視対象（サーバー・サービス・API・データベース）を統合監視し、ダッシュボード・アラートを一元管理。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">monitoring</span><span class="badge">unified</span><span class="badge">dashboard</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -277,28 +112,6 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
 </div><div class="card">
   <div class="card-header">
-    <h3>Eheya Notifier</h3>
-    <a href="tools/eheya-notifier.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> いい部屋ネット + SUUMO の新着賃貸通知本体。urllib で HTML 取得（requests は CloudFront 403）・JSON/BeautifulSoup で抽出・Notion 全ページ走査で差分・Discord通知。cron 2a82d226958d が直接実行する。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">real-estate</span><span class="badge">notification</span><span class="badge">discord</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Wiki Lint</h3>
-    <a href="tools/wiki-lint.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> LLM Wikiの整合性チェック：孤立ページ・壊れたリンク・フロントマター不備・タグ未登録等を検出しレポート。週次日曜cronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">wiki</span><span class="badge">lint</span><span class="badge">markdown</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
     <h3>Evening Reflection To Discord</h3>
     <a href="tools/evening-reflection-to-discord.html" class="btn-link">詳細</a>
   </div>
@@ -310,6 +123,28 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>Repair Manifest</h3>
+    <a href="tools/repair-manifest.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> manifest.jsonの破損・不整合を検出・修復。バックアップからの復旧・スキーマ準拠強制等を実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">repair</span><span class="badge">recovery</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Fix Manifest v2</h3>
+    <a href="tools/fix-manifest2.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> manifest.json修正 v2。より高度な整合性チェック・自動修正・差分レポート出力に対応。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">v2</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>OCI Monitor</h3>
     <a href="tools/monitor-oci.html" class="btn-link">詳細</a>
   </div>
@@ -318,39 +153,6 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">oci</span><span class="badge">monitoring</span><span class="badge">infrastructure</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Deadline Notifier</h3>
-    <a href="tools/deadline-notifier.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 各種期限（タスク・課題・支払い等）を監視し、期限接近・超過時にDiscord通知。日次cronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">deadline</span><span class="badge">notification</span><span class="badge">discord</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Secretary Calendar All</h3>
-    <a href="tools/secretary-calendar-all.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Google Calendar全カレンダーの予定を取得・統合し、秘書機能用の統一スケジュールデータを生成。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">secretary</span><span class="badge">calendar</span><span class="badge">google-workspace</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>Morning Memo Review Send</h3>
-    <a href="tools/morning-memo-review-send.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> 朝のメモ・思考ログをレビューし、重要項目を抽出してDiscord送信。日次cronで実行。</div>
-    
-    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">morning</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">
@@ -373,6 +175,226 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     
     <div class="detail"><strong>ステータス:</strong> <span class="status pending">error</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">n8n</span><span class="badge">monitoring</span><span class="badge">drift</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Eheya Bridge</h3>
+    <a href="tools/eheya-bridge.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> eheya.net の HTML を n8n webhook へ渡す旧ブリッジ。2026-10-04 に eheya_notifier.py 直叩きへ一本化し retired（スクリプトは .hermes/scripts/_legacy_eheya_20261004/ へ退避）。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">レガシー</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">scraping</span><span class="badge">real-estate</span><span class="badge">discord</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Notify Helper</h3>
+    <a href="tools/notify-helper.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Discord通知の共通ヘルパー関数。Webhook送信・埋め込み生成・レート制限対応等を提供。各プログラムからimport利用。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">notification</span><span class="badge">helper</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Wiki Lint</h3>
+    <a href="tools/wiki-lint.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> LLM Wikiの整合性チェック：孤立ページ・壊れたリンク・フロントマター不備・タグ未登録等を検出しレポート。週次日曜cronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">wiki</span><span class="badge">lint</span><span class="badge">markdown</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Meeting Live Bridge</h3>
+    <a href="tools/meeting-live-bridge.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> gemini-3.5-transcribe-live にWebSocketで接続し、ブラウザから届く16kHz PCMを中継するブリッジ。interimはスライディングウィンドウで返るため、直前の確定テキストとの空白無視の末尾一致で差分のみを確定テキストに再構成する。切断時は自動再接続。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">gemini-live</span><span class="badge">websocket</span><span class="badge">streaming-asr</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>月次業務報告書フォーム運用</h3>
+    <a href="tools/monthly-report-form.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> メンバーがブラウザから月次業務報告書を入力（GAS Webフォーム）→ Notionへ1レコード蓄積＋MarkdownをDrive出力＋Discord通知。月初はHermes cronが前月分の報告リマインドを配信し、主任はNotionで評価・1on1を記録する一連の運用フロー。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">monthly-report</span><span class="badge">gas</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Evening Memo Review Send</h3>
+    <a href="tools/evening-memo-review-send.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 夕方のメモ・思考ログをレビューし、1日の振り返り・翌日の準備項目を抽出してDiscord送信。日次cronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">evening</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Recipe Crawl</h3>
+    <a href="tools/recipe-crawl.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 料理レシピサイトをクロールし、構造化データとしてNotion/Wikiに保存。日次cronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">crawling</span><span class="badge">recipe</span><span class="badge">notion</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Meeting Recorder Relay</h3>
+    <a href="tools/meeting-relay.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 打ち合わせの録音・文字起こし・ファシリテーター・議事録とりまとめを一括支援する中継サーバ。録音PWA(GitHub Pages)からCloudflare Tunnel経由で音声を受け、Gemini Live APIで秒単位のライブ字幕、自前faster-whisperで社外秘向けオフライン文字起こし、LLMで要約・決定事項・未決・TODOを生成しDiscordスレッドとMarkdownに出力する。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">meeting</span><span class="badge">transcription</span><span class="badge">whisper</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Secretary Calendar All</h3>
+    <a href="tools/secretary-calendar-all.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Google Calendar全カレンダーの予定を取得・統合し、秘書機能用の統一スケジュールデータを生成。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">secretary</span><span class="badge">calendar</span><span class="badge">google-workspace</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Create Notion Page</h3>
+    <a href="tools/create-notion-page.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Notion API経由でページを作成・更新。テンプレート適用・プロパティ自動設定・親ページ指定等を支援。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">api</span><span class="badge">page-create</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Unified Monitor</h3>
+    <a href="tools/unified-monitor.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 複数監視対象（サーバー・サービス・API・データベース）を統合監視し、ダッシュボード・アラートを一元管理。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">monitoring</span><span class="badge">unified</span><span class="badge">dashboard</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Fix Manifest</h3>
+    <a href="tools/fix-manifest.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> manifest.jsonの不整合を修正。重複ID・欠損フィールド・スキーマ違反等を自動検出・修正。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">fix</span><span class="badge">validation</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Eheya Notifier</h3>
+    <a href="tools/eheya-notifier.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> いい部屋ネット + SUUMO の新着賃貸通知本体。urllib で HTML 取得（requests は CloudFront 403）・JSON/BeautifulSoup で抽出・Notion 全ページ走査で差分・Discord通知。cron 2a82d226958d が直接実行する。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">real-estate</span><span class="badge">notification</span><span class="badge">discord</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Thread Monitor</h3>
+    <a href="tools/thread-monitor.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Discordスレッドの進捗を監視し、未完了・期限切れ等を検知して通知。2時間毎のcronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">monitoring</span><span class="badge">thread</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Morning Memo Review Send</h3>
+    <a href="tools/morning-memo-review-send.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 朝のメモ・思考ログをレビューし、重要項目を抽出してDiscord送信。日次cronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">memo</span><span class="badge">review</span><span class="badge">morning</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Reparse Manifest</h3>
+    <a href="tools/reparse-manifest.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> manifest.jsonを再解析・正規化。フィールド順序統一・型変換・デフォルト値補完等を実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">reparse</span><span class="badge">normalize</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Morning Reflection To Discord</h3>
+    <a href="tools/morning-reflection-to-discord.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 朝の思考メモ（journaling）を整形し、Discordチャンネルに投稿。習慣化支援・振り返り促進。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">reflection</span><span class="badge">journaling</span><span class="badge">discord</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Build Manifest</h3>
+    <a href="tools/build-manifest.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> ツールレジストリのmanifest.jsonを生成。全mdファイルをスキャンし、ポータル用統合インデックスを作成。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">manifest</span><span class="badge">build</span><span class="badge">portal</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Hermes Health Check</h3>
+    <a href="tools/hermes-health-check.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> Hermesエージェントのヘルスチェック：プロセス生存・API応答・ディスク容量・メモリ使用量等を監視。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">hermes</span><span class="badge">health-check</span><span class="badge">monitoring</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>Deadline Notifier</h3>
+    <a href="tools/deadline-notifier.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 各種期限（タスク・課題・支払い等）を監視し、期限接近・超過時にDiscord通知。日次cronで実行。</div>
+    
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">deadline</span><span class="badge">notification</span><span class="badge">discord</span></div>
   </div>
 </div></div>
     <div class="footer">総合ポータルサイト - Hermes Programs 一覧</div>
