@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T03:03:19.821407",
+  "generated_at": "2026-10-05T07:38:05.570417",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -3461,6 +3461,33 @@
           "type": "hermes-skill"
         },
         {
+          "name": "vault-content-audit",
+          "description": "Use when auditing vault content for defects.",
+          "version": "1.0.0",
+          "platforms": [
+            "linux",
+            "macos"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "Obsidian",
+                "Audit",
+                "Wikilinks",
+                "i18n",
+                "Content-Quality"
+              ],
+              "related_skills": [
+                "knowledge-base-reorganization",
+                "obsidian"
+              ]
+            }
+          },
+          "skill_dir": "note-taking/vault-content-audit",
+          "id": "vault-content-audit",
+          "type": "hermes-skill"
+        },
+        {
           "name": "notification-workflows",
           "description": "Orchestrating multi-channel notifications (Email, Discord, etc.) and subsequent state updates.",
           "version": "1.0.0",
@@ -6504,7 +6531,7 @@
           "script_path": "~/.hermes/profiles/dev/scripts/cooking_clips_crawl.sh",
           "script_crawl_max": 10,
           "skills": [],
-          "delivers_to": "rands1984のサーバー / dev / [課題] cookingclipsツールの見直し",
+          "delivers_to": "rands1984のサーバー / dev / #秘書",
           "related_programs": [
             "04b57d8f2094"
           ],
