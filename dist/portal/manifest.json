@@ -1,86 +1,254 @@
 {
-  "generated_at": "2026-10-04T09:07:13.862297",
+  "generated_at": "2026-10-04T11:26:23.550796",
   "version": "1.0",
   "tools": {
     "gas": [
       {
         "id": "moodmeter",
         "name": "MoodMeter",
-        "overview": "気分記録・可視化ツール。日次気分スコアをスプレッドシートに記録、チャート生成、傾向分析",
+        "overview": "GAS Script: MoodMeter",
         "type": "gas",
         "status": "active",
         "tags": [
-          "mood",
-          "tracking",
-          "spreadsheet",
-          "chart"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [],
-        "script_id": "158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv",
-        "script_url": "https://script.google.com/d/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "sns自動投稿",
-        "name": "SNS自動投稿",
-        "overview": "Notionデータベースの投稿候補から、Twitter/X・Discord・Slack等へ自動投稿。スケジュール実行対応",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "sns",
-          "auto-post",
           "notion",
-          "twitter",
-          "discord"
+          "gas"
         ],
         "repo_url": "",
-        "deploy_target": "Google Apps Script",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "TWITTER_API_KEY",
-          "TWITTER_API_SECRET",
-          "DISCORD_WEBHOOK_URL"
+          "NOTION_TOKEN"
+        ],
+        "script_id": "158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv",
+        "script_url": "https://script.google.com/d/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbzhBkFF8BNM6e0BGdmwgYUjoepiNWrw0JwL_9ns3Tuo",
+            "url": "https://script.google.com/macros/s/AKfycbzhBkFF8BNM6e0BGdmwgYUjoepiNWrw0JwL_9ns3Tuo/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbx1wViK5M5HvXb0bK-C5Fr-aX1d5JAgMWUD1JJIW4BtKTd9ce5FpE8guAXXUN-w0_g8RA",
+            "url": "https://script.google.com/macros/s/AKfycbx1wViK5M5HvXb0bK-C5Fr-aX1d5JAgMWUD1JJIW4BtKTd9ce5FpE8guAXXUN-w0_g8RA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-08-19T00:31:22.679Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyc7YFLGWm0ZkxZDSKpTBAwwNg8l62oaI0XKHf9bJD9Nnl303XawokCGQ1dTiRSN2X7",
+            "url": "https://script.google.com/macros/s/AKfycbyc7YFLGWm0ZkxZDSKpTBAwwNg8l62oaI0XKHf9bJD9Nnl303XawokCGQ1dTiRSN2X7/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-08-19T05:26:45.429Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycby8o9wtKq9rAKzGXMTceRmtJoup0T4aitxbHmqsnNHQxBZPS7Yj0SQWldbBZYRlsUnMdg",
+            "url": "https://script.google.com/macros/s/AKfycby8o9wtKq9rAKzGXMTceRmtJoup0T4aitxbHmqsnNHQxBZPS7Yj0SQWldbBZYRlsUnMdg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-08-18T23:43:37.988Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzhbPa7xSnU6QERyU6JNNz5aFZCUWg9cLvfgiHoEnimXlBIhSnOtESTYpmuSeK0y218tQ",
+            "url": "https://script.google.com/macros/s/AKfycbzhbPa7xSnU6QERyU6JNNz5aFZCUWg9cLvfgiHoEnimXlBIhSnOtESTYpmuSeK0y218tQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-08-19T04:06:16.657Z",
+            "description": ""
+          }
+        ],
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 103,
+          "file_count": 1,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "sns自動投稿",
+        "name": "SNS自動投稿",
+        "overview": "グローバル設定ファイル",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "drive",
+          "dropbox",
+          "gemini",
+          "notion",
+          "spotify",
+          "twitter",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（MYSELF）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "BLUESKY_APP_PASSWORD",
+          "BOX_CLIENT_SECRET",
+          "DISCORD_WEBHOOK_URL",
+          "DROPBOX_ACCESS_TOKEN",
+          "DROPBOX_APP_KEY",
+          "DROPBOX_APP_SECRET",
+          "DROPBOX_REFRESH_TOKEN",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
+          "LASTFM_API_KEY",
+          "MS_CLIENT_SECRET",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID",
+          "SPOTIFY_CLIENT_SECRET",
+          "THREADS_ACCESS_TOKEN",
+          "TICKTICK_CLIENT_SECRET",
+          "TWITTER_API_KEY"
         ],
         "script_id": "1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF",
         "script_url": "https://script.google.com/d/1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyErnDt1Wu6iKuEhAIzGWAS2_3UEVKDRJFuwYVMzpnh",
+            "url": "https://script.google.com/macros/s/AKfycbyErnDt1Wu6iKuEhAIzGWAS2_3UEVKDRJFuwYVMzpnh/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwBycxdiuu_8EGc8yEZM1B1oY_Q7OlOhKekhK7JnMGSwNtYZlHTsulAv3XgF_d3sM4xQw",
+            "url": "https://script.google.com/macros/s/AKfycbwBycxdiuu_8EGc8yEZM1B1oY_Q7OlOhKekhK7JnMGSwNtYZlHTsulAv3XgF_d3sM4xQw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-05-29T20:39:55.307Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyWBsMrIyzQ7lAfrYiw9NU6-JaIdR8rEXc21b3ldrZxiPSx4q9D0sj-K8gXfHuEsHVtWQ",
+            "url": "https://script.google.com/macros/s/AKfycbyWBsMrIyzQ7lAfrYiw9NU6-JaIdR8rEXc21b3ldrZxiPSx4q9D0sj-K8gXfHuEsHVtWQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-05-29T20:22:48.778Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbywV350ONvmiVuVwUdwHA9GZ8LY0fyrrE-acIx09k106JYSXXK9gYXRAwI3kjp3taW8EQ",
+            "url": "https://script.google.com/macros/s/AKfycbywV350ONvmiVuVwUdwHA9GZ8LY0fyrrE-acIx09k106JYSXXK9gYXRAwI3kjp3taW8EQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-05-22T20:16:05.889Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbw2IOg4O72RlN4B7XYsYTUhM5SvwqxlYjRIXB-ERmvgkbbTzWDch8LRog56LZ9tA8xyjw",
+            "url": "https://script.google.com/macros/s/AKfycbw2IOg4O72RlN4B7XYsYTUhM5SvwqxlYjRIXB-ERmvgkbbTzWDch8LRog56LZ9tA8xyjw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-10-14T08:14:12.893Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyC4Pyi-OK3nM3Ycx9dzR8JkcViLkUhDtx2emEqM9nD41odWRnYNjx5T_vWx1AvpRcIWQ",
+            "url": "https://script.google.com/macros/s/AKfycbyC4Pyi-OK3nM3Ycx9dzR8JkcViLkUhDtx2emEqM9nD41odWRnYNjx5T_vWx1AvpRcIWQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-05-29T20:31:08.501Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwPhgQIIL2Q1kqPnfYhyzDH1oxSFm7YCKJ0w17gcMX56kdL7v3NrUPlA6-SMC6FyXjr",
+            "url": "https://script.google.com/macros/s/AKfycbwPhgQIIL2Q1kqPnfYhyzDH1oxSFm7YCKJ0w17gcMX56kdL7v3NrUPlA6-SMC6FyXjr/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-06-01T22:19:02.657Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxKim2ZR0q24Y-tfvPBiUj_2fy4acQmoJLIRFgOBr_WDeibCEwLXWRUi59xIRnJneP2",
+            "url": "https://script.google.com/macros/s/AKfycbxKim2ZR0q24Y-tfvPBiUj_2fy4acQmoJLIRFgOBr_WDeibCEwLXWRUi59xIRnJneP2/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-05-31T06:18:50.369Z",
+            "description": ""
+          }
+        ],
         "triggers": [
           {
-            "function": "postScheduled",
-            "handler": "postScheduled",
+            "function": "autoPostScheduled",
+            "handler": "autoPostScheduled",
             "event_type": "time-driven",
-            "schedule": "0 9 * * *",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "createAutoPostTrigger",
+            "handler": "createAutoPostTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "createPostGeneratorTrigger",
+            "handler": "createPostGeneratorTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           }
         ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "twitter",
+            "dropbox",
+            "gemini",
+            "spotify",
+            "drive"
+          ],
+          "total_lines": 6166,
+          "file_count": 16,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "notion日記作成",
         "name": "Notion日記作成",
-        "overview": "テンプレートから日次・週次・月次日記ページをNotionに自動作成。プロパティ自動設定",
+        "overview": "参考先：https://note.com/kohaku935/n/n0e7808adb17c",
         "type": "gas",
         "status": "active",
         "tags": [
           "notion",
-          "diary",
-          "daily",
-          "template"
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -92,32 +260,45 @@
         ],
         "script_id": "1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H",
         "script_url": "https://script.google.com/d/1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H/edit",
-        "deployments": [],
-        "triggers": [
+        "deployments": [
           {
-            "function": "createDailyDiary",
-            "handler": "createDailyDiary",
-            "event_type": "time-driven",
-            "schedule": "0 0 * * *",
-            "timezone": "Asia/Tokyo"
+            "deployment_id": "AKfycbw-AKhACZxOBojRVNyWroGdGYqJ9qfTj31uRydX3aI",
+            "url": "https://script.google.com/macros/s/AKfycbw-AKhACZxOBojRVNyWroGdGYqJ9qfTj31uRydX3aI/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
           }
         ],
+        "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 167,
+          "file_count": 1,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "calendertoline",
         "name": "calenderToLine",
-        "overview": "Googleカレンダーの予定を取得し、LINE Notify でリマインド通知送信",
+        "overview": "GAS Script: calenderToLine",
         "type": "gas",
         "status": "active",
         "tags": [
-          "calendar",
+          "discord",
           "line",
-          "remind",
-          "notify"
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -125,24 +306,40 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
           "LINE_NOTIFY_TOKEN"
         ],
         "script_id": "1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp",
         "script_url": "https://script.google.com/d/1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp/edit",
-        "deployments": [],
-        "triggers": [
+        "deployments": [
           {
-            "function": "sendReminders",
-            "handler": "sendReminders",
-            "event_type": "time-driven",
-            "schedule": "0 7 * * *",
-            "timezone": "Asia/Tokyo"
+            "deployment_id": "AKfycbyuWPMw0e1NngLYPa4bitrUQwV03a51QTJfhP6UHgo",
+            "url": "https://script.google.com/macros/s/AKfycbyuWPMw0e1NngLYPa4bitrUQwV03a51QTJfhP6UHgo/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
           }
         ],
+        "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "discord",
+            "line"
+          ],
+          "total_lines": 71,
+          "file_count": 1,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "業務報告書フォーム-v2",
@@ -151,64 +348,92 @@
         "type": "gas",
         "status": "active",
         "tags": [
-          "notion",
-          "monthly-report",
-          "form",
-          "webapp",
-          "1on1",
+          "discord",
           "drive",
-          "discord"
+          "line",
+          "notion",
+          "gas"
         ],
         "repo_url": "",
-        "deploy_target": "Google Apps Script",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "NOTION_TOKEN",
-          "DISCORD_WEBHOOK_URL"
+          "DISCORD_WEBHOOK_URL",
+          "GOOGLE_DRIVE_KEY",
+          "LINE_NOTIFY_TOKEN",
+          "NOTION_TOKEN"
         ],
         "script_id": "1VvkBhkef3dWBVawT5yPpXx636zXgC3HcqZSH-5Q-fIjmeOg3dVg-_L8E",
         "script_url": "https://script.google.com/d/1VvkBhkef3dWBVawT5yPpXx636zXgC3HcqZSH-5Q-fIjmeOg3dVg-_L8E/edit",
         "deployments": [
           {
+            "deployment_id": "AKfycbwA7DG0TmoapB0IdHQSc3c1dEw3slRDv37mGS14O3Vd",
+            "url": "https://script.google.com/macros/s/AKfycbwA7DG0TmoapB0IdHQSc3c1dEw3slRDv37mGS14O3Vd/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
             "deployment_id": "AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ",
             "url": "https://script.google.com/macros/s/AKfycbzIc-0vwMR8QcljeI1kWqUOmWbL5Sm5Q60ZsY3XcegIXNjsU_VoRL0qympfg5YVGdPqPQ/exec",
-            "version": "3",
+            "version": "",
             "entry_point": "doGet",
-            "updated_at": "2026-09-30T11:52:00+09:00",
-            "description": "Webアプリ公開版（実行者=自分 / アクセス=全員（匿名））"
+            "updated_at": "2026-09-30T02:55:10.688Z",
+            "description": ""
           }
         ],
-        "triggers": [],
-        "script_properties": {
-          "NOTION_TOKEN": "Notion Integration トークン（ntn_…）",
-          "NOTION_PARENT_PAGE_ID": "親ページ「業務報告書(管理)」のページID",
-          "MEMBER_DB_ID": "メンバーDB",
-          "MEMBER_DATA_SOURCE_ID": "メンバーDBのデータソースID",
-          "EXPECT_DB_ID": "期待マスタDB（個人別）",
-          "EXPECT_DATA_SOURCE_ID": "期待マスタDBのデータソースID",
-          "REPORT_DB_ID": "月次報告書DB",
-          "REPORT_DATA_SOURCE_ID": "月次報告書DBのデータソースID",
-          "MD_FOLDER_ID": "Markdown出力先のGoogle Driveフォルダ",
-          "DISCORD_WEBHOOK_URL": "#通知用 Webhook URL"
-        },
+        "triggers": [
+          {
+            "function": "notionUpdatePage",
+            "handler": "notionUpdatePage",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateHeader",
+            "handler": "updateHeader",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "1K5oXmt6hMqbuMPg9y9EcqPJnP4fLziSW",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "line",
+            "drive"
+          ],
+          "total_lines": 2623,
+          "file_count": 9,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "notionradionews",
         "name": "NotionRadioNews",
-        "overview": "RSSフィードからニュース取得、音声合成(Google TTS/AWS Polly)でラジオ風ニュース作成、Notion保存",
+        "overview": "グローバル設定ファイル",
         "type": "gas",
         "status": "active",
         "tags": [
-          "rss",
-          "news",
-          "tts",
-          "audio",
-          "notion"
+          "drive",
+          "dropbox",
+          "gemini",
+          "notion",
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -216,162 +441,709 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
+          "BLUESKY_APP_PASSWORD",
+          "BOX_CLIENT_SECRET",
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
           "NOTION_TOKEN",
-          "GOOGLE_TTS_KEY"
+          "THREADS_ACCESS_TOKEN"
         ],
         "script_id": "1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U",
         "script_url": "https://script.google.com/d/1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbzfntYwPi7kUBFoE_yQq4lO8PFsSVQbGuNfxTHEURE",
+            "url": "https://script.google.com/macros/s/AKfycbzfntYwPi7kUBFoE_yQq4lO8PFsSVQbGuNfxTHEURE/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxuHVhypz7O-nwsc35QOMbuy2CfHCSxzXJyy86OEKLsg3EgtBvqTtFJlNP98zBwJMY",
+            "url": "https://script.google.com/macros/s/AKfycbxuHVhypz7O-nwsc35QOMbuy2CfHCSxzXJyy86OEKLsg3EgtBvqTtFJlNP98zBwJMY/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-10-14T08:14:56.328Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz2JzHU19lZurYo0N69QWeoU2H4Jt_R0QEE4E51iaggSrjZ2oqZdsX40oF919Qjlqi1",
+            "url": "https://script.google.com/macros/s/AKfycbz2JzHU19lZurYo0N69QWeoU2H4Jt_R0QEE4E51iaggSrjZ2oqZdsX40oF919Qjlqi1/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-10-14T08:17:05.982Z",
+            "description": ""
+          }
+        ],
         "triggers": [
           {
-            "function": "generateNews",
-            "handler": "generateNews",
+            "function": "createTimeDrivenTriggers",
+            "handler": "createTimeDrivenTriggers",
             "event_type": "time-driven",
-            "schedule": "0 6 * * *",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "setupTriggers",
+            "handler": "setupTriggers",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           }
         ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "dropbox",
+            "gemini",
+            "drive"
+          ],
+          "total_lines": 2620,
+          "file_count": 12,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "持ち物リスト",
         "name": "持ち物リスト",
-        "overview": "旅行・出張用の持ち物チェックリストをスプレッドシート管理。カテゴリ別集計・不足検知",
+        "overview": "GAS Script: 持ち物リスト",
         "type": "gas",
         "status": "active",
         "tags": [
-          "checklist",
-          "travel",
-          "spreadsheet"
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "NOTION_API_KEY",
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2",
+        "script_url": "https://script.google.com/d/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyzCQkFr3jip8fYzfS07aY8-QQq9Pi-UllfJWNDp6U",
+            "url": "https://script.google.com/macros/s/AKfycbyzCQkFr3jip8fYzfS07aY8-QQq9Pi-UllfJWNDp6U/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzGL2xc4r5TAeCEwKyT_FBwwFZ3BBUg2oRl7XJpk8Nt7VV88ogwhTDx_lTQUV163MQ1",
+            "url": "https://script.google.com/macros/s/AKfycbzGL2xc4r5TAeCEwKyT_FBwwFZ3BBUg2oRl7XJpk8Nt7VV88ogwhTDx_lTQUV163MQ1/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T02:35:30.670Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbynZOXtrctkMSePjfGZPIO3CRdIndYSWHArNec3Rx8EDESmZeXbZDjGeK5IHQqFcZfP",
+            "url": "https://script.google.com/macros/s/AKfycbynZOXtrctkMSePjfGZPIO3CRdIndYSWHArNec3Rx8EDESmZeXbZDjGeK5IHQqFcZfP/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T01:55:52.870Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyI5H3YD_1GimR594ioj-ufCiz7RErFM2Iw6kUZd6nPGaRkSzx2J9bK4VLKonhLCgcQ",
+            "url": "https://script.google.com/macros/s/AKfycbyI5H3YD_1GimR594ioj-ufCiz7RErFM2Iw6kUZd6nPGaRkSzx2J9bK4VLKonhLCgcQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T01:18:45.271Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxszgbpVdNp_VL5G_Z8aOH6CQm_Lun9VSiYTPHO238cCd2KvyL2WLFSH-c_E48p2HEz",
+            "url": "https://script.google.com/macros/s/AKfycbxszgbpVdNp_VL5G_Z8aOH6CQm_Lun9VSiYTPHO238cCd2KvyL2WLFSH-c_E48p2HEz/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T03:33:51.417Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwATSbFl15RaUa0KxLjiq2r7jX4Ws0WrOJeW_7uWNCLvSLf5ZNZ1JkplMdPOsjr1Ycf",
+            "url": "https://script.google.com/macros/s/AKfycbwATSbFl15RaUa0KxLjiq2r7jX4Ws0WrOJeW_7uWNCLvSLf5ZNZ1JkplMdPOsjr1Ycf/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T01:38:58.393Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwdcJn3-qsb2ILvr8Caw-yvvHq-xa1gJKO3fPp4ikcqnQnRcjtvpUu12DM_US-fwyYb",
+            "url": "https://script.google.com/macros/s/AKfycbwdcJn3-qsb2ILvr8Caw-yvvHq-xa1gJKO3fPp4ikcqnQnRcjtvpUu12DM_US-fwyYb/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T13:31:35.679Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwn61RCTeOpzkipNNdmfgKABxSz5zhBsfQFCWSE70cwKJT6eoeOtNtsqkBDm999oRyR",
+            "url": "https://script.google.com/macros/s/AKfycbwn61RCTeOpzkipNNdmfgKABxSz5zhBsfQFCWSE70cwKJT6eoeOtNtsqkBDm999oRyR/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T09:34:47.961Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzEKgTSmezgTkwx-1blNx3LT3p7P0kvuErYAn0cfCSd-lMcYuuzypyzBMh5OfNguGpv",
+            "url": "https://script.google.com/macros/s/AKfycbzEKgTSmezgTkwx-1blNx3LT3p7P0kvuErYAn0cfCSd-lMcYuuzypyzBMh5OfNguGpv/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T10:12:22.135Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyHxXcDEvaStQNYptofXQPRyP2y27Uo8CXYVx2n8WPGqaQJIhEQpOVbDUQ-OdDOkYZq",
+            "url": "https://script.google.com/macros/s/AKfycbyHxXcDEvaStQNYptofXQPRyP2y27Uo8CXYVx2n8WPGqaQJIhEQpOVbDUQ-OdDOkYZq/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T02:26:15.031Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxNWBHTPNN1hKJOf9pNpLT2u77C2o-bCdesVoaV9IxvQCrLAPAalK-aQq3bEr5OpN19",
+            "url": "https://script.google.com/macros/s/AKfycbxNWBHTPNN1hKJOf9pNpLT2u77C2o-bCdesVoaV9IxvQCrLAPAalK-aQq3bEr5OpN19/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T02:18:54.301Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz3hHEEV9xO15M7l3XEyWU6XLn9TF1MxjNkKraH2tVgJiGRegB_i06bUN-Y9aXWMqi0",
+            "url": "https://script.google.com/macros/s/AKfycbz3hHEEV9xO15M7l3XEyWU6XLn9TF1MxjNkKraH2tVgJiGRegB_i06bUN-Y9aXWMqi0/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T03:49:25.047Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxWKp6kCKhSKDx5EF2_A0fh4G3cU6E40B3ecuCFzzbBWzdmdlrI22KbkXUOFu8aXNqi",
+            "url": "https://script.google.com/macros/s/AKfycbxWKp6kCKhSKDx5EF2_A0fh4G3cU6E40B3ecuCFzzbBWzdmdlrI22KbkXUOFu8aXNqi/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T02:11:58.744Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwQ6h10hbA7XCdi1DcYK7DxMX4z6HHcVbj8XyRJjPAJ5iUo2Jga4N2D-KB1wKO-tbxc",
+            "url": "https://script.google.com/macros/s/AKfycbwQ6h10hbA7XCdi1DcYK7DxMX4z6HHcVbj8XyRJjPAJ5iUo2Jga4N2D-KB1wKO-tbxc/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T09:53:20.613Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzSxYhIo_7aWmZWNCvUxUBfxoEB7G0T4KrUgWgomMSfs5BG8HEfRwBYWctauQREdwZs",
+            "url": "https://script.google.com/macros/s/AKfycbzSxYhIo_7aWmZWNCvUxUBfxoEB7G0T4KrUgWgomMSfs5BG8HEfRwBYWctauQREdwZs/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T13:52:12.325Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbw3I4vwSZsgwLpvWBFc8w6sUAyxa2zofho-UpfUHtEV3_O4Z1IqjOTa3CKUb7PEjnHI",
+            "url": "https://script.google.com/macros/s/AKfycbw3I4vwSZsgwLpvWBFc8w6sUAyxa2zofho-UpfUHtEV3_O4Z1IqjOTa3CKUb7PEjnHI/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T04:44:28.758Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxzthiHmldotvKU6MVMhfunuzz0XMisR1ra101eVcBwUC5pA75u9I58dlMxZsbQiBa6",
+            "url": "https://script.google.com/macros/s/AKfycbxzthiHmldotvKU6MVMhfunuzz0XMisR1ra101eVcBwUC5pA75u9I58dlMxZsbQiBa6/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-09T13:18:13.220Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzntG09SZ_3LWUHyQ8nAyCK1j_YjIzOkDbsNxeqjG847DQWib-J7AAMzXX17b2yoZ4D",
+            "url": "https://script.google.com/macros/s/AKfycbzntG09SZ_3LWUHyQ8nAyCK1j_YjIzOkDbsNxeqjG847DQWib-J7AAMzXX17b2yoZ4D/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-09-10T01:22:59.964Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "updateItem",
+            "handler": "updateItem",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 860,
+          "file_count": 4,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "tagautotools",
+        "name": "TagAutoTools",
+        "overview": "CalendarHandler",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "dropbox",
+          "gemini",
+          "line",
+          "notion",
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
-        "secret_refs": [],
-        "script_id": "1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2",
-        "script_url": "https://script.google.com/d/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/edit",
+        "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY",
+          "LINE_NOTIFY_TOKEN",
+          "NOTION_TOKEN",
+          "TICKTICK_CLIENT_SECRET",
+          "TICKTICK_TOKEN"
+        ],
+        "script_id": "1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR",
+        "script_url": "https://script.google.com/d/1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR/edit",
         "deployments": [
           {
-            "deployment_id": "webapp",
-            "url": "https://script.google.com/macros/s/.../exec",
-            "version": "1",
+            "deployment_id": "AKfycbzX9vUdBGmpi6G7NhpKQRG7s2qPhVosVfl1J4bGqxW_",
+            "url": "https://script.google.com/macros/s/AKfycbzX9vUdBGmpi6G7NhpKQRG7s2qPhVosVfl1J4bGqxW_/exec",
+            "version": "",
             "entry_point": "doGet",
-            "description": "Webアプリ版"
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxQqTkfV-bGK8XVZjJs-WzIWT_ym5GqnUZM2126-7rfpkXeiZFb_BqQUvzJL4wZcbrPpw",
+            "url": "https://script.google.com/macros/s/AKfycbxQqTkfV-bGK8XVZjJs-WzIWT_ym5GqnUZM2126-7rfpkXeiZFb_BqQUvzJL4wZcbrPpw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-04-07T12:44:05.629Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwm_PEE7FonAs-BiecKj81imx_y9SKLC8wMqb3TrUmhtZ0r8q5cw17x3PSTU7Q-aY3wHQ",
+            "url": "https://script.google.com/macros/s/AKfycbwm_PEE7FonAs-BiecKj81imx_y9SKLC8wMqb3TrUmhtZ0r8q5cw17x3PSTU7Q-aY3wHQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-10T14:08:47.900Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwtpNyaipWsThc3jz_yBT8Wkdcd8opaTaNZEVgEuc2cJ7P02Hs7Qz5Gza8KFvxnkfeGFQ",
+            "url": "https://script.google.com/macros/s/AKfycbwtpNyaipWsThc3jz_yBT8Wkdcd8opaTaNZEVgEuc2cJ7P02Hs7Qz5Gza8KFvxnkfeGFQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-02-17T08:25:14.735Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycby6nvgRoGDmUxmCJNwoZYV49p5c55cVaM6Gtxivk3rGk2R1EgkFW3mejTUO4DwKnyjnoA",
+            "url": "https://script.google.com/macros/s/AKfycby6nvgRoGDmUxmCJNwoZYV49p5c55cVaM6Gtxivk3rGk2R1EgkFW3mejTUO4DwKnyjnoA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-08T13:16:13.035Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyrBUERy3pKq820If7iBPdbxi-dewnJX-JND2Ud3VCy8vkYgcFuoehafAFKxklich1YjQ",
+            "url": "https://script.google.com/macros/s/AKfycbyrBUERy3pKq820If7iBPdbxi-dewnJX-JND2Ud3VCy8vkYgcFuoehafAFKxklich1YjQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-02-23T01:36:53.113Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxY0vXaZM-aGhn07C8VzwqzOVXdgJa_ZUaZFNa_PVmPoiyuucbtTaGd04TDRSe5GDpv9A",
+            "url": "https://script.google.com/macros/s/AKfycbxY0vXaZM-aGhn07C8VzwqzOVXdgJa_ZUaZFNa_PVmPoiyuucbtTaGd04TDRSe5GDpv9A/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-08T13:44:15.020Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzr0mcCNywV0kjIeoKqCKaPH68ZVEpVub-0tJl013kRN8P_49Y-5-wNcC_paaDAeXDJLA",
+            "url": "https://script.google.com/macros/s/AKfycbzr0mcCNywV0kjIeoKqCKaPH68ZVEpVub-0tJl013kRN8P_49Y-5-wNcC_paaDAeXDJLA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-02-13T06:26:54.774Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxXopeq8_MQ4bh40AU-my99IySOtjn1nKpb2vwBlFTi3D6ssD_ucddNMqU3ES3w8xvc",
+            "url": "https://script.google.com/macros/s/AKfycbxXopeq8_MQ4bh40AU-my99IySOtjn1nKpb2vwBlFTi3D6ssD_ucddNMqU3ES3w8xvc/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-25T22:32:38.219Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzSoiWcUPfBjlgpScIMHsR-SE98lg8bqgHlQd4HjTUPRz762jgciLZ0C7kDOkOJOyH2NQ",
+            "url": "https://script.google.com/macros/s/AKfycbzSoiWcUPfBjlgpScIMHsR-SE98lg8bqgHlQd4HjTUPRz762jgciLZ0C7kDOkOJOyH2NQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-08T13:23:56.488Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxEiT6RlGXn1l05wsnGpeOSBypiEPX2P49Ozs9N2HdxdvvAuDttS0An7rrEyYIpO7LLGQ",
+            "url": "https://script.google.com/macros/s/AKfycbxEiT6RlGXn1l05wsnGpeOSBypiEPX2P49Ozs9N2HdxdvvAuDttS0An7rrEyYIpO7LLGQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-03T21:43:16.425Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz9lvQMEYW8HYT5dAEKHXfUv-0A5mOJYELrmbBstFKXAeI0u6OGIkfteAQf_vXN4FaeJA",
+            "url": "https://script.google.com/macros/s/AKfycbz9lvQMEYW8HYT5dAEKHXfUv-0A5mOJYELrmbBstFKXAeI0u6OGIkfteAQf_vXN4FaeJA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-12T22:30:28.062Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxiWH6rsvLx2paMOSeFMAh79N-QBPfzxWmGIkkDpzG6_NJW8cDoKnZRbyVXYgGoOaa8LQ",
+            "url": "https://script.google.com/macros/s/AKfycbxiWH6rsvLx2paMOSeFMAh79N-QBPfzxWmGIkkDpzG6_NJW8cDoKnZRbyVXYgGoOaa8LQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-04-07T11:25:42.379Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz7HgakUkHJmfqYgf8jH-YQUppMKuxrxDwFJDqgBY4obOBUClzBxKQ6j7PmaWBrZ7JhXQ",
+            "url": "https://script.google.com/macros/s/AKfycbz7HgakUkHJmfqYgf8jH-YQUppMKuxrxDwFJDqgBY4obOBUClzBxKQ6j7PmaWBrZ7JhXQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-02-17T08:37:59.948Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxKQQj-g9Mwwdt6Iy83JJANGSFlndBor53uzvrxgja_behvkyJe7ve2V3q2ZheZ5Wj4Iw",
+            "url": "https://script.google.com/macros/s/AKfycbxKQQj-g9Mwwdt6Iy83JJANGSFlndBor53uzvrxgja_behvkyJe7ve2V3q2ZheZ5Wj4Iw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-04-06T11:37:06.846Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwM3uPKQgRLBfuzO-FgBS8cBRWTxm6g45ahvQBAlSRfYg2sxEdYJV5eCUbECEwXrJKm",
+            "url": "https://script.google.com/macros/s/AKfycbwM3uPKQgRLBfuzO-FgBS8cBRWTxm6g45ahvQBAlSRfYg2sxEdYJV5eCUbECEwXrJKm/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-03T06:22:56.498Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz8lM_3q--zZco-Wk62xAe6rKQ3AwGMRLNFyec_02HN2MDGbQblJM8YPifZNS3IN9h0Bw",
+            "url": "https://script.google.com/macros/s/AKfycbz8lM_3q--zZco-Wk62xAe6rKQ3AwGMRLNFyec_02HN2MDGbQblJM8YPifZNS3IN9h0Bw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-04-08T14:22:40.548Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwROFQjEnPfWArGStk75D6tAFx9v5adoY5pIVRQVqlsMWGd1wdtsQU38IXnxdTBKuZVdQ",
+            "url": "https://script.google.com/macros/s/AKfycbwROFQjEnPfWArGStk75D6tAFx9v5adoY5pIVRQVqlsMWGd1wdtsQU38IXnxdTBKuZVdQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-11T19:35:19.027Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyDwtqXRqKEx6yh3hAOoWWmbj7iO_UIxLTlqelCQGaSKBQnCXgU9RESRSijJX5v1an7Mw",
+            "url": "https://script.google.com/macros/s/AKfycbyDwtqXRqKEx6yh3hAOoWWmbj7iO_UIxLTlqelCQGaSKBQnCXgU9RESRSijJX5v1an7Mw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-04-07T14:50:26.158Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwFB0N3HpG85T5tZ2GZOqgRQcb9QV9gwIW8sy2LX0jDWYs3TqJA3q0QZj1Yhz9VVRPf5g",
+            "url": "https://script.google.com/macros/s/AKfycbwFB0N3HpG85T5tZ2GZOqgRQcb9QV9gwIW8sy2LX0jDWYs3TqJA3q0QZj1Yhz9VVRPf5g/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-03-25T03:03:01.678Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "UpdateNotionToTickTickTaskCheked",
+            "handler": "UpdateNotionToTickTickTaskCheked",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateNotionTaskPage",
+            "handler": "updateNotionTaskPage",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateNotionTaskPageCheked",
+            "handler": "updateNotionTaskPageCheked",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "dropbox",
+            "gemini",
+            "line"
+          ],
+          "total_lines": 3063,
+          "file_count": 15,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "dashboard-spotify",
+        "name": "dashboard-spotify",
+        "overview": "GAS Script: dashboard-spotify",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "spotify",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
+        ],
+        "script_id": "1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3",
+        "script_url": "https://script.google.com/d/1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbzKkxaCP4K34auWti2dawFtrhs-WnKs1Whv_2a9eKE",
+            "url": "https://script.google.com/macros/s/AKfycbzKkxaCP4K34auWti2dawFtrhs-WnKs1Whv_2a9eKE/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwnXsX9BgTsPzAhq2KvxLWVdmkJMgrahoA4aWI285BSFmlrmmCpNA5Ot0NaiygNR1WN",
+            "url": "https://script.google.com/macros/s/AKfycbwnXsX9BgTsPzAhq2KvxLWVdmkJMgrahoA4aWI285BSFmlrmmCpNA5Ot0NaiygNR1WN/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-29T07:56:52.860Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwAtK4PGFUauwZO2vtAqXLxG71rn_Ul0kgCREnl77DNHwlmo8x8bNmKtOfuam1tV08q",
+            "url": "https://script.google.com/macros/s/AKfycbwAtK4PGFUauwZO2vtAqXLxG71rn_Ul0kgCREnl77DNHwlmo8x8bNmKtOfuam1tV08q/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-29T06:49:35.843Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyyfApCD82_GXTU-sSgVhffAPEgadmLN_wTi0cb7IKxAEsbNUTMAJbs5kzPUndIbFQt",
+            "url": "https://script.google.com/macros/s/AKfycbyyfApCD82_GXTU-sSgVhffAPEgadmLN_wTi0cb7IKxAEsbNUTMAJbs5kzPUndIbFQt/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-29T06:53:33.492Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbylfVeHCiOCjMsp-CUrysNcUQkSha73zy3EUDGFdWyOu8Eas32XRn29aacrBIb_3Shd",
+            "url": "https://script.google.com/macros/s/AKfycbylfVeHCiOCjMsp-CUrysNcUQkSha73zy3EUDGFdWyOu8Eas32XRn29aacrBIb_3Shd/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-29T07:44:14.002Z",
+            "description": ""
           }
         ],
         "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "tagautotools",
-        "name": "TagAutoTools",
-        "overview": "Notion/データベースのタグ自動付与・正規化・階層化。キーワードマッチ・AI分類対応",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "tag",
-          "auto-tag",
-          "notion",
-          "classification"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "NOTION_TOKEN",
-          "OPENAI_API_KEY"
-        ],
-        "script_id": "1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR",
-        "script_url": "https://script.google.com/d/1mkjzoj6T_QOE2a_y4elaCSRKOnxQY9-XDgYr2herDZrXZKFR8I0gDDlR/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "dashboard-spotify",
-        "name": "dashboard-spotify",
-        "overview": "Spotify API で再生履歴・お気に入り取得、ダッシュボード用データ生成・Notion同期",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "spotify",
-          "dashboard",
-          "music",
-          "notion"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "SPOTIFY_CLIENT_ID",
-          "SPOTIFY_CLIENT_SECRET",
-          "NOTION_TOKEN"
-        ],
-        "script_id": "1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3",
-        "script_url": "https://script.google.com/d/1CbWXiAQQHMWBBqt8Q-T4o1q-vfuGGEEti6LzYrGRYTgrjjtF3uPnA-Q3/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion",
+            "spotify"
+          ],
+          "total_lines": 109,
+          "file_count": 1,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "bookaddtonotion",
         "name": "bookAddToNotion",
-        "overview": "ISBN/書籍情報から書誌データ取得(Google Books API/楽天API)、Notion読書管理DBに登録",
+        "overview": "GAS Script: bookAddToNotion",
         "type": "gas",
         "status": "active",
         "tags": [
-          "book",
-          "isbn",
           "notion",
-          "reading"
+          "gas"
         ],
         "repo_url": "",
-        "deploy_target": "Google Apps Script",
+        "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "NOTION_TOKEN",
-          "GOOGLE_BOOKS_API_KEY"
+          "NOTION_TOKEN"
         ],
         "script_id": "1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5",
         "script_url": "https://script.google.com/d/1ITEXAYoJl3QqTzmBxOX_pSOi52tw69U8W2RsE36vsPeYid0eZdhhhRR5/edit",
-        "deployments": [],
-        "triggers": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyJC7Ot-F1tZWQcxvRUCTyXJAAgSuOo3MiiN31m72M",
+            "url": "https://script.google.com/macros/s/AKfycbyJC7Ot-F1tZWQcxvRUCTyXJAAgSuOo3MiiN31m72M/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwGnzhPh_5Eknv1oHLFRQi8vbteqvBzNOn_uBEQ93RtSkr9xxYXCrCnlTZwa6J4N4zB",
+            "url": "https://script.google.com/macros/s/AKfycbwGnzhPh_5Eknv1oHLFRQi8vbteqvBzNOn_uBEQ93RtSkr9xxYXCrCnlTZwa6J4N4zB/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-17T03:20:24.511Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz4UjjVSb5SKc_KCLO9uwBtyfkrawB6ps5Em6QXf6u0yEBw_zOwdVE6rlGZVUvyzpxv",
+            "url": "https://script.google.com/macros/s/AKfycbz4UjjVSb5SKc_KCLO9uwBtyfkrawB6ps5Em6QXf6u0yEBw_zOwdVE6rlGZVUvyzpxv/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-18T22:24:48.749Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbx1NDQO05roJnhSNkajRgFyda9_C3hFGt0T-yrhSCntcjsfKFon8FgVFTdFKg_JC-Wl",
+            "url": "https://script.google.com/macros/s/AKfycbx1NDQO05roJnhSNkajRgFyda9_C3hFGt0T-yrhSCntcjsfKFon8FgVFTdFKg_JC-Wl/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-04-17T12:39:49.945Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbykh4gMErTI3QoEWSQYgJgZDSc5wf_rMjRtD9fUOoTo39AdNtyPwHPQjO4jq5yr6WR8",
+            "url": "https://script.google.com/macros/s/AKfycbykh4gMErTI3QoEWSQYgJgZDSc5wf_rMjRtD9fUOoTo39AdNtyPwHPQjO4jq5yr6WR8/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-18T04:45:16.062Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzPzXuQdiVo2NmMW-0qor2CbNwNyAicZz65OvoRYRE9tERQVSxXbpXkPcAXR2qNO7Yq",
+            "url": "https://script.google.com/macros/s/AKfycbzPzXuQdiVo2NmMW-0qor2CbNwNyAicZz65OvoRYRE9tERQVSxXbpXkPcAXR2qNO7Yq/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-17T10:42:37.222Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz3uTcCTpys3RGHP0N0RR8sSyhUh_j3Y1XvHm-6ZHChNAcVDxgx5R1KqluSwaokLXcM",
+            "url": "https://script.google.com/macros/s/AKfycbz3uTcCTpys3RGHP0N0RR8sSyhUh_j3Y1XvHm-6ZHChNAcVDxgx5R1KqluSwaokLXcM/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-18T00:37:30.762Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "updateNotionPage",
+            "handler": "updateNotionPage",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 605,
+          "file_count": 2,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "notionタスク登録",
         "name": "Notionタスク登録",
-        "overview": "Webhook/LINE/メールからタスク受信、NotionタスクDBに自動登録。優先度・期日・タグ自動設定",
+        "overview": "参考先：https://note.com/kohaku935/n/n0e7808adb17c",
         "type": "gas",
         "status": "active",
         "tags": [
-          "task",
           "notion",
-          "webhook",
-          "automation"
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -383,174 +1155,744 @@
         ],
         "script_id": "1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq",
         "script_url": "https://script.google.com/d/1it7C31VxG4r0GFhWToYHQzWCVX3_dDovZ9ip3KKFHaiCnh_BiyxlSITq/edit",
-        "deployments": [],
-        "triggers": [
+        "deployments": [
           {
-            "function": "onWebhook",
-            "handler": "onWebhook",
-            "event_type": "webhook",
-            "schedule": ""
+            "deployment_id": "AKfycby_vKLFM0paSkNZMeXSH0WpTLMZgBbJz2iL0YX-R_Bm",
+            "url": "https://script.google.com/macros/s/AKfycby_vKLFM0paSkNZMeXSH0WpTLMZgBbJz2iL0YX-R_Bm/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
           }
         ],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "transcriptiontool",
-        "name": "TranscriptionTool",
-        "overview": "音声ファイル(Google Drive/ローカル)をWhisper/Geminiで文字起こし、話者分離・要約付きでMarkdown出力",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "transcription",
-          "whisper",
-          "gemini",
-          "audio"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "OPENAI_API_KEY",
-          "GEMINI_API_KEY"
-        ],
-        "script_id": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
-        "script_url": "https://script.google.com/d/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "notionpagetitleupdater",
-        "name": "NotionPageTitleUpdater",
-        "overview": "Notionデータベースのページタイトルを、プロパティ値(日付・ステータス等)に基づき自動更新",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "notion",
-          "title",
-          "auto-update",
-          "database"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "NOTION_TOKEN"
-        ],
-        "script_id": "1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP",
-        "script_url": "https://script.google.com/d/1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "notion登録",
-        "name": "Notion登録",
-        "overview": "各種フォーム・WebhookからのデータをNotion各種DBに登録。リレーション・セレクト自動マッピング",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "notion",
-          "webhook",
-          "form",
-          "database"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "NOTION_TOKEN"
-        ],
-        "script_id": "1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP",
-        "script_url": "https://script.google.com/d/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "discordtonotion",
-        "name": "DiscordToNotion",
-        "overview": "Discordメッセージ(特定チャンネル/リアクション)をトリガーに、Notionページ/DB項目作成",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "discord",
-          "notion",
-          "bot",
-          "webhook"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "DISCORD_BOT_TOKEN",
-          "NOTION_TOKEN"
-        ],
-        "script_id": "1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w",
-        "script_url": "https://script.google.com/d/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "notionroutineops",
-        "name": "NotionRoutineOps",
-        "overview": "NotionルーチンDBの繰り返しタスク自動展開・期日設定・完了時の次回自動作成",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "notion",
-          "routine",
-          "recurring",
-          "task"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [
-          "NOTION_TOKEN"
-        ],
-        "script_id": "1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS",
-        "script_url": "https://script.google.com/d/1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS/edit",
-        "deployments": [],
         "triggers": [
           {
-            "function": "expandRoutines",
-            "handler": "expandRoutines",
+            "function": "UpdateTaskPage_",
+            "handler": "UpdateTaskPage_",
             "event_type": "time-driven",
-            "schedule": "0 0 * * *",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "UpdateTodayTask",
+            "handler": "UpdateTodayTask",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           }
         ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 487,
+          "file_count": 1,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "transcriptiontool",
+        "name": "TranscriptionTool",
+        "overview": "GAS Script: TranscriptionTool",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "dropbox",
+          "gemini",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY"
+        ],
+        "script_id": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
+        "script_url": "https://script.google.com/d/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyoSdYMuN0K1Fqgjf2vDnvkP34Gv-vaQBucs3eEz8Nv",
+            "url": "https://script.google.com/macros/s/AKfycbyoSdYMuN0K1Fqgjf2vDnvkP34Gv-vaQBucs3eEz8Nv/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyNWiZydFP2erJii2d-9TAURZaLKQXBk_lqCdNDXQs8SUuQtz0dNsq2USgJOOg04_0mvQ",
+            "url": "https://script.google.com/macros/s/AKfycbyNWiZydFP2erJii2d-9TAURZaLKQXBk_lqCdNDXQs8SUuQtz0dNsq2USgJOOg04_0mvQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T22:42:00.627Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwQfUQaoux_OEwBqCvid01McTCY-Ujn-27r-s5xnqG1xgx54lKaZsX4qCRwl0NZrABo",
+            "url": "https://script.google.com/macros/s/AKfycbwQfUQaoux_OEwBqCvid01McTCY-Ujn-27r-s5xnqG1xgx54lKaZsX4qCRwl0NZrABo/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T22:15:36.803Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxNNSCJlypzZoBMMLBoyq5JHP33JWCCQr4YFcFT10lSO0H0A7fBkDpB-fzDzBnq3yTzMA",
+            "url": "https://script.google.com/macros/s/AKfycbxNNSCJlypzZoBMMLBoyq5JHP33JWCCQr4YFcFT10lSO0H0A7fBkDpB-fzDzBnq3yTzMA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-28T03:09:20.838Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycby3oNBYjmE_DaCnpO4OHOlRFksKUlhjliH3iUMiabpwW3raM8QLVdH0cURxFnspUzqbpA",
+            "url": "https://script.google.com/macros/s/AKfycby3oNBYjmE_DaCnpO4OHOlRFksKUlhjliH3iUMiabpwW3raM8QLVdH0cURxFnspUzqbpA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-24T02:31:49.984Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbymzE9tBgcFhiVxTX-U0bTbDCKLDTFECqDCCag1bD0seCPCxuMl3P-WPp7X9FYTqG4lQg",
+            "url": "https://script.google.com/macros/s/AKfycbymzE9tBgcFhiVxTX-U0bTbDCKLDTFECqDCCag1bD0seCPCxuMl3P-WPp7X9FYTqG4lQg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T23:30:04.099Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz_W_fYKvWsjHbJciZYKg7bZbcFPbV8CicSEUzOA1xASuK4Pj5H8WxW27iH65NLnlkbfw",
+            "url": "https://script.google.com/macros/s/AKfycbz_W_fYKvWsjHbJciZYKg7bZbcFPbV8CicSEUzOA1xASuK4Pj5H8WxW27iH65NLnlkbfw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-24T01:21:48.673Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxMhu-4pSFxCcnak96ZA6zPY3w2L5EEzhBkvStJESmtoe6IkO-OAGznSHR8Zj90IZZzgw",
+            "url": "https://script.google.com/macros/s/AKfycbxMhu-4pSFxCcnak96ZA6zPY3w2L5EEzhBkvStJESmtoe6IkO-OAGznSHR8Zj90IZZzgw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-28T08:28:08.221Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxmK2XPK3DW7ftvQ7X0U0-8MSadiZfhuuihtiYq1g-pVc5u-De2rKyvKHvyEzCyxvK6dw",
+            "url": "https://script.google.com/macros/s/AKfycbxmK2XPK3DW7ftvQ7X0U0-8MSadiZfhuuihtiYq1g-pVc5u-De2rKyvKHvyEzCyxvK6dw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T13:32:55.458Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzbeLDnHa0Kejv9yliKpnW2dhNpUrpi7NDrKbIVWzGrODhSvp2bLWAIGTlgbeJO2Ks6ug",
+            "url": "https://script.google.com/macros/s/AKfycbzbeLDnHa0Kejv9yliKpnW2dhNpUrpi7NDrKbIVWzGrODhSvp2bLWAIGTlgbeJO2Ks6ug/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-24T02:34:53.627Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxqq71Tjom5w2g97T8Cj17MM2GB67Ix0GVFksO8UmDMylrmexUKnYGuws2nghxFyOCL1A",
+            "url": "https://script.google.com/macros/s/AKfycbxqq71Tjom5w2g97T8Cj17MM2GB67Ix0GVFksO8UmDMylrmexUKnYGuws2nghxFyOCL1A/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T13:06:00.161Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyxL77pmTc_Z89D7DD2_R10lN3zCHMeP2bbO3-fZK0p6T9VJIQueuNxVQuGXB-MptgMhw",
+            "url": "https://script.google.com/macros/s/AKfycbyxL77pmTc_Z89D7DD2_R10lN3zCHMeP2bbO3-fZK0p6T9VJIQueuNxVQuGXB-MptgMhw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T22:57:10.534Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwBxmMl7VnFwWpo8JzwRZOgH4aAXHUpjBUuNQ042E7iD_Uk6iTglRUpYAjMBaOHrqYUzg",
+            "url": "https://script.google.com/macros/s/AKfycbwBxmMl7VnFwWpo8JzwRZOgH4aAXHUpjBUuNQ042E7iD_Uk6iTglRUpYAjMBaOHrqYUzg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T06:24:11.474Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz_FJTZCAzj1u6zuINyIAcJo-eXdQRv6kMgwAHcjCapGIwjF5kXmXSm-M5FudvUx5bg",
+            "url": "https://script.google.com/macros/s/AKfycbz_FJTZCAzj1u6zuINyIAcJo-eXdQRv6kMgwAHcjCapGIwjF5kXmXSm-M5FudvUx5bg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-24T01:03:18.655Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzviwf-Loz-jJcis7EBNRkOFfIf6wfJ-T3XmE_ZlqbCdDhh5iPzsNbYIjLDEXK8nS-Rjw",
+            "url": "https://script.google.com/macros/s/AKfycbzviwf-Loz-jJcis7EBNRkOFfIf6wfJ-T3XmE_ZlqbCdDhh5iPzsNbYIjLDEXK8nS-Rjw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T13:19:06.303Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbw4W9d1Z5yrz3qITl-MwlrE9_fZE6wuSE69Iidd2IAV51GKMY2_rquA0G0nLQDAgyBG3w",
+            "url": "https://script.google.com/macros/s/AKfycbw4W9d1Z5yrz3qITl-MwlrE9_fZE6wuSE69Iidd2IAV51GKMY2_rquA0G0nLQDAgyBG3w/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T23:22:41.359Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwfZtCOiErXBXRY4zTiGLxxvtMZ9RCasCHfr5m6MXgY7m2etWKmOHwcjVKIhpAZIDlDQw",
+            "url": "https://script.google.com/macros/s/AKfycbwfZtCOiErXBXRY4zTiGLxxvtMZ9RCasCHfr5m6MXgY7m2etWKmOHwcjVKIhpAZIDlDQw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T09:31:23.670Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzTVithjeYaiuy5CfiYJ5yFimqHddAnppH6i2neJC5vcl4bGQBw_cozY5QPRBVWdhj5bA",
+            "url": "https://script.google.com/macros/s/AKfycbzTVithjeYaiuy5CfiYJ5yFimqHddAnppH6i2neJC5vcl4bGQBw_cozY5QPRBVWdhj5bA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T13:23:05.157Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz6RXbyXf6iTWD-i4fKS6nsZ3zDlY3MhHDhoOhRKYiWHDiayP1QQvc0qqqZAaAuDC8jrA",
+            "url": "https://script.google.com/macros/s/AKfycbz6RXbyXf6iTWD-i4fKS6nsZ3zDlY3MhHDhoOhRKYiWHDiayP1QQvc0qqqZAaAuDC8jrA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-23T22:46:23.703Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxXP1SKaW4BUpJTlx6nD8kntD6xWUUiTL8gYhA-vrLGXZO_dfsKJymJO7_Zl1lJK_7JwQ",
+            "url": "https://script.google.com/macros/s/AKfycbxXP1SKaW4BUpJTlx6nD8kntD6xWUUiTL8gYhA-vrLGXZO_dfsKJymJO7_Zl1lJK_7JwQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T06:35:00.869Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxNNsqmnBRpbNc4HBtuVpJJSq_flNXz4xUECEoQ5I_vc49eLhm4lr-_5GHSC1TPCyebVA",
+            "url": "https://script.google.com/macros/s/AKfycbxNNsqmnBRpbNc4HBtuVpJJSq_flNXz4xUECEoQ5I_vc49eLhm4lr-_5GHSC1TPCyebVA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-07-27T09:43:30.510Z",
+            "description": ""
+          }
+        ],
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "dropbox",
+            "gemini"
+          ],
+          "total_lines": 329,
+          "file_count": 1,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "notionpagetitleupdater",
+        "name": "NotionPageTitleUpdater",
+        "overview": "for managing page titles and database properties directly from Google Sheets. / It allows users to fetch page/database hierarchies, update their titles, / list database properties, and update those property names.",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "sheets",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "GOOGLE_SHEETS_KEY",
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP",
+        "script_url": "https://script.google.com/d/1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbzwr1SkLAXc9TLrAzNn6sI3zzMGzYjfj68SFRW-M4jW",
+            "url": "https://script.google.com/macros/s/AKfycbzwr1SkLAXc9TLrAzNn6sI3zzMGzYjfj68SFRW-M4jW/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "updateDatabasePropertiesWrapper",
+            "handler": "updateDatabasePropertiesWrapper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateNotionPageTitlesWrapper",
+            "handler": "updateNotionPageTitlesWrapper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "sheets"
+          ],
+          "total_lines": 1079,
+          "file_count": 2,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "notion登録",
+        "name": "Notion登録",
+        "overview": "Notion APIに関するコンストラクタ",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "drive",
+          "gemini",
+          "notion",
+          "sheets",
+          "slack",
+          "spotify",
+          "twitter",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "GOOGLE_SHEETS_KEY",
+          "NOTION_TOKEN",
+          "SLACK_OAUTH_TOKEN",
+          "SLACK_WEBHOOK_URL",
+          "SPOTIFY_CLIENT_ID",
+          "TICKTICK_TOKEN",
+          "TWITTER_API_KEY"
+        ],
+        "script_id": "1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP",
+        "script_url": "https://script.google.com/d/1nYYEqUaZvi56m4x7n_tMxwfwwplpAHUtukYrzBUAdaj32v3pb_ROivrP/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbx29klkYFWYN93M036_jw6FT5D2MSMFqxPz5oOX8bsS",
+            "url": "https://script.google.com/macros/s/AKfycbx29klkYFWYN93M036_jw6FT5D2MSMFqxPz5oOX8bsS/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwWMCd139bOWkY8mktVA8I6nGKAmO3eRGzSXhrutgxQP53bT3GSiAwZ3FSSO8ShEFJDEQ",
+            "url": "https://script.google.com/macros/s/AKfycbwWMCd139bOWkY8mktVA8I6nGKAmO3eRGzSXhrutgxQP53bT3GSiAwZ3FSSO8ShEFJDEQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-09-25T08:33:40.573Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwo3eQj4-uQXKl2Ctx5WRrBVMlVTn7mbOixM-lMfhcQdRdX1z3I3C-S5JQD_5GILtmSBg",
+            "url": "https://script.google.com/macros/s/AKfycbwo3eQj4-uQXKl2Ctx5WRrBVMlVTn7mbOixM-lMfhcQdRdX1z3I3C-S5JQD_5GILtmSBg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-09-16T04:19:06.200Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwUq5Vea-McLa4VHmcT2L0x0y5DSJpWg1-8H8RZMV7jq8kU58KKWnYWcpGPLmWPkrrZ2w",
+            "url": "https://script.google.com/macros/s/AKfycbwUq5Vea-McLa4VHmcT2L0x0y5DSJpWg1-8H8RZMV7jq8kU58KKWnYWcpGPLmWPkrrZ2w/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-09-11T10:07:56.598Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbx5neRi53OFMh70Bjm3cURJgbwpRkV2LwN5y2GqJY68xbuCNZvckBUQOpLUHvHUY9KSeg",
+            "url": "https://script.google.com/macros/s/AKfycbx5neRi53OFMh70Bjm3cURJgbwpRkV2LwN5y2GqJY68xbuCNZvckBUQOpLUHvHUY9KSeg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-04-20T12:23:53.874Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzT9S0DoamlCaebt9kvWuflqSZp_QbsV0w8M3-YHqGXtw6zav7cXleEM6luAIJrlCbXtg",
+            "url": "https://script.google.com/macros/s/AKfycbzT9S0DoamlCaebt9kvWuflqSZp_QbsV0w8M3-YHqGXtw6zav7cXleEM6luAIJrlCbXtg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-09-21T03:08:54.619Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxzZL8owCXofq-0PW6LE0T_VkSOTJ9A2frAQQpvh8bNOca6cZm271zuSsZyUhfsXmGzVQ",
+            "url": "https://script.google.com/macros/s/AKfycbxzZL8owCXofq-0PW6LE0T_VkSOTJ9A2frAQQpvh8bNOca6cZm271zuSsZyUhfsXmGzVQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-09-17T22:48:53.451Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz1kLW6hCbOzlwVhLOHLNNMeABRfyY0SQL5Z45M8fZy1Cj8m2IJzborQtvmEy_BPkbLJQ",
+            "url": "https://script.google.com/macros/s/AKfycbz1kLW6hCbOzlwVhLOHLNNMeABRfyY0SQL5Z45M8fZy1Cj8m2IJzborQtvmEy_BPkbLJQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-10-17T07:27:25.866Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzeSYJRf_BTAy-WhvYRI0oQotwGn1-oJ7J0eqXX2QTrZEchb9R9owz4B99-mNgFej6zRA",
+            "url": "https://script.google.com/macros/s/AKfycbzeSYJRf_BTAy-WhvYRI0oQotwGn1-oJ7J0eqXX2QTrZEchb9R9owz4B99-mNgFej6zRA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2022-11-27T05:43:28.435Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "UpdateNotionToTickTickTaskCheked",
+            "handler": "UpdateNotionToTickTickTaskCheked",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "UpdateTaiseiDaiaryPageChildren",
+            "handler": "UpdateTaiseiDaiaryPageChildren",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "UpdateTaiseiDaiaryPageProperties",
+            "handler": "UpdateTaiseiDaiaryPageProperties",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "slack",
+            "discord",
+            "twitter",
+            "gemini",
+            "spotify",
+            "drive",
+            "sheets"
+          ],
+          "total_lines": 12916,
+          "file_count": 32,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "discordtonotion",
+        "name": "DiscordToNotion",
+        "overview": "@OnlyCurrentDoc // スプレッドシートにバインドしない場合でも記載を推奨",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "drive",
+          "gemini",
+          "notion",
+          "sheets",
+          "spotify",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "GOOGLE_SHEETS_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
+          "NOTION_API_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
+        ],
+        "script_id": "1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w",
+        "script_url": "https://script.google.com/d/1opJZwkDm0cFw_mySKpjp3qn5K8qM7LLqdu15LRFOYwxHEtuG9LNDyG6w/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycby6Mpo6wV9_6dUkijRiYc4hGomy2r6vSyWuJEzXNN8",
+            "url": "https://script.google.com/macros/s/AKfycby6Mpo6wV9_6dUkijRiYc4hGomy2r6vSyWuJEzXNN8/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbx9LHjorULccr82a5fAnErzrkUR_2qZFm2XgCDxv0W0klhi3mbqw1Meq1_BTDgWhWOC",
+            "url": "https://script.google.com/macros/s/AKfycbx9LHjorULccr82a5fAnErzrkUR_2qZFm2XgCDxv0W0klhi3mbqw1Meq1_BTDgWhWOC/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:39:41.632Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyplnKianQ3PqOJfqSU8HyBaH0pIfjZfKXIkSwAuO_YASf7E_0cISPPqzUrS4zroLFF",
+            "url": "https://script.google.com/macros/s/AKfycbyplnKianQ3PqOJfqSU8HyBaH0pIfjZfKXIkSwAuO_YASf7E_0cISPPqzUrS4zroLFF/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-20T22:39:17.910Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwwmXJ5QWsdiuSRBm16rk7nnJeSrI007VwdcHyRoXjgtaUyyMPIZYWC04ZeLHQNyInR",
+            "url": "https://script.google.com/macros/s/AKfycbwwmXJ5QWsdiuSRBm16rk7nnJeSrI007VwdcHyRoXjgtaUyyMPIZYWC04ZeLHQNyInR/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-03-16T22:43:06.630Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxdaxt0xGWrK4v7oLLyHFC1F5qcjqz6IqAZjcQB71PtUBMH2tw_vce8YTgpzdobgF6t",
+            "url": "https://script.google.com/macros/s/AKfycbxdaxt0xGWrK4v7oLLyHFC1F5qcjqz6IqAZjcQB71PtUBMH2tw_vce8YTgpzdobgF6t/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:34:01Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyRBw72QsGgaIx-JoMxPy1YBXToDpxfmoyCC53d4VE8kFnDr1EiH79IWVHpTWTKd3g",
+            "url": "https://script.google.com/macros/s/AKfycbyRBw72QsGgaIx-JoMxPy1YBXToDpxfmoyCC53d4VE8kFnDr1EiH79IWVHpTWTKd3g/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:21:32.703Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzeB4zUV0WpdgYSXOyTbJPPVY8OuTmSyUVupYD8fAdbkUra8gQS11cHwvl5kEZmGZWt",
+            "url": "https://script.google.com/macros/s/AKfycbzeB4zUV0WpdgYSXOyTbJPPVY8OuTmSyUVupYD8fAdbkUra8gQS11cHwvl5kEZmGZWt/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:49:00.076Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzP6KVBA4PPFkA8T-grtWIQTktlMZ7yGxIeWDRkVd6iGv__UtsNWkRV40y4-B3_6Cjg",
+            "url": "https://script.google.com/macros/s/AKfycbzP6KVBA4PPFkA8T-grtWIQTktlMZ7yGxIeWDRkVd6iGv__UtsNWkRV40y4-B3_6Cjg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:46:03.818Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycby_pI0MK0nd-R47_XoqWq3aoFQdismbSJT3qurdHNoxhPLBHfFg3Q1bn4ip1C_tWXft",
+            "url": "https://script.google.com/macros/s/AKfycby_pI0MK0nd-R47_XoqWq3aoFQdismbSJT3qurdHNoxhPLBHfFg3Q1bn4ip1C_tWXft/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-26T01:29:47.914Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyt_VJMGo0IwuKRrahuJ6TGrN3bSJe-RfkiFZU66fdpB9izhAFYkCpoXuO7IxQRC-F1",
+            "url": "https://script.google.com/macros/s/AKfycbyt_VJMGo0IwuKRrahuJ6TGrN3bSJe-RfkiFZU66fdpB9izhAFYkCpoXuO7IxQRC-F1/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:29:12.543Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzcOkNALpINchOscye2sspsxjwRcrQJA82vDbMkf1GAAvIAGV3mM_0E4tkUoaGWgWpw",
+            "url": "https://script.google.com/macros/s/AKfycbzcOkNALpINchOscye2sspsxjwRcrQJA82vDbMkf1GAAvIAGV3mM_0E4tkUoaGWgWpw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T03:20:05.040Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxxJvxi6VQBn6PJ8EYfn_mY2rXnSom488u-lMjtlbqu6ShO57sdejIS2GJY6e8x0Epp",
+            "url": "https://script.google.com/macros/s/AKfycbxxJvxi6VQBn6PJ8EYfn_mY2rXnSom488u-lMjtlbqu6ShO57sdejIS2GJY6e8x0Epp/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T02:51:25.549Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzZiKMkQSDsj3AFmicaFIdyE5bAw6zMQQHFmvdfu3tVW69Z3JkZekG_XJ3BCXadJyBn",
+            "url": "https://script.google.com/macros/s/AKfycbzZiKMkQSDsj3AFmicaFIdyE5bAw6zMQQHFmvdfu3tVW69Z3JkZekG_XJ3BCXadJyBn/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-02-24T02:59:21.399Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "deleteAllTriggers",
+            "handler": "deleteAllTriggers",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "setHoikuenLunchTrigger",
+            "handler": "setHoikuenLunchTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateDiscordLastUpdate",
+            "handler": "updateDiscordLastUpdate",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "gemini",
+            "spotify",
+            "drive",
+            "sheets"
+          ],
+          "total_lines": 3231,
+          "file_count": 10,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "notionroutineops",
+        "name": "NotionRoutineOps",
+        "overview": "NotionRoutineOps — Notion定例課題作成＋期限アラート (GAS移行版) / 移行元: / ~/.hermes/scripts/create_recurring_issues.py  → createRecurringIssues / runMonthly1on1 / runMonthEndOps",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "github",
+          "line",
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
+          "DISCORD_WEBHOOK_URLS",
+          "GITHUB_TOKEN",
+          "LINE_NOTIFY_TOKEN",
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS",
+        "script_url": "https://script.google.com/d/1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbwyqUZspoKHsOAkZ1WvjuflN_4IZGixhlNW2azfqoez",
+            "url": "https://script.google.com/macros/s/AKfycbwyqUZspoKHsOAkZ1WvjuflN_4IZGixhlNW2azfqoez/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "deadlineAlertDaily",
+            "handler": "deadlineAlertDaily",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "setupTriggers",
+            "handler": "setupTriggers",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "line",
+            "github"
+          ],
+          "total_lines": 596,
+          "file_count": 2,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "apilib_v8_20250915",
@@ -559,38 +1901,15 @@
         "type": "gas",
         "status": "active",
         "tags": [
+          "discord",
+          "n8n",
+          "notion",
           "library",
           "api",
           "common",
           "utility",
-          "shared"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [],
-        "script_id": "1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE",
-        "script_url": "https://script.google.com/d/1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "spotifytools",
-        "name": "SpotifyTools",
-        "overview": "Spotify API 操作ユーティリティ。プレイリスト操作・楽曲検索・音声特徴取得等",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "spotify",
-          "library",
-          "api",
-          "music"
+          "shared",
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -598,32 +1917,152 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "SPOTIFY_CLIENT_ID",
-          "SPOTIFY_CLIENT_SECRET"
+          "DISCORD_ALERT_WEBHOOK",
+          "DISCORD_ERROR_WEBHOOK",
+          "DISCORD_WEBHOOK_URL",
+          "N8N_API_KEY",
+          "NOTION_TOKEN"
         ],
-        "script_id": "1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng",
-        "script_url": "https://script.google.com/d/1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng/edit",
-        "deployments": [],
-        "triggers": [],
+        "script_id": "1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE",
+        "script_url": "https://script.google.com/d/1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycby_wG9BmAp-EHS6Kn8lNdk44gjzYMiVcvwnzUaAoNQx",
+            "url": "https://script.google.com/macros/s/AKfycby_wG9BmAp-EHS6Kn8lNdk44gjzYMiVcvwnzUaAoNQx/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "monitoredTrigger",
+            "handler": "monitoredTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "setupN8nMetricsTrigger",
+            "handler": "setupN8nMetricsTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "n8n"
+          ],
+          "total_lines": 848,
+          "file_count": 5,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "spotifytools",
+        "name": "SpotifyTools",
+        "overview": "Notion APIに関するコンストラクタ",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "drive",
+          "gemini",
+          "notion",
+          "spotify",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
+        ],
+        "script_id": "1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng",
+        "script_url": "https://script.google.com/d/1PeUHsJ18UeHYjOg394G9YI6PsUOgmZZV2tuq9tYNbqCOwzjyT0wgpxng/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbwhCIGKXi8db0mqVhmr7sADbUQhlBBL4U-ilniF9vU",
+            "url": "https://script.google.com/macros/s/AKfycbwhCIGKXi8db0mqVhmr7sADbUQhlBBL4U-ilniF9vU/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "refreshAccessTokenToSpotify",
+            "handler": "refreshAccessTokenToSpotify",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateAlbumImagesFromAlbumDB",
+            "handler": "updateAlbumImagesFromAlbumDB",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updatePlaybackHistoryInNotion",
+            "handler": "updatePlaybackHistoryInNotion",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "gemini",
+            "spotify",
+            "drive"
+          ],
+          "total_lines": 2909,
+          "file_count": 10,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "notionwebhook",
         "name": "NotionWebhook",
-        "overview": "Notionデータベース変更を検知し、Webhookで外部システム(n8n等)へ通知",
+        "overview": "Notionの日記（当日分）の各項目を打刻する",
         "type": "gas",
         "status": "active",
         "tags": [
           "notion",
-          "webhook",
-          "sync",
-          "trigger"
+          "gas"
         ],
         "repo_url": "",
-        "deploy_target": "Google Apps Script",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
@@ -632,24 +2071,88 @@
         ],
         "script_id": "1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X",
         "script_url": "https://script.google.com/d/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbw4d91KLQV8XxJ6VeQ2s2AD22GRmE3z5YkRHa1UOqJw",
+            "url": "https://script.google.com/macros/s/AKfycbw4d91KLQV8XxJ6VeQ2s2AD22GRmE3z5YkRHa1UOqJw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxlv8T_iIuqQGR1QLBFE6BBCZnFMzuOti3yrTYMsSBFNpFK7IbYxMG9d-BbX5D4n_CBCA",
+            "url": "https://script.google.com/macros/s/AKfycbxlv8T_iIuqQGR1QLBFE6BBCZnFMzuOti3yrTYMsSBFNpFK7IbYxMG9d-BbX5D4n_CBCA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-09-26T22:46:22.220Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwO6wZVTpugMYIEwrz-ED0equq1ypMEk9IVOWDjn_y-H_u3NKfbsz59gdX3Gwbo-GRY",
+            "url": "https://script.google.com/macros/s/AKfycbwO6wZVTpugMYIEwrz-ED0equq1ypMEk9IVOWDjn_y-H_u3NKfbsz59gdX3Gwbo-GRY/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-09-20T10:05:09.698Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxypN0ZfgoW3I9-1KGZ0cKiVFe92cb6DAKTubr-OpU5bZxQT915Y2Z7tmd_VHk-bkuCwg",
+            "url": "https://script.google.com/macros/s/AKfycbxypN0ZfgoW3I9-1KGZ0cKiVFe92cb6DAKTubr-OpU5bZxQT915Y2Z7tmd_VHk-bkuCwg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-09-19T09:20:47.782Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzXsJjZup7exFAy_hhi0CZwPTARaNWApUKYn7GjciPa9vJgZxC0SUwzx5kKOsComrFodQ",
+            "url": "https://script.google.com/macros/s/AKfycbzXsJjZup7exFAy_hhi0CZwPTARaNWApUKYn7GjciPa9vJgZxC0SUwzx5kKOsComrFodQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-09-28T05:37:44.411Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyuODo0ahlRgit-lsli55kai5mCLEMg_lISxtI70aKZz2EJvQoNei4XG0hJWZT1IfGljg",
+            "url": "https://script.google.com/macros/s/AKfycbyuODo0ahlRgit-lsli55kai5mCLEMg_lISxtI70aKZz2EJvQoNei4XG0hJWZT1IfGljg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2024-09-19T22:16:06.241Z",
+            "description": ""
+          }
+        ],
         "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 694,
+          "file_count": 2,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "bistonotion",
         "name": "BisTonotion",
-        "overview": "Bis(ビジネス情報)スクレイピング結果をNotionDBに構造化保存",
+        "overview": "Notion APIに関するコンストラクタ",
         "type": "gas",
         "status": "active",
         "tags": [
-          "scraping",
+          "drive",
+          "gemini",
           "notion",
-          "business",
-          "data"
+          "sheets",
+          "spotify",
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -657,16 +2160,46 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "NOTION_TOKEN"
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "GOOGLE_SHEETS_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
         ],
         "script_id": "1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ",
         "script_url": "https://script.google.com/d/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyuzE4fMzw3QB948A7RXa81k7SXzKBjoiJm37toStcP",
+            "url": "https://script.google.com/macros/s/AKfycbyuzE4fMzw3QB948A7RXa81k7SXzKBjoiJm37toStcP/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
         "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion",
+            "gemini",
+            "spotify",
+            "drive",
+            "sheets"
+          ],
+          "total_lines": 1278,
+          "file_count": 4,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "20250515_api_library",
@@ -675,37 +2208,18 @@
         "type": "gas",
         "status": "active",
         "tags": [
+          "discord",
+          "drive",
+          "dropbox",
+          "gemini",
+          "notion",
+          "spotify",
+          "twitter",
           "library",
           "api",
           "legacy",
-          "deprecated"
-        ],
-        "repo_url": "",
-        "deploy_target": "Google Apps Script",
-        "depends_on": [],
-        "created": "",
-        "updated": "2026-10-04",
-        "secret_refs": [],
-        "script_id": "15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4",
-        "script_url": "https://script.google.com/d/15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4/edit",
-        "deployments": [],
-        "triggers": [],
-        "script_properties": {},
-        "spreadsheet_id": "",
-        "drive_folder_id": "",
-        "libraries": []
-      },
-      {
-        "id": "checklist-tool",
-        "name": "Checklist Tool",
-        "overview": "汎用チェックリスト管理。テンプレートからインスタンス生成、進捗追跡、Slack通知",
-        "type": "gas",
-        "status": "active",
-        "tags": [
-          "checklist",
-          "template",
-          "progress",
-          "slack"
+          "deprecated",
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -713,26 +2227,157 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "SLACK_WEBHOOK_URL"
+          "BLUESKY_APP_PASSWORD",
+          "BOX_CLIENT_SECRET",
+          "DISCORD_ERROR_WEBHOOK",
+          "DISCORD_WEBHOOK_URL",
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
+          "LASTFM_API_KEY",
+          "MS_CLIENT_SECRET",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID",
+          "SPOTIFY_CLIENT_SECRET",
+          "THREADS_ACCESS_TOKEN",
+          "TICKTICK_CLIENT_SECRET",
+          "TWITTER_API_KEY"
         ],
-        "script_id": "1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc",
-        "script_url": "https://script.google.com/d/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/edit",
-        "deployments": [],
-        "triggers": [],
+        "script_id": "15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4",
+        "script_url": "https://script.google.com/d/15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbwPY8OxCAThKnBi0xsf2wtFVrPMfct333C1TYMprT8",
+            "url": "https://script.google.com/macros/s/AKfycbwPY8OxCAThKnBi0xsf2wtFVrPMfct333C1TYMprT8/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzgoDVA9m1_v3vdSZWj_swjrrUBTRtZ0ghiyz6UEdtEBAe8qzJECCqWLCYn7Kly9Ww7",
+            "url": "https://script.google.com/macros/s/AKfycbzgoDVA9m1_v3vdSZWj_swjrrUBTRtZ0ghiyz6UEdtEBAe8qzJECCqWLCYn7Kly9Ww7/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-05-21T06:01:32.505Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyn3FIZLCCQOyrEv_Qy0Y4PUW3erxjR0FVh_1RHj2SsjrohKy3aqMzU_PJDrPbAvOtm",
+            "url": "https://script.google.com/macros/s/AKfycbyn3FIZLCCQOyrEv_Qy0Y4PUW3erxjR0FVh_1RHj2SsjrohKy3aqMzU_PJDrPbAvOtm/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-05-21T07:37:59.120Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "monitoredTrigger",
+            "handler": "monitoredTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "twitter",
+            "dropbox",
+            "gemini",
+            "spotify",
+            "drive"
+          ],
+          "total_lines": 3534,
+          "file_count": 12,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "checklist-tool",
+        "name": "Checklist Tool",
+        "overview": "WebアプリケーションにGETリクエストがあった場合に実行されるメイン関数です。",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-04",
+        "secret_refs": [
+          "NOTION_API_KEY",
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc",
+        "script_url": "https://script.google.com/d/1P5C5FIgx7KOngNB9gePsen6aylhH_rxlQI_EnDdyP1BCO0NuY8lAbwOc/edit",
+        "deployments": [
+          {
+            "deployment_id": "AKfycbxS6nhB2wjcNazbYQ-EP6TQR9WvOyYs3muZ_LI8_xYI",
+            "url": "https://script.google.com/macros/s/AKfycbxS6nhB2wjcNazbYQ-EP6TQR9WvOyYs3muZ_LI8_xYI/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
+        "triggers": [
+          {
+            "function": "updateChecklistItems",
+            "handler": "updateChecklistItems",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateProgress",
+            "handler": "updateProgress",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 1692,
+          "file_count": 5,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "gas",
         "name": "GAS",
-        "overview": "汎用GASスクリプトテンプレート・実験用",
+        "overview": "GAS Script: GAS",
         "type": "gas",
         "status": "active",
         "tags": [
-          "template",
-          "test"
+          "gas"
         ],
         "repo_url": "",
         "deploy_target": "Google Apps Script",
@@ -742,49 +2387,178 @@
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbx_tQ-wFKp0kZFLro_w5gXJpxrjdiJIp1Fgt-StrSU",
+            "url": "https://script.google.com/macros/s/AKfycbx_tQ-wFKp0kZFLro_w5gXJpxrjdiJIp1Fgt-StrSU/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          }
+        ],
         "triggers": [],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [],
+          "total_lines": 0,
+          "file_count": 0,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "dailynewspaper",
         "name": "DailyNewspaper",
-        "overview": "複数ニュースソース(RSS/NewsAPI)から記事収集、重要度スコアリング、日次サマリー生成・配信",
+        "overview": "DailyNewspaper - 朝刊HTML生成ツール / 毎朝6時に前日分の情報を収集し、新聞風HTMLをGoogle Driveに保存",
         "type": "gas",
         "status": "active",
         "tags": [
-          "news",
-          "rss",
-          "summary",
-          "daily"
+          "discord",
+          "drive",
+          "notion",
+          "spotify",
+          "gas"
         ],
         "repo_url": "",
-        "deploy_target": "Google Apps Script",
+        "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "NEWS_API_KEY"
+          "DISCORD_NEWSPAPER_WEBHOOK",
+          "DISCORD_WEBHOOK_URL",
+          "GOOGLE_DRIVE_KEY",
+          "NOTION_API_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
         ],
         "script_id": "1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_",
         "script_url": "https://script.google.com/d/1k1eHG7xr8AfePbPWhArZBdOq9Ns-clNvXTRtavN49iAI5i8KGjFUTIN_/edit",
-        "deployments": [],
+        "deployments": [
+          {
+            "deployment_id": "AKfycbyvatTM67W_7IBDF9iax-d8YCWIzd01UfSoeyiG3_K_",
+            "url": "https://script.google.com/macros/s/AKfycbyvatTM67W_7IBDF9iax-d8YCWIzd01UfSoeyiG3_K_/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzSs22MipqjQsEof3NuVFTcyoiF2tw36tznmFgU3M40eigEHmIVtbMSlo5rDDqAqgkJEw",
+            "url": "https://script.google.com/macros/s/AKfycbzSs22MipqjQsEof3NuVFTcyoiF2tw36tznmFgU3M40eigEHmIVtbMSlo5rDDqAqgkJEw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T09:26:01.584Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbwK7xMXT1q2WrnrDOk2iYF4jFhFhCs2TznMyeZITY60KQSjB4dc6DJ16-HJ4zYQ4jdJvg",
+            "url": "https://script.google.com/macros/s/AKfycbwK7xMXT1q2WrnrDOk2iYF4jFhFhCs2TznMyeZITY60KQSjB4dc6DJ16-HJ4zYQ4jdJvg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T11:27:01.478Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycby89TcG2iB-4zDWHneI59_lm0ZQM_fegQJM15EVGQ54X7X4LBVUj9PBH2pXAFmq7KQ00Q",
+            "url": "https://script.google.com/macros/s/AKfycby89TcG2iB-4zDWHneI59_lm0ZQM_fegQJM15EVGQ54X7X4LBVUj9PBH2pXAFmq7KQ00Q/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T10:12:05.287Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzPS-YXhYKbE1CnkkOLRI4nzH8ck2pU7RpSX9LeNupBHZ3a0QogkIBS_mkn9Gp2rShmPQ",
+            "url": "https://script.google.com/macros/s/AKfycbzPS-YXhYKbE1CnkkOLRI4nzH8ck2pU7RpSX9LeNupBHZ3a0QogkIBS_mkn9Gp2rShmPQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T09:33:37.106Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxxSpIksgFssokXFsdWjG32YhxA98Op07dkjqQKlr6XhqXakfSBk9-TYrI75tyM_Tn8wA",
+            "url": "https://script.google.com/macros/s/AKfycbxxSpIksgFssokXFsdWjG32YhxA98Op07dkjqQKlr6XhqXakfSBk9-TYrI75tyM_Tn8wA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T09:39:53.482Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxbP5AFlm8tHyG42KB1Hdl0xctQuJrH6NER0yD--fWoQM9kcb_VjzsXFH72-sw48WXgbA",
+            "url": "https://script.google.com/macros/s/AKfycbxbP5AFlm8tHyG42KB1Hdl0xctQuJrH6NER0yD--fWoQM9kcb_VjzsXFH72-sw48WXgbA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T12:51:00.428Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyydWX469dAai0bldmYD4CivNCgcEEUAWNubrHnryfo-X6V5w2EeeftGuH5OoULikp4aw",
+            "url": "https://script.google.com/macros/s/AKfycbyydWX469dAai0bldmYD4CivNCgcEEUAWNubrHnryfo-X6V5w2EeeftGuH5OoULikp4aw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T06:46:25.364Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyR88HJU7_FCnlLbXtA2D1y5Vjbw2oBKER34VMivv6nkWH7WgAJnOLpTq0sxz50B3xfRw",
+            "url": "https://script.google.com/macros/s/AKfycbyR88HJU7_FCnlLbXtA2D1y5Vjbw2oBKER34VMivv6nkWH7WgAJnOLpTq0sxz50B3xfRw/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-11T09:32:31.049Z",
+            "description": ""
+          }
+        ],
         "triggers": [
           {
-            "function": "generateDailyPaper",
-            "handler": "generateDailyPaper",
+            "function": "createDailyTrigger",
+            "handler": "createDailyTrigger",
             "event_type": "time-driven",
-            "schedule": "0 5 * * *",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "forceRefreshNewspaper",
+            "handler": "forceRefreshNewspaper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "refreshNewspaper",
+            "handler": "refreshNewspaper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           }
         ],
         "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "",
-        "libraries": []
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "spotify",
+            "drive"
+          ],
+          "total_lines": 2401,
+          "file_count": 6,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "gasportal",
@@ -793,11 +2567,16 @@
         "type": "gas",
         "status": "active",
         "tags": [
-          "portal",
+          "drive",
+          "n8n",
           "notion",
+          "spotify",
+          "twitter",
+          "portal",
           "cache",
           "task",
-          "metrics"
+          "metrics",
+          "gas"
         ],
         "repo_url": "https://github.com/rands1984/Pages/tree/main/gas",
         "deploy_target": "Google Apps Script",
@@ -805,10 +2584,14 @@
         "created": "",
         "updated": "2026-10-04",
         "secret_refs": [
-          "GEMINI_API_KEY",
-          "NOTION_TOKEN",
           "DROPBOX_ACCESS_TOKEN",
-          "N8N_API_KEY"
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "N8N_API_KEY",
+          "NOTION_API_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID",
+          "TWITTER_API_KEY"
         ],
         "script_id": "1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q",
         "script_url": "https://script.google.com/d/1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q/edit",
@@ -816,10 +2599,66 @@
           {
             "deployment_id": "AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK",
             "url": "https://script.google.com/macros/s/AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK/exec",
-            "version": "42",
+            "version": "",
             "entry_point": "doGet",
-            "updated_at": "2026-09-20T10:00:00Z",
-            "description": "Webアプリ公開版 (最新)"
+            "updated_at": "1970-01-01T00:00:00Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbzF7MJI01QFlI1bcUClN18XOzr4sUp8SCkUNqWXGHR31XATyx1EK5c2D45GtU_UIP9hAQ",
+            "url": "https://script.google.com/macros/s/AKfycbzF7MJI01QFlI1bcUClN18XOzr4sUp8SCkUNqWXGHR31XATyx1EK5c2D45GtU_UIP9hAQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-09T12:43:55.324Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxd_1x5krD2PCZ4kewLeATEw96gEgsTDV7EL7fOLaGZlxRryHgi_3oYxU8giwOpfFeDRA",
+            "url": "https://script.google.com/macros/s/AKfycbxd_1x5krD2PCZ4kewLeATEw96gEgsTDV7EL7fOLaGZlxRryHgi_3oYxU8giwOpfFeDRA/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-12-04T06:19:00.270Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyBrLfU0-47KTLniOWz84MAvGCiMfvbT8on7NzWiml-4xIgCS_xPylxqrMIc-ozawfQdQ",
+            "url": "https://script.google.com/macros/s/AKfycbyBrLfU0-47KTLniOWz84MAvGCiMfvbT8on7NzWiml-4xIgCS_xPylxqrMIc-ozawfQdQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2026-06-09T12:34:37.374Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbz_jZ9MUZcTwQhFqdn9bozuvNmaECeCmyeEkXUzE_x47J67iyR2IIiW58DwGqFkr48Vfg",
+            "url": "https://script.google.com/macros/s/AKfycbz_jZ9MUZcTwQhFqdn9bozuvNmaECeCmyeEkXUzE_x47J67iyR2IIiW58DwGqFkr48Vfg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-11-18T07:45:20.189Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyYIo1p3FFxPNvSD8E_roIGSrN8XSxSBMeHIa8r8bbSZ2-XNK5ocwu6OFBwlKp9UtaOqg",
+            "url": "https://script.google.com/macros/s/AKfycbyYIo1p3FFxPNvSD8E_roIGSrN8XSxSBMeHIa8r8bbSZ2-XNK5ocwu6OFBwlKp9UtaOqg/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-12-28T04:31:18.812Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbyz1amMsGS4KLrie81TDplTNR4UuwiET0x-jHjdR5qhILorglIbvf_tNylEhmMg_G3yCQ",
+            "url": "https://script.google.com/macros/s/AKfycbyz1amMsGS4KLrie81TDplTNR4UuwiET0x-jHjdR5qhILorglIbvf_tNylEhmMg_G3yCQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-12-18T22:40:21.184Z",
+            "description": ""
+          },
+          {
+            "deployment_id": "AKfycbxUEBnjEDFrbVJIwgvg_hV6Gh8V8RsfN9aJg_FHMK67rD9CVQiFqyTzX7zlV60BxIWnhQ",
+            "url": "https://script.google.com/macros/s/AKfycbxUEBnjEDFrbVJIwgvg_hV6Gh8V8RsfN9aJg_FHMK67rD9CVQiFqyTzX7zlV60BxIWnhQ/exec",
+            "version": "",
+            "entry_point": "doGet",
+            "updated_at": "2025-12-14T05:21:09.570Z",
+            "description": ""
           }
         ],
         "triggers": [
@@ -827,30 +2666,45 @@
             "function": "forceRefreshPortalData",
             "handler": "forceRefreshPortalData",
             "event_type": "time-driven",
-            "schedule": "0 6 * * *",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "renderDaily",
+            "handler": "renderDaily",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           },
           {
             "function": "updatePortalCache",
             "handler": "updatePortalCache",
             "event_type": "time-driven",
-            "schedule": "0 */2 * * *",
+            "schedule": "（API取得不可・要手動確認）",
             "timezone": "Asia/Tokyo"
           }
         ],
-        "script_properties": {
-          "NOTION_N8N_EXECUTIONS_DB_ID": "Notion実行履歴DB ID",
-          "NOTION_TOKEN": "Notion API トークン",
-          "N8N_API_KEY": "n8n API キー",
-          "N8N_BASE_URL": "https://rands1984.ddns.net",
-          "GEMINI_API_KEY": "Gemini API キー"
-        },
+        "script_properties": {},
         "spreadsheet_id": "",
         "drive_folder_id": "1IMtkIqfDhSsi--MWMCpfgKu_qonreiod",
-        "libraries": [
-          "OAuth2",
-          "ApiLib"
-        ]
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "twitter",
+            "spotify",
+            "drive",
+            "n8n"
+          ],
+          "total_lines": 1882,
+          "file_count": 5,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       }
     ],
     "hermes": {
@@ -2320,6 +4174,33 @@
           "purpose": "Drive the macOS desktop in the background — screenshots, mouse, keyboard,\nscroll, drag — without stealing the user's cursor, keyboard focus, or\nSpace. Works with any tool-capable model. Load this skill whenever the\n`computer_use` tool is available.\n",
           "skill_dir": "apple/macos-computer-use",
           "id": "macos-computer-use",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "oci-server-monitoring",
+          "description": "Use when monitoring the OCI server. Cron 50045682b2ff.",
+          "version": "1.0.0",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "oci",
+                "monitoring",
+                "oci-cli",
+                "bitwarden",
+                "docker",
+                "cron"
+              ],
+              "related_skills": [
+                "meeting-recorder-relay",
+                "tools-registry-sync"
+              ]
+            }
+          },
+          "skill_dir": "devops/oci-server-monitoring",
+          "id": "oci-server-monitoring",
           "type": "hermes-skill"
         },
         {
@@ -4504,6 +6385,35 @@
           "profile": "default"
         },
         {
+          "id": "f20544f54f39",
+          "name": "PriceWatcher 定期価格調査",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得\nNotionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。\n状態が「追跡中」のものだけ対象。\n\n各",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "price-watcher"
+          ],
+          "created": "2026-10-04",
+          "updated": "2026-10-04",
+          "secret_refs": [],
+          "purpose": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得",
+          "schedule": "0 6,9,12,15,18,21 * * *",
+          "script_path": null,
+          "skills": [
+            "price-watcher"
+          ],
+          "delivers_to": "discord:1337636617627893870",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
           "id": "e10e9615b47d",
           "name": "定例課題作成_月次1on1",
           "type": "hermes-cron",
@@ -4525,37 +6435,6 @@
           "script_path": null,
           "skills": [],
           "delivers_to": "rands1984のサーバー / #秘書 / 下記、「定例課題」の検討に、今実施している定例課題と紐づくタスクを上げます。 現在の運用と含め、どういう手段で実現させるか検討してください。 １．課題：月...",
-          "related_programs": [],
-          "profile": "default"
-        },
-        {
-          "id": "8a0f5f3b4ac8",
-          "name": "secretary-collector",
-          "type": "hermes-cron",
-          "status": "archived",
-          "description": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bash\nGAPI=\"python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api",
-          "tags": [
-            "cron",
-            "automation",
-            "default"
-          ],
-          "repo_url": "",
-          "deploy_target": "Hermes Cron (default)",
-          "depends_on": [
-            "secretary",
-            "google-workspace"
-          ],
-          "created": "2026-05-22",
-          "updated": "2026-09-28",
-          "secret_refs": [],
-          "purpose": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bas",
-          "schedule": "every 180m",
-          "script_path": null,
-          "skills": [
-            "secretary",
-            "google-workspace"
-          ],
-          "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
           "related_programs": [],
           "profile": "default"
         },
@@ -4585,6 +6464,31 @@
           "profile": "default"
         },
         {
+          "id": "bde08bee5570",
+          "name": "cooking-recipe-crawl-daily",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --max 10\n3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む\n4) 結果を Discord に通知する。以下のフォーマットで日本語出",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-10-04",
+          "updated": "2026-10-04",
+          "secret_refs": [],
+          "purpose": "毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。\n1) cd ~/.hermes/scripts/cooking\n2) python3 recipe_crawl.py --m",
+          "schedule": "0 22 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "origin",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
           "id": "d40a77092f90",
           "name": "業務報告書フォーム月初リマインド",
           "type": "hermes-cron",
@@ -4610,37 +6514,6 @@
           "profile": "work"
         },
         {
-          "id": "3e7bec674a8d",
-          "name": "cooking-recipe-crawl-daily",
-          "type": "hermes-cron",
-          "status": "retired",
-          "description": "（2026-10-03 廃止）v1 の巡回 cron（agent型・失敗率58%）。v2 の cooking-clips-crawl-daily（d5fbc8ec9711, command型/no_agent）へ移行。",
-          "tags": [
-            "cron",
-            "automation",
-            "default",
-            "retired"
-          ],
-          "repo_url": "",
-          "deploy_target": "retired",
-          "depends_on": [],
-          "created": "2026-08-23",
-          "updated": "2026-10-03",
-          "retired_at": "2026-10-03",
-          "retired_reason": "失敗率58%（直近26回中15回失敗）。agent型cronのdrift_skipと無料LLMの不安定が主因。v2 で command型 + 3モデルフォールバック + queue に移行。",
-          "replaced_by": "d5fbc8ec9711",
-          "secret_refs": [],
-          "purpose": "（廃止済み）巡回4サイトの新着レシピを md + Notion へ保存",
-          "schedule": "0 22 * * *",
-          "script_path": null,
-          "skills": [],
-          "delivers_to": "",
-          "related_programs": [
-            "d5fbc8ec9711"
-          ],
-          "profile": "default"
-        },
-        {
           "id": "2a82d226958d",
           "name": "いい部屋ネット新着通知(bridge)",
           "type": "hermes-cron",
@@ -4662,6 +6535,31 @@
           "script_path": "eheya_bridge.py",
           "skills": [],
           "delivers_to": "rands1984のサーバー / #hermes-agent / 下記やりたいことメモです。後からわかるように残しておいてください。 ・外付けキーボード１つでandoroidのdiscordへ投稿しやすい形にしたい。 課...",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "324019a82d77",
+          "name": "cooking-notion-pull-daily",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-10-04",
+          "updated": "2026-10-04",
+          "secret_refs": [],
+          "purpose": "~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造",
+          "schedule": "0 23 * * *",
+          "script_path": null,
+          "skills": [],
+          "delivers_to": "origin",
           "related_programs": [],
           "profile": "default"
         },
@@ -4712,35 +6610,6 @@
           "script_path": "projects/n8n/scripts/drift_watch.py",
           "skills": [],
           "delivers_to": "rands1984のサーバー / #課題 / [課題] n8nソース解析・新規作成準備",
-          "related_programs": [],
-          "profile": "default"
-        },
-        {
-          "id": "0678d7f6e4d1",
-          "name": "PriceWatcher 定期価格調査",
-          "type": "hermes-cron",
-          "status": "archived",
-          "description": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得\nNotionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。\n状態が「追跡中」のものだけ対象。\n\n各",
-          "tags": [
-            "cron",
-            "automation",
-            "default"
-          ],
-          "repo_url": "",
-          "deploy_target": "Hermes Cron (default)",
-          "depends_on": [
-            "price-watcher"
-          ],
-          "created": "2026-09-02",
-          "updated": "2026-09-28",
-          "secret_refs": [],
-          "purpose": "# PriceWatcher 定期調査\n\nNotion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。\n\n## 実行手順\n\n### 1. 商品取得",
-          "schedule": "0 6,9,12,15,18,21 * * *",
-          "script_path": null,
-          "skills": [
-            "price-watcher"
-          ],
-          "delivers_to": "rands1984のサーバー / #課題 / [課題] 欲しい物の価格調査と新着通知機能の作成",
           "related_programs": [],
           "profile": "default"
         },
@@ -4826,6 +6695,37 @@
           "profile": "default"
         },
         {
+          "id": "60cd32744c6c",
+          "name": "secretary-collector",
+          "type": "hermes-cron",
+          "status": "archived",
+          "description": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bash\nGAPI=\"python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [
+            "secretary",
+            "google-workspace"
+          ],
+          "created": "2026-10-04",
+          "updated": "2026-10-04",
+          "secret_refs": [],
+          "purpose": "# Secretary Gmail Collector\n\nあなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。\n\n## Setup\n\n```bas",
+          "schedule": "every 180m",
+          "script_path": null,
+          "skills": [
+            "secretary",
+            "google-workspace"
+          ],
+          "delivers_to": "discord:1507232999719043082",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
           "id": "3e52acdf571b",
           "name": "secretary-morning-brief",
           "type": "hermes-cron",
@@ -4854,37 +6754,6 @@
           ],
           "delivers_to": "rands1984のサーバー / #hermes-agent / 秘書計画 あなた(hermes)には、私の様々なタスク・考え事・スケジュールを横断的に取りまとめ・整理し、定期・不定期で私に通知する振る舞いを行なってほし...",
           "related_programs": [],
-          "profile": "default"
-        },
-        {
-          "id": "04b57d8f2094",
-          "name": "cooking-notion-pull-daily",
-          "type": "hermes-cron",
-          "status": "retired",
-          "description": "（2026-10-03 廃止）Notion→md pull 経路。v2 設計 D2 決定で片方向化（crawl/web/image → Notion）するため retired。",
-          "tags": [
-            "cron",
-            "automation",
-            "default",
-            "retired"
-          ],
-          "repo_url": "",
-          "deploy_target": "retired",
-          "depends_on": [],
-          "created": "2026-07-13",
-          "updated": "2026-10-03",
-          "retired_at": "2026-10-03",
-          "retired_reason": "v2 設計 D2（Notion を唯一の正・md 廃止）により Notion→md pull を廃止。default プロファイルの cron も enabled:false 化済み。",
-          "replaced_by": "d5fbc8ec9711",
-          "secret_refs": [],
-          "purpose": "（廃止済み）Notion CookingClips DB の未構造化 web クリップ行を md へ pull していた",
-          "schedule": "0 23 * * *",
-          "script_path": null,
-          "skills": [],
-          "delivers_to": "",
-          "related_programs": [
-            "d5fbc8ec9711"
-          ],
           "profile": "default"
         },
         {
@@ -4936,6 +6805,31 @@
           "delivers_to": "rands1984のサーバー / #hermes-agent / 自分の作業の進め方について相談・ツールの開発を行いたいです。 まずはやりたいことを下記にまとめるので、仕様の検討を手伝ってください。 要件が細かく決まって...",
           "related_programs": [],
           "profile": "default"
+        },
+        {
+          "id": "f67a73a42074",
+          "name": "tools-registry 自動同期",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "tools-registry 自動同期（毎日 03:00 JST）",
+          "tags": [
+            "cron",
+            "automation",
+            "dev"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-04",
+          "updated": "2026-10-04",
+          "secret_refs": [],
+          "purpose": "tools-registry 自動同期（毎日 03:00 JST）",
+          "schedule": "0 3 * * *",
+          "script_path": "registry_sync.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] ツール情報整理",
+          "related_programs": [],
+          "profile": "dev"
         },
         {
           "id": "68af93ac6505",
@@ -5308,6 +7202,28 @@
           ],
           "environment": "Hermes (default profile)",
           "script_path": ".hermes.backup.20260903_154956/scripts/wiki_repair_links.py",
+          "portal_html": "",
+          "type": "hermes-program"
+        },
+        {
+          "id": "n8n-drift-watch",
+          "name": "n8n Drift Watch",
+          "purpose": "n8n ワークフロー差分監視",
+          "script_type": "python",
+          "trigger": "cron",
+          "schedule": "0 9 * * 1",
+          "related_cron": "11796591072b",
+          "description": "n8nワークフローの差分を監視し、変更検知時にアラート通知。週次月曜cronで実行。",
+          "status": "error",
+          "tags": [
+            "n8n",
+            "monitoring",
+            "drift",
+            "cron",
+            "alert"
+          ],
+          "environment": "Hermes (default profile)",
+          "script_path": ".hermes/scripts/projects/n8n/scripts/drift_watch.py",
           "portal_html": "",
           "type": "hermes-program"
         },

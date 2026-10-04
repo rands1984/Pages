@@ -58,10 +58,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Clock] Hermes Cron</h1>
-      <div class="meta">24件 - 更新: 2026-10-04 09:07</div>
+      <div class="meta">25件 - 更新: 2026-10-04 11:26</div>
       <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (115)</a><a href="hermes-cron.html" class="active">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (29)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
+    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (116)</a><a href="hermes-cron.html" class="active">Hermes Cron (25)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent の定期実行ジョブ。音声文字起こし、データ同期、監視等の自動化タスク。</div>
     <div class="card-grid"><div class="card">
   <div class="card-header">
@@ -131,6 +131,27 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>PriceWatcher 定期価格調査</h3>
+    <a href="tools/f20544f54f39.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # PriceWatcher 定期調査
+
+Notion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。
+
+## 実行手順
+
+### 1. 商品取得
+Notionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。
+状態が「追跡中」のものだけ対象。
+
+各</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>定例課題作成_月次1on1</h3>
     <a href="tools/e10e9615b47d.html" class="btn-link">詳細</a>
   </div>
@@ -138,24 +159,6 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
     <div class="detail"><strong>説明:</strong> Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue monthly_1on1
 
 This creates the monthly 1on1/leader meeting recurring issue with its 4 tasks, posting to Discord Forum based</div>
-    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>secretary-collector</h3>
-    <a href="tools/8a0f5f3b4ac8.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> # Secretary Gmail Collector
-
-あなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。
-
-## Setup
-
-```bash
-GAPI=&quot;python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api</div>
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -184,6 +187,21 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>cooking-recipe-crawl-daily</h3>
+    <a href="tools/bde08bee5570.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> 毎日22:00 JSTに巡回サイト新着レシピを取得するcronジョブです。
+1) cd ~/.hermes/scripts/cooking
+2) python3 recipe_crawl.py --max 10
+3) 実行後、~/cooking-clips/output/recipe_crawl_result.json を読む
+4) 結果を Discord に通知する。以下のフォーマットで日本語出</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>業務報告書フォーム月初リマインド</h3>
     <a href="tools/d40a77092f90.html" class="btn-link">詳細</a>
   </div>
@@ -197,17 +215,6 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
   </div>
 </div><div class="card">
   <div class="card-header">
-    <h3>cooking-recipe-crawl-daily</h3>
-    <a href="tools/3e7bec674a8d.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> （2026-10-03 廃止）v1 の巡回 cron（agent型・失敗率58%）。v2 の cooking-clips-crawl-daily（d5fbc8ec9711, command型/no_agent）へ移行。</div>
-    <div class="detail"><strong>環境:</strong> retired</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending">retired</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
     <h3>いい部屋ネット新着通知(bridge)</h3>
     <a href="tools/2a82d226958d.html" class="btn-link">詳細</a>
   </div>
@@ -216,6 +223,17 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
 
 - If the output is &#x27;NO_NEW_PROPERTIES&#x27;, finish silently.
 - Otherwise, deliver the output as a notification.</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>cooking-notion-pull-daily</h3>
+    <a href="tools/324019a82d77.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> ~/.hermes/scripts/cooking/ ディレクトリで `python3 notion_pull.py` を実行し、Notion CookingClips DB の webクリップ未構造化行（URLあり・材料空）を取得して ~/cooking-clips/clips/ に md として反映（構造化・削除同期含む）すること。実行結果の要約（updated件数・エラーがあれば）を JST</div>
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -242,27 +260,6 @@ This creates the month-end operations recurring issue with its 5 tasks, posting 
     <div class="detail"><strong>説明:</strong> Run the n8n workflow drift watchdog. Execute exactly: python3 ~/projects/n8n/scripts/drift_watch.py — then finish immediately with no additional commentary of your own (empty output = silent success; </div>
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>PriceWatcher 定期価格調査</h3>
-    <a href="tools/0678d7f6e4d1.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> # PriceWatcher 定期調査
-
-Notion DBから商品を取得し、terminal経由でPlaywrightを使って各サイトの価格を調査します。
-
-## 実行手順
-
-### 1. 商品取得
-Notionの`PriceWatcher_商品`データソース(`35b31c58-279d-4d81-b606-cbf8c27ced7c`)から全商品を取得。
-状態が「追跡中」のものだけ対象。
-
-各</div>
-    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
   </div>
 </div><div class="card">
@@ -320,6 +317,24 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
   </div>
 </div><div class="card">
   <div class="card-header">
+    <h3>secretary-collector</h3>
+    <a href="tools/60cd32744c6c.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> # Secretary Gmail Collector
+
+あなたはHermes秘書システムのコレクターです。Gmailをチェックし、新着メールを分類して仕分けます。
+
+## Setup
+
+```bash
+GAPI=&quot;python ${HERMES_HOME:-$HOME/.hermes}/skills/productivity/google-workspace/scripts/google_api</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
     <h3>secretary-morning-brief</h3>
     <a href="tools/3e52acdf571b.html" class="btn-link">詳細</a>
   </div>
@@ -333,17 +348,6 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 2. **確認待ち (`inbox.yam</div>
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
-  </div>
-</div><div class="card">
-  <div class="card-header">
-    <h3>cooking-notion-pull-daily</h3>
-    <a href="tools/04b57d8f2094.html" class="btn-link">詳細</a>
-  </div>
-  <div class="card-body">
-    <div class="detail"><strong>説明:</strong> （2026-10-03 廃止）Notion→md pull 経路。v2 設計 D2 決定で片方向化（crawl/web/image → Notion）するため retired。</div>
-    <div class="detail"><strong>環境:</strong> retired</div>
-    <div class="detail"><strong>ステータス:</strong> <span class="status pending">retired</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
   </div>
 </div><div class="card">
@@ -382,6 +386,17 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
+  </div>
+</div><div class="card">
+  <div class="card-header">
+    <h3>tools-registry 自動同期</h3>
+    <a href="tools/f67a73a42074.html" class="btn-link">詳細</a>
+  </div>
+  <div class="card-body">
+    <div class="detail"><strong>説明:</strong> tools-registry 自動同期（毎日 03:00 JST）</div>
+    <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
+    <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
+    <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
   </div>
 </div><div class="card">
   <div class="card-header">

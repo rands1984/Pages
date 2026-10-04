@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>20250515_API_Library - 総合ポータルサイト</title>
+  <title>tools-registry 自動同期 - 総合ポータルサイト</title>
   <style>:root { --bg: #0d1117; --card-bg: #161b22; --card-border: #30363d; --text: #e6edf3; --text-muted: #8b949e; --accent: #58a6ff; --success: #3fb950; --warning: #d29922; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
@@ -72,19 +72,19 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 <body>
   <div class="container">
     <a href="../../" class="back-link">[Back] トップページに戻る</a>
-    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../gas.html" class="active">gas</a></div>
+    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-cron.html" class="active">hermes-cron</a></div>
     <div class="header">
-      <h1>20250515_API_Library <span class="badge">gas</span></h1>
-      <div class="meta">更新: 2026-10-04 | 作成: </div>
+      <h1>tools-registry 自動同期 <span class="badge">hermes-cron</span></h1>
+      <div class="meta">更新: 2026-10-04 | 作成: 2026-10-04</div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> 旧版共通APIライブラリ（2025/05/15作成）。認証・HTTPリクエスト・レスポンス処理等の基盤機能。順次 ApiLib_v8 へ移行中</div>
-      <div class="detail"><strong>環境:</strong> Google Apps Script</div>
+      <div class="detail"><strong>説明:</strong> tools-registry 自動同期（毎日 03:00 JST）</div>
+      <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
-      <div class="detail"><strong>タグ:</strong> <span class="tag">discord</span><span class="tag">drive</span><span class="tag">dropbox</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">spotify</span><span class="tag">twitter</span><span class="tag">library</span><span class="tag">api</span><span class="tag">legacy</span><span class="tag">deprecated</span><span class="tag">gas</span></div>
-      <div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbwPY8OxCAThKnBi0xsf2wtFVrPMfct333C1TYMprT8/exec" target="_blank" rel="noopener">v (doGet)</a> </div><div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbzgoDVA9m1_v3vdSZWj_swjrrUBTRtZ0ghiyz6UEdtEBAe8qzJECCqWLCYn7Kly9Ww7/exec" target="_blank" rel="noopener">v (doGet)</a> </div><div class="detail"><strong>デプロイ:</strong> <a href="https://script.google.com/macros/s/AKfycbyn3FIZLCCQOyrEv_Qy0Y4PUW3erxjR0FVh_1RHj2SsjrohKy3aqMzU_PJDrPbAvOtm/exec" target="_blank" rel="noopener">v (doGet)</a> </div><div class="detail"><strong>トリガー:</strong> monitoredTrigger (time-driven: （API取得不可・要手動確認）) Asia/Tokyo</div><div class="detail"><strong>API取得:</strong> <span class="badge ok">ソース:取得</span> <span class="badge ok">デプロイ:取得</span> <span class="badge muted">プロパティ:不可</span> <span class="badge ok">トリガー:取得</span></div><div class="detail"><strong>規模:</strong> 12 ファイル / 3534 行 (ランタイム —)</div><div class="detail"><strong>検出サービス:</strong> <span class="tag">notion</span> <span class="tag">discord</span> <span class="tag">twitter</span> <span class="tag">dropbox</span> <span class="tag">gemini</span> <span class="tag">spotify</span> <span class="tag">drive</span></div>
+      <div class="detail"><strong>タグ:</strong> <span class="tag">cron</span><span class="tag">automation</span><span class="tag">dev</span></div>
+      <div class="detail"><strong>目的:</strong> tools-registry 自動同期（毎日 03:00 JST）</div><div class="detail"><strong>スケジュール:</strong> 0 3 * * *</div><div class="detail"><strong>スクリプト:</strong> registry_sync.py</div>
       <div class="detail"><strong>依存:</strong> なし</div>
-      <div class="detail"><strong>秘密情報参照:</strong> <span class="secret-ref">[Lock] BLUESKY_APP_PASSWORD</span><span class="secret-ref">[Lock] BOX_CLIENT_SECRET</span><span class="secret-ref">[Lock] DISCORD_ERROR_WEBHOOK</span><span class="secret-ref">[Lock] DISCORD_WEBHOOK_URL</span><span class="secret-ref">[Lock] DROPBOX_ACCESS_TOKEN</span><span class="secret-ref">[Lock] GEMINI_API_KEY</span><span class="secret-ref">[Lock] GOOGLE_DRIVE_KEY</span><span class="secret-ref">[Lock] INSTAGRAM_ACCESS_TOKEN</span><span class="secret-ref">[Lock] LASTFM_API_KEY</span><span class="secret-ref">[Lock] MS_CLIENT_SECRET</span><span class="secret-ref">[Lock] NOTION_TOKEN</span><span class="secret-ref">[Lock] SPOTIFY_CLIENT_ID</span><span class="secret-ref">[Lock] SPOTIFY_CLIENT_SECRET</span><span class="secret-ref">[Lock] THREADS_ACCESS_TOKEN</span><span class="secret-ref">[Lock] TICKTICK_CLIENT_SECRET</span><span class="secret-ref">[Lock] TWITTER_API_KEY</span></div>
+      <div class="detail"><strong>秘密情報参照:</strong> なし</div>
       
     </div>
     <div class="footer">総合ポータルサイト - ツール詳細</div>
