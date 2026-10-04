@@ -58,7 +58,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>[Computer] Hermes Programs</h1>
-      <div class="meta">29件 - 更新: 2026-10-03 20:49</div>
+      <div class="meta">29件 - 更新: 2026-10-04 09:07</div>
       <a href="../" class="back-link">[Back] トップページに戻る</a>
     </div>
     <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (115)</a><a href="hermes-cron.html">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html" class="active">Hermes Programs (29)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
@@ -146,7 +146,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/monitor-oci.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> OCIインスタンス・ネットワーク・セキュリティ設定を定期監視し、異常検知時はDiscord通知。5分毎のcronで実行。oci-cliを使用。</div>
+    <div class="detail"><strong>説明:</strong> OCI A1インスタンスを5分毎に監視し、異常検知時のみDiscord #通知用 へ通知。ローカル計測（CPUロード/メモリ/ディスク・Hermesプロセス・Dockerコンテナ4種・主要ポート3種）と OCI API 計測（oci-cli 経由: インスタンス状態/ブートボリューム添付/A1コア上限/セキュリティリストのsha256ドリフト）の両方を収集し、結果を~/.hermes/monito</div>
     
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">oci</span><span class="badge">monitoring</span><span class="badge">infrastructure</span></div>

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T20:49:15.968633",
+  "generated_at": "2026-10-04T09:07:13.862297",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -19,7 +19,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [],
         "script_id": "158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv",
         "script_url": "https://script.google.com/d/158gE-1N9GQpRyI-2bM9P0OB1ILGQOjCbX_TTZvLidIdDxsJNW-nZ8Qhv/edit",
@@ -47,7 +47,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "TWITTER_API_KEY",
           "TWITTER_API_SECRET",
@@ -86,7 +86,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -123,7 +123,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "LINE_NOTIFY_TOKEN"
         ],
@@ -163,7 +163,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-30",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN",
           "DISCORD_WEBHOOK_URL"
@@ -214,7 +214,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN",
           "GOOGLE_TTS_KEY"
@@ -251,7 +251,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [],
         "script_id": "1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2",
         "script_url": "https://script.google.com/d/1lbm5Y1r1tEBSYZJ4_sB_VrVJRljvehB-nS-5c6Zw6WwLVvVdbPt0dUh2/edit",
@@ -286,7 +286,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN",
           "OPENAI_API_KEY"
@@ -316,7 +316,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "SPOTIFY_CLIENT_ID",
           "SPOTIFY_CLIENT_SECRET",
@@ -347,7 +347,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN",
           "GOOGLE_BOOKS_API_KEY"
@@ -377,7 +377,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -413,7 +413,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "OPENAI_API_KEY",
           "GEMINI_API_KEY"
@@ -443,7 +443,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -472,7 +472,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -501,7 +501,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "DISCORD_BOT_TOKEN",
           "NOTION_TOKEN"
@@ -531,7 +531,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -569,7 +569,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [],
         "script_id": "1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE",
         "script_url": "https://script.google.com/d/1Kj9Fe8nOp1dJVmlT-v6ZQWbmvmYlE23M6eKKdGY2TwjjNNznPNljL5YE/edit",
@@ -596,7 +596,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "SPOTIFY_CLIENT_ID",
           "SPOTIFY_CLIENT_SECRET"
@@ -626,7 +626,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -655,7 +655,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -684,7 +684,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [],
         "script_id": "15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4",
         "script_url": "https://script.google.com/d/15i_SeIHXtcwCHh2DNIe95W7Pnmvz0vgY04XD9ayzc8LLWR7EY5k0KMD4/edit",
@@ -711,7 +711,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "SLACK_WEBHOOK_URL"
         ],
@@ -738,7 +738,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
@@ -765,7 +765,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "NEWS_API_KEY"
         ],
@@ -803,7 +803,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-09-28",
+        "updated": "2026-10-04",
         "secret_refs": [
           "GEMINI_API_KEY",
           "NOTION_TOKEN",
@@ -2425,7 +2425,7 @@
         {
           "name": "hermes-webhook-integration",
           "description": "Use when integrating external webhooks with Hermes.",
-          "version": "1.0.0",
+          "version": "2.0.0",
           "platforms": [
             "linux",
             "macos",
@@ -5248,7 +5248,37 @@
           "trigger": "cron",
           "schedule": "*/5 * * * *",
           "related_cron": "50045682b2ff",
-          "description": "OCIインスタンス・ネットワーク・セキュリティ設定を定期監視し、異常検知時はDiscord通知。5分毎のcronで実行。oci-cliを使用。",
+          "description": "OCI A1インスタンスを5分毎に監視し、異常検知時のみDiscord #通知用 へ通知。ローカル計測（CPUロード/メモリ/ディスク・Hermesプロセス・Dockerコンテナ4種・主要ポート3種）と OCI API 計測（oci-cli 経由: インスタンス状態/ブートボリューム添付/A1コア上限/セキュリティリストのsha256ドリフト）の両方を収集し、結果を~/.hermes/monitor/monitor.jsonへ書き出す。OCI APIはレート制限配慮で15分キャッシュ。同一アラートは900秒抑止。",
+          "sub_programs": [
+            {
+              "role": "main",
+              "path": ".hermes/scripts/monitor_oci.py",
+              "description": "本体（ローカル資源+Docker+ポート+OCI API判定）"
+            },
+            {
+              "role": "helper",
+              "path": ".hermes/scripts/oci_monitor.py",
+              "description": "OCI API 収集モジュール（15分キャッシュ・セキュリティリスト sha256）"
+            },
+            {
+              "role": "setup",
+              "path": "ツールレジストリ/scripts/bw_setup_oci.py",
+              "description": "Bitwarden OCI フォルダへの認証情報登録（dry-run / --apply）"
+            }
+          ],
+          "watched_containers": [
+            "cloudflared",
+            "meeting-relay",
+            "vaultwarden",
+            "snappymail"
+          ],
+          "watched_ports": [
+            8801,
+            8642,
+            8080
+          ],
+          "alert_channel": "1337636617627893870 (#通知用)",
+          "alert_suppress_sec": 900,
           "status": "active",
           "tags": [
             "oci",
@@ -6144,7 +6174,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-10-03",
+        "updated": "2026-10-04",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -6644,7 +6674,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-18",
-          "updated": "2026-09-28",
+          "updated": "2026-10-04",
           "secret_refs": [],
           "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -6727,7 +6757,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-09-28",
+          "updated": "2026-10-04",
           "secret_refs": [],
           "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -6788,7 +6818,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-09-28",
+          "updated": "2026-10-04",
           "secret_refs": [],
           "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -6921,7 +6951,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "",
-          "updated": "2026-09-28",
+          "updated": "2026-10-04",
           "secret_refs": [],
           "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
