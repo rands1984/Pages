@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T12:37:52.254416",
+  "generated_at": "2026-10-05T14:58:34.329002",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -8147,6 +8147,11 @@
       "name": "Monitoring Dashboard",
       "url": "https://monitor.rands1984.dpdns.org/",
       "icon": "monitor"
+    },
+    {
+      "name": "個人ダッシュボード",
+      "url": "http://100.88.28.54:8081/",
+      "icon": "dashboard"
     }
   ],
   "categories": [
