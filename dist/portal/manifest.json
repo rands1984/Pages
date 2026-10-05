@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T14:58:34.329002",
+  "generated_at": "2026-10-06T03:04:46.937853",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -17,7 +17,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -74,7 +74,7 @@
         "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -170,7 +170,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -222,7 +222,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "LINE_NOTIFY_TOKEN"
@@ -278,7 +278,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GOOGLE_DRIVE_KEY",
@@ -353,7 +353,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -429,7 +429,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -493,7 +493,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DROPBOX_ACCESS_TOKEN",
@@ -577,7 +577,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN",
           "SPOTIFY_CLIENT_ID"
@@ -630,7 +630,7 @@
         "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -689,7 +689,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -756,7 +756,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DROPBOX_ACCESS_TOKEN",
           "GEMINI_API_KEY"
@@ -810,7 +810,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "GOOGLE_SHEETS_KEY",
           "NOTION_TOKEN"
@@ -885,7 +885,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -979,7 +979,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -1067,7 +1067,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DISCORD_WEBHOOK_URLS",
@@ -1077,18 +1077,8 @@
         ],
         "script_id": "1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS",
         "script_url": "https://script.google.com/d/1dmXJ5J84HJSwMHt1Ci7ecHzmNDwcPxPkQxIJTt2dKwaSx5q_BDAa4SVS/edit",
-        "deployment": {
-          "deployment_id": "AKfycbwyqUZspoKHsOAkZ1WvjuflN_4IZGixhlNW2azfqoez",
-          "url": "https://script.google.com/macros/s/AKfycbwyqUZspoKHsOAkZ1WvjuflN_4IZGixhlNW2azfqoez/exec",
-          "version": "@HEAD",
-          "entry_point": "",
-          "access": "",
-          "execute_as": "",
-          "updated_at": "1970-01-01T00:00:00Z",
-          "is_head": true,
-          "url_synthesized": true
-        },
-        "deployment_count": 1,
+        "deployment": null,
+        "deployment_count": 0,
         "triggers": [
           {
             "function": "deadlineAlertDaily",
@@ -1111,7 +1101,7 @@
         "libraries": [],
         "gas_api": {
           "content": true,
-          "deployments": true,
+          "deployments": false,
           "script_properties": false,
           "triggers": true,
           "services_detected": [
@@ -1147,7 +1137,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_ALERT_WEBHOOK",
           "DISCORD_ERROR_WEBHOOK",
@@ -1222,7 +1212,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "GEMINI_API_KEY",
           "GOOGLE_DRIVE_KEY",
@@ -1301,7 +1291,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -1356,7 +1346,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "GEMINI_API_KEY",
           "GOOGLE_DRIVE_KEY",
@@ -1425,7 +1415,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -1505,7 +1495,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -1571,7 +1561,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
@@ -1621,7 +1611,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DISCORD_NEWSPAPER_WEBHOOK",
           "DISCORD_WEBHOOK_URL",
@@ -1710,7 +1700,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "DROPBOX_ACCESS_TOKEN",
           "GEMINI_API_KEY",
@@ -4523,6 +4513,13 @@
           "type": "hermes-skill"
         },
         {
+          "name": "company-slack-archive",
+          "description": "Archive admin-restricted company Slack to Notion.",
+          "skill_dir": "productivity/company-slack-archive",
+          "id": "company-slack-archive",
+          "type": "hermes-skill"
+        },
+        {
           "name": "meeting-recorder-relay",
           "description": "Use when recording/transcribing meetings via the OCI relay.",
           "skill_dir": "devops/meeting-recorder-relay",
@@ -7297,7 +7294,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-10-05",
+        "updated": "2026-10-06",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -7797,7 +7794,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-18",
-          "updated": "2026-10-05",
+          "updated": "2026-10-06",
           "secret_refs": [],
           "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -7880,7 +7877,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-05",
+          "updated": "2026-10-06",
           "secret_refs": [],
           "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -7941,7 +7938,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-05",
+          "updated": "2026-10-06",
           "secret_refs": [],
           "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -8074,7 +8071,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "",
-          "updated": "2026-10-05",
+          "updated": "2026-10-06",
           "secret_refs": [],
           "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
