@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T03:04:04.955934",
+  "generated_at": "2026-10-09T03:03:48.233884",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -17,7 +17,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -74,7 +74,7 @@
         "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -170,7 +170,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -222,7 +222,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "LINE_NOTIFY_TOKEN"
@@ -278,7 +278,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GOOGLE_DRIVE_KEY",
@@ -353,7 +353,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -429,7 +429,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -493,7 +493,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DROPBOX_ACCESS_TOKEN",
@@ -577,7 +577,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN",
           "SPOTIFY_CLIENT_ID"
@@ -630,7 +630,7 @@
         "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -689,7 +689,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -756,7 +756,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DROPBOX_ACCESS_TOKEN",
           "GEMINI_API_KEY"
@@ -810,7 +810,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "GOOGLE_SHEETS_KEY",
           "NOTION_TOKEN"
@@ -885,7 +885,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -979,7 +979,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -1067,7 +1067,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DISCORD_WEBHOOK_URLS",
@@ -1147,7 +1147,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_ALERT_WEBHOOK",
           "DISCORD_ERROR_WEBHOOK",
@@ -1222,7 +1222,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "GEMINI_API_KEY",
           "GOOGLE_DRIVE_KEY",
@@ -1301,7 +1301,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -1356,7 +1356,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "GEMINI_API_KEY",
           "GOOGLE_DRIVE_KEY",
@@ -1425,7 +1425,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -1505,7 +1505,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -1571,7 +1571,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
@@ -1621,7 +1621,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DISCORD_NEWSPAPER_WEBHOOK",
           "DISCORD_WEBHOOK_URL",
@@ -1710,7 +1710,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "DROPBOX_ACCESS_TOKEN",
           "GEMINI_API_KEY",
@@ -5003,6 +5003,35 @@
           "type": "hermes-skill"
         },
         {
+          "name": "tool-redesign-investigation",
+          "description": "既存ツール (GAS, Notion 連携等) の現状調査から再設計要件をまとめるワークフロー",
+          "version": "1.0.0",
+          "platforms": [
+            "linux",
+            "macos"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "requirements",
+                "redesign",
+                "investigation",
+                "gas",
+                "notion"
+              ],
+              "related_skills": [
+                "tools-registry-sync",
+                "notion",
+                "writing-plans"
+              ]
+            }
+          },
+          "purpose": "既存ツールの現状調査・ギャップ分析・要件確定までの調査フェーズを標準化する",
+          "skill_dir": "software-development/tool-redesign-investigation",
+          "id": "tool-redesign-investigation",
+          "type": "hermes-skill"
+        },
+        {
           "name": "kanban-worker",
           "description": "Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-injected into every worker's system prompt as KANBAN_GUIDANCE (from agent/prompt_builder.py); this skill is what you load when you want deeper detail on specific scenarios.",
           "version": "2.0.0",
@@ -7304,7 +7333,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-10-08",
+        "updated": "2026-10-09",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -7804,7 +7833,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-18",
-          "updated": "2026-10-08",
+          "updated": "2026-10-09",
           "secret_refs": [],
           "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -7887,7 +7916,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-08",
+          "updated": "2026-10-09",
           "secret_refs": [],
           "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -7948,7 +7977,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-08",
+          "updated": "2026-10-09",
           "secret_refs": [],
           "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -8081,7 +8110,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "",
-          "updated": "2026-10-08",
+          "updated": "2026-10-09",
           "secret_refs": [],
           "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
