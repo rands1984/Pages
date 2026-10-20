@@ -76,14 +76,15 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 </head>
 <body>
   <div class="container">
-    <a href="../../" class="back-link">[Back] トップページに戻る</a>
-    <div class="cat-nav"><a href="../../">&#8962; トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-program.html" class="active">hermes-program</a></div>
+    <a href="../../" class="back-link">↩️ トップページに戻る</a>
+    <div class="cat-nav"><a href="../../">🏠 トップページ</a><a href="../">ツールレジストリ</a><a href="../hermes-program.html" class="active">hermes-program</a></div>
     <div class="header">
       <h1>Meeting Live Bridge <span class="badge">hermes-program</span></h1>
       <div class="meta">更新:  | 作成: </div>
     </div>
     <div class="card">
       <div class="detail"><strong>説明:</strong> gemini-3.5-transcribe-live にWebSocketで接続し、ブラウザから届く16kHz PCMを中継するブリッジ。interimはスライディングウィンドウで返るため、直前の確定テキストとの空白無視の末尾一致で差分のみを確定テキストに再構成する。切断時は自動再接続。</div>
+      
       <div class="detail"><strong>環境:</strong> OCI A1 (Docker: meeting-relay 内)</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">gemini-live</span><span class="tag">websocket</span><span class="tag">streaming-asr</span><span class="tag">helper</span><span class="tag">transcription</span></div>

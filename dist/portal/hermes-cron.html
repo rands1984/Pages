@@ -60,11 +60,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 <body>
   <div class="container">
     <div class="header">
-      <h1>[Clock] Hermes Cron</h1>
-      <div class="meta">24件 - 更新: 2026-10-20 18:51</div>
-      <a href="../" class="back-link">[Back] トップページに戻る</a>
+      <h1>🕐 Hermes Cron</h1>
+      <div class="meta">24件 - 更新: 2026-10-20 22:46</div>
+      <a href="../" class="back-link">↩️ トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">[&#8962;] トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (131)</a><a href="hermes-cron.html" class="active">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
+    <div class="cat-nav"><a href="../">🏠 トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (131)</a><a href="hermes-cron.html" class="active">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Hermes Agent の定期実行ジョブ。音声文字起こし、データ同期、監視等の自動化タスク。</div>
     
     <div class="card-grid"><div class="card">
@@ -85,6 +85,7 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
 python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &#x27;+%Y-%m-%d&#x27;)
 ```
 前日の日付フィ</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -96,6 +97,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
@@ -107,6 +109,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Run the dashboard update script: `python3 ~/.hermes/scripts/secretary_dashboard.py`. This updates the Obsidian dashboard file with the latest pending tasks and recent memos.</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -118,6 +121,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> cooking-clips v2 の日次巡回。~/projects/cooking-clips で `python -m cooking_clips crawl --max 10` を実行し、巡回4サイト（sirogohan/kyounoryouri/daigo/orangepage）の新着レシピを Notion（唯一の正）へ保存し、SQLite FTS5 インデックスを更新する。no_agent</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
@@ -129,6 +133,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> スマートウォッチ音声を文字起こし・要約し、Wikiに保存・Discord通知</div>
+    
     <div class="detail"><strong>環境:</strong> OCI (Hermes)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">audio</span><span class="badge">transcription</span><span class="badge">discord</span></div>
@@ -140,6 +145,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -153,6 +159,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date -d &#x27;yesterday&#x27; &
     <div class="detail"><strong>説明:</strong> Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue monthly_1on1
 
 This creates the monthly 1on1/leader meeting recurring issue with its 4 tasks, posting to Discord Forum based</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -175,6 +182,7 @@ This creates the monthly 1on1/leader meeting recurring issue with its 4 tasks, p
 python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
 ```
 今日の日付フィルタで思考メモ一覧を取得。メモがない</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -188,6 +196,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
     <div class="detail"><strong>説明:</strong> 今日は月初です。AIT第1グループの月次業務報告書フォーム（GAS Webアプリ）の運用に関する短い日本語リマインドを1通だけ作ってください。
 
 背景: 月次業務報告書は「月初1〜3営業日」に前月分を報告する運用です。メンバーは GAS Webフォームに氏名＋認証コードでログインし、前月の内容がプリフィルされた状態から差分だけ修正して提出します。提出すると Notion の月次報告書DBに1レコー</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (work)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">work</span></div>
@@ -199,6 +208,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
@@ -211,6 +221,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Run the following script: python3 ~/.hermes/scripts/eheya_notifier.py
 - If the output is &#x27;NO_NEW_PROPERTIES&#x27;, finish silently. - If the output contains &#x27;[WARN]&#x27;, deliver it as an alert (収集失敗). - Other</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -224,6 +235,7 @@ python3 ~/.hermes/scripts/memos_list.py --date $(date &#x27;+%Y-%m-%d&#x27;)
     <div class="detail"><strong>説明:</strong> Run the script: python3 ~/.hermes/scripts/create_recurring_issues.py --issue month_end_ops
 
 This creates the month-end operations recurring issue with its 5 tasks, posting to Discord Forum based on ca</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -235,6 +247,7 @@ This creates the month-end operations recurring issue with its 5 tasks, posting 
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Run the n8n workflow drift watchdog. Execute exactly: python3 ~/projects/n8n/scripts/drift_watch.py — then finish immediately with no additional commentary of your own (empty output = silent success; </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -252,6 +265,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 ## 手順
 1. 専用スクリプトを実行: `python3 ~/.hermes/scripts/wiki_lint.py`
    - これは決定的な監査を行い、 `wiki/audit_report_</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -268,6 +282,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 
 ## Flow
 1. `inbox.yaml` を読み取り、`pe</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -288,6 +303,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 ## 使用データソース
 - `skills_list()` で全アクティブスキルを取得
 - さらに `~/.he</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -305,6 +321,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 ## 収集データ
 1. **カレンダー**: `secretary_calendar_all.py` を使用して全12カレンダーから今日の予定を取得。
 2. **確認待ち (`inbox.yam</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -320,6 +337,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 手順:
 1. `python3 ~/.hermes/scripts/deadline_notifier.py` を実行する。
 2. このスクリプトは期限が過ぎた、または残り1日以内の課題・タスクを抽出し、カテゴリの「大分類」に基づいて適切なDiscord Forum (dev</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -342,6 +360,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 2. 出力されたJSONを解析。各課題について:
    - `new_messages` が空ならスキップ
    - メッセ</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -353,6 +372,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> tools-registry 自動同期（毎日 03:00 JST）</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
@@ -370,6 +390,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
 ## 収集データ
 1. **今週のメモ**: 
    - `/home/ubuntu/Documents/llm-wiki/wiki/log.md` を読み取り、直近7日間に「取り込み </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -381,6 +402,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (dev)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">dev</span></div>
@@ -392,6 +414,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> Run `python3 /home/ubuntu/.hermes/scripts/find_pending_wiki_v2.py`. If there are pending files, process them into the wiki following the rules in /home/ubuntu/Documents/llm-wiki/CLAUDE.md. Only proces</div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>
@@ -403,6 +426,7 @@ LLM Wikiの整合性をチェックする。対象Wiki: `/home/ubuntu/Documents/
   </div>
   <div class="card-body">
     <div class="detail"><strong>説明:</strong> </div>
+    
     <div class="detail"><strong>環境:</strong> Hermes Cron (default)</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status stopped">アーカイブ</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">cron</span><span class="badge">automation</span><span class="badge">default</span></div>

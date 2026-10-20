@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T18:51:18.082495",
+  "generated_at": "2026-10-20T22:46:02.310328",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -1778,7 +1778,16 @@
           "file_count": 5,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "usage": "ブラウザで開き「タスク」「日常」「情報」「モニター」「メトリクス」の5タブを使い分ける。\nタスクの完了チェックは Notion「011.TODOカレンダー」へ即時書き戻しされる。\n「情報」タブは RSS / YouTube / Spotify / Instagram / Bluesky / Webクリップの統合タイムライン。\nデータは2時間ごとのトリガーで Google Drive の GASPORTAL.json へキャッシュされる。\n",
+        "notion_db_ids": [
+          "295632e6694d4fbd9ce25031d37a7713",
+          "1b5a48d0e7c980df9127c2fba52bf71e",
+          "970b78638a384ca3a0b58b9d6fa2b703",
+          "b36de446f56a4a5ea20773181a72e778",
+          "14aa48d0e7c980669d5de59ceb693744",
+          "efbb2f20597e4dfe964508f04da3e171"
+        ]
       }
     ],
     "hermes": {
@@ -4615,7 +4624,7 @@
         {
           "name": "rag-kb",
           "description": "Use when working on ~/rag-kb or its Discord /kbsearch bot.",
-          "version": "1.0.0",
+          "version": "1.1.0",
           "author": "hermes-dev",
           "license": "private",
           "metadata": {
@@ -5559,7 +5568,28 @@
         },
         {
           "name": "rag-kb-operations",
-          "description": "Use when working on the ~/rag-kb RAG stack. Proven workflow.",
+          "description": "Use when working on the ~/rag-kb RAG stack (search, indexing, cron).",
+          "version": "1.1.0",
+          "author": "hermes-dev",
+          "license": "private",
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "rag",
+                "chromadb",
+                "embedding",
+                "box",
+                "rclone",
+                "cron",
+                "google-workspace"
+              ],
+              "related_skills": [
+                "rag-kb",
+                "google-workspace",
+                "oci-server-monitoring"
+              ]
+            }
+          },
           "skill_dir": "devops/rag-kb-operations",
           "id": "rag-kb-operations",
           "type": "hermes-skill"
@@ -8251,57 +8281,68 @@
     {
       "name": "会議録音PWA",
       "url": "https://rands1984.github.io/Pages/meeting/",
-      "icon": "mic"
+      "icon": "mic",
+      "order": 1
     },
     {
       "name": "GitHub",
       "url": "https://github.com/rands1984",
-      "icon": "github"
+      "icon": "github",
+      "order": 2
     },
     {
       "name": "Notion",
       "url": "https://notion.so/",
-      "icon": "notion"
+      "icon": "notion",
+      "order": 3
     },
     {
       "name": "OCI Console",
       "url": "https://console.ap-tokyo-1.oraclecloud.com",
-      "icon": "oracle"
+      "icon": "oracle",
+      "order": 4
     },
     {
       "name": "Cloudflare Dashboard",
       "url": "https://dash.cloudflare.com",
-      "icon": "cloudflare"
+      "icon": "cloudflare",
+      "order": 5
     },
     {
       "name": "n8n",
       "url": "https://rands1984.ddns.net",
-      "icon": "n8n"
-    },
-    {
-      "name": "メール Webmail",
-      "url": "http://100.88.28.54:8080",
-      "icon": "mail"
+      "icon": "n8n",
+      "order": 6
     },
     {
       "name": "Bitwarden",
       "url": "https://bitwarden.rands1984.dpdns.org",
-      "icon": "bitwarden"
+      "icon": "bitwarden",
+      "order": 7
     },
     {
-      "name": "Hermes Dashboard",
-      "url": "http://100.88.28.54:9119/sessions",
-      "icon": "hermes"
-    },
-    {
-      "name": "Monitoring Dashboard",
-      "url": "http://100.88.28.54:9120/",
-      "icon": "monitor"
+      "name": "メール Webmail",
+      "url": "http://100.88.28.54:8080",
+      "icon": "mail",
+      "order": 8
     },
     {
       "name": "個人ダッシュボード",
       "url": "http://100.88.28.54:8081/",
-      "icon": "dashboard"
+      "icon": "dashboard",
+      "order": 9
+    },
+    {
+      "name": "Hermes Dashboard",
+      "url": "http://100.88.28.54:9119/sessions",
+      "icon": "hermes",
+      "order": 10
+    },
+    {
+      "name": "Monitoring Dashboard",
+      "url": "http://100.88.28.54:9120/",
+      "icon": "monitor",
+      "order": 11
     }
   ],
   "categories": [
