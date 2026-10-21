@@ -1,0 +1,1679 @@
+{
+ "generated_at": "2026-10-21T22:00:26.989802+09:00",
+ "schema_version": 1,
+ "window_days": 30,
+ "note": "公開ポータルへ出すのは status/last_run_at/runs/failed まで。エラー本文は含まない。",
+ "cron": {
+  "d4f564b70d6a": {
+   "job_id": "d4f564b70d6a",
+   "name": "Llm-wiki同期",
+   "profile": "default",
+   "schedule": "0 22 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985533+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-20T22:00:07.532495+09:00",
+   "runs": 2,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "2a82d226958d": {
+   "job_id": "2a82d226958d",
+   "name": "いい部屋ネット新着通知",
+   "profile": "default",
+   "schedule": "0 11 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985563+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T11:00:37.248083+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 1
+  },
+  "7494ca706121": {
+   "job_id": "7494ca706121",
+   "name": "skill-manual-update",
+   "profile": "default",
+   "schedule": "0 21 * * 0",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985572+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-18T21:04:01.853239+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "f5c461127482": {
+   "job_id": "f5c461127482",
+   "name": "llm-wiki-lint",
+   "profile": "default",
+   "schedule": "0 21 * * 0",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985578+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-18T21:01:19.369403+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "3e52acdf571b": {
+   "job_id": "3e52acdf571b",
+   "name": "secretary-morning-brief",
+   "profile": "default",
+   "schedule": "0 8 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985584+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T08:00:37.676081+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 3
+  },
+  "68af93ac6505": {
+   "job_id": "68af93ac6505",
+   "name": "secretary-weekly-review",
+   "profile": "default",
+   "schedule": "0 21 * * 0",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985590+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-18T21:01:22.807070+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "143ee9454507": {
+   "job_id": "143ee9454507",
+   "name": "secretary-afternoon-brief",
+   "profile": "default",
+   "schedule": "30 16 * * 1-5",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985595+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T16:30:37.352513+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 2
+  },
+  "d56ccad8d1d0": {
+   "job_id": "d56ccad8d1d0",
+   "name": "secretary-dashboard-update",
+   "profile": "default",
+   "schedule": "*/30 * * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985600+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T21:30:37.181775+09:00",
+   "runs": 134,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 2
+  },
+  "e130dbb6a477": {
+   "job_id": "e130dbb6a477",
+   "name": "スレッド進捗監視",
+   "profile": "default",
+   "schedule": "0 */2 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985610+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T20:00:37.279537+09:00",
+   "runs": 33,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 7
+  },
+  "35b32812721d": {
+   "job_id": "35b32812721d",
+   "name": "朝の思考メモ振り返り",
+   "profile": "default",
+   "schedule": "30 7 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985616+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T07:30:37.326664+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 2
+  },
+  "484ac65174d7": {
+   "job_id": "484ac65174d7",
+   "name": "夜の思考メモ振り返り",
+   "profile": "default",
+   "schedule": "30 18 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985620+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T18:30:37.249809+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 3
+  },
+  "e10e9615b47d": {
+   "job_id": "e10e9615b47d",
+   "name": "定例課題作成_月次1on1",
+   "profile": "default",
+   "schedule": "0 9 1 * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985625+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-04T09:25:11.871053+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "f471e125f0a6": {
+   "job_id": "f471e125f0a6",
+   "name": "定例課題作成_月末業務",
+   "profile": "default",
+   "schedule": "0 9 25 * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985628+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-07-25T09:06:15.695867+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "55ec6e6351f4": {
+   "job_id": "55ec6e6351f4",
+   "name": "期限アラート通知",
+   "profile": "default",
+   "schedule": "0 9 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985632+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T09:00:37.309000+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "11796591072b": {
+   "job_id": "11796591072b",
+   "name": "n8n-drift-watch",
+   "profile": "default",
+   "schedule": "0 9 * * 1",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985636+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-19T09:00:43.074170+09:00",
+   "runs": 1,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 2
+  },
+  "50045682b2ff": {
+   "job_id": "50045682b2ff",
+   "name": "OCIサーバー監視",
+   "profile": "default",
+   "schedule": "*/5 * * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985640+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T21:55:37.286614+09:00",
+   "runs": 807,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "9feb8425ddc4": {
+   "job_id": "9feb8425ddc4",
+   "name": "dashboard-daily-update",
+   "profile": "default",
+   "schedule": "0 6 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985645+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T06:00:37.760434+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "81d9c6712223": {
+   "job_id": "81d9c6712223",
+   "name": "secretary-report-sync",
+   "profile": "default",
+   "schedule": "30 22 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985651+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T20:15:15.155160+09:00",
+   "runs": 1,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "1f991bfff261": {
+   "job_id": "1f991bfff261",
+   "name": "system-self-audit",
+   "profile": "default",
+   "schedule": "0 10 1,15 * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985655+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "unknown",
+   "reason": "直近30日の実行記録もスケジュール側の最終実行記録も無い（新規・停止中・別プロファイル）",
+   "last_run_at": null,
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0
+  },
+  "a9b32fc7084f": {
+   "job_id": "a9b32fc7084f",
+   "name": "watch-audio-processor",
+   "profile": "dev",
+   "schedule": "every 1m",
+   "enabled": false,
+   "checked_at": "2026-10-21T22:00:26.985664+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-03T15:12:53.319301+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "d5fbc8ec9711": {
+   "job_id": "d5fbc8ec9711",
+   "name": "cooking-clips-crawl-daily",
+   "profile": "dev",
+   "schedule": "0 22 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985670+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-20T22:00:08.057923+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "f67a73a42074": {
+   "job_id": "f67a73a42074",
+   "name": "tools-registry 自動同期",
+   "profile": "dev",
+   "schedule": "0 3 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985674+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T03:00:37.629439+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "ce451d7662b5": {
+   "job_id": "ce451d7662b5",
+   "name": "personal-dashboard データ更新",
+   "profile": "dev",
+   "schedule": "*/5 * * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985678+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T21:55:37.155762+09:00",
+   "runs": 991,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "92a9fa67dbd2": {
+   "job_id": "92a9fa67dbd2",
+   "name": "box-token-backup-daily",
+   "profile": "dev",
+   "schedule": "0 4 * * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985683+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T04:00:37.640854+09:00",
+   "runs": 3,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 1
+  },
+  "099f1f385e41": {
+   "job_id": "099f1f385e41",
+   "name": "rag-kb-box-captions-daily",
+   "profile": "dev",
+   "schedule": "0 13 * * *",
+   "enabled": false,
+   "checked_at": "2026-10-21T22:00:26.985687+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-10-16T13:01:06.423935+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0,
+   "history_rotated": true
+  },
+  "d40a77092f90": {
+   "job_id": "d40a77092f90",
+   "name": "業務報告書フォーム月初リマインド",
+   "profile": "work",
+   "schedule": "0 9 1 * *",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985691+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-01T09:00:40.485140+09:00",
+   "runs": 1,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "32d8370899ea": {
+   "job_id": "32d8370899ea",
+   "name": "業務記録・日次リマインド",
+   "profile": "work",
+   "schedule": "0 8 * * 1-5",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985695+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "ok",
+   "last_run_at": "2026-10-21T12:48:15.738219+09:00",
+   "runs": 1,
+   "failed": 0,
+   "fail_rate": 0.0,
+   "open_incidents": 0,
+   "incident_count": 0
+  },
+  "6f841e929b7c": {
+   "job_id": "6f841e929b7c",
+   "name": "業務記録・週次レビュー",
+   "profile": "work",
+   "schedule": "0 16 * * 5",
+   "enabled": true,
+   "checked_at": "2026-10-21T22:00:26.985699+09:00",
+   "source": "cron:executions.db",
+   "window_days": 30,
+   "status": "unknown",
+   "reason": "直近30日の実行記録もスケジュール側の最終実行記録も無い（新規・停止中・別プロファイル）",
+   "last_run_at": null,
+   "runs": 0,
+   "failed": 0,
+   "open_incidents": 0
+  }
+ },
+ "tools": {
+  "gas:moodmeter": {
+   "tool_id": "moodmeter",
+   "name": "MoodMeter",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 5
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 103,
+    "file_count": 1,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989464+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:sns自動投稿": {
+   "tool_id": "sns自動投稿",
+   "name": "SNS自動投稿",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "MYSELF",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 8
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "twitter",
+     "dropbox",
+     "gemini",
+     "spotify",
+     "drive"
+    ],
+    "total_lines": 6166,
+    "file_count": 16,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989484+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notion日記作成": {
+   "tool_id": "notion日記作成",
+   "name": "Notion日記作成",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 167,
+    "file_count": 1,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989490+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:calendertoline": {
+   "tool_id": "calendertoline",
+   "name": "calenderToLine",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "discord",
+     "line"
+    ],
+    "total_lines": 71,
+    "file_count": 1,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989494+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:業務報告書フォーム-v2": {
+   "tool_id": "業務報告書フォーム-v2",
+   "name": "業務報告書フォーム v2",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 2
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "line",
+     "drive"
+    ],
+    "total_lines": 2623,
+    "file_count": 9,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989497+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notionradionews": {
+   "tool_id": "notionradionews",
+   "name": "NotionRadioNews",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 3
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "dropbox",
+     "gemini",
+     "drive"
+    ],
+    "total_lines": 2620,
+    "file_count": 12,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989501+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:持ち物リスト": {
+   "tool_id": "持ち物リスト",
+   "name": "持ち物リスト",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 18
+   },
+   "triggers": 1,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 860,
+    "file_count": 4,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989504+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:tagautotools": {
+   "tool_id": "tagautotools",
+   "name": "TagAutoTools",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 20
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "dropbox",
+     "gemini",
+     "line"
+    ],
+    "total_lines": 3063,
+    "file_count": 15,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989508+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:dashboard-spotify": {
+   "tool_id": "dashboard-spotify",
+   "name": "dashboard-spotify",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 5
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "notion",
+     "spotify"
+    ],
+    "total_lines": 109,
+    "file_count": 1,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989511+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:bookaddtonotion": {
+   "tool_id": "bookaddtonotion",
+   "name": "bookAddToNotion",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "MYSELF",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 7
+   },
+   "triggers": 1,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 605,
+    "file_count": 2,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989514+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notionタスク登録": {
+   "tool_id": "notionタスク登録",
+   "name": "Notionタスク登録",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 487,
+    "file_count": 1,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989517+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:transcriptiontool": {
+   "tool_id": "transcriptiontool",
+   "name": "TranscriptionTool",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 21
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "dropbox",
+     "gemini"
+    ],
+    "total_lines": 329,
+    "file_count": 1,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989521+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notionpagetitleupdater": {
+   "tool_id": "notionpagetitleupdater",
+   "name": "NotionPageTitleUpdater",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "sheets"
+    ],
+    "total_lines": 1079,
+    "file_count": 2,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989524+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notion登録": {
+   "tool_id": "notion登録",
+   "name": "Notion登録",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 9
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "slack",
+     "discord",
+     "twitter",
+     "gemini",
+     "spotify",
+     "drive",
+     "sheets"
+    ],
+    "total_lines": 12916,
+    "file_count": 32,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989527+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:discordtonotion": {
+   "tool_id": "discordtonotion",
+   "name": "DiscordToNotion",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 13
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "gemini",
+     "spotify",
+     "drive",
+     "sheets"
+    ],
+    "total_lines": 3231,
+    "file_count": 10,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989530+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notionroutineops": {
+   "tool_id": "notionroutineops",
+   "name": "NotionRoutineOps",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "line",
+     "github"
+    ],
+    "total_lines": 596,
+    "file_count": 2,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989533+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:apilib_v8_20250915": {
+   "tool_id": "apilib_v8_20250915",
+   "name": "ApiLib_v8_20250915",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "EXECUTION_API",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "n8n"
+    ],
+    "total_lines": 848,
+    "file_count": 5,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989536+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:spotifytools": {
+   "tool_id": "spotifytools",
+   "name": "SpotifyTools",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "gemini",
+     "spotify",
+     "drive"
+    ],
+    "total_lines": 2909,
+    "file_count": 10,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989539+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:notionwebhook": {
+   "tool_id": "notionwebhook",
+   "name": "NotionWebhook",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 6
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 694,
+    "file_count": 2,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989544+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:bistonotion": {
+   "tool_id": "bistonotion",
+   "name": "BisTonotion",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [
+     "notion",
+     "gemini",
+     "spotify",
+     "drive",
+     "sheets"
+    ],
+    "total_lines": 1278,
+    "file_count": 4,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989548+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:20250515_api_library": {
+   "tool_id": "20250515_api_library",
+   "name": "20250515_API_Library",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 3
+   },
+   "triggers": 1,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "twitter",
+     "dropbox",
+     "gemini",
+     "spotify",
+     "drive"
+    ],
+    "total_lines": 3534,
+    "file_count": 12,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989553+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:checklist-tool": {
+   "tool_id": "checklist-tool",
+   "name": "Checklist Tool",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 2,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion"
+    ],
+    "total_lines": 1692,
+    "file_count": 5,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989556+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:gas": {
+   "tool_id": "gas",
+   "name": "GAS",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "",
+    "access": "",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 1
+   },
+   "triggers": 0,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": false,
+    "services_detected": [],
+    "total_lines": 0,
+    "file_count": 0,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989560+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:dailynewspaper": {
+   "tool_id": "dailynewspaper",
+   "name": "DailyNewspaper",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 9
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "discord",
+     "spotify",
+     "drive"
+    ],
+    "total_lines": 2401,
+    "file_count": 6,
+    "runtime_version": "V8",
+    "execute_as": "USER_DEPLOYING"
+   },
+   "checked_at": "2026-10-21T22:00:26.989564+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "gas:gasportal": {
+   "tool_id": "gasportal",
+   "name": "GASPortal",
+   "type": "gas",
+   "status": "unknown",
+   "reason": "Apps Script API には実行履歴の公開APIが無い（デプロイ/トリガーのみ取得可能）",
+   "deployment": {
+    "entry_point": "WEB_APP",
+    "access": "ANYONE_ANONYMOUS",
+    "updated_at": "1970-01-01T00:00:00Z",
+    "is_head": true,
+    "deployment_count": 8
+   },
+   "triggers": 3,
+   "api_coverage": {
+    "content": true,
+    "deployments": true,
+    "script_properties": false,
+    "triggers": true,
+    "services_detected": [
+     "notion",
+     "twitter",
+     "spotify",
+     "drive",
+     "n8n"
+    ],
+    "total_lines": 1882,
+    "file_count": 5,
+    "runtime_version": "",
+    "execute_as": ""
+   },
+   "checked_at": "2026-10-21T22:00:26.989567+09:00",
+   "source": "gas:apps-script-api"
+  },
+  "n8n:GpU1WfKTfV0VNIr4": {
+   "tool_id": "GpU1WfKTfV0VNIr4",
+   "name": "#調査依頼/Youtube解析 - TagAutoTools連携",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989572+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:UDPXDclkhKkCe3Gz": {
+   "tool_id": "UDPXDclkhKkCe3Gz",
+   "name": "Text-to-Speech to Google Drive",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989575+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:r5sId3faDuDGpsBO": {
+   "tool_id": "r5sId3faDuDGpsBO",
+   "name": "Text-to-Speech to Google Drive (v2)",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989579+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:TPTt35EuOnZ6Udci": {
+   "tool_id": "TPTt35EuOnZ6Udci",
+   "name": "#賃貸/いい部屋ネット新着通知",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook（呼び出し元なし）"
+   },
+   "checked_at": "2026-10-21T22:00:26.989581+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:gY9V7HWlJQJunmSA": {
+   "tool_id": "gY9V7HWlJQJunmSA",
+   "name": "Text-to-Speech to Google Drive",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989584+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:elHq3IMpDwjor90L": {
+   "tool_id": "elHq3IMpDwjor90L",
+   "name": "音声ファイル要約→markdown保存",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989586+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:NNJuKrE7GwAxE5Jq": {
+   "tool_id": "NNJuKrE7GwAxE5Jq",
+   "name": "#調査依頼/WEB解析 - TagAutoTools連携",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989589+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:dqwNT6WB5DFajzsf": {
+   "tool_id": "dqwNT6WB5DFajzsf",
+   "name": "#Webクリップ/save-to-notion - スマホ共有",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989592+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:mszvztEzWDmRdfGH": {
+   "tool_id": "mszvztEzWDmRdfGH",
+   "name": "Youtube解析・まとめ (Final Fix)",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989594+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:2HzZC7qRBUZyPJdn": {
+   "tool_id": "2HzZC7qRBUZyPJdn",
+   "name": "音声ファイル要約",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989596+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:drrw59J8NnJPJTMc": {
+   "tool_id": "drrw59J8NnJPJTMc",
+   "name": "#調査依頼/WEB解析 - TagAutoTools連携",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989599+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:drift-watch": {
+   "tool_id": "drift-watch",
+   "name": "n8n Drift Watch",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "cron",
+    "cron_expression": "0 */6 * * *",
+    "description": "6時間ごとに実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989601+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:0rQkSW7gDtoGmoWR": {
+   "tool_id": "0rQkSW7gDtoGmoWR",
+   "name": "仕事用_業務報告書",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989604+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:dWEjZYh9qt08PUsK": {
+   "tool_id": "dWEjZYh9qt08PUsK",
+   "name": "My workflow 2",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989607+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:6KuTXYhXiwOuGv2i": {
+   "tool_id": "6KuTXYhXiwOuGv2i",
+   "name": "Test Workflow",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "unknown",
+    "description": "トリガータイプ不明"
+   },
+   "checked_at": "2026-10-21T22:00:26.989611+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:SZc2mjM774ibn9U0": {
+   "tool_id": "SZc2mjM774ibn9U0",
+   "name": "My workflow 4",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "unknown",
+    "description": "トリガータイプ不明"
+   },
+   "checked_at": "2026-10-21T22:00:26.989613+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:xl04dJVNj7lK1aEP": {
+   "tool_id": "xl04dJVNj7lK1aEP",
+   "name": "My workflow 3",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook Trigger"
+   },
+   "checked_at": "2026-10-21T22:00:26.989616+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:dGCP8m3LO9yMhEDU": {
+   "tool_id": "dGCP8m3LO9yMhEDU",
+   "name": "Notion Page to Text",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook"
+   },
+   "checked_at": "2026-10-21T22:00:26.989618+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:KbeAkqcFR5eVhhse": {
+   "tool_id": "KbeAkqcFR5eVhhse",
+   "name": "RSS音声ニュース作成",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "notion-trigger",
+    "description": "Notionデータベース変更時"
+   },
+   "checked_at": "2026-10-21T22:00:26.989622+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:qrpbEyadbqVBD8zA": {
+   "tool_id": "qrpbEyadbqVBD8zA",
+   "name": "Podcastフィード取得",
+   "type": "n8n",
+   "status": "unknown",
+   "reason": "n8n 実行履歴APIは API キー必須のため未取得",
+   "active": true,
+   "trigger_timing": {
+    "type": "webhook",
+    "description": "Webhook: Webhook Trigger1"
+   },
+   "checked_at": "2026-10-21T22:00:26.989625+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:ZRizkI2hAmxxpPjh": {
+   "tool_id": "ZRizkI2hAmxxpPjh",
+   "name": "Youtube動画分析・要約作成(n8n・antigravity)",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "rss",
+    "description": "RSSフィード更新時"
+   },
+   "checked_at": "2026-10-21T22:00:26.989627+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:eunjca9XoTgoDvTi": {
+   "tool_id": "eunjca9XoTgoDvTi",
+   "name": "Generate Speech Workflow",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989630+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:F8YecrJ7wwVShTU4": {
+   "tool_id": "F8YecrJ7wwVShTU4",
+   "name": "DropBoxCreateLink",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "cron",
+    "cron_expression": "",
+    "description": "定期実行: 設定確認要"
+   },
+   "checked_at": "2026-10-21T22:00:26.989632+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:0zcpnkWa1ZLWlO2U": {
+   "tool_id": "0zcpnkWa1ZLWlO2U",
+   "name": "My workflow",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989634+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:4ZGonybQZvTLBOsP": {
+   "tool_id": "4ZGonybQZvTLBOsP",
+   "name": "GoogleDriveWavToBOXMp3",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "unknown",
+    "description": "トリガータイプ不明"
+   },
+   "checked_at": "2026-10-21T22:00:26.989637+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "n8n:AvojAYQUMSaMGCpV": {
+   "tool_id": "AvojAYQUMSaMGCpV",
+   "name": "【サンプル】TikTok向け短尺ニュース動画作成",
+   "type": "n8n",
+   "status": "stopped",
+   "reason": "ワークフローが無効",
+   "active": false,
+   "trigger_timing": {
+    "type": "manual",
+    "description": "手動実行"
+   },
+   "checked_at": "2026-10-21T22:00:26.989639+09:00",
+   "source": "n8n:api/workflows"
+  },
+  "oci:server": {
+   "tool_id": "server",
+   "name": "OCI サーバー",
+   "type": "oci",
+   "status": "ok",
+   "checked_at": "2026-10-21 22:00:22 JST",
+   "source": "monitor.json",
+   "metrics": {
+    "cpu_pct": null,
+    "mem_pct": 29.8,
+    "disk_pct": 68.0
+   },
+   "tools": {
+    "personal-dashboard.service": "active",
+    "personal-dashboard/data_age_min": 4.4
+   }
+  }
+ }
+}

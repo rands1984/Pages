@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T12:48:00.129955",
+  "generated_at": "2026-10-21T22:00:26.247424",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -3040,6 +3040,37 @@
           "type": "hermes-skill"
         },
         {
+          "name": "ticktick",
+          "description": "Use when working with TickTick tasks from Hermes: reading today's tasks, notifying Discord, syncing Notion ⇄ TickTick. Wraps the TickTick Open API client and the Notion daily-task sync.",
+          "version": "1.0.0",
+          "author": "Hermes Agent",
+          "license": "MIT",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "TickTick",
+                "Notion",
+                "Task",
+                "Discord",
+                "Automation"
+              ],
+              "related_skills": [
+                "notion",
+                "secrets-hygiene",
+                "native-mcp",
+                "tool-redesign-investigation"
+              ]
+            }
+          },
+          "purpose": "TickTick API access + Notion 111.TODOカレンダー 同期 + Discord #秘書 通知",
+          "skill_dir": "productivity/ticktick",
+          "id": "ticktick",
+          "type": "hermes-skill"
+        },
+        {
           "name": "llm-wiki-management",
           "description": "Maintain a structured, autonomously updated knowledge base (LLM Wiki) using the three-layer architecture (Raw, Wiki, Schema).",
           "triggers": [
@@ -3946,6 +3977,36 @@
           },
           "skill_dir": "devops/oci-server-monitoring",
           "id": "oci-server-monitoring",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "agent-improvement-loop",
+          "description": "Build a self-improvement loop for agent workflows.",
+          "version": "1.0.0",
+          "author": "Hermes Agent",
+          "license": "MIT",
+          "platforms": [
+            "linux"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "improvement",
+                "retrospective",
+                "proposals",
+                "cron",
+                "self-improving"
+              ],
+              "related_skills": [
+                "tool-health-review",
+                "portal-maintenance",
+                "personal-dashboard"
+              ]
+            }
+          },
+          "purpose": "Turn \"the agent should get better at its own work\" into a mechanism with a persistent record, a bounded proposal budget, and a verifiable state transition.",
+          "skill_dir": "devops/agent-improvement-loop",
+          "id": "agent-improvement-loop",
           "type": "hermes-skill"
         },
         {
@@ -6315,6 +6376,31 @@
           "profile": "default"
         },
         {
+          "id": "81d9c6712223",
+          "name": "secretary-report-sync",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-10-21",
+          "updated": "2026-10-21",
+          "secret_refs": [],
+          "purpose": "secretary-report-sync",
+          "schedule": "30 22 * * *",
+          "script_path": "secretary_report.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] hermesの秘書業務の強化",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
           "id": "e10e9615b47d",
           "name": "定例課題作成_月次1on1",
           "type": "hermes-cron",
@@ -6420,6 +6506,31 @@
               "url": "https://app.notion.com/p/381a48d0e7c981dba2c9fb4cb5058d4d"
             }
           ]
+        },
+        {
+          "id": "32d8370899ea",
+          "name": "業務記録・日次リマインド",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "work"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (work)",
+          "depends_on": [],
+          "created": "2026-10-21",
+          "updated": "2026-10-21",
+          "secret_refs": [],
+          "purpose": "業務記録・日次リマインド",
+          "schedule": "0 8 * * 1-5",
+          "script_path": "daily_remind.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / work / [課題] 業務記録カレンダーの作成",
+          "related_programs": [],
+          "profile": "work"
         },
         {
           "id": "2a82d226958d",
@@ -6614,6 +6725,31 @@
           "profile": "default"
         },
         {
+          "id": "6f841e929b7c",
+          "name": "業務記録・週次レビュー",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "work"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (work)",
+          "depends_on": [],
+          "created": "2026-10-21",
+          "updated": "2026-10-21",
+          "secret_refs": [],
+          "purpose": "業務記録・週次レビュー",
+          "schedule": "0 16 * * 5",
+          "script_path": "weekly_review.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / work / [課題] 業務記録カレンダーの作成",
+          "related_programs": [],
+          "profile": "work"
+        },
+        {
           "id": "55ec6e6351f4",
           "name": "期限アラート通知",
           "type": "hermes-cron",
@@ -6635,6 +6771,31 @@
           "script_path": null,
           "skills": [],
           "delivers_to": "rands1984のサーバー / #秘書 / [課題] 個人タスク管理ツール開発",
+          "related_programs": [],
+          "profile": "default"
+        },
+        {
+          "id": "1f991bfff261",
+          "name": "system-self-audit",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "default"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (default)",
+          "depends_on": [],
+          "created": "2026-10-21",
+          "updated": "2026-10-21",
+          "secret_refs": [],
+          "purpose": "system-self-audit",
+          "schedule": "0 10 1,15 * *",
+          "script_path": "audit_system.py",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] hermesの秘書業務の強化",
           "related_programs": [],
           "profile": "default"
         },
