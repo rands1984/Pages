@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> GAS Script: GAS</div>
-      
+      <div class="detail"><strong>説明:</strong> Google Apps Script のひな形プロジェクトで、appsscript.json（タイムゾーン America/New_York、V8ランタイム）と .clasp.json の scriptId のみを持ち、機能コードや依存関係は未実装の空の土台である。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">GAS の空のひな形プロジェクトで、clasp で対象 GAS と同期できる状態を整えただけのタイプである。
+`clasp push` で appsscript.json と .clasp.json を scriptId 1-fBWgDnn... の GAS プロジェクトへ同期する。
+機能を追加するときは appsscript.json の dependencies に OAuth スコープを書き足してから各 .gs ファイルを作成する。
+現状はスクリプトプロパティや Notion・Spreadsheet 連携などの実処理が一つも含まれていないため、単体では何も実行できない。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">gas</span></div>

@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-      
+      <div class="detail"><strong>説明:</strong> Google Drive の Excel（業務報告書・会社の期待・研修_新）を Notion DB へ転記し、Notion の主任コメントを Excel へ書き戻す GAS。BOX 音声監視で個人 Podcast の RSS を生成する処理も同梱。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">スプレッドシートを開き「カスタムメニュー」→「指定フォルダのExcelをNotionに転記」で、Excel→スプレッドシート変換→業務報告書/期待シートの Notion ページ作成を行い、処理済みファイルは処理済みフォルダへ移動する。
+「Notionの主任コメントをExcelに書き戻し」は Notion の達成度（期待1-3）と行動指針コメント（各最大8項目）を元 Excel の該当セルに書き戻す。
+Podcast 機能は「Podcast配信ツール」メニューのセットアップウィザードで BOX 認証・Notion DB・Podcast 情報を設定し、1時間毎の定期実行で新規音声を Notion に登録して RSS フィードを配信する。
+Notion API トークンはスクリプトプロパティ NOTION_TOKEN、BOX 認証はクライアントIDとシークレットを設定する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">drive</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">sheets</span><span class="tag">spotify</span><span class="tag">gas</span></div>

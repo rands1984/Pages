@@ -83,8 +83,12 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Notionの日記（当日分）の各項目を打刻する</div>
-      
+      <div class="detail"><strong>説明:</strong> iOSショートカットやMacroDroidなど外部からのPOSTをpgTypeで振り分け、Notion APIを通じて日記ページへの起床・就寝・体重・歩数の打刻、アカウンタビリティチャートへの行動ログ、移動履歴・電子マネー使用履歴の登録を行うWebhook。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">GASをWeb Appとして公開し、ショートカット等からJSONをPOSTして、Notion API（Script PropertiesのNOTION_TOKEN）経由で各DBへ書き込みを行う。
+pgType=1で当日分のNotion日記ページを更新し、type=1起床時刻、2就寝時刻、3身長・体重・心拍数・体脂肪率・BMI・LBM・歩数、4歩数を打刻する。
+pgType=2でアカウンタビリティチャートにタイトル・種類（プライベート/仕事）・作業日時を登録し、pgType=3で移動履歴に緯度・経度・誤差を記録する。
+pgType=4で電子マネー使用履歴DBに伝票番号・支払種類・取引金額・店舗・取引日時を登録する。
+処理結果はJSON（success または error）でレスポンスとして返り、実行履歴はGASの実行ログで確認する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">notion</span><span class="tag">gas</span></div>

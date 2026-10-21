@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> GAS Script: bookAddToNotion</div>
-      
+      <div class="detail"><strong>説明:</strong> GAS の Web アプリとして公開するバーコード読取ページで ISBN を取得すると Google Books API から書誌情報を引き、Notion の「317.絵本リスト」DB に新規ページを追加または既存ページを更新するスクリプト。ISBN-10 と ISBN-13 は相互変換し、書影は Amazon 画像 URL を確認して優先して設定する。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">GAS を Web アプリとして公開し、ブラウザで開き「Start Scanner」でカメラのバーコードを読み取るか、ISBN 入力欄に番号を入れて Register を押す。
+ISBN コード（10桁または978/979始まりの13桁）を検証し、google.script.run 経由で fetchBookInfo を呼び出して Google Books API から情報を取得する。
+Notion「317.絵本リスト」DB をタイトルで検索し、既存なら該当ページを更新、なければ新規ページを追加して-cover・icon・本文に画像を設定する。
+画面にはタイトル・著者・表紙を表示し、Notion には Title/Subtitle/ISBN10/ISBN13/Description/Author/PublishedDate/PageCount を書き込む。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script（MYSELF）</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">notion</span><span class="tag">gas</span></div>

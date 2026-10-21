@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T03:04:19.796900",
+  "generated_at": "2026-10-21T12:48:00.129955",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -52,7 +52,16 @@
           "file_count": 1,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "macroDroid などの外部アプリから Web アプリへ POST/GET で提出された「気分」と任意のメモを受け取り、Notion の「125.気分メーター」DB に日付・曜日つきのページとして1件追加する中継スクリプト。気分値は良/普/悪/疲/悩のいずれかに限定され、それ以外は invalid mood を返す。",
+        "usage": "GAS を Web アプリとして公開し、公開 URL を外部アプリ（macroDroid 等）の HTTP リクエスト先に設定する。\n外部アプリから mood（良/普/悪/疲/悩）と任意で memo を JSON または form-urlencoded で POST する（GET のクエリパラメータも可）。\nGAS 側で日時・曜日を補完し、Notion「125.気分メーター」DB の 名前/日時/気分/曜日/コメント プロパティを持つページを作成する。\n実行結果はテキストで返り、200 なら OK、失敗時は NotionError と応答コードが表示される。\n",
+        "notion_dbs": [
+          {
+            "id": "ccf9e1e31b9e4429ba55cc18fe3143a6",
+            "name": "125.気分メーター",
+            "url": "https://app.notion.com/p/ccf9e1e31b9e4429ba55cc18fe3143a6"
+          }
+        ]
       },
       {
         "id": "sns自動投稿",
@@ -154,7 +163,9 @@
           "file_count": 16,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "Dropboxの日記Markdownからタグ付き本文を抽出してNotionの予約投稿DBへ登録し、Geminiで投稿文を生成、WebアプリやGmail添付から画像をBoxへ保存、トリガーでBlueSky・Threads・Instagramへ自動投稿するGASツール。",
+        "usage": "Notion・Dropbox・Gemini・Box・BlueSky・Threads・Instagramの認証情報をスクリプトプロパティに設定し、createPostGeneratorTriggerとcreateAutoPostTriggerでトリガーを作る。\n毎日23:50のgeneratePostContentScheduledがDropboxの日記YYYY-MM-DD.mdを読み、#タグ付き本文を抽出して予約投稿DBへ登録し、Geminiで投稿文を生成して同じDBのgemini投稿内容に書き戻す。\n1時間ごとのautoPostScheduledが投稿予定日時を過ぎた未投稿行を1件取得し、投稿先（BlueSky・Threads・Instagram）へ投稿して投稿IDと投稿済フラグをDBに記録する。\nWebアプリ（WebApp.html）からは本文・画像・投稿日時を指定して予約登録や即時投稿ができ、Gmail添付はGmailToDropboxでDropboxへ自動保存される。\n"
       },
       {
         "id": "notion日記作成",
@@ -205,7 +216,19 @@
           "file_count": 1,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "notion_dbs": [
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          }
+        ]
       },
       {
         "id": "calendertoline",
@@ -259,7 +282,9 @@
           "file_count": 1,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "GAS が全カレンダーの当日予定を取得し、日付とカレンダーごとの見出し・開始終了時刻・件名をテキストに整形して、Discord の Webhook URL へ「カレンダー予定:」の本文として送信する定時実行スクリプト。LINE _notify 用の送信関数も持つが現在はコメントアウトされ、送信先は Discord のみ。",
+        "usage": "GAS プロジェクト calenderToLine の main() を実行する（GAS のトリガー設定はソースからは確認できない）。\n全カレンダーの getEventsForDay(当日) を走査し、イベントがあるカレンダーごとに ◆ カレンダー名 と「HH:mm - HH:mm 件名」を出力する。\n整形されたテキストを Discord Webhook (sendToDiscord) に content: 'カレンダー予定:\\n' + text として POST する。\nsendToLine() による LINE _notify 送信は main() でコメントアウトされており、必要ならコメントを外して有効化する。\n"
       },
       {
         "id": "業務報告書フォーム-v2",
@@ -413,7 +438,36 @@
           "file_count": 12,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "NotionのWebページまとめ・RSS・youtubeリストから過去24時間のニュースを取得し、Geminiでラジオ台本と解説を生成してNotionのラジオニュース／解説DBへ作成、TTS音声をGoogle Drive経由でBoxへ共有リンクとして登録するGASツール。",
+        "usage": "Notion・Gemini・Box・Driveの認証情報を設定し、createTimeDrivenTriggersで毎朝4時（音声）・5時（台本）・6時（Box取り込み）のトリガーを登録する。\n5時のprocessNewsAndCreateScriptが「501.Webページまとめ」「951.RSSリスト」「408.youtubeリスト」の過去24時間のページを集め、Geminiでラジオ台本と解説を生成して「507.ラジオニュース」「508.ラジオニュース解説」に日付タイトルでページ作成しリレーションを張る。\n4時のcreateAudioFilesが当日のラジオニュースページの本文を4500字ずつ分割してTTS音声化し、Google Driveへアップロードして共有リンクをNotionに記録する。\n6時のprocessBoxUploadAndDeleteDriveFileがDriveの音声ファイルをBoxへアップロードして共有リンクをNotionのBOXリンクに書き換え、Drive上の元ファイルを削除する。\n",
+        "notion_dbs": [
+          {
+            "id": "1b5a48d0e7c980df9127c2fba52bf71e",
+            "name": "951.RSSリスト",
+            "url": "https://app.notion.com/p/1b5a48d0e7c980df9127c2fba52bf71e"
+          },
+          {
+            "id": "21aa48d0e7c98080833bc51f1a48b574",
+            "name": "507.ラジオニュース",
+            "url": "https://app.notion.com/p/21aa48d0e7c98080833bc51f1a48b574"
+          },
+          {
+            "id": "21ba48d0e7c980aabca7f7db64dde3bd",
+            "name": "508.ラジオニュース解説",
+            "url": "https://app.notion.com/p/21ba48d0e7c980aabca7f7db64dde3bd"
+          },
+          {
+            "id": "295632e6694d4fbd9ce25031d37a7713",
+            "name": "501.Webページまとめ",
+            "url": "https://app.notion.com/p/295632e6694d4fbd9ce25031d37a7713"
+          },
+          {
+            "id": "970b78638a384ca3a0b58b9d6fa2b703",
+            "name": "408.youtubeリスト",
+            "url": "https://app.notion.com/p/970b78638a384ca3a0b58b9d6fa2b703"
+          }
+        ]
       },
       {
         "id": "持ち物リスト",
@@ -560,7 +614,26 @@
           "file_count": 15,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "#大分類/中分類/小分類形式のテキストを解析し、NotionのタグDBに定義された処理パターンに応じてGoogle Calendar・TickTick・Notion(ToDo/SNS/タスクDB)・Dropbox(Gemini分析)・n8n Webhookへ自動振り分けするGAS Webアプリ。",
+        "usage": "#大分類/中分類/小分類 タグ付きテキストを、Webhook(doPost)またはWeb UIから投入する。\nリクエストはGoogle Driveのキュー(JSON)へ保存され、タイムトリガーがバックグラウンドで実行する。\n処理パターンはNotionタグDBの「処理パターン」プロパティで判定し、Notion・TickTick・Calendar・Dropbox・n8nへ登録し、Discord Webhookで結果を通知する。\n実行にはNOTION/GEMINI/DROPBOX/TICKTICK/N8N等の認証情報とキュー用フォルダIDをスクリプトプロパティに設定する。\n",
+        "notion_dbs": [
+          {
+            "id": "176bcba7f7b14dc68a900f7d176f580b",
+            "name": "111.TODOカレンダー",
+            "url": "https://app.notion.com/p/176bcba7f7b14dc68a900f7d176f580b"
+          },
+          {
+            "id": "1f7a48d0e7c98008b6ead238c7f9492a",
+            "name": "509.SNS自動投稿リスト",
+            "url": "https://app.notion.com/p/1f7a48d0e7c98008b6ead238c7f9492a"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          }
+        ]
       },
       {
         "id": "dashboard-spotify",
@@ -673,7 +746,16 @@
           "file_count": 2,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "GAS の Web アプリとして公開するバーコード読取ページで ISBN を取得すると Google Books API から書誌情報を引き、Notion の「317.絵本リスト」DB に新規ページを追加または既存ページを更新するスクリプト。ISBN-10 と ISBN-13 は相互変換し、書影は Amazon 画像 URL を確認して優先して設定する。",
+        "usage": "GAS を Web アプリとして公開し、ブラウザで開き「Start Scanner」でカメラのバーコードを読み取るか、ISBN 入力欄に番号を入れて Register を押す。\nISBN コード（10桁または978/979始まりの13桁）を検証し、google.script.run 経由で fetchBookInfo を呼び出して Google Books API から情報を取得する。\nNotion「317.絵本リスト」DB をタイトルで検索し、既存なら該当ページを更新、なければ新規ページを追加して-cover・icon・本文に画像を設定する。\n画面にはタイトル・著者・表紙を表示し、Notion には Title/Subtitle/ISBN10/ISBN13/Description/Author/PublishedDate/PageCount を書き込む。\n",
+        "notion_dbs": [
+          {
+            "id": "19ba48d0e7c9802f98f5c58c8938bb92",
+            "name": "317.絵本リスト",
+            "url": "https://app.notion.com/p/19ba48d0e7c9802f98f5c58c8938bb92"
+          }
+        ]
       },
       {
         "id": "notionタスク登録",
@@ -739,7 +821,24 @@
           "file_count": 1,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "notion_dbs": [
+          {
+            "id": "176bcba7f7b14dc68a900f7d176f580b",
+            "name": "111.TODOカレンダー",
+            "url": "https://app.notion.com/p/176bcba7f7b14dc68a900f7d176f580b"
+          },
+          {
+            "id": "9dc669d88a5b4b7d8dedbfc032689d3f",
+            "name": "112.定例TODOタスクマスタ",
+            "url": "https://app.notion.com/p/9dc669d88a5b4b7d8dedbfc032689d3f"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          }
+        ]
       },
       {
         "id": "transcriptiontool",
@@ -793,7 +892,9 @@
           "file_count": 1,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "GASのWeb Appバックエンド。ブラウザの文字起こしUIからPOSTされた文字起こしログをGemini APIで要約し、概要とタイムラインを含むMarkdown会議メモとしてDropboxの指定フォルダへ保存する。",
+        "usage": "文字起こしUI（フロント）と同じGoogle Apps Scriptプロジェクトにデプロイし、「全員アクセス」のWeb Appとして公開する。\nScript Propertiesに GEMINI_API_KEY / SPEECHMATICS_API_KEY / DEEPGRAM_API_KEY / DROPBOX_ACCESS_TOKEN / DROPBOX_FOLDER_PATH を設定する。\nブラウザからJSONをPOSTし、action=summarizeで要約、action=saveで要約と保存、action=stt_tokenで音声認識トークンを取得する。\naction=saveは要約・タイムライン付きMarkdownを「YYYY-MM-DD_HH-mm_web.md」「..._inperson.md」形式でDropboxへ保存する。\n接続確認は action=dropbox_debug（Dropbox）と action=debug_props（設定値マスク表示）で行う。\n"
       },
       {
         "id": "notionpagetitleupdater",
@@ -958,7 +1059,136 @@
           "file_count": 32,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "Twitter(X)・Instagram・YouTube・Spotify・last.fm・RSSなどの外部サービスからデータを取得し、CSVやPDF・画像OCRの抽出値やGeminiによる要約と合わせて、Notionの各データベースへ自動登録するGASスクリプト群。",
+        "usage": "NOTION_TOKENや各サービスのAPIキー・クライアントIDをスクリプトプロパティに設定し、NotionApiManagerでページ作成・更新・DB検索を実行する。\nSpotify再生履歴、Spotifyのアーティスト/アルバム、last.fm再生履歴、Twitterのツイート、YouTube動画、Instagram投稿などを各DBへ登録する。\nCSVファイルは指定Driveフォルダから読み込み、6行目以降を抽出して電子マネー使用履歴DBへ登録し、ファイル名に「取込済」を付け処理済みにする(画像OCRはDrive→Googleドキュメント変換でシートに書き出し)。\nRSSフィードやWebページはGeminiで要約し、NotionのWebページまとめDBやRSS系DBへ登録・追記する。\n",
+        "notion_dbs": [
+          {
+            "id": "0360ed4257e64a058ee7f3ba30bdd100",
+            "name": "504.Twitter記録",
+            "url": "https://app.notion.com/p/0360ed4257e64a058ee7f3ba30bdd100"
+          },
+          {
+            "id": "14aa48d0e7c980669d5de59ceb693744",
+            "name": "505.Bluesky記録",
+            "url": "https://app.notion.com/p/14aa48d0e7c980669d5de59ceb693744"
+          },
+          {
+            "id": "151a48d0e7c980db87f2c381547a1d74",
+            "name": "506.bluesky管理",
+            "url": "https://app.notion.com/p/151a48d0e7c980db87f2c381547a1d74"
+          },
+          {
+            "id": "176bcba7f7b14dc68a900f7d176f580b",
+            "name": "111.TODOカレンダー",
+            "url": "https://app.notion.com/p/176bcba7f7b14dc68a900f7d176f580b"
+          },
+          {
+            "id": "17e49c5da6ce4cafab16a0cb1c1cf393",
+            "name": "961.Instagramチェック対象リスト",
+            "url": "https://app.notion.com/p/17e49c5da6ce4cafab16a0cb1c1cf393"
+          },
+          {
+            "id": "182a48d0e7c980c08191d15721b76823",
+            "name": "954.Spotify楽曲リスト",
+            "url": "https://app.notion.com/p/182a48d0e7c980c08191d15721b76823"
+          },
+          {
+            "id": "193a48d0e7c980cf8fd4cdcdd3a55349",
+            "name": "802.9XX.キーワードリスト",
+            "url": "https://app.notion.com/p/193a48d0e7c980cf8fd4cdcdd3a55349"
+          },
+          {
+            "id": "1b5a48d0e7c9800f8474edc769568561",
+            "name": "502.RSSフィードリスト",
+            "url": "https://app.notion.com/p/1b5a48d0e7c9800f8474edc769568561"
+          },
+          {
+            "id": "1b5a48d0e7c980df9127c2fba52bf71e",
+            "name": "951.RSSリスト",
+            "url": "https://app.notion.com/p/1b5a48d0e7c980df9127c2fba52bf71e"
+          },
+          {
+            "id": "1b8a48d0e7c980119edacd8ef0c2917d",
+            "name": "958.Youtubeチェック対象リスト",
+            "url": "https://app.notion.com/p/1b8a48d0e7c980119edacd8ef0c2917d"
+          },
+          {
+            "id": "1c2a48d0e7c9801fa486f11a52865c16",
+            "name": "Xチェック対象リスト",
+            "url": "https://app.notion.com/p/1c2a48d0e7c9801fa486f11a52865c16"
+          },
+          {
+            "id": "295632e6694d4fbd9ce25031d37a7713",
+            "name": "501.Webページまとめ",
+            "url": "https://app.notion.com/p/295632e6694d4fbd9ce25031d37a7713"
+          },
+          {
+            "id": "2b63e91ea8c947959f72d74a73dc324b",
+            "name": "956.Spotifyアルバムリスト",
+            "url": "https://app.notion.com/p/2b63e91ea8c947959f72d74a73dc324b"
+          },
+          {
+            "id": "2f76078a03e74fee8a390ee29f9f2717",
+            "name": "703.OCR履歴",
+            "url": "https://app.notion.com/p/2f76078a03e74fee8a390ee29f9f2717"
+          },
+          {
+            "id": "44c795debb1347648a74dc683c6640cf",
+            "name": "955.Spotifyアーティストリスト",
+            "url": "https://app.notion.com/p/44c795debb1347648a74dc683c6640cf"
+          },
+          {
+            "id": "5662f822e0c6438488014ad1e502d02a",
+            "name": "901.電子マネー使用履歴",
+            "url": "https://app.notion.com/p/5662f822e0c6438488014ad1e502d02a"
+          },
+          {
+            "id": "6b290f580f6d4e908d435155e14ecbb2",
+            "name": "401.視聴リスト",
+            "url": "https://app.notion.com/p/6b290f580f6d4e908d435155e14ecbb2"
+          },
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "970b78638a384ca3a0b58b9d6fa2b703",
+            "name": "408.youtubeリスト",
+            "url": "https://app.notion.com/p/970b78638a384ca3a0b58b9d6fa2b703"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          },
+          {
+            "id": "b36de446f56a4a5ea20773181a72e778",
+            "name": "960.Instagram投稿リスト",
+            "url": "https://app.notion.com/p/b36de446f56a4a5ea20773181a72e778"
+          },
+          {
+            "id": "e1e110d4a240485c9ec11f401d972781",
+            "name": "512.rands-notion-blog",
+            "url": "https://app.notion.com/p/e1e110d4a240485c9ec11f401d972781"
+          },
+          {
+            "id": "ed501f93cae343eea4c20ad17ff3cbaf",
+            "name": "402.ラジオリスト",
+            "url": "https://app.notion.com/p/ed501f93cae343eea4c20ad17ff3cbaf"
+          },
+          {
+            "id": "efbb2f20597e4dfe964508f04da3e171",
+            "name": "953.Spotify再生履歴",
+            "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
+          },
+          {
+            "id": "f1ad4be411b94e438f0b17eb84a99d7e",
+            "name": "952.再生履歴",
+            "url": "https://app.notion.com/p/f1ad4be411b94e438f0b17eb84a99d7e"
+          }
+        ]
       },
       {
         "id": "discordtonotion",
@@ -1048,7 +1278,69 @@
           "file_count": 10,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "notion_dbs": [
+          {
+            "id": "0360ed4257e64a058ee7f3ba30bdd100",
+            "name": "504.Twitter記録",
+            "url": "https://app.notion.com/p/0360ed4257e64a058ee7f3ba30bdd100"
+          },
+          {
+            "id": "14aa48d0e7c980669d5de59ceb693744",
+            "name": "505.Bluesky記録",
+            "url": "https://app.notion.com/p/14aa48d0e7c980669d5de59ceb693744"
+          },
+          {
+            "id": "17e49c5da6ce4cafab16a0cb1c1cf393",
+            "name": "961.Instagramチェック対象リスト",
+            "url": "https://app.notion.com/p/17e49c5da6ce4cafab16a0cb1c1cf393"
+          },
+          {
+            "id": "182a48d0e7c980c08191d15721b76823",
+            "name": "954.Spotify楽曲リスト",
+            "url": "https://app.notion.com/p/182a48d0e7c980c08191d15721b76823"
+          },
+          {
+            "id": "193a48d0e7c980cf8fd4cdcdd3a55349",
+            "name": "802.9XX.キーワードリスト",
+            "url": "https://app.notion.com/p/193a48d0e7c980cf8fd4cdcdd3a55349"
+          },
+          {
+            "id": "295632e6694d4fbd9ce25031d37a7713",
+            "name": "501.Webページまとめ",
+            "url": "https://app.notion.com/p/295632e6694d4fbd9ce25031d37a7713"
+          },
+          {
+            "id": "2b63e91ea8c947959f72d74a73dc324b",
+            "name": "956.Spotifyアルバムリスト",
+            "url": "https://app.notion.com/p/2b63e91ea8c947959f72d74a73dc324b"
+          },
+          {
+            "id": "44c795debb1347648a74dc683c6640cf",
+            "name": "955.Spotifyアーティストリスト",
+            "url": "https://app.notion.com/p/44c795debb1347648a74dc683c6640cf"
+          },
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "970b78638a384ca3a0b58b9d6fa2b703",
+            "name": "408.youtubeリスト",
+            "url": "https://app.notion.com/p/970b78638a384ca3a0b58b9d6fa2b703"
+          },
+          {
+            "id": "b36de446f56a4a5ea20773181a72e778",
+            "name": "960.Instagram投稿リスト",
+            "url": "https://app.notion.com/p/b36de446f56a4a5ea20773181a72e778"
+          },
+          {
+            "id": "efbb2f20597e4dfe964508f04da3e171",
+            "name": "953.Spotify再生履歴",
+            "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
+          }
+        ]
       },
       {
         "id": "notionroutineops",
@@ -1124,7 +1416,24 @@
           "file_count": 2,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "notion_dbs": [
+          {
+            "id": "176bcba7f7b14dc68a900f7d176f580b",
+            "name": "111.TODOカレンダー",
+            "url": "https://app.notion.com/p/176bcba7f7b14dc68a900f7d176f580b"
+          },
+          {
+            "id": "9dc669d88a5b4b7d8dedbfc032689d3f",
+            "name": "112.定例TODOタスクマスタ",
+            "url": "https://app.notion.com/p/9dc669d88a5b4b7d8dedbfc032689d3f"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          }
+        ]
       },
       {
         "id": "apilib_v8_20250915",
@@ -1285,7 +1594,46 @@
           "file_count": 10,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "Spotify APIから再生履歴・アーティスト・アルバム・楽曲を取得してNotionのSpotify関連DBへ登録し、アーティスト設定DBの未再生リストからSpotifyプレイリストを自動更新するGASツール。",
+        "usage": "Spotifyのaccess_token/refresh_tokenをスクリプトプロパティに置き、main()をトリガーで定期実行する。\n実行すると本日の再生履歴を「953.Spotify再生履歴」DBへ登録し、アーティスト・アルバム・楽曲を各Spotify DBへ作成、アルバム画像と楽曲URLを後付けで更新する。\n「957. Spotifyアーティストプレイリスト管理DB」にアーティストIDとMain/FeatのFull・Unplayed各プレイリストIDを置き、12時間以上未更新の対象を処理して未再生を計算しプレイリストを同期更新する。\nNotionControl.jsは外部POST用WebHookで、pgType=1でNotion日記、pgType=2でアカウンタビリティチャートに打刻する。\n",
+        "notion_dbs": [
+          {
+            "id": "182a48d0e7c980c08191d15721b76823",
+            "name": "954.Spotify楽曲リスト",
+            "url": "https://app.notion.com/p/182a48d0e7c980c08191d15721b76823"
+          },
+          {
+            "id": "2b63e91ea8c947959f72d74a73dc324b",
+            "name": "956.Spotifyアルバムリスト",
+            "url": "https://app.notion.com/p/2b63e91ea8c947959f72d74a73dc324b"
+          },
+          {
+            "id": "2c4a48d0e7c9802194def23a0d546cfd",
+            "name": "957.spotifyアーティストプレイリスト管理DB",
+            "url": "https://app.notion.com/p/2c4a48d0e7c9802194def23a0d546cfd"
+          },
+          {
+            "id": "44c795debb1347648a74dc683c6640cf",
+            "name": "955.Spotifyアーティストリスト",
+            "url": "https://app.notion.com/p/44c795debb1347648a74dc683c6640cf"
+          },
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          },
+          {
+            "id": "efbb2f20597e4dfe964508f04da3e171",
+            "name": "953.Spotify再生履歴",
+            "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
+          }
+        ]
       },
       {
         "id": "notionwebhook",
@@ -1336,7 +1684,26 @@
           "file_count": 2,
           "runtime_version": "V8",
           "execute_as": "USER_DEPLOYING"
-        }
+        },
+        "description": "iOSショートカットやMacroDroidなど外部からのPOSTをpgTypeで振り分け、Notion APIを通じて日記ページへの起床・就寝・体重・歩数の打刻、アカウンタビリティチャートへの行動ログ、移動履歴・電子マネー使用履歴の登録を行うWebhook。",
+        "usage": "GASをWeb Appとして公開し、ショートカット等からJSONをPOSTして、Notion API（Script PropertiesのNOTION_TOKEN）経由で各DBへ書き込みを行う。\npgType=1で当日分のNotion日記ページを更新し、type=1起床時刻、2就寝時刻、3身長・体重・心拍数・体脂肪率・BMI・LBM・歩数、4歩数を打刻する。\npgType=2でアカウンタビリティチャートにタイトル・種類（プライベート/仕事）・作業日時を登録し、pgType=3で移動履歴に緯度・経度・誤差を記録する。\npgType=4で電子マネー使用履歴DBに伝票番号・支払種類・取引金額・店舗・取引日時を登録する。\n処理結果はJSON（success または error）でレスポンスとして返り、実行履歴はGASの実行ログで確認する。\n",
+        "notion_dbs": [
+          {
+            "id": "46beada8e7eb433fba01f32511eea23a",
+            "name": "削除_902.XXX.移動履歴",
+            "url": "https://app.notion.com/p/46beada8e7eb433fba01f32511eea23a"
+          },
+          {
+            "id": "5662f822e0c6438488014ad1e502d02a",
+            "name": "901.電子マネー使用履歴",
+            "url": "https://app.notion.com/p/5662f822e0c6438488014ad1e502d02a"
+          },
+          {
+            "id": "af6c8b1b5f77474dbe1c0052996fb056",
+            "name": "101.Notion日記",
+            "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
+          }
+        ]
       },
       {
         "id": "bistonotion",
@@ -1399,7 +1766,36 @@
           "file_count": 4,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "Google Drive の Excel（業務報告書・会社の期待・研修_新）を Notion DB へ転記し、Notion の主任コメントを Excel へ書き戻す GAS。BOX 音声監視で個人 Podcast の RSS を生成する処理も同梱。",
+        "usage": "スプレッドシートを開き「カスタムメニュー」→「指定フォルダのExcelをNotionに転記」で、Excel→スプレッドシート変換→業務報告書/期待シートの Notion ページ作成を行い、処理済みファイルは処理済みフォルダへ移動する。\n「Notionの主任コメントをExcelに書き戻し」は Notion の達成度（期待1-3）と行動指針コメント（各最大8項目）を元 Excel の該当セルに書き戻す。\nPodcast 機能は「Podcast配信ツール」メニューのセットアップウィザードで BOX 認証・Notion DB・Podcast 情報を設定し、1時間毎の定期実行で新規音声を Notion に登録して RSS フィードを配信する。\nNotion API トークンはスクリプトプロパティ NOTION_TOKEN、BOX 認証はクライアントIDとシークレットを設定する。\n",
+        "notion_dbs": [
+          {
+            "id": "182a48d0e7c980c08191d15721b76823",
+            "name": "954.Spotify楽曲リスト",
+            "url": "https://app.notion.com/p/182a48d0e7c980c08191d15721b76823"
+          },
+          {
+            "id": "2b63e91ea8c947959f72d74a73dc324b",
+            "name": "956.Spotifyアルバムリスト",
+            "url": "https://app.notion.com/p/2b63e91ea8c947959f72d74a73dc324b"
+          },
+          {
+            "id": "44c795debb1347648a74dc683c6640cf",
+            "name": "955.Spotifyアーティストリスト",
+            "url": "https://app.notion.com/p/44c795debb1347648a74dc683c6640cf"
+          },
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "efbb2f20597e4dfe964508f04da3e171",
+            "name": "953.Spotify再生履歴",
+            "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
+          }
+        ]
       },
       {
         "id": "20250515_api_library",
@@ -1602,7 +1998,9 @@
           "file_count": 0,
           "runtime_version": "",
           "execute_as": ""
-        }
+        },
+        "description": "Google Apps Script のひな形プロジェクトで、appsscript.json（タイムゾーン America/New_York、V8ランタイム）と .clasp.json の scriptId のみを持ち、機能コードや依存関係は未実装の空の土台である。",
+        "usage": "GAS の空のひな形プロジェクトで、clasp で対象 GAS と同期できる状態を整えただけのタイプである。\n`clasp push` で appsscript.json と .clasp.json を scriptId 1-fBWgDnn... の GAS プロジェクトへ同期する。\n機能を追加するときは appsscript.json の dependencies に OAuth スコープを書き足してから各 .gs ファイルを作成する。\n現状はスクリプトプロパティや Notion・Spreadsheet 連携などの実処理が一つも含まれていないため、単体では何も実行できない。\n"
       },
       {
         "id": "dailynewspaper",
@@ -1779,7 +2177,8 @@
           "runtime_version": "",
           "execute_as": ""
         },
-        "usage": "ブラウザで開き「タスク」「日常」「情報」「モニター」「メトリクス」の5タブを使い分ける。\nタスクの完了チェックは Notion「011.TODOカレンダー」へ即時書き戻しされる。\n「情報」タブは RSS / YouTube / Spotify / Instagram / Bluesky / Webクリップの統合タイムライン。\nデータは2時間ごとのトリガーで Google Drive の GASPORTAL.json へキャッシュされる。\n",
+        "description": "Notion の複数DB（RSS・YouTube・Instagram・Bluesky・Spotify再生履歴・Webまとめ・TODOカレンダー・大晟日記）を並列取得しタイムライン/タスク/日常の3データに整形する GAS Webアプリ。",
+        "usage": "Notion API キーはスクリプトプロパティ NOTION_API_KEY に置き、Web アプリとして公開してブラウザで4タブ（タスク・日常・情報・監視）を使い分ける。\nタスクの完了チェックは setTaskStatus で Notion の TODO カレンダーへ即時書き戻し、日常タブは当日の大晟日記を保育園名と入退室時刻で表示する。\n情報タブは RSS/YouTube/Instagram/Bluesky/Spotify/Web ページを日別の統合タイムラインとして並べる。\nupdatePortalCache を2時間毎のトリガーで走らせ Notion のデータを Google Drive の GASPORTAL.json に書き出し、監視タブでは getExecutionLogs / getExecutionStats で実行ログと統計を確認する。\n",
         "notion_db_ids": [
           "295632e6694d4fbd9ce25031d37a7713",
           "1b5a48d0e7c980df9127c2fba52bf71e",
@@ -1787,6 +2186,48 @@
           "b36de446f56a4a5ea20773181a72e778",
           "14aa48d0e7c980669d5de59ceb693744",
           "efbb2f20597e4dfe964508f04da3e171"
+        ],
+        "notion_dbs": [
+          {
+            "id": "14aa48d0e7c980669d5de59ceb693744",
+            "name": "505.Bluesky記録",
+            "url": "https://app.notion.com/p/14aa48d0e7c980669d5de59ceb693744"
+          },
+          {
+            "id": "176bcba7f7b14dc68a900f7d176f580b",
+            "name": "111.TODOカレンダー",
+            "url": "https://app.notion.com/p/176bcba7f7b14dc68a900f7d176f580b"
+          },
+          {
+            "id": "1b5a48d0e7c980df9127c2fba52bf71e",
+            "name": "951.RSSリスト",
+            "url": "https://app.notion.com/p/1b5a48d0e7c980df9127c2fba52bf71e"
+          },
+          {
+            "id": "295632e6694d4fbd9ce25031d37a7713",
+            "name": "501.Webページまとめ",
+            "url": "https://app.notion.com/p/295632e6694d4fbd9ce25031d37a7713"
+          },
+          {
+            "id": "775c7360bb6d470387b7fc0c8a79fb7f",
+            "name": "301.大晟日記",
+            "url": "https://app.notion.com/p/775c7360bb6d470387b7fc0c8a79fb7f"
+          },
+          {
+            "id": "970b78638a384ca3a0b58b9d6fa2b703",
+            "name": "408.youtubeリスト",
+            "url": "https://app.notion.com/p/970b78638a384ca3a0b58b9d6fa2b703"
+          },
+          {
+            "id": "b36de446f56a4a5ea20773181a72e778",
+            "name": "960.Instagram投稿リスト",
+            "url": "https://app.notion.com/p/b36de446f56a4a5ea20773181a72e778"
+          },
+          {
+            "id": "efbb2f20597e4dfe964508f04da3e171",
+            "name": "953.Spotify再生履歴",
+            "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
+          }
         ]
       }
     ],
@@ -2013,7 +2454,14 @@
           "description": "Use when editing the いい部屋ネット/SUUMO rental notifier.",
           "skill_dir": "devops/eheya-property-notifier",
           "id": "eheya-property-notifier",
-          "type": "hermes-skill"
+          "type": "hermes-skill",
+          "notion_dbs": [
+            {
+              "id": "35da48d0e7c981e59b41e489c8c18b1a",
+              "name": "312.賃貸物件管理DB",
+              "url": "https://app.notion.com/p/35da48d0e7c981e59b41e489c8c18b1a"
+            }
+          ]
         },
         {
           "name": "powerpoint",
@@ -3437,7 +3885,14 @@
           },
           "skill_dir": "productivity/personal-dashboard",
           "id": "personal-dashboard",
-          "type": "hermes-skill"
+          "type": "hermes-skill",
+          "notion_dbs": [
+            {
+              "id": "381a48d0e7c9810ba8e3000b7d555305",
+              "name": "113.課題リスト",
+              "url": "https://app.notion.com/p/381a48d0e7c981dba2c9fb4cb5058d4d"
+            }
+          ]
         },
         {
           "name": "macos-computer-use",
@@ -4312,6 +4767,38 @@
           "purpose": "HuggingFace hf CLI: search/download/upload models, datasets.",
           "skill_dir": "mlops/huggingface-hub",
           "id": "huggingface-hub",
+          "type": "hermes-skill"
+        },
+        {
+          "name": "scripted-edits",
+          "description": "Use when editing files with agent tools: choice and traps.",
+          "version": "1.0.0",
+          "author": "Hermes Agent",
+          "license": "MIT",
+          "platforms": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "metadata": {
+            "hermes": {
+              "tags": [
+                "editing",
+                "patch",
+                "write_file",
+                "scripting",
+                "verification",
+                "quoting"
+              ]
+            }
+          },
+          "related_skills": [
+            "systematic-debugging",
+            "portal-maintenance",
+            "personal-dashboard"
+          ],
+          "skill_dir": "software-development/scripted-edits",
+          "id": "scripted-edits",
           "type": "hermes-skill"
         },
         {
@@ -5655,7 +6142,14 @@
           "purpose": "Maintain portal site: add/remove tools, update badges.",
           "skill_dir": "devops/portal-maintenance",
           "id": "portal-maintenance",
-          "type": "hermes-skill"
+          "type": "hermes-skill",
+          "notion_dbs": [
+            {
+              "id": "295632e6694d4fbd9ce25031d37a7713",
+              "name": "501.Webページまとめ",
+              "url": "https://app.notion.com/p/295632e6694d4fbd9ce25031d37a7713"
+            }
+          ]
         }
       ],
       "cron": [
@@ -5918,7 +6412,14 @@
           "skills": [],
           "delivers_to": "rands1984のサーバー / dev / [課題] 個人ポータルサイトにdiscord通知内容・メール・スケジュール等を載せる",
           "related_programs": [],
-          "profile": "dev"
+          "profile": "dev",
+          "notion_dbs": [
+            {
+              "id": "381a48d0e7c9810ba8e3000b7d555305",
+              "name": "113.課題リスト",
+              "url": "https://app.notion.com/p/381a48d0e7c981dba2c9fb4cb5058d4d"
+            }
+          ]
         },
         {
           "id": "2a82d226958d",

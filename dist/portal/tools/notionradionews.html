@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> グローバル設定ファイル</div>
-      
+      <div class="detail"><strong>説明:</strong> NotionのWebページまとめ・RSS・youtubeリストから過去24時間のニュースを取得し、Geminiでラジオ台本と解説を生成してNotionのラジオニュース／解説DBへ作成、TTS音声をGoogle Drive経由でBoxへ共有リンクとして登録するGASツール。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">Notion・Gemini・Box・Driveの認証情報を設定し、createTimeDrivenTriggersで毎朝4時（音声）・5時（台本）・6時（Box取り込み）のトリガーを登録する。
+5時のprocessNewsAndCreateScriptが「501.Webページまとめ」「951.RSSリスト」「408.youtubeリスト」の過去24時間のページを集め、Geminiでラジオ台本と解説を生成して「507.ラジオニュース」「508.ラジオニュース解説」に日付タイトルでページ作成しリレーションを張る。
+4時のcreateAudioFilesが当日のラジオニュースページの本文を4500字ずつ分割してTTS音声化し、Google Driveへアップロードして共有リンクをNotionに記録する。
+6時のprocessBoxUploadAndDeleteDriveFileがDriveの音声ファイルをBoxへアップロードして共有リンクをNotionのBOXリンクに書き換え、Drive上の元ファイルを削除する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">drive</span><span class="tag">dropbox</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">gas</span></div>

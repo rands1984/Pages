@@ -61,10 +61,10 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
   <div class="container">
     <div class="header">
       <h1>🟢 GAS・Apps Script</h1>
-      <div class="meta">25件 - 更新: 2026-10-21 03:04</div>
+      <div class="meta">25件 - 更新: 2026-10-21 12:48</div>
       <a href="../" class="back-link">↩️ トップページに戻る</a>
     </div>
-    <div class="cat-nav"><a href="../">🏠 トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html" class="active">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (131)</a><a href="hermes-cron.html">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
+    <div class="cat-nav"><a href="../">🏠 トップページ</a><a href="index.html">カテゴリ一覧</a><a href="gas.html" class="active">GAS・Apps Script (25)</a><a href="hermes-skill.html">Hermes Skills (132)</a><a href="hermes-cron.html">Hermes Cron (24)</a><a href="hermes-webhook.html">Hermes Webhooks (1)</a><a href="hermes-program.html">Hermes Programs (30)</a><a href="n8n.html">n8n Workflows (26)</a><a href="oci-compute.html">OCI Compute (3)</a><a href="oci-network.html">OCI Network (2)</a><a href="oci-security.html">OCI Security (2)</a><a href="oci-identity.html">OCI Identity (1)</a></div>
     <div class="desc">Google Apps Script で作成されたツール・自動化スクリプト。スプレッドシート連携、Webアプリ公開、定期実行トリガー等を活用。</div>
     <div class="card"><div class="card-header"><h3>OAuth2 自動取得の状況</h3></div><div class="card-body"><div class="detail"><strong>対象:</strong> 25 プロジェクト</div><div class="detail"><strong>API取得:</strong> <span class="badge ok">ソース+デプロイ: 25/25</span></div><div class="detail"><strong>規模:</strong> 50,263 行（自動計測）</div><div class="detail"><strong>利用サービス:</strong> <span class="tag">notion (22)</span> <span class="tag">discord (10)</span> <span class="tag">drive (10)</span> <span class="tag">gemini (9)</span> <span class="tag">spotify (9)</span> <span class="tag">dropbox (5)</span> <span class="tag">line (4)</span> <span class="tag">sheets (4)</span> <span class="tag">twitter (4)</span> <span class="tag">n8n (2)</span></div></div></div>
     <div class="card-grid"><div class="card">
@@ -73,8 +73,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/moodmeter.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> GAS Script: MoodMeter</div>
-    
+    <div class="detail"><strong>説明:</strong> macroDroid などの外部アプリから Web アプリへ POST/GET で提出された「気分」と任意のメモを受け取り、Notion の「125.気分メーター」DB に日付・曜日つきのページとして1件追加する中継スクリプト。気分値は良/普/悪/疲/悩のいずれかに限定され、それ以外は invalid mood を返す。</div>
+    <div class="detail"><strong>使い方:</strong> GAS を Web アプリとして公開し、公開 URL を外部アプリ（macroDroid 等）の HTTP リクエスト先に設定する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">gas</span></div>
@@ -85,8 +85,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/sns自動投稿.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> グローバル設定ファイル</div>
-    
+    <div class="detail"><strong>説明:</strong> Dropboxの日記Markdownからタグ付き本文を抽出してNotionの予約投稿DBへ登録し、Geminiで投稿文を生成、WebアプリやGmail添付から画像をBoxへ保存、トリガーでBlueSky・Threads・Instagramへ自動投稿するGASツール。</div>
+    <div class="detail"><strong>使い方:</strong> Notion・Dropbox・Gemini・Box・BlueSky・Threads・Instagramの認証情報をスクリプトプロパティに設定し、createPostGeneratorTriggerとcreateAutoPostTrigger</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（MYSELF）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">drive</span><span class="badge">dropbox</span></div>
@@ -109,8 +109,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/calendertoline.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> GAS Script: calenderToLine</div>
-    
+    <div class="detail"><strong>説明:</strong> GAS が全カレンダーの当日予定を取得し、日付とカレンダーごとの見出し・開始終了時刻・件名をテキストに整形して、Discord の Webhook URL へ「カレンダー予定:」の本文として送信する定時実行スクリプト。LINE _notify 用の送信関数も持つが現在はコメントアウトされ、送信先は Discord のみ。</div>
+    <div class="detail"><strong>使い方:</strong> GAS プロジェクト calenderToLine の main() を実行する（GAS のトリガー設定はソースからは確認できない）。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">line</span><span class="badge">gas</span></div>
@@ -133,8 +133,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/notionradionews.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> グローバル設定ファイル</div>
-    
+    <div class="detail"><strong>説明:</strong> NotionのWebページまとめ・RSS・youtubeリストから過去24時間のニュースを取得し、Geminiでラジオ台本と解説を生成してNotionのラジオニュース／解説DBへ作成、TTS音声をGoogle Drive経由でBoxへ共有リンクとして登録するGASツール。</div>
+    <div class="detail"><strong>使い方:</strong> Notion・Gemini・Box・Driveの認証情報を設定し、createTimeDrivenTriggersで毎朝4時（音声）・5時（台本）・6時（Box取り込み）のトリガーを登録する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">drive</span><span class="badge">dropbox</span><span class="badge">gemini</span></div>
@@ -157,8 +157,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/tagautotools.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> CalendarHandler</div>
-    
+    <div class="detail"><strong>説明:</strong> #大分類/中分類/小分類形式のテキストを解析し、NotionのタグDBに定義された処理パターンに応じてGoogle Calendar・TickTick・Notion(ToDo/SNS/タスクDB)・Dropbox(Gemini分析)・n8n Webhookへ自動振り分けするGAS Webアプリ。</div>
+    <div class="detail"><strong>使い方:</strong> #大分類/中分類/小分類 タグ付きテキストを、Webhook(doPost)またはWeb UIから投入する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">dropbox</span><span class="badge">gemini</span></div>
@@ -181,8 +181,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/bookaddtonotion.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> GAS Script: bookAddToNotion</div>
-    
+    <div class="detail"><strong>説明:</strong> GAS の Web アプリとして公開するバーコード読取ページで ISBN を取得すると Google Books API から書誌情報を引き、Notion の「317.絵本リスト」DB に新規ページを追加または既存ページを更新するスクリプト。ISBN-10 と ISBN-13 は相互変換し、書影は Amazon 画像 URL を確認して優先して設定する。</div>
+    <div class="detail"><strong>使い方:</strong> GAS を Web アプリとして公開し、ブラウザで開き「Start Scanner」でカメラのバーコードを読み取るか、ISBN 入力欄に番号を入れて Register を押す。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（MYSELF）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">gas</span></div>
@@ -205,8 +205,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/transcriptiontool.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> GAS Script: TranscriptionTool</div>
-    
+    <div class="detail"><strong>説明:</strong> GASのWeb Appバックエンド。ブラウザの文字起こしUIからPOSTされた文字起こしログをGemini APIで要約し、概要とタイムラインを含むMarkdown会議メモとしてDropboxの指定フォルダへ保存する。</div>
+    <div class="detail"><strong>使い方:</strong> 文字起こしUI（フロント）と同じGoogle Apps Scriptプロジェクトにデプロイし、「全員アクセス」のWeb Appとして公開する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">dropbox</span><span class="badge">gemini</span><span class="badge">gas</span></div>
@@ -229,8 +229,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/notion登録.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-    
+    <div class="detail"><strong>説明:</strong> Twitter(X)・Instagram・YouTube・Spotify・last.fm・RSSなどの外部サービスからデータを取得し、CSVやPDF・画像OCRの抽出値やGeminiによる要約と合わせて、Notionの各データベースへ自動登録するGASスクリプト群。</div>
+    <div class="detail"><strong>使い方:</strong> NOTION_TOKENや各サービスのAPIキー・クライアントIDをスクリプトプロパティに設定し、NotionApiManagerでページ作成・更新・DB検索を実行する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">discord</span><span class="badge">drive</span><span class="badge">gemini</span></div>
@@ -277,8 +277,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/spotifytools.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-    
+    <div class="detail"><strong>説明:</strong> Spotify APIから再生履歴・アーティスト・アルバム・楽曲を取得してNotionのSpotify関連DBへ登録し、アーティスト設定DBの未再生リストからSpotifyプレイリストを自動更新するGASツール。</div>
+    <div class="detail"><strong>使い方:</strong> Spotifyのaccess_token/refresh_tokenをスクリプトプロパティに置き、main()をトリガーで定期実行する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">drive</span><span class="badge">gemini</span><span class="badge">notion</span></div>
@@ -289,8 +289,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/notionwebhook.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notionの日記（当日分）の各項目を打刻する</div>
-    
+    <div class="detail"><strong>説明:</strong> iOSショートカットやMacroDroidなど外部からのPOSTをpgTypeで振り分け、Notion APIを通じて日記ページへの起床・就寝・体重・歩数の打刻、アカウンタビリティチャートへの行動ログ、移動履歴・電子マネー使用履歴の登録を行うWebhook。</div>
+    <div class="detail"><strong>使い方:</strong> GASをWeb Appとして公開し、ショートカット等からJSONをPOSTして、Notion API（Script PropertiesのNOTION_TOKEN）経由で各DBへ書き込みを行う。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">notion</span><span class="badge">gas</span></div>
@@ -301,8 +301,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/bistonotion.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-    
+    <div class="detail"><strong>説明:</strong> Google Drive の Excel（業務報告書・会社の期待・研修_新）を Notion DB へ転記し、Notion の主任コメントを Excel へ書き戻す GAS。BOX 音声監視で個人 Podcast の RSS を生成する処理も同梱。</div>
+    <div class="detail"><strong>使い方:</strong> スプレッドシートを開き「カスタムメニュー」→「指定フォルダのExcelをNotionに転記」で、Excel→スプレッドシート変換→業務報告書/期待シートの Notion ページ作成を行い、処理済みファイルは処理済みフォルダへ移動する。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">drive</span><span class="badge">gemini</span><span class="badge">notion</span></div>
@@ -337,8 +337,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/gas.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> GAS Script: GAS</div>
-    
+    <div class="detail"><strong>説明:</strong> Google Apps Script のひな形プロジェクトで、appsscript.json（タイムゾーン America/New_York、V8ランタイム）と .clasp.json の scriptId のみを持ち、機能コードや依存関係は未実装の空の土台である。</div>
+    <div class="detail"><strong>使い方:</strong> GAS の空のひな形プロジェクトで、clasp で対象 GAS と同期できる状態を整えただけのタイプである。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">gas</span></div>
@@ -361,8 +361,8 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
     <a href="tools/gasportal.html" class="btn-link">詳細</a>
   </div>
   <div class="card-body">
-    <div class="detail"><strong>説明:</strong> Notion連携ポータルAPI・キャッシュ更新・タスク管理・メトリクス表示</div>
-    <div class="detail"><strong>使い方:</strong> ブラウザで開き「タスク」「日常」「情報」「モニター」「メトリクス」の5タブを使い分ける。</div>
+    <div class="detail"><strong>説明:</strong> Notion の複数DB（RSS・YouTube・Instagram・Bluesky・Spotify再生履歴・Webまとめ・TODOカレンダー・大晟日記）を並列取得しタイムライン/タスク/日常の3データに整形する GAS Webアプリ。</div>
+    <div class="detail"><strong>使い方:</strong> Notion API キーはスクリプトプロパティ NOTION_API_KEY に置き、Web アプリとして公開してブラウザで4タブ（タスク・日常・情報・監視）を使い分ける。</div>
     <div class="detail"><strong>環境:</strong> Google Apps Script</div>
     <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
     <div class="detail"><strong>タグ:</strong> <span class="badge">drive</span><span class="badge">n8n</span><span class="badge">notion</span></div>

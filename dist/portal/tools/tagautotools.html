@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> CalendarHandler</div>
-      
+      <div class="detail"><strong>説明:</strong> #大分類/中分類/小分類形式のテキストを解析し、NotionのタグDBに定義された処理パターンに応じてGoogle Calendar・TickTick・Notion(ToDo/SNS/タスクDB)・Dropbox(Gemini分析)・n8n Webhookへ自動振り分けするGAS Webアプリ。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">#大分類/中分類/小分類 タグ付きテキストを、Webhook(doPost)またはWeb UIから投入する。
+リクエストはGoogle Driveのキュー(JSON)へ保存され、タイムトリガーがバックグラウンドで実行する。
+処理パターンはNotionタグDBの「処理パターン」プロパティで判定し、Notion・TickTick・Calendar・Dropbox・n8nへ登録し、Discord Webhookで結果を通知する。
+実行にはNOTION/GEMINI/DROPBOX/TICKTICK/N8N等の認証情報とキュー用フォルダIDをスクリプトプロパティに設定する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">discord</span><span class="tag">dropbox</span><span class="tag">gemini</span><span class="tag">line</span><span class="tag">notion</span><span class="tag">gas</span></div>

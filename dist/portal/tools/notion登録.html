@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-      
+      <div class="detail"><strong>説明:</strong> Twitter(X)・Instagram・YouTube・Spotify・last.fm・RSSなどの外部サービスからデータを取得し、CSVやPDF・画像OCRの抽出値やGeminiによる要約と合わせて、Notionの各データベースへ自動登録するGASスクリプト群。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">NOTION_TOKENや各サービスのAPIキー・クライアントIDをスクリプトプロパティに設定し、NotionApiManagerでページ作成・更新・DB検索を実行する。
+Spotify再生履歴、Spotifyのアーティスト/アルバム、last.fm再生履歴、Twitterのツイート、YouTube動画、Instagram投稿などを各DBへ登録する。
+CSVファイルは指定Driveフォルダから読み込み、6行目以降を抽出して電子マネー使用履歴DBへ登録し、ファイル名に「取込済」を付け処理済みにする(画像OCRはDrive→Googleドキュメント変換でシートに書き出し)。
+RSSフィードやWebページはGeminiで要約し、NotionのWebページまとめDBやRSS系DBへ登録・追記する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script（匿名アクセス可）</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">discord</span><span class="tag">drive</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">sheets</span><span class="tag">slack</span><span class="tag">spotify</span><span class="tag">twitter</span><span class="tag">gas</span></div>

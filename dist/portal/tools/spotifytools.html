@@ -83,8 +83,11 @@ body { font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", -
       <div class="meta">更新: 2026-10-21 | 作成: </div>
     </div>
     <div class="card">
-      <div class="detail"><strong>説明:</strong> Notion APIに関するコンストラクタ</div>
-      
+      <div class="detail"><strong>説明:</strong> Spotify APIから再生履歴・アーティスト・アルバム・楽曲を取得してNotionのSpotify関連DBへ登録し、アーティスト設定DBの未再生リストからSpotifyプレイリストを自動更新するGASツール。</div>
+      <div class="detail" style="margin-top:12px"><strong>使い方:</strong></div><div class="usage-block" style="margin:4px 0 12px 0;padding:12px 16px;background:var(--card-bg);border-left:3px solid var(--accent);border-radius:6px;font-size:0.9rem;color:var(--text-muted);"><p style="margin:0 0 8px 0;white-space:pre-wrap;">Spotifyのaccess_token/refresh_tokenをスクリプトプロパティに置き、main()をトリガーで定期実行する。
+実行すると本日の再生履歴を「953.Spotify再生履歴」DBへ登録し、アーティスト・アルバム・楽曲を各Spotify DBへ作成、アルバム画像と楽曲URLを後付けで更新する。
+「957. Spotifyアーティストプレイリスト管理DB」にアーティストIDとMain/FeatのFull・Unplayed各プレイリストIDを置き、12時間以上未更新の対象を処理して未再生を計算しプレイリストを同期更新する。
+NotionControl.jsは外部POST用WebHookで、pgType=1でNotion日記、pgType=2でアカウンタビリティチャートに打刻する。</p></div>
       <div class="detail"><strong>環境:</strong> Google Apps Script</div>
       <div class="detail"><strong>ステータス:</strong> <span class="status running">稼働中</span></div>
       <div class="detail"><strong>タグ:</strong> <span class="tag">drive</span><span class="tag">gemini</span><span class="tag">notion</span><span class="tag">spotify</span><span class="tag">gas</span></div>
