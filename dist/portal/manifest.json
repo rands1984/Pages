@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T03:03:45.417827",
+  "generated_at": "2026-10-22T10:31:22.982676",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -6353,6 +6353,31 @@
           "profile": "dev"
         },
         {
+          "id": "307750032b34",
+          "name": "ticktick 夕の同期・通知",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "dev"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-22",
+          "updated": "2026-10-22",
+          "secret_refs": [],
+          "purpose": "ticktick 夕の同期・通知",
+          "schedule": "0 19 * * *",
+          "script_path": "ticktick_evening.sh",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] ticktickの活用",
+          "related_programs": [],
+          "profile": "dev"
+        },
+        {
           "id": "a9b32fc7084f",
           "name": "Watch Audio Processor",
           "type": "hermes-cron",
@@ -6430,6 +6455,31 @@
           "delivers_to": "rands1984のサーバー / dev / [課題] hermesの秘書業務の強化",
           "related_programs": [],
           "profile": "default"
+        },
+        {
+          "id": "967726c04ea0",
+          "name": "ticktick 朝の同期・通知",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "dev"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-22",
+          "updated": "2026-10-22",
+          "secret_refs": [],
+          "purpose": "ticktick 朝の同期・通知",
+          "schedule": "0 7 * * *",
+          "script_path": "ticktick_morning.sh",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] ticktickの活用",
+          "related_programs": [],
+          "profile": "dev"
         },
         {
           "id": "e10e9615b47d",
@@ -6958,6 +7008,31 @@
           "delivers_to": "rands1984のサーバー / #hermes-agent / 下記やりたいことメモです。後からわかるように残しておいてください。 ・外付けキーボード１つでandoroidのdiscordへ投稿しやすい形にしたい。 課...",
           "related_programs": [],
           "profile": "default"
+        },
+        {
+          "id": "9810ec2290a9",
+          "name": "ticktick 週次レビュー",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "dev"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-22",
+          "updated": "2026-10-22",
+          "secret_refs": [],
+          "purpose": "ticktick 週次レビュー",
+          "schedule": "0 20 * * 0",
+          "script_path": "ticktick_weekly.sh",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] ticktickの活用",
+          "related_programs": [],
+          "profile": "dev"
         },
         {
           "id": "9feb8425ddc4",
