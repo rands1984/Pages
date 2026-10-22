@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T10:31:22.982676",
+  "generated_at": "2026-10-22T10:54:27.229060",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -6476,6 +6476,31 @@
           "purpose": "ticktick 朝の同期・通知",
           "schedule": "0 7 * * *",
           "script_path": "ticktick_morning.sh",
+          "skills": [],
+          "delivers_to": "rands1984のサーバー / dev / [課題] ticktickの活用",
+          "related_programs": [],
+          "profile": "dev"
+        },
+        {
+          "id": "397c6e762be0",
+          "name": "ticktick 連携 セルフ诊断",
+          "type": "hermes-cron",
+          "status": "active",
+          "description": "",
+          "tags": [
+            "cron",
+            "automation",
+            "dev"
+          ],
+          "repo_url": "",
+          "deploy_target": "Hermes Cron (dev)",
+          "depends_on": [],
+          "created": "2026-10-22",
+          "updated": "2026-10-22",
+          "secret_refs": [],
+          "purpose": "ticktick 連携 セルフ诊断",
+          "schedule": "0 5 * * 1",
+          "script_path": "ticktick_doctor.sh",
           "skills": [],
           "delivers_to": "rands1984のサーバー / dev / [課題] ticktickの活用",
           "related_programs": [],
