@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T03:03:13.568264",
+  "generated_at": "2026-10-24T03:03:30.136550",
   "version": "1.0",
   "tools": {
     "gas": [
@@ -17,7 +17,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -303,7 +303,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GOOGLE_DRIVE_KEY",
@@ -483,7 +483,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -547,7 +547,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DROPBOX_ACCESS_TOKEN",
@@ -650,7 +650,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_TOKEN",
           "SPOTIFY_CLIENT_ID"
@@ -703,7 +703,7 @@
         "deploy_target": "Google Apps Script（MYSELF）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -771,7 +771,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_TOKEN"
         ],
@@ -839,6 +839,57 @@
             "url": "https://app.notion.com/p/af6c8b1b5f77474dbe1c0052996fb056"
           }
         ]
+      },
+      {
+        "id": "【移行後廃止方針】notion日記作成",
+        "name": "【移行後廃止方針】Notion日記作成",
+        "overview": "参考先：https://note.com/kohaku935/n/n0e7808adb17c",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H",
+        "script_url": "https://script.google.com/d/1dQU5q0xSK5mQR4JTRCnHin3ASryiNo4c-6E1AV9zswJYZE6P10u8CU3H/edit",
+        "deployment": {
+          "deployment_id": "AKfycbw-AKhACZxOBojRVNyWroGdGYqJ9qfTj31uRydX3aI",
+          "url": "https://script.google.com/macros/s/AKfycbw-AKhACZxOBojRVNyWroGdGYqJ9qfTj31uRydX3aI/exec",
+          "version": "@HEAD",
+          "entry_point": "",
+          "access": "",
+          "execute_as": "",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": true
+        },
+        "deployment_count": 1,
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 167,
+          "file_count": 1,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       },
       {
         "id": "transcriptiontool",
@@ -986,7 +1037,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -1191,6 +1242,241 @@
         ]
       },
       {
+        "id": "【未使用_廃止方針】sns自動投稿",
+        "name": "【未使用_廃止方針】SNS自動投稿",
+        "overview": "グローバル設定ファイル",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "drive",
+          "dropbox",
+          "gemini",
+          "notion",
+          "spotify",
+          "twitter",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（MYSELF）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "BLUESKY_APP_PASSWORD",
+          "BOX_CLIENT_SECRET",
+          "DISCORD_WEBHOOK_URL",
+          "DROPBOX_ACCESS_TOKEN",
+          "DROPBOX_APP_KEY",
+          "DROPBOX_APP_SECRET",
+          "DROPBOX_REFRESH_TOKEN",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
+          "LASTFM_API_KEY",
+          "MS_CLIENT_SECRET",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID",
+          "SPOTIFY_CLIENT_SECRET",
+          "THREADS_ACCESS_TOKEN",
+          "TICKTICK_CLIENT_SECRET",
+          "TWITTER_API_KEY"
+        ],
+        "script_id": "1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF",
+        "script_url": "https://script.google.com/d/1bySiqMKKveMhQmxqVdrNEjUjLIf6cGr7IbVIoxhUjG-2T99DDwVU5IUF/edit",
+        "deployment": {
+          "deployment_id": "AKfycbyErnDt1Wu6iKuEhAIzGWAS2_3UEVKDRJFuwYVMzpnh",
+          "url": "https://script.google.com/macros/s/AKfycbyErnDt1Wu6iKuEhAIzGWAS2_3UEVKDRJFuwYVMzpnh/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "MYSELF",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 8,
+        "triggers": [
+          {
+            "function": "autoPostScheduled",
+            "handler": "autoPostScheduled",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "createAutoPostTrigger",
+            "handler": "createAutoPostTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "createPostGeneratorTrigger",
+            "handler": "createPostGeneratorTrigger",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "discord",
+            "twitter",
+            "dropbox",
+            "gemini",
+            "spotify",
+            "drive"
+          ],
+          "total_lines": 6166,
+          "file_count": 16,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
+        "id": "【廃止】notionradionews",
+        "name": "【廃止】NotionRadioNews",
+        "overview": "グローバル設定ファイル",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "drive",
+          "dropbox",
+          "gemini",
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "BLUESKY_APP_PASSWORD",
+          "BOX_CLIENT_SECRET",
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "INSTAGRAM_ACCESS_TOKEN",
+          "NOTION_TOKEN",
+          "THREADS_ACCESS_TOKEN"
+        ],
+        "script_id": "1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U",
+        "script_url": "https://script.google.com/d/1fOmhAtHFKVg-VM3j3ElaK3O-obaoBACKqmAwToLxFYFJEvyEFpOD_i_U/edit",
+        "deployment": {
+          "deployment_id": "AKfycbzfntYwPi7kUBFoE_yQq4lO8PFsSVQbGuNfxTHEURE",
+          "url": "https://script.google.com/macros/s/AKfycbzfntYwPi7kUBFoE_yQq4lO8PFsSVQbGuNfxTHEURE/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "ANYONE_ANONYMOUS",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 3,
+        "triggers": [
+          {
+            "function": "createTimeDrivenTriggers",
+            "handler": "createTimeDrivenTriggers",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "setupTriggers",
+            "handler": "setupTriggers",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "dropbox",
+            "gemini",
+            "drive"
+          ],
+          "total_lines": 2620,
+          "file_count": 12,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "【移行後廃止】calendertoline",
+        "name": "【移行後廃止】calenderToLine",
+        "overview": "GAS Script: 【移行後廃止】calenderToLine",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "discord",
+          "line",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "DISCORD_WEBHOOK_URL",
+          "LINE_NOTIFY_TOKEN"
+        ],
+        "script_id": "1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp",
+        "script_url": "https://script.google.com/d/1Ko0FyBPLD-vk3eAFM8hK4n03MiVKDlMkUbKyLVE9gSp_nfzH9cR4qkVp/edit",
+        "deployment": {
+          "deployment_id": "AKfycbyuWPMw0e1NngLYPa4bitrUQwV03a51QTJfhP6UHgo",
+          "url": "https://script.google.com/macros/s/AKfycbyuWPMw0e1NngLYPa4bitrUQwV03a51QTJfhP6UHgo/exec",
+          "version": "@HEAD",
+          "entry_point": "",
+          "access": "",
+          "execute_as": "",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": true
+        },
+        "deployment_count": 1,
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "discord",
+            "line"
+          ],
+          "total_lines": 71,
+          "file_count": 1,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
         "id": "discordtonotion",
         "name": "DiscordToNotion",
         "overview": "@OnlyCurrentDoc // スプレッドシートにバインドしない場合でも記載を推奨",
@@ -1209,7 +1495,7 @@
         "deploy_target": "Google Apps Script（匿名アクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "GEMINI_API_KEY",
@@ -1359,7 +1645,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_WEBHOOK_URL",
           "DISCORD_WEBHOOK_URLS",
@@ -1436,6 +1722,75 @@
         ]
       },
       {
+        "id": "【廃止】notionpagetitleupdater",
+        "name": "【廃止】NotionPageTitleUpdater",
+        "overview": "for managing page titles and database properties directly from Google Sheets. / It allows users to fetch page/database hierarchies, update their titles, / list database properties, and update those property names.",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "sheets",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "GOOGLE_SHEETS_KEY",
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP",
+        "script_url": "https://script.google.com/d/1j0npte8FAnK65cmLmpW6u_Q5BS9qXWnRrvZNjter7vuo4dJnRX8IWpdP/edit",
+        "deployment": {
+          "deployment_id": "AKfycbzwr1SkLAXc9TLrAzNn6sI3zzMGzYjfj68SFRW-M4jW",
+          "url": "https://script.google.com/macros/s/AKfycbzwr1SkLAXc9TLrAzNn6sI3zzMGzYjfj68SFRW-M4jW/exec",
+          "version": "@HEAD",
+          "entry_point": "",
+          "access": "",
+          "execute_as": "",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": true
+        },
+        "deployment_count": 1,
+        "triggers": [
+          {
+            "function": "updateDatabasePropertiesWrapper",
+            "handler": "updateDatabasePropertiesWrapper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updateNotionPageTitlesWrapper",
+            "handler": "updateNotionPageTitlesWrapper",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "sheets"
+          ],
+          "total_lines": 1079,
+          "file_count": 2,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
         "id": "apilib_v8_20250915",
         "name": "ApiLib_v8_20250915",
         "overview": "共通APIライブラリ v8。認証・リトライ・レート制御・ロギング・エラーハンドリング等の共通機能を提供。全GASプロジェクトで利用",
@@ -1456,7 +1811,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_ALERT_WEBHOOK",
           "DISCORD_ERROR_WEBHOOK",
@@ -1531,7 +1886,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "GEMINI_API_KEY",
           "GOOGLE_DRIVE_KEY",
@@ -1634,6 +1989,123 @@
             "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
           }
         ]
+      },
+      {
+        "id": "【廃止】bistonotion",
+        "name": "【廃止】BisTonotion",
+        "overview": "Notion APIに関するコンストラクタ",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "drive",
+          "gemini",
+          "notion",
+          "sheets",
+          "spotify",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "GEMINI_API_KEY",
+          "GOOGLE_DRIVE_KEY",
+          "GOOGLE_SHEETS_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID"
+        ],
+        "script_id": "1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ",
+        "script_url": "https://script.google.com/d/1RLyne6-Se6heaBuIqbQesEl7kQCFTWHXwrizYgwk3oY0WAgJ35Al4pTZ/edit",
+        "deployment": {
+          "deployment_id": "AKfycbyuzE4fMzw3QB948A7RXa81k7SXzKBjoiJm37toStcP",
+          "url": "https://script.google.com/macros/s/AKfycbyuzE4fMzw3QB948A7RXa81k7SXzKBjoiJm37toStcP/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "ANYONE",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 1,
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion",
+            "gemini",
+            "spotify",
+            "drive",
+            "sheets"
+          ],
+          "total_lines": 1278,
+          "file_count": 4,
+          "runtime_version": "",
+          "execute_as": ""
+        }
+      },
+      {
+        "id": "【使ってなければ廃止】transcriptiontool",
+        "name": "【使ってなければ廃止】TranscriptionTool",
+        "overview": "GAS Script: 【使ってなければ廃止】TranscriptionTool",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "dropbox",
+          "gemini",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "DROPBOX_ACCESS_TOKEN",
+          "GEMINI_API_KEY"
+        ],
+        "script_id": "14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV",
+        "script_url": "https://script.google.com/d/14DS4AnN4QrOTGwMRuZlGm6UeQhw7KWDXYPxraJvWQ9bHWT30hMdy8cPV/edit",
+        "deployment": {
+          "deployment_id": "AKfycbyoSdYMuN0K1Fqgjf2vDnvkP34Gv-vaQBucs3eEz8Nv",
+          "url": "https://script.google.com/macros/s/AKfycbyoSdYMuN0K1Fqgjf2vDnvkP34Gv-vaQBucs3eEz8Nv/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "ANYONE_ANONYMOUS",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 21,
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "dropbox",
+            "gemini"
+          ],
+          "total_lines": 329,
+          "file_count": 1,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
       },
       {
         "id": "notionwebhook",
@@ -1821,7 +2293,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "BLUESKY_APP_PASSWORD",
           "BOX_CLIENT_SECRET",
@@ -1888,6 +2360,57 @@
         }
       },
       {
+        "id": "【廃止】notionwebhook",
+        "name": "【廃止】NotionWebhook",
+        "overview": "Notionの日記（当日分）の各項目を打刻する",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "notion",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script（匿名アクセス可）",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "NOTION_TOKEN"
+        ],
+        "script_id": "1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X",
+        "script_url": "https://script.google.com/d/1tM9rw8SmXmmo1IV6x8Sq42eQmfbeVBnSmKARcfMBaArCevfDtTznCE0X/edit",
+        "deployment": {
+          "deployment_id": "AKfycbw4d91KLQV8XxJ6VeQ2s2AD22GRmE3z5YkRHa1UOqJw",
+          "url": "https://script.google.com/macros/s/AKfycbw4d91KLQV8XxJ6VeQ2s2AD22GRmE3z5YkRHa1UOqJw/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "ANYONE_ANONYMOUS",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 6,
+        "triggers": [],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": false,
+          "services_detected": [
+            "notion"
+          ],
+          "total_lines": 694,
+          "file_count": 2,
+          "runtime_version": "V8",
+          "execute_as": "USER_DEPLOYING"
+        }
+      },
+      {
         "id": "checklist-tool",
         "name": "Checklist Tool",
         "overview": "WebアプリケーションにGETリクエストがあった場合に実行されるメイン関数です。",
@@ -1901,7 +2424,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "NOTION_API_KEY",
           "NOTION_TOKEN"
@@ -1967,7 +2490,7 @@
         "deploy_target": "Google Apps Script",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [],
         "script_id": "1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg",
         "script_url": "https://script.google.com/d/1-fBWgDnnjhqVNMEHYlKp5RIJ1gGalnHc0ZCOvZR3ZGFi0ptUOPNmh_Mg/edit",
@@ -2019,7 +2542,7 @@
         "deploy_target": "Google Apps Script（ログイン済みならアクセス可）",
         "depends_on": [],
         "created": "",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "DISCORD_NEWSPAPER_WEBHOOK",
           "DISCORD_WEBHOOK_URL",
@@ -2229,6 +2752,92 @@
             "url": "https://app.notion.com/p/efbb2f20597e4dfe964508f04da3e171"
           }
         ]
+      },
+      {
+        "id": "【廃止】gasportal",
+        "name": "【廃止】GASPortal",
+        "overview": "WebアプリケーションにGETリクエストがあった場合に実行されるメイン関数です。",
+        "type": "gas",
+        "status": "active",
+        "tags": [
+          "drive",
+          "n8n",
+          "notion",
+          "spotify",
+          "twitter",
+          "gas"
+        ],
+        "repo_url": "",
+        "deploy_target": "Google Apps Script",
+        "depends_on": [],
+        "created": "",
+        "updated": "2026-10-24",
+        "secret_refs": [
+          "GOOGLE_DRIVE_KEY",
+          "N8N_API_KEY",
+          "NOTION_API_KEY",
+          "NOTION_TOKEN",
+          "SPOTIFY_CLIENT_ID",
+          "TWITTER_API_KEY"
+        ],
+        "script_id": "1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q",
+        "script_url": "https://script.google.com/d/1T6fKxLuT7_vDBa4VNBZzZnfABZd--YrUvNViNjneFpQ16I7wEj1iTS9Q/edit",
+        "deployment": {
+          "deployment_id": "AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK",
+          "url": "https://script.google.com/macros/s/AKfycbx4DMUwsttCmcPGKK6DGPagIyZTUCCjSVjEKJ_X_TDK/exec",
+          "version": "@HEAD",
+          "entry_point": "WEB_APP",
+          "access": "ANYONE_ANONYMOUS",
+          "execute_as": "USER_DEPLOYING",
+          "updated_at": "1970-01-01T00:00:00Z",
+          "is_head": true,
+          "url_synthesized": false
+        },
+        "deployment_count": 8,
+        "triggers": [
+          {
+            "function": "forceRefreshPortalData",
+            "handler": "forceRefreshPortalData",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "renderDaily",
+            "handler": "renderDaily",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          },
+          {
+            "function": "updatePortalCache",
+            "handler": "updatePortalCache",
+            "event_type": "time-driven",
+            "schedule": "（API取得不可・要手動確認）",
+            "timezone": "Asia/Tokyo"
+          }
+        ],
+        "script_properties": {},
+        "spreadsheet_id": "",
+        "drive_folder_id": "",
+        "libraries": [],
+        "gas_api": {
+          "content": true,
+          "deployments": true,
+          "script_properties": false,
+          "triggers": true,
+          "services_detected": [
+            "notion",
+            "twitter",
+            "spotify",
+            "drive",
+            "n8n"
+          ],
+          "total_lines": 1882,
+          "file_count": 5,
+          "runtime_version": "",
+          "execute_as": ""
+        }
       }
     ],
     "hermes": {
@@ -8270,7 +8879,7 @@
         "deploy_target": "https://rands1984.ddns.net",
         "depends_on": [],
         "created": "2026-09-08",
-        "updated": "2026-10-23",
+        "updated": "2026-10-24",
         "secret_refs": [
           "N8N_API_KEY"
         ],
@@ -8770,7 +9379,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-18",
-          "updated": "2026-10-23",
+          "updated": "2026-10-24",
           "secret_refs": [],
           "ocid": "ocid1.instance.oc1.ap-osaka-1.anvwsljrfegldvycz36y5bvcjyfsyxegsso7jk67st3jucmsbvow6cpwfzqa",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -8853,7 +9462,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-23",
+          "updated": "2026-10-24",
           "secret_refs": [],
           "ocid": "ocid1.vcn.oc1.ap-osaka-1.amaaaaaafegldvyabihpoe6lqscdbmrs2dx3p3qozdm25ryuyz5ud7csiogq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -8914,7 +9523,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "2025-09-16",
-          "updated": "2026-10-23",
+          "updated": "2026-10-24",
           "secret_refs": [],
           "ocid": "ocid1.securitylist.oc1.ap-osaka-1.aaaaaaaae4y35qwnudawrd42etyvfhpwndr6qjja7nxvnresdiqpyoshfxzq",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
@@ -9047,7 +9656,7 @@
           "deploy_target": "Oracle Cloud Infrastructure (ap-osaka-1)",
           "depends_on": [],
           "created": "",
-          "updated": "2026-10-23",
+          "updated": "2026-10-24",
           "secret_refs": [],
           "ocid": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
           "compartment": "ocid1.tenancy.oc1..aaaaaaaaq4hcrb5hosznxgkpmqzie3mpbrap3sm72wj5q6zvb3yacyle6j2a",
