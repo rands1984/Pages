@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T03:03:02.073944+09:00",
+ "generated_at": "2026-11-04T03:03:35.117941+09:00",
  "schema_version": 1,
  "window_days": 30,
  "note": "公開ポータルへ出すのは status/last_run_at/runs/failed まで。エラー本文は含まない。",
@@ -10,11 +10,11 @@
    "profile": "default",
    "schedule": "0 22 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068372+09:00",
+   "checked_at": "2026-11-04T03:03:35.112263+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T22:00:04.827874+09:00",
+   "last_run_at": "2026-11-03T22:00:04.688739+09:00",
    "runs": 3,
    "failed": 0,
    "fail_rate": 0.0,
@@ -27,11 +27,11 @@
    "profile": "default",
    "schedule": "0 11 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068402+09:00",
+   "checked_at": "2026-11-04T03:03:35.112292+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T11:00:04.311861+09:00",
+   "last_run_at": "2026-11-03T11:00:04.357089+09:00",
    "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
@@ -44,7 +44,7 @@
    "profile": "default",
    "schedule": "0 21 * * 0",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068411+09:00",
+   "checked_at": "2026-11-04T03:03:35.112302+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "error",
@@ -61,7 +61,7 @@
    "profile": "default",
    "schedule": "0 21 * * 0",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068418+09:00",
+   "checked_at": "2026-11-04T03:03:35.112309+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -78,11 +78,11 @@
    "profile": "default",
    "schedule": "0 8 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068424+09:00",
+   "checked_at": "2026-11-04T03:03:35.112315+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T08:00:04.869821+09:00",
+   "last_run_at": "2026-11-03T08:00:05.865045+09:00",
    "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
@@ -95,7 +95,7 @@
    "profile": "default",
    "schedule": "0 21 * * 0",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068429+09:00",
+   "checked_at": "2026-11-04T03:03:35.112320+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -112,12 +112,12 @@
    "profile": "default",
    "schedule": "30 16 * * 1-5",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068434+09:00",
+   "checked_at": "2026-11-04T03:03:35.112325+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T16:30:04.672163+09:00",
-   "runs": 1,
+   "last_run_at": "2026-11-03T16:30:04.195506+09:00",
+   "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
    "open_incidents": 0,
@@ -129,11 +129,11 @@
    "profile": "default",
    "schedule": "*/30 * * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068439+09:00",
+   "checked_at": "2026-11-04T03:03:35.112330+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T03:00:05.070192+09:00",
+   "last_run_at": "2026-11-04T03:00:04.707691+09:00",
    "runs": 118,
    "failed": 0,
    "fail_rate": 0.0,
@@ -146,12 +146,12 @@
    "profile": "default",
    "schedule": "0 */2 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068456+09:00",
+   "checked_at": "2026-11-04T03:03:35.112342+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T02:00:04.738723+09:00",
-   "runs": 29,
+   "last_run_at": "2026-11-04T02:00:03.901166+09:00",
+   "runs": 30,
    "failed": 0,
    "fail_rate": 0.0,
    "open_incidents": 0,
@@ -163,11 +163,11 @@
    "profile": "default",
    "schedule": "30 7 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068462+09:00",
+   "checked_at": "2026-11-04T03:03:35.112349+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T07:30:03.979649+09:00",
+   "last_run_at": "2026-11-03T07:30:04.585772+09:00",
    "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
@@ -180,11 +180,11 @@
    "profile": "default",
    "schedule": "30 18 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068467+09:00",
+   "checked_at": "2026-11-04T03:03:35.112354+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T18:30:04.204384+09:00",
+   "last_run_at": "2026-11-03T18:30:04.334488+09:00",
    "runs": 3,
    "failed": 0,
    "fail_rate": 0.0,
@@ -197,16 +197,17 @@
    "profile": "default",
    "schedule": "0 9 1 * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068472+09:00",
+   "checked_at": "2026-11-04T03:03:35.112359+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-01T09:00:05.372849+09:00",
-   "runs": 1,
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-11-01T09:00:52.447929+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
    "failed": 0,
-   "fail_rate": 0.0,
    "open_incidents": 0,
-   "incident_count": 0
+   "history_rotated": true
   },
   "f471e125f0a6": {
    "job_id": "f471e125f0a6",
@@ -214,7 +215,7 @@
    "profile": "default",
    "schedule": "0 9 25 * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068476+09:00",
+   "checked_at": "2026-11-04T03:03:35.112365+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -232,11 +233,11 @@
    "profile": "default",
    "schedule": "0 9 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068481+09:00",
+   "checked_at": "2026-11-04T03:03:35.112369+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T09:00:05.463355+09:00",
+   "last_run_at": "2026-11-03T09:00:04.537866+09:00",
    "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
@@ -249,7 +250,7 @@
    "profile": "default",
    "schedule": "0 9 * * 1",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068486+09:00",
+   "checked_at": "2026-11-04T03:03:35.112374+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -266,11 +267,11 @@
    "profile": "default",
    "schedule": "*/5 * * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068490+09:00",
+   "checked_at": "2026-11-04T03:03:35.112378+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T03:00:04.992660+09:00",
+   "last_run_at": "2026-11-04T03:00:04.836657+09:00",
    "runs": 708,
    "failed": 0,
    "fail_rate": 0.0,
@@ -283,11 +284,11 @@
    "profile": "default",
    "schedule": "0 6 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068494+09:00",
+   "checked_at": "2026-11-04T03:03:35.112383+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T06:00:04.898805+09:00",
+   "last_run_at": "2026-11-03T06:00:04.635823+09:00",
    "runs": 2,
    "failed": 0,
    "fail_rate": 0.0,
@@ -300,11 +301,11 @@
    "profile": "default",
    "schedule": "30 22 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068501+09:00",
+   "checked_at": "2026-11-04T03:03:35.112389+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T22:30:04.526635+09:00",
+   "last_run_at": "2026-11-03T22:30:04.349324+09:00",
    "runs": 3,
    "failed": 0,
    "fail_rate": 0.0,
@@ -317,16 +318,17 @@
    "profile": "default",
    "schedule": "0 10 1,15 * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068505+09:00",
+   "checked_at": "2026-11-04T03:03:35.112393+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-01T10:00:04.527617+09:00",
-   "runs": 1,
+   "reason": "実行履歴DBの保持行数（直近1000行）を超えたため、実行統計は取得できずスケジュール側の記録のみ使用",
+   "last_run_at": "2026-11-01T10:00:05.379820+09:00",
+   "last_status_from_scheduler": "ok",
+   "runs": 0,
    "failed": 0,
-   "fail_rate": 0.0,
    "open_incidents": 0,
-   "incident_count": 0
+   "history_rotated": true
   },
   "5548ddb9c81c": {
    "job_id": "5548ddb9c81c",
@@ -334,11 +336,11 @@
    "profile": "default",
    "schedule": "*/30 * * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068509+09:00",
+   "checked_at": "2026-11-04T03:03:35.112397+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T03:00:05.002985+09:00",
+   "last_run_at": "2026-11-04T03:00:05.011249+09:00",
    "runs": 119,
    "failed": 0,
    "fail_rate": 0.0,
@@ -351,7 +353,7 @@
    "profile": "dev",
    "schedule": "every 1m",
    "enabled": false,
-   "checked_at": "2026-11-03T03:03:02.068517+09:00",
+   "checked_at": "2026-11-04T03:03:35.112405+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -369,11 +371,11 @@
    "profile": "dev",
    "schedule": "0 22 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068549+09:00",
+   "checked_at": "2026-11-04T03:03:35.112409+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T22:00:05.486214+09:00",
+   "last_run_at": "2026-11-03T22:00:05.608484+09:00",
    "runs": 4,
    "failed": 0,
    "fail_rate": 0.0,
@@ -386,11 +388,11 @@
    "profile": "dev",
    "schedule": "0 3 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068557+09:00",
+   "checked_at": "2026-11-04T03:03:35.112413+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T03:00:05.280800+09:00",
+   "last_run_at": "2026-11-04T03:00:04.502743+09:00",
    "runs": 4,
    "failed": 0,
    "fail_rate": 0.0,
@@ -403,11 +405,11 @@
    "profile": "dev",
    "schedule": "*/5 * * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068561+09:00",
+   "checked_at": "2026-11-04T03:03:35.112418+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-03T03:00:04.926050+09:00",
+   "last_run_at": "2026-11-04T03:00:05.051799+09:00",
    "runs": 981,
    "failed": 0,
    "fail_rate": 0.0,
@@ -420,11 +422,11 @@
    "profile": "dev",
    "schedule": "0 4 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068567+09:00",
+   "checked_at": "2026-11-04T03:03:35.112423+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T04:00:05.225513+09:00",
+   "last_run_at": "2026-11-03T04:00:05.694451+09:00",
    "runs": 3,
    "failed": 0,
    "fail_rate": 0.0,
@@ -437,7 +439,7 @@
    "profile": "dev",
    "schedule": "0 13 * * *",
    "enabled": false,
-   "checked_at": "2026-11-03T03:03:02.068571+09:00",
+   "checked_at": "2026-11-04T03:03:35.112427+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -455,11 +457,11 @@
    "profile": "dev",
    "schedule": "0 4 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068576+09:00",
+   "checked_at": "2026-11-04T03:03:35.112431+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T04:00:05.677394+09:00",
+   "last_run_at": "2026-11-03T04:00:05.593708+09:00",
    "runs": 3,
    "failed": 0,
    "fail_rate": 0.0,
@@ -472,11 +474,11 @@
    "profile": "dev",
    "schedule": "0 19 * * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068580+09:00",
+   "checked_at": "2026-11-04T03:03:35.112435+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T19:00:04.648519+09:00",
+   "last_run_at": "2026-11-03T19:00:04.584080+09:00",
    "runs": 4,
    "failed": 0,
    "fail_rate": 0.0,
@@ -489,7 +491,7 @@
    "profile": "dev",
    "schedule": "0 20 * * 0",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068587+09:00",
+   "checked_at": "2026-11-04T03:03:35.112440+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -506,7 +508,7 @@
    "profile": "dev",
    "schedule": "0 5 * * 1",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068591+09:00",
+   "checked_at": "2026-11-04T03:03:35.112445+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -523,7 +525,7 @@
    "profile": "work",
    "schedule": "0 9 1 * *",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068595+09:00",
+   "checked_at": "2026-11-04T03:03:35.112449+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -540,12 +542,12 @@
    "profile": "work",
    "schedule": "0 8 * * 1-5",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068601+09:00",
+   "checked_at": "2026-11-04T03:03:35.112453+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
-   "last_run_at": "2026-11-02T08:00:06.641873+09:00",
-   "runs": 9,
+   "last_run_at": "2026-11-03T08:00:05.770609+09:00",
+   "runs": 10,
    "failed": 0,
    "fail_rate": 0.0,
    "open_incidents": 0,
@@ -557,7 +559,7 @@
    "profile": "work",
    "schedule": "0 16 * * 5",
    "enabled": true,
-   "checked_at": "2026-11-03T03:03:02.068605+09:00",
+   "checked_at": "2026-11-04T03:03:35.112457+09:00",
    "source": "cron:executions.db",
    "window_days": 30,
    "status": "ok",
@@ -597,7 +599,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073571+09:00",
+   "checked_at": "2026-11-04T03:03:35.117561+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:sns自動投稿": {
@@ -633,7 +635,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073588+09:00",
+   "checked_at": "2026-11-04T03:03:35.117578+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notion日記作成": {
@@ -663,7 +665,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073598+09:00",
+   "checked_at": "2026-11-04T03:03:35.117589+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:calendertoline": {
@@ -694,7 +696,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073603+09:00",
+   "checked_at": "2026-11-04T03:03:35.117593+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:業務報告書フォーム-v2": {
@@ -727,7 +729,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073607+09:00",
+   "checked_at": "2026-11-04T03:03:35.117597+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notionradionews": {
@@ -760,7 +762,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073611+09:00",
+   "checked_at": "2026-11-04T03:03:35.117600+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:持ち物リスト": {
@@ -790,7 +792,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073615+09:00",
+   "checked_at": "2026-11-04T03:03:35.117604+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:tagautotools": {
@@ -824,7 +826,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073618+09:00",
+   "checked_at": "2026-11-04T03:03:35.117607+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:dashboard-spotify": {
@@ -855,7 +857,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073621+09:00",
+   "checked_at": "2026-11-04T03:03:35.117611+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:bookaddtonotion": {
@@ -885,7 +887,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073625+09:00",
+   "checked_at": "2026-11-04T03:03:35.117614+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notionタスク登録": {
@@ -915,7 +917,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073628+09:00",
+   "checked_at": "2026-11-04T03:03:35.117618+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【移行後廃止方針】notion日記作成": {
@@ -945,7 +947,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073632+09:00",
+   "checked_at": "2026-11-04T03:03:35.117621+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:transcriptiontool": {
@@ -976,7 +978,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073636+09:00",
+   "checked_at": "2026-11-04T03:03:35.117625+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notionpagetitleupdater": {
@@ -1007,7 +1009,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073639+09:00",
+   "checked_at": "2026-11-04T03:03:35.117629+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notion登録": {
@@ -1044,7 +1046,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073648+09:00",
+   "checked_at": "2026-11-04T03:03:35.117632+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【未使用_廃止方針】sns自動投稿": {
@@ -1080,7 +1082,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073652+09:00",
+   "checked_at": "2026-11-04T03:03:35.117637+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【廃止】notionradionews": {
@@ -1113,7 +1115,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073655+09:00",
+   "checked_at": "2026-11-04T03:03:35.117641+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【移行後廃止】calendertoline": {
@@ -1144,7 +1146,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073659+09:00",
+   "checked_at": "2026-11-04T03:03:35.117644+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:discordtonotion": {
@@ -1179,7 +1181,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073662+09:00",
+   "checked_at": "2026-11-04T03:03:35.117647+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notionroutineops": {
@@ -1212,7 +1214,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073666+09:00",
+   "checked_at": "2026-11-04T03:03:35.117651+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【廃止】notionpagetitleupdater": {
@@ -1243,7 +1245,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073669+09:00",
+   "checked_at": "2026-11-04T03:03:35.117654+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:apilib_v8_20250915": {
@@ -1275,7 +1277,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073673+09:00",
+   "checked_at": "2026-11-04T03:03:35.117658+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:spotifytools": {
@@ -1308,7 +1310,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073678+09:00",
+   "checked_at": "2026-11-04T03:03:35.117663+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【廃止】bistonotion": {
@@ -1342,7 +1344,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073682+09:00",
+   "checked_at": "2026-11-04T03:03:35.117667+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【使ってなければ廃止】transcriptiontool": {
@@ -1373,7 +1375,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073686+09:00",
+   "checked_at": "2026-11-04T03:03:35.117670+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:notionwebhook": {
@@ -1403,7 +1405,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073689+09:00",
+   "checked_at": "2026-11-04T03:03:35.117674+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:bistonotion": {
@@ -1437,7 +1439,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073693+09:00",
+   "checked_at": "2026-11-04T03:03:35.117677+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:20250515_api_library": {
@@ -1473,7 +1475,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073696+09:00",
+   "checked_at": "2026-11-04T03:03:35.117680+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【廃止】notionwebhook": {
@@ -1503,7 +1505,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073699+09:00",
+   "checked_at": "2026-11-04T03:03:35.117684+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:checklist-tool": {
@@ -1533,7 +1535,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073702+09:00",
+   "checked_at": "2026-11-04T03:03:35.117687+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:gas": {
@@ -1561,7 +1563,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073706+09:00",
+   "checked_at": "2026-11-04T03:03:35.117690+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:dailynewspaper": {
@@ -1594,7 +1596,7 @@
     "runtime_version": "V8",
     "execute_as": "USER_DEPLOYING"
    },
-   "checked_at": "2026-11-03T03:03:02.073709+09:00",
+   "checked_at": "2026-11-04T03:03:35.117694+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:gasportal": {
@@ -1628,7 +1630,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073712+09:00",
+   "checked_at": "2026-11-04T03:03:35.117698+09:00",
    "source": "gas:apps-script-api"
   },
   "gas:【廃止】gasportal": {
@@ -1662,7 +1664,7 @@
     "runtime_version": "",
     "execute_as": ""
    },
-   "checked_at": "2026-11-03T03:03:02.073716+09:00",
+   "checked_at": "2026-11-04T03:03:35.117701+09:00",
    "source": "gas:apps-script-api"
   },
   "n8n:GpU1WfKTfV0VNIr4": {
@@ -1676,7 +1678,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073722+09:00",
+   "checked_at": "2026-11-04T03:03:35.117706+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:UDPXDclkhKkCe3Gz": {
@@ -1690,7 +1692,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073727+09:00",
+   "checked_at": "2026-11-04T03:03:35.117712+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:r5sId3faDuDGpsBO": {
@@ -1704,7 +1706,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073730+09:00",
+   "checked_at": "2026-11-04T03:03:35.117716+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:TPTt35EuOnZ6Udci": {
@@ -1718,7 +1720,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook（呼び出し元なし）"
    },
-   "checked_at": "2026-11-03T03:03:02.073733+09:00",
+   "checked_at": "2026-11-04T03:03:35.117719+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:gY9V7HWlJQJunmSA": {
@@ -1732,7 +1734,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073736+09:00",
+   "checked_at": "2026-11-04T03:03:35.117721+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:elHq3IMpDwjor90L": {
@@ -1746,7 +1748,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073738+09:00",
+   "checked_at": "2026-11-04T03:03:35.117724+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:NNJuKrE7GwAxE5Jq": {
@@ -1760,7 +1762,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073741+09:00",
+   "checked_at": "2026-11-04T03:03:35.117727+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:dqwNT6WB5DFajzsf": {
@@ -1774,7 +1776,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073745+09:00",
+   "checked_at": "2026-11-04T03:03:35.117731+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:mszvztEzWDmRdfGH": {
@@ -1788,7 +1790,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073748+09:00",
+   "checked_at": "2026-11-04T03:03:35.117734+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:2HzZC7qRBUZyPJdn": {
@@ -1802,7 +1804,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073752+09:00",
+   "checked_at": "2026-11-04T03:03:35.117737+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:drrw59J8NnJPJTMc": {
@@ -1816,7 +1818,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073755+09:00",
+   "checked_at": "2026-11-04T03:03:35.117740+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:drift-watch": {
@@ -1831,7 +1833,7 @@
     "cron_expression": "0 */6 * * *",
     "description": "6時間ごとに実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073757+09:00",
+   "checked_at": "2026-11-04T03:03:35.117743+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:0rQkSW7gDtoGmoWR": {
@@ -1845,7 +1847,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073760+09:00",
+   "checked_at": "2026-11-04T03:03:35.117746+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:dWEjZYh9qt08PUsK": {
@@ -1859,7 +1861,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073763+09:00",
+   "checked_at": "2026-11-04T03:03:35.117749+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:6KuTXYhXiwOuGv2i": {
@@ -1873,7 +1875,7 @@
     "type": "unknown",
     "description": "トリガータイプ不明"
    },
-   "checked_at": "2026-11-03T03:03:02.073766+09:00",
+   "checked_at": "2026-11-04T03:03:35.117752+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:SZc2mjM774ibn9U0": {
@@ -1887,7 +1889,7 @@
     "type": "unknown",
     "description": "トリガータイプ不明"
    },
-   "checked_at": "2026-11-03T03:03:02.073768+09:00",
+   "checked_at": "2026-11-04T03:03:35.117755+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:xl04dJVNj7lK1aEP": {
@@ -1901,7 +1903,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook Trigger"
    },
-   "checked_at": "2026-11-03T03:03:02.073771+09:00",
+   "checked_at": "2026-11-04T03:03:35.117758+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:dGCP8m3LO9yMhEDU": {
@@ -1915,7 +1917,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook"
    },
-   "checked_at": "2026-11-03T03:03:02.073773+09:00",
+   "checked_at": "2026-11-04T03:03:35.117760+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:KbeAkqcFR5eVhhse": {
@@ -1929,7 +1931,7 @@
     "type": "notion-trigger",
     "description": "Notionデータベース変更時"
    },
-   "checked_at": "2026-11-03T03:03:02.073776+09:00",
+   "checked_at": "2026-11-04T03:03:35.117763+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:qrpbEyadbqVBD8zA": {
@@ -1943,7 +1945,7 @@
     "type": "webhook",
     "description": "Webhook: Webhook Trigger1"
    },
-   "checked_at": "2026-11-03T03:03:02.073779+09:00",
+   "checked_at": "2026-11-04T03:03:35.117766+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:ZRizkI2hAmxxpPjh": {
@@ -1957,7 +1959,7 @@
     "type": "rss",
     "description": "RSSフィード更新時"
    },
-   "checked_at": "2026-11-03T03:03:02.073781+09:00",
+   "checked_at": "2026-11-04T03:03:35.117768+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:eunjca9XoTgoDvTi": {
@@ -1971,7 +1973,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073784+09:00",
+   "checked_at": "2026-11-04T03:03:35.117771+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:F8YecrJ7wwVShTU4": {
@@ -1986,7 +1988,7 @@
     "cron_expression": "",
     "description": "定期実行: 設定確認要"
    },
-   "checked_at": "2026-11-03T03:03:02.073788+09:00",
+   "checked_at": "2026-11-04T03:03:35.117774+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:0zcpnkWa1ZLWlO2U": {
@@ -2000,7 +2002,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073791+09:00",
+   "checked_at": "2026-11-04T03:03:35.117778+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:4ZGonybQZvTLBOsP": {
@@ -2014,7 +2016,7 @@
     "type": "unknown",
     "description": "トリガータイプ不明"
    },
-   "checked_at": "2026-11-03T03:03:02.073796+09:00",
+   "checked_at": "2026-11-04T03:03:35.117781+09:00",
    "source": "n8n:api/workflows"
   },
   "n8n:AvojAYQUMSaMGCpV": {
@@ -2028,7 +2030,7 @@
     "type": "manual",
     "description": "手動実行"
    },
-   "checked_at": "2026-11-03T03:03:02.073798+09:00",
+   "checked_at": "2026-11-04T03:03:35.117785+09:00",
    "source": "n8n:api/workflows"
   },
   "oci:server": {
@@ -2036,16 +2038,16 @@
    "name": "OCI サーバー",
    "type": "oci",
    "status": "ok",
-   "checked_at": "2026-11-03 03:02:23 JST",
+   "checked_at": "2026-11-04 03:03:23 JST",
    "source": "monitor.json",
    "metrics": {
     "cpu_pct": null,
-    "mem_pct": 53.4,
-    "disk_pct": 68.9
+    "mem_pct": 55.2,
+    "disk_pct": 68.8
    },
    "tools": {
     "personal-dashboard.service": "active",
-    "personal-dashboard/data_age_min": 1.7
+    "personal-dashboard/data_age_min": 2.6
    }
   }
  }
